@@ -6,13 +6,21 @@ import org.json.simple.parser.JSONParser;
 
 import com.google.gson.JsonObject;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 public class TestRailAPI
 {
-	static HashMap<String,Integer> hm=new HashMap<String,Integer>();  
+	public static HashMap<String,Integer> hm=new HashMap<String,Integer>();  
+	public static HashMap<String,Integer> configToID=new HashMap<String,Integer>();  
+	public static HashMap<Integer,String> idToConfig=new HashMap<Integer,String>();  
+
+	
 
 	public static APIClient client()
 	{
@@ -34,17 +42,18 @@ public class TestRailAPI
 	}
 	// This will give the all test cases of the given project. The project id should be provided from the maven pom.xml.
 	// And with this we can get all custom automation field and test cases. The runID also should be provided by maven.
-	public static HashMap<String, Integer> getCasesWithCustomfield(int projectID) throws Exception
+	public static void getCasesWithCustomfield(int projectID) throws Exception
 	{
 		APIClient client = TestRailAPI.client();
 		System.out.println((client.sendGet("get_cases/" + projectID)).getClass().getName());
 		JSONArray c = (JSONArray) client.sendGet("get_cases/" + projectID);
-		return customFieldTestCaseAutomation(c);
+		//return customFieldTestCaseAutomation(c);
 		//return c;
+		customFieldTestCaseAutomation(c);
 	}
-
+	public static List<String> testString= new ArrayList<String>();
 	//this method will parse the json  object and map the custom field with key testcase id.
-	public static HashMap<String, Integer> customFieldTestCaseAutomation(JSONArray data) {
+	public static void customFieldTestCaseAutomation(JSONArray data) {
 		System.out.println(data.size());
 		for(int i=0; i<data.size();i++)
 		{
@@ -60,9 +69,40 @@ public class TestRailAPI
 			}
 
 		}
-		return hm;
+		//return hm;
 
 
+	}
+	static List<JSONObject> runObjects= new ArrayList<JSONObject>();
+	// runID and configuration from get plan
+	public static void get_plan(int planId) throws MalformedURLException, IOException, APIException
+	{
+		APIClient client = TestRailAPI.client();
+		System.out.println((client.sendGet("get_plan/" + planId)).getClass().getName());
+		JSONObject c = (JSONObject) client.sendGet("get_plan/" + planId);
+		System.out.println(c);
+		JSONArray entriesArray=(JSONArray)c.get("entries");
+		System.out.println(entriesArray);
+		for(int i=0; i<entriesArray.size();i++)
+		{
+			 runObjects.add((JSONObject)entriesArray.get(i));
+		}
+		JSONArray run=(JSONArray)runObjects.get(0).get("runs");
+		arrayToObject(run);
+		System.out.println(run.size());
+	}
+	
+	public static void arrayToObject(JSONArray listArray)
+	{
+		for(int i=0; i<listArray.size();i++)
+		{
+			JSONObject c= (JSONObject) listArray.get(i);
+			configToID.put((String)c.get("config"), ((Long)c.get("id")).intValue());
+			idToConfig.put(((Long)c.get("id")).intValue(), (String)c.get("config"));
+			System.out.println("hi"+c.get("id"));
+			System.out.println("hello"+ c.get("config"));
+			testString.add((String)c.get("config"));
+		}
 	}
 
 	public static JSONObject addResult(int p_statusId, String p_comment, int p_runId, int p_caseId) throws Exception

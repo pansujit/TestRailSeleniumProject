@@ -17,7 +17,7 @@ public class TestListener implements ITestListener
 {
     // shows more detailed logs in console if set to true
     Boolean debugInfo = true;
-    HashMap<String,Integer> hm=new HashMap<String,Integer>(); 
+//    HashMap<String,Integer> hm=new HashMap<String,Integer>(); 
     
     //runs any time a test starts
     @Override
@@ -47,8 +47,8 @@ public class TestListener implements ITestListener
         System.out.println("===============================================");
         System.out.println("");
         try {
-        	hm=TestRailAPI.getCasesWithCustomfield(1);
-        	System.out.println("the key value pair is" + hm.size());
+  //      	hm=TestRailAPI.getCasesWithCustomfield(1);
+    //    	System.out.println("the key value pair is" + hm.size());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -111,8 +111,9 @@ public class TestListener implements ITestListener
                     // add the result to TestRail
                     for (String testCaseId : testCaseIds)
                     {
+                    	
                         System.out.println(testCaseId);
-                        TestRailAPI.addResult(1, testRailComment, 4/*testRailTestRunId*/, hm.get(testCaseId));
+                        TestRailAPI.addResult(1, testRailComment, TestRailAPI.configToID.get("chrome, mac")/*testRailTestRunId*/, TestRailAPI.hm.get(testCaseId));
                     }
                 }
                 catch (Exception e)
@@ -184,7 +185,7 @@ public class TestListener implements ITestListener
                     for (String testCaseId : testCaseIds)
                     {
                         System.out.println(testCaseId);
-                        TestRailAPI.addResult(5, testRailComment, 4/*testRailTestRunId*/, hm.get(testCaseId));
+                        TestRailAPI.addResult(5, testRailComment, TestRailAPI.configToID.get("chrome, mac")/*testRailTestRunId*/, TestRailAPI.hm.get(testCaseId));
                     }
                 }
                 catch (Exception e)
