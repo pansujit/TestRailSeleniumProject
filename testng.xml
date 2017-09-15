@@ -2,25 +2,26 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 	<listeners>
-	<listener class-name="testrailtests.TestClassISuiteListener"></listener>
+		<listener class-name="testrailtests.TestClassISuiteListener"></listener>
 	</listeners>
-  <test name="Test">
-  <classes>
-  <class name="testrailtests.TestItest"/>
-  </classes>
-  </test> <!-- Test -->
-  
-   <test name="mint">
-  <classes>
-  <class name="testrailtests.TestItest4"/>
-  </classes>
-  </test> 
-      <test name="aftersuite">
-  <classes>
-  <class name="testrailtests.Aftersuite"/>
-  </classes>
-  </test> <!-- Test --> 
-   
+	<parameter name="configuration" value="testmeIamParamater" />
+	<test name="Test">
+		<classes>
+			<class name="testrailtests.TestItest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="mint">
+		<classes>
+			<class name="testrailtests.TestItest4" />
+		</classes>
+	</test>
+	<test name="aftersuite">
+		<classes>
+			<class name="testrailtests.Aftersuite" />
+		</classes>
+	</test> <!-- Test -->
+
 </suite> <!-- Suite -->
 
 
