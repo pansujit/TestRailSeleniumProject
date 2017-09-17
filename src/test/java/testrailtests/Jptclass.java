@@ -33,7 +33,7 @@ public class Jptclass {
 		list2.add(1);list2.add(2);
 		System.out.println(list.equals(list2));*/
 		List<String> newList = new ArrayList<String>(x);
-		newList.add("ram");
+		
 		
 	}
 
