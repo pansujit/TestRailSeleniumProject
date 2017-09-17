@@ -76,7 +76,7 @@ public class TestRailTestForPlan
 	
 	static List<JSONObject> runObjects= new ArrayList<JSONObject>();
 	// runID and configuration from get plan
-	public static void get_plan(int planId) throws MalformedURLException, IOException, APIException
+	/*public static void get_plan(int planId) throws MalformedURLException, IOException, APIException
 	{
 		APIClient client = TestRailTestForPlan.client();
 		System.out.println((client.sendGet("get_plan/" + planId)).getClass().getName());
@@ -89,7 +89,7 @@ public class TestRailTestForPlan
 		runData=utility.JSONArrayToJSONObject(entriesArray.get(0));
 		arrayToObject(entriesArray.get(0));
 		System.out.println(entriesArray.size());
-	}
+	}*/
 	
 	public static void arrayToObject(JSONArray listArray)
 	{

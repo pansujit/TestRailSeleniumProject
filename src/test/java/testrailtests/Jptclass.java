@@ -24,7 +24,16 @@ public class Jptclass {
 		
 		//TestRailTestForTest testplan=TestRailTestForTest();
 
-		TestRailTestForTest.get_plan(25);
+	//	TestRailTestForTest.get_plan(25);
+		//TestRailTestForTest.getconfig(1);
+		List<Integer> list=new ArrayList<Integer>();
+		Integer x = 0;
+		/*list.add(1);list.add(2);
+		List<Integer> list2=new ArrayList<Integer>();
+		list2.add(1);list2.add(2);
+		System.out.println(list.equals(list2));*/
+		List<String> newList = new ArrayList<String>(x);
+		newList.add("ram");
 		
 	}
 
