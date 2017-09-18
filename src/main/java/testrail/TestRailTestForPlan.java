@@ -19,7 +19,7 @@ public class TestRailTestForPlan
 	public static HashMap<String,Integer> hm=new HashMap<String,Integer>();  
 	public static HashMap<String,Integer> configToID=new HashMap<String,Integer>();  
 	public static HashMap<Integer,String> idToConfig=new HashMap<Integer,String>();  
-	 static Utility utility= new Utility();;
+	 static ProjectUtility utility= new ProjectUtility();;
 	
 
 	public  static APIClient client()

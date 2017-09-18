@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-	<listeners>
+	<!-- <listeners>
 	<listener class-name="testrailtests.TestClassISuiteListener"></listener>
-	</listeners>
+	</listeners>-->
+	<parameter name="configuration" value="safari, mac" />
   <test name="Test">
   <classes>
   <class name="testrailtests.TestItest"/>
   </classes>
-  </test> <!-- Test -->
+  </test> 
   
-    <test name="mint">
+  <!--  <test name="mint">
   <classes>
   <class name="testrailtests.TestItest4"/>
   </classes>
-  </test> <!-- Test -->
+  </test> -->
     <test name="aftersuite">
   <classes>
   <class name="testrailtests.Aftersuite"/>

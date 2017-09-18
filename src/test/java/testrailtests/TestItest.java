@@ -15,15 +15,15 @@ public class TestItest extends Beforetest  {
 
 
 	@Test
-	public void test1() {
+	public void bibi() {
 		Assert.assertTrue(true);
 	}
 	@Test
-	public void test2() {
+	public void didi() {
 		Assert.assertTrue(true);
 	}
 	@Test
-	public void test3() {
+	public void cici() {
 		Assert.assertTrue(false);
 	}
 	@AfterMethod

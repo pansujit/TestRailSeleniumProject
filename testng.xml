@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-	<listeners>
+<suite name="Suiteme">
+	<!--<listeners>
 		<listener class-name="testrailtests.TestClassISuiteListener"></listener>
-	</listeners>
-	<parameter name="configuration" value="testmeIamParamater" />
+	</listeners>-->
+	<parameter name="configuration" value="internet explorer, windows" />
 	<test name="Test">
 		<classes>
 			<class name="testrailtests.TestItest" />
 		</classes>
-	</test> <!-- Test -->
+	</test> 
 
-	<test name="mint">
+	<!-- <test name="mint">
 		<classes>
 			<class name="testrailtests.TestItest4" />
 		</classes>
@@ -20,7 +20,7 @@
 		<classes>
 			<class name="testrailtests.Aftersuite" />
 		</classes>
-	</test> <!-- Test -->
+	</test> --> <!-- Test -->
 
 </suite> <!-- Suite -->
 

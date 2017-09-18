@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class Utility {
+public class ProjectUtility {
 	private List<JSONObject> testDataObject= new ArrayList<JSONObject>();
 	private List<JSONArray> testDataArray= new ArrayList<JSONArray>();
 	private HashMap<String,Integer> customFieldToId= new HashMap<String,Integer>();

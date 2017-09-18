@@ -45,7 +45,6 @@ public class TestRailAPI
 	public static void getCasesWithCustomfield(int projectID) throws Exception
 	{
 		APIClient client = TestRailAPI.client();
-		System.out.println((client.sendGet("get_cases/" + projectID)).getClass().getName());
 		JSONArray c = (JSONArray) client.sendGet("get_cases/" + projectID);
 		//return customFieldTestCaseAutomation(c);
 		//return c;
@@ -54,16 +53,13 @@ public class TestRailAPI
 	public static List<String> testString= new ArrayList<String>();
 	//this method will parse the json  object and map the custom field with key testcase id.
 	public static void customFieldTestCaseAutomation(JSONArray data) {
-		System.out.println(data.size());
 		for(int i=0; i<data.size();i++)
 		{
 			JSONObject testdata= (JSONObject)data.get(i);
 
 			if(!(testdata.get("custom_automation")==null))  {
 				String key=(String)testdata.get("custom_automation");
-				System.out.println("the key is " + key);
 				int value=((Long)testdata.get("id")).intValue();
-				System.out.println("the value is " + value);
 				hm.put(key,value);
 				
 			}
@@ -78,18 +74,14 @@ public class TestRailAPI
 	public static void get_plan(int planId) throws MalformedURLException, IOException, APIException
 	{
 		APIClient client = TestRailAPI.client();
-		System.out.println((client.sendGet("get_plan/" + planId)).getClass().getName());
 		JSONObject c = (JSONObject) client.sendGet("get_plan/" + planId);
-		System.out.println(c);
 		JSONArray entriesArray=(JSONArray)c.get("entries");
-		System.out.println(entriesArray);
 		for(int i=0; i<entriesArray.size();i++)
 		{
 			 runObjects.add((JSONObject)entriesArray.get(i));
 		}
 		JSONArray run=(JSONArray)runObjects.get(0).get("runs");
 		arrayToObject(run);
-		System.out.println(run.size());
 	}
 	
 	public static void arrayToObject(JSONArray listArray)
@@ -99,8 +91,6 @@ public class TestRailAPI
 			JSONObject c= (JSONObject) listArray.get(i);
 			configToID.put((String)c.get("config"), ((Long)c.get("id")).intValue());
 			idToConfig.put(((Long)c.get("id")).intValue(), (String)c.get("config"));
-			System.out.println("hi"+c.get("id"));
-			System.out.println("hello"+ c.get("config"));
 			testString.add((String)c.get("config"));
 		}
 	}
