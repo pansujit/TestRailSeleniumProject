@@ -4,18 +4,23 @@
 	<!--<listeners>
 		<listener class-name="testrailtests.TestClassISuiteListener"></listener>
 	</listeners>-->
-	<parameter name="configuration" value="internet explorer, windows" />
+	<parameter name="configuration" value="safari, mac" />
 	<test name="Test">
 		<classes>
-			<class name="testrailtests.TestItest" />
+			<class name="testrailtests.TestmePlease2" />
+		</classes>
+	</test> 
+		<test name="Test1">
+		<classes>
+			<class name="testrailtests.TestmePlease3" />
+		</classes>
+	</test>
+		<test name="Test2">
+		<classes>
+			<class name="testrailtests.TestmePlease" />
 		</classes>
 	</test> 
 
-	 <test name="mint">
-		<classes>
-			<class name="testrailtests.TestItest4" />
-		</classes>
-	</test>
 	
 	  <!-- Test -->
 

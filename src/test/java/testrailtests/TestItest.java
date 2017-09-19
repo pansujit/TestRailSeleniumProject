@@ -1,21 +1,17 @@
 package testrailtests;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.testng.Assert;
-import org.testng.ISuiteListener;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-
 import org.testng.annotations.Test;
 
-public class TestItest extends Beforetest  {
+import listeners.TestClassISuiteListener;
+
+public class TestItest {
 
 
 
 	@Test
 	public void bibi() {
+		System.out.println("this is configuration"+ TestClassISuiteListener.testme);
 		Assert.assertTrue(true);
 	}
 	@Test
@@ -26,11 +22,7 @@ public class TestItest extends Beforetest  {
 	public void cici() {
 		Assert.assertTrue(false);
 	}
-	@AfterMethod
-	public void afterMethod(ITestResult result) {
-		//System.out.println(result.getMethod().getMethodName().toString() + result.getStatus());
-		methodName.add(result.getMethod().getMethodName().toString());
-	}
+
 
 
 }

@@ -17,10 +17,8 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import testrail.APIException;
-import testrail.TestRail;
 import testrail.TestRailAPI;
 
-@Listeners(listeners.TestListener.class)				
 
 public class TestRailTests
 {
@@ -55,11 +53,9 @@ public class TestRailTests
 	}*/
 
     @Test
-    @TestRail(customfield = {"baba"})
     public void passTest()
     {	driver.quit();
-        Assert.assertTrue(true);
-        
+        Assert.assertTrue(true);  
     }
     /*@Test
     @TestRail(customfield = {"bibi"})

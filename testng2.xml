@@ -16,10 +16,5 @@
   <class name="testrailtests.TestItest4"/>
   </classes>
   </test> -->
-    <test name="aftersuite">
-  <classes>
-  <class name="testrailtests.Aftersuite"/>
-  </classes>
-  </test> <!-- Test -->
 </suite> <!-- Suite -->
 
