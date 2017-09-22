@@ -6,11 +6,16 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.IInvokedMethod;
+import org.testng.IInvokedMethodListener;
+import org.testng.ITestMethodFinder;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -26,6 +31,7 @@ public class TestLogin  {
 	DesiredCapabilities cap;
 	@Test
 	public void test() throws MalformedURLException, InterruptedException {
+		
 		cap= DesiredCapabilities.internetExplorer();
 		cap.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
 		cap.setPlatform(Platform.WINDOWS);
@@ -37,21 +43,25 @@ public class TestLogin  {
 		Login loginMe=PageFactory.initElements(driver, Login.class);
 		driver.navigate().to("https://web-valid-2-glide.tech.rcimobility.com/");
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
+		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 		Thread.sleep(5000);
 		loginMe.login();
-		
+		Assert.assertTrue(true);
 	}
 	
-	/*@AfterMethod
+	@AfterMethod
 	public void teardown(ITestResult result){
 		
 		if(ITestResult.FAILURE==result.getStatus())
 		{
+			SeleniumUtility.printStatus("Failed",result.getName());
 			getScreenshot(driver,result.getName());
 		}
+		else {
+			SeleniumUtility.printStatus("Passed",result.getName());
+		}
 
-	}*/
+	}
 
 
 	public void getScreenshot(WebDriver driver, String name){

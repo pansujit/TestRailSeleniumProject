@@ -10,7 +10,7 @@ public class UserHomePage {
 	public WebElement set;*/
 	
 	@FindBy(how=How.XPATH,using=".//div[@id='mainContainer']//header//ul/li/a[@href='#/my-bookings']")
-	public WebElement inputEmail;
+	public WebElement aTagMyBooking;
 	
 	@FindBy(how=How.XPATH,using=".//*[@class='HomePage_content']/div/div//button/span[contains(@class,'searchBooking_tab_text--oneWay')]")
 	public WebElement spanTagOneway;
