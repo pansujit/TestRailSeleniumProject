@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suiteme">
+	<!--<listeners>
+		<listener class-name="testrailtests.TestClassISuiteListener"></listener>
+	</listeners>-->
+	<test name="Booking">
+		<classes>
+			<class name="glidemobility.booking.test.BookingHomepageVerification" />
+			<class name="glidemobility.booking.test.CreateNewBooking" />
+		</classes>
+	</test> 
+	
+		<!--  <test name="myBooking">
+		<classes>
+			<class name="glidemobility.booking.test.CreateNewBooking" />
+		</classes>
+	</test>-->
+</suite> <!-- Suite -->
+
+

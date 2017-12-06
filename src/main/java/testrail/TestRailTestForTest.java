@@ -7,7 +7,7 @@ import org.json.simple.JSONObject;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
 
-import project.utility.ProjectUtility;
+import glide.backoffice.utility.ProjectUtility;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

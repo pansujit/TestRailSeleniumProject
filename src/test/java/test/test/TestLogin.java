@@ -13,16 +13,13 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.IInvokedMethod;
-import org.testng.IInvokedMethodListener;
-import org.testng.ITestMethodFinder;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-import method.test.Login;
-import project.utility.SeleniumUtility;
+import glide.backoffice.method.login.Login;
+import glide.backoffice.utility.SeleniumUtility;
 
 public class TestLogin  {
 	
@@ -40,11 +37,12 @@ public class TestLogin  {
 		cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 
 		driver= new RemoteWebDriver(new URL("http://192.168.1.42:4444/wd/hub"),cap);
-		Login loginMe=PageFactory.initElements(driver, Login.class);
+		
 		driver.navigate().to("https://web-valid-2-glide.tech.rcimobility.com/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 		Thread.sleep(5000);
+		Login loginMe=PageFactory.initElements(driver, Login.class);
 		loginMe.login();
 		Assert.assertTrue(true);
 	}
