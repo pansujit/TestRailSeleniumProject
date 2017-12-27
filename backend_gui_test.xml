@@ -6,8 +6,8 @@
 	</listeners>-->
 	<test name="Booking">
 		<classes>
-			<class name="glidemobility.booking.test.BookingHomepageVerification" />
-			<class name="glidemobility.booking.test.CreateNewBooking" />
+			<class name="glide.backoffice.test.bookings.BookingHomepageVerification" />
+			<class name="glide.backoffice.test.bookings.CreateNewBooking" />
 		</classes>
 	</test> 
 	

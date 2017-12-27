@@ -10,7 +10,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
-import glide.backoffice.method.user.MemberMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 import glide.backoffice.utility.SeleniumUtility;
 

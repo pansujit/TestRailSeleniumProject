@@ -8,6 +8,11 @@ public class TestClass {
 		// TODO Auto-generated method stub
 		String hello=Status.Completed.getValue();
 		System.out.println(Status.Completed);
+		String inputText=null;
+		boolean status=true;
+		if(inputText==null) {
+			System.out.println(status);
+		}
 
 	}
 

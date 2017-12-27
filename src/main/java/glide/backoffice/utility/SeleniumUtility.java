@@ -16,6 +16,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -34,8 +35,13 @@ public class SeleniumUtility {
 	 * @param element the parameter should be Selenium By
 	 */
 	public static void clickOnElement(WebDriver driver,By element) {
+		try {
 		log.info("Clicking on the Element :" + (element.toString()));
 		driver.findElement(element).click();
+		}catch(Exception e) {
+			log.error("Clicking on the Element :"+ element.toString()+" "+" FAILED with exception: "+e.getClass().getSimpleName());
+			throw(e);
+		}
 	}
 	/**
 	 * Clicking on webElement, if Fails catch the exception continue forward.
@@ -162,6 +168,24 @@ public class SeleniumUtility {
 	public static boolean compareIgnoreCaseText(WebDriver driver,By element,String text2) {
 		log.info("compare one text contains another text");
 		return ((driver.findElement(element).getText().toString()).compareToIgnoreCase(text2)==0);
+	}
+
+	/**
+	 * This method returns boolean result after compare two text ignoring its case.
+	 * @param text1 should be String
+	 * @param text2 should be String
+	 * @return {@code Boolean}
+	 */
+	public static boolean compareIgnoreCaseText(WebDriver driver,WebElement element,String text2) {
+		log.info("compare one text contains another text on");
+		if ((element.getText().toString()).compareToIgnoreCase(text2)==0) {
+			log.info("Both text are equal");
+			return true;
+		}
+		else {
+			log.info("The text got from the webElement is :"+element.getText().toString()+ "but input text is "+ text2);
+			return false;
+		}
 	}
 
 	/**
@@ -295,7 +319,11 @@ public class SeleniumUtility {
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 * 
+	 * @param result should be String
+	 * @param methodName should de String
+	 */
 	public static void printStatus(String result, String methodName) {
 		log.info(String.format("The Test : \" %s \"  is  %s" ,methodName,result));
 
@@ -318,12 +346,17 @@ public class SeleniumUtility {
 	 * @param data should be String
 	 */
 	public static void actionClickAndSendKeys(WebDriver driver,By element,String data) {
+		try {
 		Actions action= new Actions(driver);
 		log.info("Moving to the given element and inserting text using action class :"+ element.toString());
 		action.moveToElement(driver.findElement(element)).click()
 		.sendKeys(data)
 		.build().perform();
 		//action.sendKeys(Keys.ENTER);
+		}catch(Exception e) {
+			log.error("Moving to the given element and inserting text using action class failed with exception :"+ element.toString()+e.getClass().getSimpleName());
+			throw(e);
+		}
 	}
 	/**
 	 * This method will hit Enter in the current pointer area using selenuim action
@@ -331,9 +364,15 @@ public class SeleniumUtility {
 	 * @param key should be selenium Keys
 	 */
 	public static void actionSendKeys(WebDriver driver,Keys key) {
+		try {
+		log.info("Pressing the key: "+ key.toString()+"using action class");
 		Actions action= new Actions(driver);
 		action.sendKeys(key).build().perform();
-		
+		}catch(Exception e) {
+			log.error("Pressing the key: "+ key.name().toString()+"using action class failed with exception: "+e.getClass().getSimpleName());
+			throw(e);
+		}
+
 	}
 	/**
 	 * This method click on the element and hold for a time

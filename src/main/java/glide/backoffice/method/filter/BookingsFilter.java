@@ -1,53 +1,51 @@
 package glide.backoffice.method.filter;
 
-import glide.backoffice.locators.bookings.BookingFilter;
 import glide.backoffice.utility.SeleniumUtility;
 import org.openqa.selenium.WebDriver;
-import glide.backoffice.locators.bookings.BookingHomepage;
+import glide.backoffice.locators.bookings.FilterBookings;
+import glide.backoffice.locators.bookings.HomepageBookings;
+
 import org.openqa.selenium.support.PageFactory;
 
 public class BookingsFilter {
     WebDriver driver;
-    BookingHomepage bookingHomepage;
-    BookingFilter bookingFilter;
+    HomepageBookings homepageBookings;
+    FilterBookings filterBookings;
     public BookingsFilter(WebDriver ldriver){
         this.driver=ldriver;
-        this.bookingHomepage= PageFactory.initElements(driver,BookingHomepage.class);
-        this.bookingFilter=PageFactory.initElements(driver,BookingFilter.class);
+        this.homepageBookings= PageFactory.initElements(driver,HomepageBookings.class);
+        this.filterBookings=PageFactory.initElements(driver,FilterBookings.class);
     }
 
-    public void bookingFilter(String firstname, String lastname,String email, String plateNumber, String vehicleBrand,
+    public void filterBookings(String firstname, String lastname,String email, String plateNumber, String vehicleBrand,
                               String bookingId, String startDate, String endDate, String vehicleModel, String invoiceError,
-                              String status, String delayed,String search, String reset){
+                              String status, String delayed){
 
-        if((search==null && reset==null)||(search!=null && reset!=null)){
-            System.out.println("Both cannot be null or have value at the same time");
-            return;
-        }
 
-        if(SeleniumUtility.checkElementIsVisible(driver,bookingHomepage.buttonTagFilterClosed)){
-            SeleniumUtility.clickOnElement(driver,bookingHomepage.buttonTagFilterClosed);
+
+        if(SeleniumUtility.checkElementIsVisible(driver,homepageBookings.buttonTagFilterClosed)){
+            SeleniumUtility.clickOnElement(driver,homepageBookings.buttonTagFilterClosed);
         }
         if(firstname!=null){
-            SeleniumUtility.clearText(driver, bookingFilter.inputTagFirstnameBookingFilter);
-            SeleniumUtility.sendText(driver,bookingFilter.inputTagFirstnameBookingFilter,firstname);
+            SeleniumUtility.clearText(driver, filterBookings.inputTagFirstnameFilterBookings);
+            SeleniumUtility.sendText(driver,filterBookings.inputTagFirstnameFilterBookings,firstname);
 
         }
         if(lastname!=null){
-            SeleniumUtility.clearText(driver, bookingFilter.inputTagLastnameBookingFilter);
-            SeleniumUtility.sendText(driver,bookingFilter.inputTagLastnameBookingFilter,lastname);
+            SeleniumUtility.clearText(driver, filterBookings.inputTagLastnameFilterBookings);
+            SeleniumUtility.sendText(driver,filterBookings.inputTagLastnameFilterBookings,lastname);
         }
         if(email!=null){
-            SeleniumUtility.clearText(driver, bookingFilter.inputTagEmailBookingFilter);
-            SeleniumUtility.sendText(driver,bookingFilter.inputTagEmailBookingFilter,email);
+            SeleniumUtility.clearText(driver, filterBookings.inputTagEmailFilterBookings);
+            SeleniumUtility.sendText(driver,filterBookings.inputTagEmailFilterBookings,email);
         }
         if(plateNumber!=null){
-            SeleniumUtility.clearText(driver, bookingFilter.inputTagPlateNumberBookingFilter);
-            SeleniumUtility.sendText(driver,bookingFilter.inputTagPlateNumberBookingFilter,plateNumber);
+            SeleniumUtility.clearText(driver, filterBookings.inputTagPlateNumberFilterBookings);
+            SeleniumUtility.sendText(driver,filterBookings.inputTagPlateNumberFilterBookings,plateNumber);
         }
         if(bookingId!=null){
-            SeleniumUtility.clearText(driver, bookingFilter.inputTagBookingIdBookingFilter);
-            SeleniumUtility.sendText(driver,bookingFilter.inputTagBookingIdBookingFilter,bookingId);
+            SeleniumUtility.clearText(driver, filterBookings.inputTagBookingIdFilterBookings);
+            SeleniumUtility.sendText(driver,filterBookings.inputTagBookingIdFilterBookings,bookingId);
         }
         if(startDate!=null){
 
@@ -55,34 +53,27 @@ public class BookingsFilter {
         if(endDate!=null){
 
         }
-        if(vehicleBrand!=null){
-            SeleniumUtility.selectByVisibleText(driver,bookingFilter.selectTagVehicleBrandBookingFilter,vehicleBrand);
+       if(vehicleBrand!=null){
+            SeleniumUtility.selectByVisibleText(driver,filterBookings.selectTagVehicleBrandFilterBookings,vehicleBrand);
 
         }
         if(vehicleModel!=null){
-            SeleniumUtility.selectByVisibleText(driver,bookingFilter.selectTagVehicleModelBookingFilter,vehicleModel);
+            SeleniumUtility.selectByVisibleText(driver,filterBookings.selectTagVehicleModelFilterBookings,vehicleModel);
 
         }
         if(invoiceError!=null){
-            SeleniumUtility.selectByvalue(driver,bookingFilter.selectTagInvoiceErrorBookingFilter,invoiceError);
+            SeleniumUtility.selectByvalue(driver,filterBookings.selectTagInvoiceErrorFilterBookings,invoiceError);
 
         }
         if(status!=null){
         	
-            SeleniumUtility.selectByvalue(driver,bookingFilter.selectTagStatusBookingFilter,status.toUpperCase());
+            SeleniumUtility.selectByvalue(driver,filterBookings.selectTagStatusFilterBookings,status.toUpperCase());
 
         }
         if(delayed!=null){
-            SeleniumUtility.selectByvalue(driver,bookingFilter.selectTagDelayedBookingFilter,delayed);
+            SeleniumUtility.selectByvalue(driver,filterBookings.selectTagDelayedFilterBookings,delayed);
 
 
-        }
-        if(search!=null){
-            SeleniumUtility.clickOnElement(driver,bookingFilter.buttonTagSearchBookingFilter);
-        }
-
-        if(reset!=null){
-            SeleniumUtility.clickOnElement(driver,bookingFilter.buttonTagResetBookingFilter);
         }
 
 

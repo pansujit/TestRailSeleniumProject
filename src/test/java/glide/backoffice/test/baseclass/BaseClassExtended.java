@@ -3,6 +3,7 @@ package glide.backoffice.test.baseclass;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,12 +19,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import glide.backoffice.method.login.SignIn;
 import glide.backoffice.utility.SeleniumUtility;
+import listeners.MethodListener;
+@Listeners({MethodListener.class})
+public abstract class BaseClassExtended {
 
-public class BaseClassExtended {
 	
 	protected WebDriver driver;
 	DesiredCapabilities cap;
@@ -46,11 +50,15 @@ public class BaseClassExtended {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 		Thread.sleep(5000);
+		login();
+
+	}
+	private void login() {
 		SignIn signin=PageFactory.initElements(driver, SignIn.class);
 		signin.signIn("admin@glidemobility.com", "1Aaaaaaa");
 		//signin.signIn("sujit.pandey+1@glidemobility.com", "1Aaaaaaa");
-		
 	}
+	
 	@AfterMethod
 	public void teardown(ITestResult result){
 		
@@ -66,13 +74,13 @@ public class BaseClassExtended {
 	}
 
 
-	public void getScreenshot(WebDriver driver, String name){
+	private void getScreenshot(WebDriver driver, String name){
 		SeleniumUtility.captureScreenShot(driver,name);
 
 	}
 	
 	
-	/*@AfterClass
+	@AfterTest
 	public void closeBrowser() {
 		try {
 			driver.close();
@@ -81,5 +89,5 @@ public class BaseClassExtended {
 		}finally {
 			driver.quit();
 		}
-	}*/
+	}
 }

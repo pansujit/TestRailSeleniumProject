@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.method.bookings.Booking;
-import glide.backoffice.method.common.SelectSuperCompany;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 import junit.framework.Assert;
 
@@ -19,8 +18,8 @@ public class BookingHomepageVerification  extends BaseClassExtended{
 	
 	@BeforeClass
 	public void selectSuperCompany() {
-		SelectSuperCompany selectSuperCompany=PageFactory.initElements(driver, SelectSuperCompany.class);
-		selectSuperCompany.selectSuperCompany();
+		//SelectSuperCompany selectSuperCompany=PageFactory.initElements(driver, SelectSuperCompany.class);
+		//selectSuperCompany.selectSuperCompany();
 		
 	}
 
