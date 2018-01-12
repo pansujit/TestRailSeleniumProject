@@ -57,7 +57,7 @@ public class Booking implements Testme {
 		SeleniumUtility.sendText(driver, findMemberBooking.inputTagSearchMemberByEmail, "sujit.pandey+24@glidemobility.com");
 	}
 	private void ClickOnSearch() {
-		SeleniumUtility.clickOnElement(driver, findMemberBooking.ButtonTagSearch);
+		SeleniumUtility.clickOnElement(driver, findMemberBooking.buttonTagSearch);
 		SeleniumUtility.fixedWait(3);
 	}
 	private void clickOnBook() {
@@ -190,7 +190,6 @@ public class Booking implements Testme {
 		WebElement test=driver.findElement(By.xpath(".//*[@id='mainContainer']/div/div[2]/div/div/div/section/div[3]/div/div[2]/div[1]/div[1]/div[1]/div/div"));
 		Actions action= new Actions(driver);
 		action.moveToElement(test).perform();
-		System.out.println("rrrr "+ test.getText());
 		
 		/*ClickOnCreateBooking();
 		InputEmailInSearchBox();

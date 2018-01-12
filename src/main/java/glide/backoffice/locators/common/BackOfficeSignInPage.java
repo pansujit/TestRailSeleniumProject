@@ -11,7 +11,7 @@ public class BackOfficeSignInPage {
 	/**
 	 * This locator will find Header  tag in the back Office sign-in page
 	 */
-	final public By spanTagBackOfficeSignInPageHeader= By.xpath(".//h2[@class='loginPage_title']/span/span");
+	public final By spanTagBackOfficeSignInPageHeader= By.xpath(".//h2[@class='loginPage_title']/span/span");
 	/**
 	 * This locator will find Email  tag in the back Office sign-in page
 	 */

@@ -7,7 +7,7 @@ public class SidebarMenuItems {
 	/**
 	 * This locator will find menuBar tag in the back Office homepage
 	 */
-	public final By buttonTagMenuIconSidebarMenuItems= By.xpath(".//button[@class='header-menuIcon']");
+	public final By buttonTagMenuIconSidebarMenuItems= By.xpath(".//*[@id='mainContainer']/div/div[1]/header/div[1]");
 	
 	
 	/**
@@ -76,7 +76,7 @@ public class SidebarMenuItems {
 	/**
 	 * Locator for the super companies in Accounts in menu items in back office
 	 */
-	public final By aTagSuperCompaniesSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--companies']/a");
+	public final By aTagSuperCompaniesSidebarMenuItems= By.xpath(".//li[contains(@class,'sideMenu_section sideMenu_section--companies')]/a");
 	
 	/**
 	 * Locator for the sub super companies in Accounts in menu items in back office

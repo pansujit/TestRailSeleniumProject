@@ -32,7 +32,7 @@ public class SignIn {
 		SeleniumUtility.fixedWait(1);
 		
 		SeleniumUtility.clickOnElement(driver, signInPage.inputTagBackOfficeSignInPagePassword);
-		//SeleniumUtility.clearText(driver, signInPage.inputTagBackOfficeSignInPagePassword);
+		/**SeleniumUtility.clearText(driver, signInPage.inputTagBackOfficeSignInPagePassword)**/
 		SeleniumUtility.sendText(driver, signInPage.inputTagBackOfficeSignInPagePassword, password);
 		
 		SeleniumUtility.fixedWait(1);

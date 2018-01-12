@@ -22,9 +22,9 @@ public class DateHelper {
 		cal.setTime( date );
 		int month=cal.get(GregorianCalendar.MONTH);
 		SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyyy");
-		SimpleDateFormat month_date = new SimpleDateFormat("MM");
+		SimpleDateFormat monthDate = new SimpleDateFormat("MM");
 		Date date1 = sdf.parse(text);
-		int rr=Integer.parseInt(month_date.format(date1));
+		int rr=Integer.parseInt(monthDate.format(date1));
 		return (rr-month);
 	}
 	/**

@@ -1,6 +1,8 @@
 package glide.backoffice.test.baseclass;
 
 import java.net.MalformedURLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
@@ -28,7 +30,10 @@ import listeners.MethodListener;
 @Listeners({MethodListener.class})
 public abstract class BaseClassExtended {
 
-	
+	static{
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        System.setProperty("current.date", dateFormat.format(new Date()));
+    }
 	protected WebDriver driver;
 	DesiredCapabilities cap;
 	@BeforeTest
@@ -80,7 +85,7 @@ public abstract class BaseClassExtended {
 	}
 	
 	
-	@AfterTest
+	/*@AfterTest
 	public void closeBrowser() {
 		try {
 			driver.close();
@@ -89,5 +94,5 @@ public abstract class BaseClassExtended {
 		}finally {
 			driver.quit();
 		}
-	}
+	}*/
 }

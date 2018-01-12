@@ -7,7 +7,7 @@ public class HeaderItem {
 	/**
 	 * Locator for Big Search Box Tag in header  in back office
 	 */
-	public final By inputTagBigSearchBoxHeaderItem= By.xpath(".//input[@class='false header-searchInput']");
+	public final By inputTagBigSearchBoxHeaderItem= By.xpath(".//*[@class='header-searchInput-searchIcon']/../input");
 	
 	/**
 	 * Locator for Super Companies Tag in header in back office
@@ -47,5 +47,32 @@ public class HeaderItem {
 	
 	//****************** Super Company dropdown *****************/
 	
-
+	//****************** Super Company popup text *****************/
+	/**
+	 * Locator for Input Tag for super companies in header in back office
+	 */
+	public final By divTagSuperCompanyPopupHeaderItem= By.xpath(".//div[@class='header-actionIcons-tooltipWrap']");
+	
+	/***********************Locators inside super company search box**************************/
+	/**
+	 * Locator for checkbox Tag to select all super companies in header
+	 */
+	public final By buttonTagSelectAllSCHeaderItem= 
+			By.xpath(".//*[@id='mainContainer']/div/div[1]/header/div[4]/div[1]/div/div[1]/div/div/div[1]/button[2]/div");
+			
+			/**
+	 * Locator for cancel Tag to cancel all super companies in header
+	 */
+	public final By buttonTagCancelSCHeaderItem= 
+			By.xpath(".//div[@class='header-superCompanyEditing header-superCompanyEditing-edit']//div[@class='header-superCompanyAutoCompleteWrap']/button[1]");
+	
+	
+	/**
+	 * Locator for cancel Tag to cancel all super companies in header
+	 */
+	public final By buttonTagSelectAllTextSCHeaderItem= 
+			By.xpath(".//div[@class='header-superCompanyEditing header-superCompanyEditing-edit']"
+					+ "//div[@class='header-superCompanyAutoCompleteWrap']/button[2]//span/span/span");
+	
+	
 }

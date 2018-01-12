@@ -23,9 +23,7 @@ public class Login {
 	}
 	
 	public void login() {
-		SeleniumUtility.fixedWait(2);
-		//System.out.println(testLocators.inputEmail.getText());
-		
+		SeleniumUtility.fixedWait(2);		
 		SeleniumUtility.clickOnElement(driver,testLocators.inputEmail);
 		SeleniumUtility.clearText(driver,testLocators.inputEmail);
 		SeleniumUtility.sendText(driver,testLocators.inputEmail, "sujit.pandey+7@glidemobility.com");
@@ -38,7 +36,7 @@ public class Login {
 		
 		SeleniumUtility.fixedWait(3);
 		SeleniumUtility.clickOnElement(driver,testLocators.ButtonSubmit);
-		SeleniumUtility.WaitElementToBeVisible(driver, userHomePage.aTagMyBooking);
+		SeleniumUtility.waitElementToBeVisible(driver, userHomePage.aTagMyBooking);
 
 	}
 	

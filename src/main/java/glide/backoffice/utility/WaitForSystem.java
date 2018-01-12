@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class WaitForSystem {
 	
@@ -29,9 +30,10 @@ public class WaitForSystem {
 	    {
 	        wait.until(expectation);
 	    }
-	    catch(Throwable error)
+	    catch(Exception e)
 	    {
-	        //assertFalse("Timeout waiting for Page Load Request to complete.",true);
+	        Assert.assertFalse(true);
+	        throw(e);
 	    }
 	}
 

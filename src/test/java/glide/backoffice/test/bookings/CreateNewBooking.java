@@ -37,8 +37,9 @@ public class CreateNewBooking extends BaseClassExtended {
 		//Booking booking= PageFactory.initElements(driver, Booking.class);
 		//booking.createBooking();
 		HeaderMethod booking= PageFactory.initElements(driver, HeaderMethod.class);
-		booking.selectSuperCompany("AirStone");
-		booking.selectCompany("testingCompany");
+		//booking.selectSuperCompany("AirStone");
+		//booking.selectCompany("testingCompany");
+		booking.checkAllPopUpInHeader();
 	}
 
 	/*@Test
