@@ -7,7 +7,7 @@ public class SidebarMenuItems {
 	/**
 	 * This locator will find menuBar tag in the back Office homepage
 	 */
-	public final By buttonTagMenuIconSidebarMenuItems= By.xpath(".//*[@id='mainContainer']/div/div[1]/header/div[1]");
+	public final By buttonTagMenuIconSidebarMenuItems= By.xpath(".//*[@id='mainContainer']/div/div[1]/header/div[1]/div");
 	
 	
 	/**
@@ -35,7 +35,8 @@ public class SidebarMenuItems {
 	/**
 	 * This locator will find User Management tag in the back Office homepage
 	 */
-	public final By buttonTagUsersSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--membersManagement']/button");
+	public final By buttonTagUsersSidebarMenuItems= 
+			By.xpath(".//li[contains(@class,'sideMenu_section sideMenu_section--membersManagement')]/button");
 	
 	/**
 	 * This locator will find Booking Management tag in the back Office homepage
@@ -81,7 +82,7 @@ public class SidebarMenuItems {
 	/**
 	 * Locator for the sub super companies in Accounts in menu items in back office
 	 */
-	public final By aTagSubCompaniesSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--sub-companies']/a");
+	public final By aTagSubCompaniesSidebarMenuItems= By.xpath(".//li[contains(@class,'sideMenu_section sideMenu_section--sub-companies')]/a");
 	
 	/**
 	 * Locator for the Groups in Accounts in menu items in back office
@@ -117,7 +118,7 @@ public class SidebarMenuItems {
 	/**
 	 * Locator for Vehicles Tag in Fleets in menu items in back office
 	 */
-	public final By aTagVehiclesSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--vehicles']/a");
+	public final By aTagVehiclesSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--vehicle']/a");
 	
 	/**
 	 * Locator for Fines Tag in Fleets in menu items in back office
@@ -153,7 +154,8 @@ public class SidebarMenuItems {
 	/**
 	 * Locator for Back Users Tag in USERS in menu items in back office
 	 */
-	public final By aTagBackUsersSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--backUsers']/a");
+	public final By aTagBackUsersSidebarMenuItems= 
+			By.xpath(".//li[contains(@class,'sideMenu_section sideMenu_section--backUsers')]/a");
 	
 	/**
 	 * LLocator for Smartcards Tag in USERS in menu items in back office

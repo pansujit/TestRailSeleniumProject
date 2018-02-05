@@ -1,5 +1,5 @@
 package glide.backoffice.locators.users.backusers;
 
-public class AddBackuser {
+public class AddBackuser  extends EditBackuser{
 
 }

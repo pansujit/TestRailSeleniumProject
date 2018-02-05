@@ -14,6 +14,7 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -81,6 +82,28 @@ public class SeleniumUtility {
 
 		}	
 	}
+	
+	/**
+	 * The method send the text to the given WebElement
+	 * @param driver Should be WebDriver
+	 * @param element the parameter should be Locator
+	 * @param text the text should be String
+	 */
+	public  static void clearTextAndSendText(WebDriver driver,By element,String text) {
+		try {
+			if(text!=null) {
+			driver.findElement(element).clear();
+			driver.findElement(element).sendKeys(text);
+			log.info("Typing text on the given element: " + element.toString() );
+			}
+		}catch(Exception e) {
+			log.error("Cannot type text on element: "+ element.toString()+" "+" FAILED with exception: "+e.getClass().getSimpleName());
+			throw(e);
+
+		}	
+	}
+	
+	
 	/**
 	 * The method clears the text field of the given webElement
 	 * @param element the parameter should be Locator
@@ -169,7 +192,15 @@ public class SeleniumUtility {
 	 */
 	public static boolean compareIgnoreCaseText(String text1,String text2) {
 		log.info("compare one text contains another text");
-		return (text1.compareToIgnoreCase(text2)==0);
+		if(text1.compareToIgnoreCase(text2)==0) {
+			log.info("Given Text text1: " + text1 +" is equal to another text text2: "+  text2);
+			return true;
+		}
+		else
+		{
+			log.info("Given Text text1: " + text1 +" is not equal to another text text2: "+  text2);
+			return false;
+		}
 	}
 
 	/**
@@ -383,6 +414,20 @@ public class SeleniumUtility {
 		action.moveToElement(driver.findElement(element)).build().perform();
 	}
 	/**
+	 * This method move the cursor to the given place of given element
+	 * @param driver should be WebDriver
+	 * @param element should be Selenium By
+	 */
+	public static void clickUsingAction(WebDriver driver,By element) {
+		WebDriverWait wait = new WebDriverWait(driver, 25);
+		Actions action= new Actions(driver);
+		log.info("Moving to the given element using action class :"+ element.toString());
+		WebElement element1 = wait.until(ExpectedConditions.
+                elementToBeClickable(element));
+		action.moveToElement(element1).click().build().perform();
+	}
+	
+	/**
 	 * This method will enter the text on the given text field using selenium actions 
 	 * @param driver should be webdriver
 	 * @param element should be selenium by
@@ -395,7 +440,6 @@ public class SeleniumUtility {
 			action.moveToElement(driver.findElement(element)).click()
 			.sendKeys(data)
 			.build().perform();
-			//action.sendKeys(Keys.ENTER)
 		}catch(Exception e) {
 			log.error("Moving to the given element and inserting text using action class failed with exception :"+ element.toString()+e.getClass().getSimpleName());
 			throw(e);
@@ -412,7 +456,18 @@ public class SeleniumUtility {
 			Actions action= new Actions(driver);
 			action.sendKeys(key).build().perform();
 		}catch(Exception e) {
-			log.error("Pressing the key: "+ key.name().toString()+"using action class failed with exception: "+e.getClass().getSimpleName());
+			log.error("Pressing the key: "+ key.name()+"using action class failed with exception: "+e.getClass().getSimpleName());
+			throw(e);
+		}
+
+	}
+	public static void actionSendKeys(WebDriver driver,Keys key,By element) {
+		try {
+			log.info("Pressing the key: "+ key.toString()+"using action class");
+			Actions action= new Actions(driver);
+			action.moveToElement(driver.findElement(element)).sendKeys(key).build().perform();
+		}catch(Exception e) {
+			log.error("Pressing the key: "+ key.name()+"using action class failed with exception: "+e.getClass().getSimpleName());
 			throw(e);
 		}
 
@@ -467,7 +522,7 @@ public class SeleniumUtility {
 			return status;
 
 		}catch(Exception e) {
-			log.error("Either element is not found or is not visible  :"+ element.toString() );
+			log.error("Either element is not found or is not visible  :"+ element.toString()+ "With exception :" );
 			return status;
 		}
 	}
@@ -549,5 +604,18 @@ public class SeleniumUtility {
 			log.error("The Element cannot appear after search, can't return List<WebElements> of element: "+element.toString());
 			return elements;
 		}
+	}
+	
+	public static void clickWithJavaScript(WebDriver driver,By element) {
+		try {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("return arguments[0].click();", driver.findElement(element));
+		log.info("Clicking on given element is successful with JavaScript :"+ element.toString());
+
+		}catch(Exception e) {
+			log.error("Either element is not found or is not selected  :"+ element.toString() );
+			
+		}
+		
 	}
 }

@@ -24,4 +24,7 @@ public class BackOfficeSignInPage {
 	 * This locator will find Submit tag in the back Office sign-in page
 	 */
 	public final By buttonTagBackOfficeSignInPageSubmit= By.xpath(".//button[@class='ekButton ekButton--fullWidth loginForm_submitBtn']");
+	
+
+	
 }

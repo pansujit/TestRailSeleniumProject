@@ -139,5 +139,10 @@ public class HeaderMethod {
 		SeleniumUtility.fixedWait(1);
 		softAssert.assertAll();
 	}
+	
+	public void clickOnHeaderBackButton() {
+		SeleniumUtility.clickUsingAction(driver, headerItem.aTagBackButtonHeaderItem);
+		SeleniumUtility.fixedWait(2);
+	}
 
 }

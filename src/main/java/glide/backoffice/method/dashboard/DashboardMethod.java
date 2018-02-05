@@ -74,28 +74,28 @@ public class DashboardMethod {
 	public void checkDashboardPageNavigation() {
 		//This page is navigate to the booking page with filter status in progress
 		SeleniumUtility.clickOnElement(driver, homepageDashboard.aTagBookingInProgressContentHomepageDashboard);
-		SeleniumUtility.waitElementToBeVisible(driver, homepageBookings.buttonTagCreateBooking);
+		SeleniumUtility.waitElementToBeVisible(driver, homepageBookings.buttonTagCreateBookingHomepageBookings);
 		softAssert.assertTrue(driver.getCurrentUrl().contains("IN_PROGRESS"));
 		driver.navigate().back();
 		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));
 		
 		//This page is navigate to the booking page with filter Booking delayed true 
 		SeleniumUtility.clickOnElement(driver, homepageDashboard.aTagDelayedBookingContentContentHomepageDashboard);
-		SeleniumUtility.waitElementToBeVisible(driver, homepageBookings.buttonTagCreateBooking);
+		SeleniumUtility.waitElementToBeVisible(driver, homepageBookings.buttonTagCreateBookingHomepageBookings);
 		softAssert.assertTrue(driver.getCurrentUrl().contains("delayed"));
 		driver.navigate().back();
 		SeleniumUtility.waitUntilElementisNotVisible(driver, homepageDashboard.aTagBookingInProgressContentHomepageDashboard);
 
 		//This page is navigate to the vehicle page with filter Cleanliness is DIRTY
 		SeleniumUtility.clickOnElement(driver, homepageDashboard.aTagDirtyCarContentContentHomepageDashboard);
-		SeleniumUtility.waitElementToBeVisible(driver, homepageVehicles.aTagFleetVehicleMgmtAddVehicle);
+		SeleniumUtility.waitElementToBeVisible(driver, homepageVehicles.buttonTagAddVehicleHomepageVehicles);
 		softAssert.assertTrue(driver.getCurrentUrl().contains("DIRTY"));
 		driver.navigate().back();
 		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));
 
 		// This page is navigate to the booking page with filter invoicing error is true
 		SeleniumUtility.clickOnElement(driver, homepageDashboard.aTagInvoicingErrorContentContentHomepageDashboard);
-		SeleniumUtility.waitElementToBeVisible(driver, homepageBookings.buttonTagCreateBooking);
+		SeleniumUtility.waitElementToBeVisible(driver, homepageBookings.buttonTagCreateBookingHomepageBookings);
 		softAssert.assertTrue(driver.getCurrentUrl().contains("failed"));
 		driver.navigate().back();
 		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));

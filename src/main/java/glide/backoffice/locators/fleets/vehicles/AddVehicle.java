@@ -1,5 +1,6 @@
 package glide.backoffice.locators.fleets.vehicles;
 
-public class AddVehicle {
+public class AddVehicle extends EditVehicle {
+	
 
 }

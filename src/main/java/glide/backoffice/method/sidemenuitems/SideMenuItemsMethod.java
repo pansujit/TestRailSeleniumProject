@@ -6,19 +6,19 @@ import org.openqa.selenium.support.PageFactory;
 import glide.backoffice.locators.menuitems.SidebarMenuItems;
 import glide.backoffice.utility.SeleniumUtility;
 
-public class SiteMenuItems {
+public class SideMenuItemsMethod {
 	private SidebarMenuItems sidebarMenuItems;
 	WebDriver driver;
-	public SiteMenuItems() {
+	public SideMenuItemsMethod() {
 
 	}
-	public SiteMenuItems(WebDriver ldriver) {
+	public SideMenuItemsMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.sidebarMenuItems=PageFactory.initElements(driver, SidebarMenuItems.class);
 	}
 	private void clickOnMenu() {
 		if(!SeleniumUtility.checkElementIsVisible(driver, sidebarMenuItems.buttonTagGeneralSettingsSidebarMenuItems)) {
-			SeleniumUtility.clickOnElement(driver,sidebarMenuItems.buttonTagMenuIconSidebarMenuItems)	;
+			SeleniumUtility.clickUsingAction(driver,sidebarMenuItems.buttonTagMenuIconSidebarMenuItems);
 			SeleniumUtility.waitElementToBeVisible(driver, sidebarMenuItems.buttonTagGeneralSettingsSidebarMenuItems);
 		}
 	}
@@ -28,6 +28,28 @@ public class SiteMenuItems {
 			SeleniumUtility.clickOnElement(driver, sidebarMenuItems.buttonTagAccountsSidebarMenuItems);
 			SeleniumUtility.waitElementToBeVisible(driver, sidebarMenuItems.aTagSuperCompaniesSidebarMenuItems);
 		}
+	}
+	
+	private void clickOnFleets() {
+		clickOnMenu() ;
+		if(SeleniumUtility.checkElementIsVisible(driver, sidebarMenuItems.buttonTagFleetsSidebarMenuItems)) {
+			SeleniumUtility.clickOnElement(driver, sidebarMenuItems.buttonTagFleetsSidebarMenuItems);
+			SeleniumUtility.waitElementToBeVisible(driver, sidebarMenuItems.aTagVehiclesSidebarMenuItems);
+		}
+		
+	}
+	private void clickOnUsers() {
+		clickOnMenu() ;
+		if(SeleniumUtility.checkElementIsVisible(driver, sidebarMenuItems.buttonTagUsersSidebarMenuItems)) {
+			SeleniumUtility.clickOnElement(driver, sidebarMenuItems.buttonTagUsersSidebarMenuItems);
+			SeleniumUtility.waitElementToBeVisible(driver, sidebarMenuItems.aTagBackUsersSidebarMenuItems);
+		}
+		
+	}
+
+	public void clickOnBookings() {
+		clickOnMenu();
+		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagBookingsSidebarMenuItems);
 	}
 
 	public void clickOnSuperCompanies() {
@@ -78,6 +100,21 @@ public class SiteMenuItems {
 		SeleniumUtility.fixedWait(5);
 
 	}
+	public void clickOnVehicles() {
+		clickOnFleets();
+		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagVehiclesSidebarMenuItems);
+		SeleniumUtility.fixedWait(5);
+
+	}
+	
+	public void clickOnBackusers() {
+		clickOnUsers();
+		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagBackUsersSidebarMenuItems);
+		SeleniumUtility.fixedWait(5);
+
+	}
+	
+	
 
 
 }

@@ -1,5 +1,5 @@
 package glide.backoffice.locators.accounts.configurations;
 
-public class AddConfig {
+public class AddConfig extends EditConfig{
 
 }

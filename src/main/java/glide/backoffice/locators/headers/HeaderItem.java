@@ -5,6 +5,12 @@ import org.openqa.selenium.By;
 public class HeaderItem {
 	
 	/**
+	 * Locator for Big back button  in header  in back office
+	 */
+	public final By aTagBackButtonHeaderItem= By.xpath(".//a[@class='backLink']");
+	
+	
+	/**
 	 * Locator for Big Search Box Tag in header  in back office
 	 */
 	public final By inputTagBigSearchBoxHeaderItem= By.xpath(".//*[@class='header-searchInput-searchIcon']/../input");
@@ -73,6 +79,8 @@ public class HeaderItem {
 	public final By buttonTagSelectAllTextSCHeaderItem= 
 			By.xpath(".//div[@class='header-superCompanyEditing header-superCompanyEditing-edit']"
 					+ "//div[@class='header-superCompanyAutoCompleteWrap']/button[2]//span/span/span");
+	
+	public final By resultBigSearchBoxHeaderItem=By.xpath(".//div[@class='search-resultRow']//div[2]");
 	
 	
 }

@@ -4,62 +4,121 @@ import org.openqa.selenium.By;
 
 public class FilterBookings {
 	/**
-	 * Locator for email input in the booking filter
+	 * This will find Filter element in Bookings-->Homepage-->Filters
 	 */
-	public final By inputTagEmailFilterBookings= By.xpath(".//div[@role='menu']/div[contains(@data-reactid,'memberLogin')]");
-	/**
-	 * Locator for Firstname input in the booking filter
-	 */
-	public final By inputTagFirstnameFilterBookings= By.xpath(".//div[@role='menu']/div[contains(@data-reactid,'memberFirstName')]");
-	/**
-	 * Locator for Lastname input in the booking filter
-	 */
-	public final By inputTagLastnameFilterBookings= By.xpath(".//div[@role='menu']/div[contains(@data-reactid,'memberLastName')]");
-	/**
-	 * Locator for Plate number of vehicle input in the booking filter
-	 */
-	public final By inputTagPlateNumberFilterBookings= By.xpath(".//div[@role='menu']/div[contains(@data-reactid,'vehicleRegistrationNumber')]");
+	public final By divTagFilterIconsFilterBookings= By.xpath(".//div[@id='bookings_filter_type_wrap']/div[1]/div[2]");
 	
 	/**
-	 * Locator for Booking Id  input in the booking filter
+	 * This will find firstname element in filter in Bookings-->Homepage
 	 */
-	public final By inputTagBookingIdFilterBookings= By.xpath(".//div[@role='menu']/div[contains(@data-reactid,'bookingId')]");
+	public final By spanTagFirstnameFilterBookings= By.xpath(".//span[@id='bookings_filter_type_memberFirstName']");
 	/**
-	 * Locator for Start date of booking input in the booking filter
+	 * This will find firstname input element in filter in Bookings-->Homepage
 	 */
-	public final By inputTagStartDateFilterBookings= By.xpath(".//div[@role='menu']/div[contains(@data-reactid,'startDate')]");
-	/**
-	 * Locator for End date of booking input in the booking filter
-	 */
-	public final By inputTagEndDateFilterBookings= By.xpath(".//div[@role='menu']/div[contains(@data-reactid,'endDate')]");
-	/**
-	 * Locator for Select Vehicle brand in the booking filter
-	 */
-	public final By selectTagVehicleBrandFilterBookings=By.xpath(".//div[@role='menu']/div[contains(@data-reactid,'vehicleBrand')]");
-	/**
-	 * Locator for Select Vehicle Model in the booking filter
-	 */
-	public final By selectTagVehicleModelFilterBookings=By.xpath(".//div[@role='menu']/div[contains(@data-reactid,'vehicleModel')]");
-	/**
-	 * Locator for Select Status of the booking in the booking filter
-	 */
-	public final By selectTagStatusFilterBookings=By.xpath(".//div[@role='menu']/div[contains(@data-reactid,'status')]");
-	/**
-	 * Locator for Select Invoice Error in the booking filter
-	 */
-	public final By selectTagInvoiceErrorFilterBookings=By.xpath(".//div[@role='menu']/div[contains(@data-reactid,'failed')]");
-	/**
-	 * Locator for Select Booking delayed in the booking filter
-	 */
-	public final By selectTagDelayedFilterBookings=By.xpath(".//div[@role='menu']/div[contains(@data-reactid,'delayed')]");
-	/**
-	 * Locator for Search button in the booking filter
-	 */
-	//public final By buttonTagSearchFilterBookings= By.xpath(".//button[@class='ekButton vehiclesFiltersForm_actionsButton']");
-	/**
-	 * Locator for Reset button in the booking filter
-	 */
-	//public final By buttonTagResetFilterBookings= By.xpath(".//button[@class='ekButton ekButton--reverse vehiclesFiltersForm_actionsButton']");
+	public final By inputTagFirstnameFilterBookings= By.xpath(".//input[@id='bookings_filter_value_input_memberFirstName']");
 
+	
+	/**
+	 * This will find lastname element in filter in Bookings-->Homepage
+	 */
+	public final By spanTagLastnameFilterBookings= By.xpath(".//span[@id='bookings_filter_type_memberLastName']");
+
+	/**
+	 * This will find lastname input element in filter in Bookings-->Homepage
+	 */
+	public final By inputTagLastnameFilterBookings= By.xpath(".//input[@id='bookings_filter_value_input_memberLastName']");
+
+	
+	/**
+	 * This will find Search For an email element in filter in Bookings-->Homepage
+	 */
+	public final By spanTagEmailFilterBookings= By.xpath(".//span[@id='bookings_filter_type_memberLogin']");
+	
+	/**
+	 * This will find email input element in filter in Bookings-->Homepage
+	 */
+	public final By inputTagEmailFilterBookings= By.xpath("..//input[@id='bookings_filter_value_input_memberLogin']");
+
+
+	/**
+	 * This will find status element in filter in Bookings-->Homepage
+	 */
+	public final By divTagStatusFilterBookings= By.xpath(".//span[@id='bookings_filter_type_status']/div/div/div");
+	
+	/**
+	 * This will find Click to Dropdown element in filter in Bookings-->Homepage
+	 */
+	public final By divTagClickToDropdownCommonFilterBookings= By.xpath(".//div[@class='advancedList_filtersInput']/div");
+
+	/**
+	 * This will find Click to select element in filter in Bookings-->Homepage
+	 */
+	public final By divTagClickToSelectFilterBookings(String replacementText) {
+		String text= ".//span[@id='bookings_filter_value_xxxx']/div/div/div";
+				return By.xpath(text.replace("xxxx", replacementText));
+	}
+	/**
+	 * This will find Brand element in filter in Bookings-->Homepage
+	 */
+	public final By divTagBrandFilterBookings= By.xpath(".//span[@id='bookings_filter_type_vehicleBrand']/div/div/div");
+
+	/**
+	 * This will find Model element in filter in Bookings-->Homepage
+	 */
+	public final By divTagHomepageBookings= By.xpath(".//span[@id='bookings_filter_type_vehicleModel']/div");
+
+	/**
+	 * This will find Plate number element in filter in Bookings-->Homepage
+	 */
+	public final By divTagPlateNumberFilterBookings= 
+			By.xpath(".//span[@id='bookings_filter_type_vehicleRegistrationNumber']/div/div/div");
+	
+	/**
+	 * This will find Plate number input element in filter in Bookings-->Homepage
+	 */
+	public final By inputTagPlateNumberFilterBookings= 
+			By.xpath(".//input[@id='bookings_filter_value_input_vehicleRegistrationNumber']");
+	
+	
+	/**
+	 * This will find Departure date element in filter in Bookings-->Homepage
+	 */
+	public final By divTagDepartureFilterBookings= 
+			By.xpath(".//span[@id='bookings_filter_type_startDate']/div/div/div");
+
+	/**
+	 * This will find Arrival Date element in filter in Bookings-->Homepage
+	 */
+	public final By divTagArrivalFilterBookings= 
+			By.xpath(".//span[@id='bookings_filter_type_endDate']/div/div/div");
+
+	/**
+	 * This will find Delayed element in filter in Bookings-->Homepage
+	 */
+	public final By aTagDelayedFilterBookings= By.xpath(".//span[@id='bookings_filter_type_delayed']/div/div/div");
+
+	/**
+	 * This will find Invoicing Error element in filter in Bookings-->Homepage
+	 */
+	public final By spanTagInvoiceErrorFilterBookings= 
+			By.xpath(".//span[@id='bookings_filter_type_failed']/div/div/div");
+
+	/**
+	 * This will find  Update Contract Error element in filter in Bookings-->Homepage
+	 */
+	public final By spanTagUpdateErrorFilterBookings= 
+			By.xpath(".//span[@id='bookings_filter_type_rrsUpdateFailed']/div/div/div");
+
+	/**
+	 * This will find Booking ID element in filter in Bookings-->Homepage
+	 */
+	public final By spanTagBookingIDFilterBookings= 
+			By.xpath(".//span[@id='bookings_filter_type_bookingId']/div/div/div");
+
+	/**
+	 * This will find Booking ID input element in filter in Bookings-->Homepage
+	 */
+	public final By inoutTagBookingIDFilterBookings= 
+			By.xpath(".//input[@id='bookings_filter_value_input_bookingId']");
 
 }

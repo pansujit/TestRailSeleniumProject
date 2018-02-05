@@ -7,6 +7,8 @@ import java.time.LocalTime;
 import java.util.List;
 
 import glide.backoffice.method.filter.BookingsFilter;
+import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -34,6 +36,7 @@ public class Booking implements Testme {
 	FindVehicleBooking findVehicleBooking;
 	BookingsFilter bookingsFilter;
 	HomepageBookings homepageBookings;
+	SideMenuItemsMethod siteMenuItems;
 	public Booking(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.sidebarMenuItems=PageFactory.initElements(driver, SidebarMenuItems.class);
@@ -41,6 +44,7 @@ public class Booking implements Testme {
 		this.findVehicleBooking=PageFactory.initElements(driver, FindVehicleBooking.class);
 		this.bookingsFilter= PageFactory.initElements(driver,BookingsFilter.class);
 		this.homepageBookings= PageFactory.initElements(driver,HomepageBookings.class);
+		this.siteMenuItems= PageFactory.initElements(driver,SideMenuItemsMethod.class);
 
 
 	}
@@ -49,122 +53,116 @@ public class Booking implements Testme {
 	private void clickOnBookings() {
 		SeleniumUtility.clickOnElement(driver,sidebarMenuItems.aTagBookingsSidebarMenuItems);
 	}
-	private void ClickOnCreateBooking() {
-		SeleniumUtility.clickOnElement(driver, homepageBookings.buttonTagCreateBooking);
-		SeleniumUtility.fixedWait(5);
+	private void clickOnCreateBooking() {
+		SeleniumUtility.clickOnElement(driver, homepageBookings.buttonTagCreateBookingHomepageBookings);
+		SeleniumUtility.waitElementToBeVisible(driver, findMemberBooking.inputTagNameFindMemberBooking);
+		SeleniumUtility.fixedWait(1);
 	}
-	private void InputEmailInSearchBox() {
-		SeleniumUtility.sendText(driver, findMemberBooking.inputTagSearchMemberByEmail, "sujit.pandey+24@glidemobility.com");
+	private void inputEmailInSearchBox() {
+		SeleniumUtility.sendText(driver, findMemberBooking.inputTagEmailFindMemberBooking, "sujit.pandey+24@glidemobility.com");
 	}
-	private void ClickOnSearch() {
-		SeleniumUtility.clickOnElement(driver, findMemberBooking.buttonTagSearch);
+	private void clickOnSearch() {
+		SeleniumUtility.clickOnElement(driver, findMemberBooking.buttonTagSearchFindMemberBooking);
 		SeleniumUtility.fixedWait(3);
 	}
 	private void clickOnBook() {
-		SeleniumUtility.clickOnElement(driver, findMemberBooking.bookOncreateBooking("sujit.pandey+24@glidemobility.com"));
+		SeleniumUtility.clickOnElement(driver, findMemberBooking.buttonTagBookFindMemberBooking("sujit.pandey+24@glidemobility.com"));
 		SeleniumUtility.fixedWait(3);
 	}
 	private void clickOnRoundTrip() {
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.divTagCheckRoundTrip);
+		SeleniumUtility.clickOnElement(driver, findVehicleBooking.divTagCheckRoundTripFindVehicleBooking);
 	}
 	private void inputStartAddress() {
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagStartAddress);
-		//SeleniumUtility.sendText(driver, findVehicleBooking.inputTagStartAddress, "testCompanySite");
-		SeleniumUtility.sendText(driver, findVehicleBooking.inputTagStartAddress, "1 Rue de Gramont, 75002 Paris, France");
+		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagStartAddressFindVehicleBooking);
+		//SeleniumUtility.sendText(driver, findVehicleBooking.inputTagStartAddressFindVehicleBooking, "testCompanySite");
+		SeleniumUtility.sendText(driver, findVehicleBooking.inputTagStartAddressFindVehicleBooking, "1 Rue de Gramont, 75002 Paris, France");
 
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.sendEnter(driver, findVehicleBooking.inputTagStartAddress);
+		SeleniumUtility.sendEnter(driver, findVehicleBooking.inputTagStartAddressFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
 	}
 	private void selectInputAddress() {
-		SeleniumUtility.moveToElementAction(driver, findVehicleBooking.inputTagStartAddressPopup);
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagStartAddressPopup);
+		SeleniumUtility.moveToElementAction(driver, findVehicleBooking.liTagStartAddressPopupFindVehicleBooking("testCompanySite"));
+		SeleniumUtility.clickOnElement(driver, findVehicleBooking.liTagStartAddressPopupFindVehicleBooking("testCompanySite"));
 		SeleniumUtility.fixedWait(1);
 	}
 	private void selectStartDate() {
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.divTagStartDate);
+		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagStartDateFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.actionSendKeys(driver, Keys.ENTER);
+		SeleniumUtility.actionSendKeys(driver, Keys.ENTER,findVehicleBooking.divTagStartDatePopupFindVehicleBooking);
+		SeleniumUtility.fixedWait(1);
 	}
 	private void selectStartHour(int extrahour) {
 		System.out.println("KK"+LocalTime.now().getHour());
 		String x=Integer.toString(LocalTime.now().getHour()+extrahour);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.divTagStartHour, x);
+		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagStartHourFindVehicleBooking, x);
 		SeleniumUtility.fixedWait(1);
 	}
 	private void selectStartMinute(int extraMinute) {
 		String x= Integer.toString(LocalTime.now().getMinute()+extraMinute);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.divTagStartMinute, x);
+		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagStartMinuteFindVehicleBooking, x);
 		SeleniumUtility.fixedWait(1);
 
 	}
 
 	private void selectEndDate() {
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.divTagEndDate);
+		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagEndDateFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.actionSendKeys(driver, Keys.ENTER);
+		SeleniumUtility.actionSendKeys(driver, Keys.ENTER,findVehicleBooking.divTagEndDatePopupFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
 	}
 	private void selectEndHour(int extrahour) {
 		String x=Integer.toString(LocalTime.now().getHour()+extrahour);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.divTagEndHour, x);
+		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagEndHourFindVehicleBooking, x);
 		SeleniumUtility.fixedWait(1);
 
 	}
 	private void selectEndMinute(int extraMinute) {
 		String x= Integer.toString(LocalTime.now().getMinute()+extraMinute);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.divTagEndMinute, x);
+		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagEndMinuteFindVehicleBooking, x);
 		SeleniumUtility.fixedWait(1);
 
 	}
 
 	private void ClickOnSearchBooking() {
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.buttonTagSearch);
+		SeleniumUtility.clickOnElement(driver, findVehicleBooking.buttonTagSearchFindVehicleBooking);
 		SeleniumUtility.fixedWait(5);
 	}
 	private void startHourAndMinute(int hours, int minute) {
 		String[] data=DateHelper.hourAndMinute(hours, minute);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.divTagStartHour, data[0]);
+		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagStartHourFindVehicleBooking, data[0]);
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.divTagStartMinute,  data[1]);
+		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagStartMinuteFindVehicleBooking,  data[1]);
 		SeleniumUtility.fixedWait(1);
 
 	}
 	private void endHourAndMinute(int hours, int minute) {
 		String[] data=DateHelper.hourAndMinute(hours, minute);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.divTagEndHour, data[0]);
+		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagEndHourFindVehicleBooking, data[0]);
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.divTagEndMinute, data[1]);
+		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagEndMinuteFindVehicleBooking, data[1]);
 		SeleniumUtility.fixedWait(1);
 
 	}
 	private void clickOnConfirmBooking() {
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.buttonTagBookingConfirmButton);
+		SeleniumUtility.clickOnElement(driver, findVehicleBooking.buttonTagConfirmFindVehicleBooking("kkkkkkkkk", "PRIVATE"));
 		SeleniumUtility.fixedWait(3);
 	}
 	private void inputCustomField() {
-		SeleniumUtility.sendText(driver, findVehicleBooking.inputTagCustomField, "hello");
+		SeleniumUtility.sendText(driver, findVehicleBooking.inputTagCustomFieldFindVehicleBooking, "hello");
 		SeleniumUtility.fixedWait(3);
 	}
 	private void ClickOnSaveButton() {
 
-		SeleniumUtility.moveToElementAction(driver, findVehicleBooking.buttonTagSave);
-		SeleniumUtility.actionClickAndSendKeys(driver,  findVehicleBooking.buttonTagSave, "hello");
+		SeleniumUtility.moveToElementAction(driver, findVehicleBooking.buttonTagSaveFindVehicleBooking);
+		SeleniumUtility.actionClickAndSendKeys(driver,  findVehicleBooking.buttonTagSaveFindVehicleBooking, "hello");
 		//SeleniumUtility.fixedWait(3);
 	}
 	private void refreshPage() {
 		driver.navigate().refresh();
 	}
 
-	public boolean verifyBookingPage() {
-		SeleniumUtility.fixedWait(3);
-		clickOnBookings();
-		SeleniumUtility.WaitElementToBeClickable(driver, homepageBookings.buttonTagFilterClosed);
-		return 	SeleniumUtility.checkElementIsVisible(driver, homepageBookings.buttonTagFilterClosed) &&
-				SeleniumUtility.checkElementIsVisible(driver,homepageBookings.buttonTagCreateBooking) &&
-				SeleniumUtility.checkElementIsVisible(driver,homepageBookings.aTagExportInCSV);
 
-	}
 
 	public void waitForPageToLoad(WebDriver driver) {
 		ExpectedCondition < Boolean > pageLoad = new
@@ -185,27 +183,25 @@ public class Booking implements Testme {
 	}
 
 	public void createBooking() {
-		clickOnBookings();
+		siteMenuItems.clickOnBookings();
 		SeleniumUtility.fixedWait(2);
-		WebElement test=driver.findElement(By.xpath(".//*[@id='mainContainer']/div/div[2]/div/div/div/section/div[3]/div/div[2]/div[1]/div[1]/div[1]/div/div"));
-		Actions action= new Actions(driver);
-		action.moveToElement(test).perform();
-		
-		/*ClickOnCreateBooking();
-		InputEmailInSearchBox();
-		ClickOnSearch();
+		clickOnCreateBooking();
+		inputEmailInSearchBox();
+		clickOnSearch();
 		clickOnBook();
 		clickOnRoundTrip();
 		inputStartAddress();
 		//selectInputAddress();
-		selectStartDate();
-		startHourAndMinute(0,15);
 		selectEndDate();
 		endHourAndMinute(1,30);
+		
+		selectStartDate();
+		startHourAndMinute(0,15);
+
 
 		ClickOnSearchBooking();
 		clickOnConfirmBooking();
-		inputCustomField();
+		/*inputCustomField();
 		ClickOnSaveButton();
 		//waitForPageToLoad(driver) ;
 		SeleniumUtility.fixedWait(10);
@@ -249,9 +245,6 @@ public class Booking implements Testme {
 			String status,String delayed){
 		clickOnBookings();
 		SeleniumUtility.fixedWait(10);
-		bookingsFilter.filterBookings( firstname, lastname,  email, plateNumber,  vehicleBrand,
-				bookingId, startDate, enddate, vehicleModel, invoiceError,
-				status, delayed);
 	return	testmine(driver.findElements(By.xpath(".//table/tbody/tr/td[2]/button")),driver,"sujit pandey",firstname) &&
 		testmine(driver.findElements(By.xpath(".//table/tbody/tr/td[2]/button")),driver,"sujit pandey",lastname) &&
 		testmine(driver.findElements(By.xpath(".//table/tbody/tr/td[9]/span/span/span/span")),driver,"cancelled",status);

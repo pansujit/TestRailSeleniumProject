@@ -34,12 +34,12 @@ public class CreateNewBooking extends BaseClassExtended {
 	
 	@Test
 	public void createBookingTest() throws InterruptedException {
-		//Booking booking= PageFactory.initElements(driver, Booking.class);
-		//booking.createBooking();
-		HeaderMethod booking= PageFactory.initElements(driver, HeaderMethod.class);
+		Booking booking= PageFactory.initElements(driver, Booking.class);
+		booking.createBooking();
+		//HeaderMethod booking= PageFactory.initElements(driver, HeaderMethod.class);
 		//booking.selectSuperCompany("AirStone");
 		//booking.selectCompany("testingCompany");
-		booking.checkAllPopUpInHeader();
+		//booking.checkAllPopUpInHeader();
 	}
 
 	/*@Test
@@ -51,5 +51,6 @@ public class CreateNewBooking extends BaseClassExtended {
 		//booking.bookingFilter("sujit","pandey",null);
 	
 	}*/
+	
 
 }

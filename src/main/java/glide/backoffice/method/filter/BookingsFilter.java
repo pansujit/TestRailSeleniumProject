@@ -17,68 +17,6 @@ public class BookingsFilter {
         this.filterBookings=PageFactory.initElements(driver,FilterBookings.class);
     }
 
-    public void filterBookings(String firstname, String lastname,String email, String plateNumber, String vehicleBrand,
-                              String bookingId, String startDate, String endDate, String vehicleModel, String invoiceError,
-                              String status, String delayed){
-
-
-
-        if(SeleniumUtility.checkElementIsVisible(driver,homepageBookings.buttonTagFilterClosed)){
-            SeleniumUtility.clickOnElement(driver,homepageBookings.buttonTagFilterClosed);
-        }
-        if(firstname!=null){
-            SeleniumUtility.clearText(driver, filterBookings.inputTagFirstnameFilterBookings);
-            SeleniumUtility.sendText(driver,filterBookings.inputTagFirstnameFilterBookings,firstname);
-
-        }
-        if(lastname!=null){
-            SeleniumUtility.clearText(driver, filterBookings.inputTagLastnameFilterBookings);
-            SeleniumUtility.sendText(driver,filterBookings.inputTagLastnameFilterBookings,lastname);
-        }
-        if(email!=null){
-            SeleniumUtility.clearText(driver, filterBookings.inputTagEmailFilterBookings);
-            SeleniumUtility.sendText(driver,filterBookings.inputTagEmailFilterBookings,email);
-        }
-        if(plateNumber!=null){
-            SeleniumUtility.clearText(driver, filterBookings.inputTagPlateNumberFilterBookings);
-            SeleniumUtility.sendText(driver,filterBookings.inputTagPlateNumberFilterBookings,plateNumber);
-        }
-        if(bookingId!=null){
-            SeleniumUtility.clearText(driver, filterBookings.inputTagBookingIdFilterBookings);
-            SeleniumUtility.sendText(driver,filterBookings.inputTagBookingIdFilterBookings,bookingId);
-        }
-        if(startDate!=null){
-
-        }
-        if(endDate!=null){
-
-        }
-       if(vehicleBrand!=null){
-            SeleniumUtility.selectByVisibleText(driver,filterBookings.selectTagVehicleBrandFilterBookings,vehicleBrand);
-
-        }
-        if(vehicleModel!=null){
-            SeleniumUtility.selectByVisibleText(driver,filterBookings.selectTagVehicleModelFilterBookings,vehicleModel);
-
-        }
-        if(invoiceError!=null){
-            SeleniumUtility.selectByvalue(driver,filterBookings.selectTagInvoiceErrorFilterBookings,invoiceError);
-
-        }
-        if(status!=null){
-        	
-            SeleniumUtility.selectByvalue(driver,filterBookings.selectTagStatusFilterBookings,status.toUpperCase());
-
-        }
-        if(delayed!=null){
-            SeleniumUtility.selectByvalue(driver,filterBookings.selectTagDelayedFilterBookings,delayed);
-
-
-        }
-
-
-
-
-    }
+   
 
 }

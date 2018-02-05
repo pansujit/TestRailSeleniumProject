@@ -1,6 +1,9 @@
 package glide.backoffice.method.supercompanies;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
@@ -9,13 +12,15 @@ import glide.backoffice.locators.accounts.supercompanies.AddSC;
 import glide.backoffice.locators.accounts.supercompanies.AddSCError;
 import glide.backoffice.locators.accounts.supercompanies.HomepageSC;
 import glide.backoffice.locators.accounts.supercompanies.SuperCompanyDto;
-import glide.backoffice.method.sidemenuitems.SiteMenuItems;
+import glide.backoffice.locators.headers.HeaderItem;
+import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.utility.SeleniumUtility;
 
 public class SuperCompanies {
 	WebDriver driver;
 	SoftAssert softAssert;
-	SiteMenuItems siteMenuItems;
+	SideMenuItemsMethod siteMenuItems;
+	HeaderItem headerItem;
 	HomepageSC homepageSC;
 	AddSC addSC;
 	AddSCError addSCError;
@@ -24,21 +29,20 @@ public class SuperCompanies {
 	}
 	public SuperCompanies(WebDriver ldriver) {
 		this.driver=ldriver;
-		this.siteMenuItems=PageFactory.initElements(driver, SiteMenuItems.class);
+		this.siteMenuItems=PageFactory.initElements(driver, SideMenuItemsMethod.class);
 		this.softAssert=new SoftAssert();
 		this.homepageSC=PageFactory.initElements(driver, HomepageSC.class);
 		this.addSC=PageFactory.initElements(driver, AddSC.class);
 		this.addSCError=PageFactory.initElements(driver, AddSCError.class);
-
-
-
+		this.headerItem=PageFactory.initElements(driver, HeaderItem.class);
 	}
 	private void clickSuperCompanies() {
 		siteMenuItems.clickOnSuperCompanies();
 	}
 	private void clickOnAddASuperCompany(SuperCompanyDto superCompanyDto) {
 		SeleniumUtility.clickOnElement(driver, homepageSC.aTagAddSuperCompanyHomepageSC);
-
+		SeleniumUtility.waitElementToBeVisible(driver, addSC.buttonTagSaveButtonAddSC);
+		SeleniumUtility.fixedWait(2);
 		SeleniumUtility.sendText(driver, addSC.inputTagNameAddSC,superCompanyDto.getCompanyName());
 		SeleniumUtility.fixedWait(3);
 		SeleniumUtility.sendText(driver, addSC.inputTagAddressAddSC,superCompanyDto.getCompanyAddress());
@@ -121,13 +125,31 @@ public class SuperCompanies {
 	}
 
 	public void createSuperCompany(SuperCompanyDto superCompanyDto) {
+		boolean status=false;
 		clickSuperCompanies();
 		clickOnAddASuperCompany(superCompanyDto);
 		clickOnSaveButton();
 		SeleniumUtility.fixedWait(15);
+		SeleniumUtility.clickOnElement(driver, headerItem.inputTagBigSearchBoxHeaderItem);
+		SeleniumUtility.fixedWait(1);
+		SeleniumUtility.sendText(driver, headerItem.inputTagBigSearchBoxHeaderItem, superCompanyDto.getCompanyName());
+		SeleniumUtility.fixedWait(3);
+		List<WebElement>  webElements=SeleniumUtility.returnWebElements(driver, headerItem.resultBigSearchBoxHeaderItem);
+		SeleniumUtility.fixedWait(2);
+		if(webElements.isEmpty()) {
+			return;
+		}
+		for(WebElement element:webElements) {
+			if(SeleniumUtility.compareIgnoreCaseText(element.getText(), superCompanyDto.getCompanyName())) {
+				status=true;
+				break;
+			}
+		}
+		softAssert.assertTrue(status);
+		softAssert.assertAll();
 	}
 	public void display12() {
-		
+		//void
 	}
 
 

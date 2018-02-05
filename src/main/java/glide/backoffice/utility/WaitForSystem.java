@@ -17,7 +17,7 @@ public class WaitForSystem {
 	
 	public static void waitForPageLoaded(WebDriver driver)
 	{
-	    ExpectedCondition<Boolean> expectation = new
+	   ExpectedCondition<Boolean> expectation = new
 	ExpectedCondition<Boolean>() 
 	    {
 	        public Boolean apply(WebDriver driver)
@@ -35,6 +35,8 @@ public class WaitForSystem {
 	        Assert.assertFalse(true);
 	        throw(e);
 	    }
+
+	
 	}
 
 }

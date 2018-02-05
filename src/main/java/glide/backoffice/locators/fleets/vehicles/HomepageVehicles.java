@@ -3,63 +3,118 @@ package glide.backoffice.locators.fleets.vehicles;
 import org.openqa.selenium.By;
 
 public class HomepageVehicles {
+	
+	
 	/**
-	 * This locator will find the Add a Vehicle tag in Vehicle management page in the Fleet management->Vehicle Management
+	 * This method locator will find Add a Vehicle element in the Fleet management->Vehicle-->Homapage
 	 */
-	public final By aTagFleetVehicleMgmtAddVehicle= By.xpath(".//div[@class='pageManagementHeader_actionButton']/a");
+	public final By buttonTagAddVehicleHomepageVehicles=By.xpath(".//button[@id='fleet_add_button']");
+	
 	/**
-	 * This locator will find the Export all to CSV tag in Vehicle management page in the Fleet management->Vehicle Management
+	 * This method locator will find Export element in the Fleet management->Vehicle-->Homapage
 	 */
-	public final By aTagFleetVehicleMgmtExportAsCSV= By.xpath(".//div[@class='fleetPage_filters']/a");
+	public final By buttonTagExportVehicleHomepageVehicles=By.xpath(".//button[@id='fleet_export_button']");
+	
+	
+	
+
 	/**
-	 * This locator will find the Filter button tag in Vehicle management page in the Fleet management->Vehicle Management
-	 */
-	public final By buttonTagFleetVehicleMgmtFilter= By.xpath(".//div[@class='fleetPage_filters']/button");
-	/**
-	 * This locator will find the xx tag in Vehicle management page in the Fleet management->Vehicle Management
-	 */
-	/**
-	 * This locator will find the Plate number header tag in Vehicle management Table page in the Fleet management->Vehicle Management
-	 */
-	public final By spanTagFleetVehicleMgmtTheadPlateNumber= By.xpath(".//table[@class='tableView']//th[1]/span");
-	/**
-	 * This locator will find the Model Header tag in Vehicle management table page in the Fleet management->Vehicle Management
-	 */
-	public final By spanTagFleetVehicleMgmtMgmtTheadModel= By.xpath(".//table[@class='tableView']//th[2]/span");
-	/**
-	 * This locator will find the Fuel Type header tag in Vehicle management table page in the Fleet management->Vehicle Management
-	 */
-	public final By spanTagFleetVehicleMgmtMgmtTheadFuelType= By.xpath(".//table[@class='tableView']//th[3]/span");
-	/**
-	 * This locator will find the Status header tag in Vehicle management table page in the Fleet management->Vehicle Management
-	 */
-	public final By spanTagFleetVehicleMgmtTheadStatus= By.xpath(".//table[@class='tableView']//th[8]/span");
-	/**
-	 * This method locator will find the View tag in Vehicle management table page in the Fleet management->Vehicle Management
+	 * This method locator will find Plate number in Vehicle table page in the Fleet management->Vehicle-->Homapage
 	 * @param plateNumber should be String
 	 * @return By Selenium By
 	 */
-	public final By buttonTagFleetVehicleMgmtViewVehicle(String plateNumber) {
-		String text=".//table[@class='tableView']//tr/td/span/span[text()='xxxx']/../../../td[9]/button";
+	public final By divTagPlateNumberHomepageVehicles(String plateNumber) {
+		String text=".//div[contains(@id,'fleet_list_row_')]/div[1]/div/div/div[1 and text()='xxxx']";
 		return By.xpath(text.replace("xxxx", plateNumber));
 		
 	}
+	
 	/**
-	 * This method locator will find the Status tag in Vehicle management table page in the Fleet management->Vehicle Management
-	 * @param plateNumber should be String 
+	 * This method locator will find Fuel Type in Vehicle table page in the Fleet management->Vehicle-->Homapage
+	 * @param plateNumber should be String
 	 * @return By Selenium By
 	 */
-	public final By buttonTagFleetVehicleMgmtStatus(String plateNumber) {
-		String text=".//table[@class='tableView']//tr/td/span/span[text()='xxxx']/../../../td[8]/span/span";
+	public final By spanTagFuelTypeHomepageVehicles(String plateNumber) {
+		String text=".//div[contains(@id,'fleet_list_row_')]/div[1]/div/div/div[1 and text()='xxxx']/../div[2]/span/span";
+		return By.xpath(text.replace("xxxx", plateNumber));
+		
+	}
+	
+	/**
+	 * This method locator will find Brand Name in Vehicle table page in the Fleet management->Vehicle-->Homapage
+	 * @param plateNumber should be String
+	 * @return By Selenium By
+	 */
+	public final By divTagBrandNameHomepageVehicles(String plateNumber) {
+		String text=".//div[contains(@id,'fleet_list_row_')]/div[1]/div/div/div[1 and text()='xxxx']/../../../../div[2]/div[1]";
+		return By.xpath(text.replace("xxxx", plateNumber));
+		
+	}
+	
+	/**
+	 * This method locator will find Vehicle Model in Vehicle table page in the Fleet management->Vehicle-->Homapage
+	 * @param plateNumber should be String
+	 * @return By Selenium By
+	 */
+	public final By divTagVehicleModelHomepageVehicles(String plateNumber) {
+		String text=".//div[contains(@id,'fleet_list_row_')]/div[1]/div/div/div[1 and text()='xxxx']/../../../../div[2]/span";
+		return By.xpath(text.replace("xxxx", plateNumber));
+		
+	}
+	
+	/**
+	 * This method locator will find hardware in Vehicle table page in the Fleet management->Vehicle-->Homapage
+	 * @param plateNumber should be String
+	 * @return By Selenium By
+	 */
+	public final By divTagHardwareHomepageVehicles(String plateNumber) {
+		String text=".//div[contains(@id,'fleet_list_row_')]/div[1]/div/div/div[1 and text()='xxxx']/../../../../div[3]";
+		return By.xpath(text.replace("xxxx", plateNumber));
+		
+	}
+	
+	/**
+	 * This method locator will find Super Company in Vehicle table page in the Fleet management->Vehicle-->Homapage
+	 * @param plateNumber should be String
+	 * @return By Selenium By
+	 */
+	public final By divTagSuperCompanyHomepageVehicles(String plateNumber) {
+		String text=".//div[contains(@id,'fleet_list_row_')]/div[1]/div/div/div[1 and text()='xxxx']/../../../../div[4]";
+		return By.xpath(text.replace("xxxx", plateNumber));
+		
+	}
+	
+	/**
+	 * This method locator will find Parking Name in Vehicle table page in the Fleet management->Vehicle-->Homapage
+	 * @param plateNumber should be String
+	 * @return By Selenium By
+	 */
+	public final By divTagParkingNameHomepageVehicles(String plateNumber) {
+		String text=".//div[contains(@id,'fleet_list_row_')]/div[1]/div/div/div[1 and text()='xxxx']/../../../../div[5]/div[1]";
+		return By.xpath(text.replace("xxxx", plateNumber));
+		
+	}
+	
+	/**
+	 * This method locator will find Site Name in Vehicle table page in the Fleet management->Vehicle-->Homapage
+	 * @param plateNumber should be String
+	 * @return By Selenium By
+	 */
+	public final By divTagSiteNameHomepageVehicles(String plateNumber) {
+		String text=".//div[contains(@id,'fleet_list_row_')]/div[1]/div/div/div[1 and text()='xxxx']/../../../../div[5]/span";
 		return By.xpath(text.replace("xxxx", plateNumber));
 		
 	}
 	/**
-	 * This locator will find the xx tag in Vehicle management page in the Fleet management->Vehicle Management
+	 * This method locator will find Status in Table in Vehicle table page in the Fleet management->Vehicle-->Homapage
+	 * @param plateNumber should be String
+	 * @return By Selenium By
 	 */
-	public final By aTagFleetVehicleMgmt= By.xpath("");
-
-
+	public final By divTagStatusInTableHomepageVehicles(String plateNumber) {
+		String text=".//div[contains(@id,'fleet_list_row_')]/div[1]/div/div/div[1 and text()='xxxx']/../../../../div[6]//span/span";
+		return By.xpath(text.replace("xxxx", plateNumber));
+		
+	}
 	
 	
 }

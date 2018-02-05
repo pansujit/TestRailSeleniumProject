@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -47,9 +48,10 @@ public abstract class BaseClassExtended {
 		cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 
 		driver= new RemoteWebDriver(new URL("http://192.168.1.42:4444/wd/hub"),cap);*/
-		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("start-fullscreen");
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(options);
 		driver.navigate().to("https://admin-valid-2-glide.tech.rcimobility.com/#/login");
 		//driver.navigate().to("https://web-dev-2-glide.tech.rcimobility.com/#/login");
 		driver.manage().window().maximize();
