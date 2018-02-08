@@ -30,6 +30,8 @@ import glide.backoffice.utility.SeleniumUtility;
 import listeners.MethodListener;
 @Listeners({MethodListener.class})
 public abstract class BaseClassExtended {
+	
+	public Logger log = Logger.getLogger(SeleniumUtility.class.getName());
 
 	static{
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");

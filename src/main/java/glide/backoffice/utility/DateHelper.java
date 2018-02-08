@@ -3,12 +3,25 @@ package glide.backoffice.utility;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
+
+import org.apache.log4j.Logger;
 
 
 public class DateHelper {
+	static Logger log = Logger.getLogger(DateHelper.class.getName());
+	  private DateHelper() {
+		    throw new IllegalStateException("Utility class");
+		  }
+
+		
+
 
 	/**
 	 * This method in dataHelper class will compare actual month and month in the calendar and return the difference.
@@ -27,6 +40,49 @@ public class DateHelper {
 		int rr=Integer.parseInt(monthDate.format(date1));
 		return (rr-month);
 	}
+	
+	public static List<Integer> selectdate(String myDate) {
+		List<Integer> returnData=new ArrayList<>();
+		if (!myDate.matches("\\d{4}-\\d{2}-\\d{2}")) {
+		   log.error("year month date is not formatted as YYYY-MM-DD format: ",  new RuntimeException(myDate));
+		   return returnData;
+		}
+		int month=LocalDate.now().getMonth().getValue();
+		String[] testdate=myDate.split("-");
+		int customYear=Integer.parseInt(testdate[0]);
+		int customMonth=Integer.parseInt(testdate[1]);
+		int customDate=Integer.parseInt(testdate[2]);
+		returnData.add(customYear);
+		returnData.add(1,month-customMonth);
+		returnData.add(2,customDate);
+		return returnData;
+		
+		
+	}
+	
+	public static List<Integer> selectdate(String myDate,String text) {
+		String[] monthFinder=text.split(" ");
+		
+		List<Integer> returnData=new ArrayList<>();
+		if (!myDate.matches("\\d{4}-\\d{2}-\\d{2}")) {
+		   log.error("year month date is not formatted as YYYY-MM-DD format: ",  new RuntimeException(myDate));
+		   return returnData;
+		}
+		int month=Month.valueOf(monthFinder[0].toUpperCase()).getValue();
+		String[] testdate=myDate.split("-");
+		int customYear=Integer.parseInt(testdate[0]);
+		int customMonth=Integer.parseInt(testdate[1]);
+		int customDate=Integer.parseInt(testdate[2]);
+		returnData.add(customYear);
+		returnData.add(1,month-customMonth);
+		returnData.add(2,customDate);
+		return returnData;
+		
+		
+	}
+	
+	
+	
 	/**
 	 * This method in dataHelper class will return Instant booking hour which is the actual hours in the system.
 	 * @return String

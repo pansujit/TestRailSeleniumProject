@@ -41,12 +41,12 @@ public class SidebarMenuItems {
 	/**
 	 * This locator will find Booking Management tag in the back Office homepage
 	 */
-	public final By aTagBookingsSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--booking']/a");
+	public final By aTagBookingsSidebarMenuItems= By.xpath(".//li[contains(@class,'sideMenu_section sideMenu_section--booking')]/a");
 	
 	/**
 	 * This locator will find Invoice Management tag in the back Office homepage
 	 */
-	public final By aTagInvoicesSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--invoice']/a");
+	public final By aTagInvoicesSidebarMenuItems= By.xpath(".//li[contains(@class,'sideMenu_section sideMenu_section--invoice')]/a");
 	
 	/**
 	 * This locator will find Voucher Management tag in the back Office homepage

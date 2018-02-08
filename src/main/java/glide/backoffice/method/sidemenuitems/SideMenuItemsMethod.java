@@ -4,17 +4,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import glide.backoffice.locators.menuitems.SidebarMenuItems;
+import glide.backoffice.method.common.CommonMethods;
 import glide.backoffice.utility.SeleniumUtility;
 
 public class SideMenuItemsMethod {
 	private SidebarMenuItems sidebarMenuItems;
 	WebDriver driver;
+	CommonMethods commonMethods;
 	public SideMenuItemsMethod() {
 
 	}
 	public SideMenuItemsMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.sidebarMenuItems=PageFactory.initElements(driver, SidebarMenuItems.class);
+		this.commonMethods=PageFactory.initElements(driver, CommonMethods.class);
+
 	}
 	private void clickOnMenu() {
 		if(!SeleniumUtility.checkElementIsVisible(driver, sidebarMenuItems.buttonTagGeneralSettingsSidebarMenuItems)) {
@@ -50,6 +54,8 @@ public class SideMenuItemsMethod {
 	public void clickOnBookings() {
 		clickOnMenu();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagBookingsSidebarMenuItems);
+		commonMethods.waitUntilElementToBeInvisible();
+		SeleniumUtility.fixedWait(2);
 	}
 
 	public void clickOnSuperCompanies() {
@@ -110,8 +116,15 @@ public class SideMenuItemsMethod {
 	public void clickOnBackusers() {
 		clickOnUsers();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagBackUsersSidebarMenuItems);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		SeleniumUtility.fixedWait(2);
 
+	}
+	public void clickOnInvoices() {
+		clickOnMenu();
+		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagInvoicesSidebarMenuItems);
+		commonMethods.waitUntilElementToBeInvisible();
+		SeleniumUtility.fixedWait(2);
 	}
 	
 	

@@ -1,20 +1,14 @@
-import java.util.Locale;
-import java.util.Random;
 
-import com.github.javafaker.Address;
-import com.github.javafaker.Faker;
-import com.github.javafaker.PhoneNumber;
+import java.time.Month;
 
-import glide.backoffice.enums.FuelType;
+import glide.backoffice.utility.DateHelper;
 
 public class Testme {
 
 	
-	public static void main(String[] Args) {
-
-		System.out.println(Locale.getAvailableLocales()[3]);
-	
+	public static void main(String[] args) {
+		String name="january";
+		System.out.println(Month.valueOf(name.toUpperCase()).getValue());
 	}
 	
-
 }

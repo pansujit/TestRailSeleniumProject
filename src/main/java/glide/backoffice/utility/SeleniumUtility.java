@@ -84,7 +84,7 @@ public class SeleniumUtility {
 	}
 	
 	/**
-	 * The method send the text to the given WebElement
+	 * This static method clear the input text and type the given text, in that text field.
 	 * @param driver Should be WebDriver
 	 * @param element the parameter should be Locator
 	 * @param text the text should be String
@@ -307,9 +307,9 @@ public class SeleniumUtility {
 		long y=System.currentTimeMillis();
 		log.info("Waiting for maximum 30 seconds to element to be not visible in DOM");
 		try {
-			for(int i=0;i<10;i++) {
+			for(int i=0;i<15;i++) {
 				if(driver.findElement(element).isDisplayed()) {
-					Thread.sleep(3000);
+					Thread.sleep(2000);
 					y=System.currentTimeMillis();
 				}
 				else {
@@ -370,9 +370,7 @@ public class SeleniumUtility {
 			Thread.currentThread().interrupt();
 		}
 	}
-	public static void waitForElementVisible(WebDriver driver,By element) {
-		//Do nothing because of X and Y
-	}
+
 
 	/**
 	 * This method  capture the screenshot of the webpage when it fails and save into the src/test/resources/screenshot
@@ -414,7 +412,8 @@ public class SeleniumUtility {
 		action.moveToElement(driver.findElement(element)).build().perform();
 	}
 	/**
-	 * This method move the cursor to the given place of given element
+	 * This Static method uses the selenium Actions class. Using the action class, This method move mouse to the 
+	 * given element and perform click on that element. When Fails, there is no exception is returned.
 	 * @param driver should be WebDriver
 	 * @param element should be Selenium By
 	 */
@@ -425,6 +424,7 @@ public class SeleniumUtility {
 		WebElement element1 = wait.until(ExpectedConditions.
                 elementToBeClickable(element));
 		action.moveToElement(element1).click().build().perform();
+		log.info("perform click Operation on element using action class :"+ element.toString());
 	}
 	
 	/**
@@ -589,10 +589,10 @@ public class SeleniumUtility {
 	}
 
 	/**
-	 * 
-	 * @param driver
-	 * @param element
-	 * @return
+	 * This public static method return all the webelements of a given locators
+	 * @param driver - should be WebDriver
+	 * @param element- Should be Selenium By
+	 * @return - Should be {@code List<WebElement>}
 	 */
 	public static List<WebElement> returnWebElements(WebDriver driver,By element) {
 		List<WebElement> elements=new ArrayList<>();

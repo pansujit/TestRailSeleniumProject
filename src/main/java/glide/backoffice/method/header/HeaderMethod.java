@@ -99,7 +99,7 @@ public class HeaderMethod {
 		SeleniumUtility.clearText(driver, headerItem.inputTagBigSearchBoxHeaderItem);
 		SeleniumUtility.sendText(driver, headerItem.inputTagBigSearchBoxHeaderItem, inputText);
 		SeleniumUtility.sendEnter(driver, headerItem.inputTagBigSearchBoxHeaderItem);
-		SeleniumUtility.waitForElementVisible(driver,headerSearchResult.divTagSearchResultHeaderSearchResult);
+		SeleniumUtility.waitElementToBeVisible(driver,headerSearchResult.divTagSearchResultHeaderSearchResult);
 	}
 	
 	public void bigSearchBoxVerification() {
@@ -118,7 +118,7 @@ public class HeaderMethod {
 	}
 	public void bigsearchBoxResultNavigate() {
 		inputTextInBigSearchBox("mobility");
-		SeleniumUtility.waitForElementVisible(driver, headerSearchResult.divTagSearchResultHeaderSearchResult);
+		SeleniumUtility.waitElementToBeVisible(driver, headerSearchResult.divTagSearchResultHeaderSearchResult);
 		SeleniumUtility.fixedWait(1);
 		List<String> data=newTextList(SeleniumUtility.returnWebElements(driver, headerSearchResult.divTagSearchResultHeaderSearchResult));
 		SeleniumUtility.
@@ -128,7 +128,7 @@ public class HeaderMethod {
 		driver.navigate().back();
 		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));
 		inputTextInBigSearchBox("mobility");
-		SeleniumUtility.waitForElementVisible(driver, headerSearchResult.divTagSearchResultHeaderSearchResult);
+		SeleniumUtility.waitElementToBeVisible(driver, headerSearchResult.divTagSearchResultHeaderSearchResult);
 		SeleniumUtility.fixedWait(2);
 		SeleniumUtility.
 		clickOnElement(driver, headerSearchResult.divTagFirstResultOfHeaderSearchResult(data.get(1)));

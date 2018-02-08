@@ -35,7 +35,7 @@ public class BackuserMethod {
 	 */
 	private void clickOnAddABackuserButton() {
 		SeleniumUtility.clickOnElement(driver,homepageBackusers.aTagAddABackuserHomepageBackusers );
-		SeleniumUtility.waitForElementVisible(driver,addBackuser.buttonTagSaveEditBackuser);
+		SeleniumUtility.waitElementToBeVisible(driver,addBackuser.buttonTagSaveEditBackuser);
 		SeleniumUtility.fixedWait(1);
 	}
 	
@@ -73,23 +73,23 @@ public class BackuserMethod {
 	
 	private void clickOnSaveButton() {
 		SeleniumUtility.clickOnElement(driver, addBackuser.buttonTagSaveEditBackuser);
-		SeleniumUtility.waitForElementVisible(driver, homepageBackusers.aTagAddABackuserHomepageBackusers);
+		SeleniumUtility.waitElementToBeVisible(driver, homepageBackusers.aTagAddABackuserHomepageBackusers);
 		SeleniumUtility.fixedWait(1);
 	}
 	
 	private void clickOnSaveButtonOnEditBackuser() {
 		SeleniumUtility.clickOnElement(driver, addBackuser.buttonTagSaveEditBackuser);
-		SeleniumUtility.waitForElementVisible(driver, viewBackuser.aTagBackUserViewEdit);
+		SeleniumUtility.waitElementToBeVisible(driver, viewBackuser.aTagBackUserViewEdit);
 		SeleniumUtility.fixedWait(1);
 	}
 	private void clickOnEditButton() {
 		SeleniumUtility.clickOnElement(driver,viewBackuser.aTagBackUserViewEdit);
-		SeleniumUtility.waitForElementVisible(driver, addBackuser.buttonTagSaveEditBackuser);
+		SeleniumUtility.waitElementToBeVisible(driver, addBackuser.buttonTagSaveEditBackuser);
 		SeleniumUtility.fixedWait(1);
 	}
 	private void clickOnViewButton(String testBackuser) {
 		SeleniumUtility.clickOnElement(driver, homepageBackusers.buttonTagViewHomepageBackusers(testBackuser));
-		SeleniumUtility.waitForElementVisible(driver, viewBackuser.aTagBackUserViewEdit);
+		SeleniumUtility.waitElementToBeVisible(driver, viewBackuser.aTagBackUserViewEdit);
 		SeleniumUtility.fixedWait(1);
 
 	}

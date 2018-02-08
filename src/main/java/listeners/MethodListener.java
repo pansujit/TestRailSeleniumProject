@@ -3,8 +3,6 @@ package listeners;
 import org.apache.log4j.Logger;
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
-import org.testng.IInvokedMethodListener2;
-import org.testng.ITestContext;
 import org.testng.ITestResult;
 
 import glide.backoffice.test.baseclass.BaseClassExtended;

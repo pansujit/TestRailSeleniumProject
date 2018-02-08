@@ -10,4 +10,18 @@ public class CommonLocators {
 			By.xpath(".//button[@class='paginationControls_button paginationControls_button--next']");
 	
 	
+	/**
+	 * This locators find the loading icon in every page 
+	 */
+	public final By divTagLoadingIconCommonLocators= By.xpath(".//div[@class='sk-circle']");
+	
+	
+	/**
+	 * This locators find the loading icon for the table 
+	 */
+	public final By divTagLoadingIconTableCommonLocators= By.xpath(".//div[@class='lds-rolling']");
+		
+	
+	
+	
 }
