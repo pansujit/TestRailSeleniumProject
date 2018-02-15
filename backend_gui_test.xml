@@ -1,21 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suiteme">
-	<!--<listeners>
-		<listener class-name="testrailtests.TestClassISuiteListener"></listener>
-	</listeners>-->
+	<!--<listeners> <listener class-name="testrailtests.TestClassISuiteListener"></listener> 
+		</listeners> -->
 	<test name="Booking">
 		<classes>
 			<class name="glide.backoffice.test.bookings.BookingHomepageVerification" />
 			<class name="glide.backoffice.test.bookings.CreateNewBooking" />
 		</classes>
-	</test> 
-	
-		<!--  <test name="myBooking">
+	</test>
+	<test name="Super Company">
 		<classes>
-			<class name="glidemobility.booking.test.CreateNewBooking" />
+			<class
+				name="glide.backoffice.test.supercompaniestest.AddNewSuperCompanyErrorTest" />
+			<class
+				name="glide.backoffice.test.supercompaniestest.AddNewSuperCompanyTest" />
+			<class
+				name="glide.backoffice.test.supercompaniestest.SuperCompanyHomepageTest" />
 		</classes>
-	</test>-->
+	</test>
+	<test name="Back users">
+		<classes>
+			<class name="glide.backoffice.test.users.BackuserTest" />
+			<class name="glide.backoffice.test.users.FilterMemberTest" />
+		</classes>
+	</test>
+	<test name="Header">
+		<classes>
+			<class name="glide.backoffice.test.headertest.HeaderTest" />
+		</classes>
+	</test>
+	<test name="Fleets">
+		<classes>
+			<class name="glide.backoffice.test.fleets.VehicleTest" />
+		</classes>
+	</test>
+	<test name="Dashboard">
+		<classes>
+			<class name="glide.backoffice.test.dashboardtest.DashboardTest" />
+		</classes>
+	</test>
+
+	<test name="Configuration">
+		<classes>
+			<class name="glide.backoffice.test.configurations.ConfigTest" />
+		</classes>
+	</test>
+	<test name="Accounts">
+		<classes>
+			<class name="glide.backoffice.test.accounts.ParkingTest" />
+			<class name="glide.backoffice.test.accounts.SiteTest" />
+		</classes>
+	</test>
+
 </suite> <!-- Suite -->
 
 

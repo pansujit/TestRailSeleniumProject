@@ -29,6 +29,7 @@ public class ConfigDataProvider {
 	
 	@DataProvider
 	public Object[][] editConfig() {
+		configDto=null;
 			configDto=ConfigDto.builder()
 					.vatNumber(RandomGenerator.randomPhoneNumber().substring(2, 5))
 					.vatPercentage(RandomGenerator.randomNumberGenerator())

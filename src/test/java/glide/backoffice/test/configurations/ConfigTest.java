@@ -22,7 +22,7 @@ public class ConfigTest  extends BaseClassExtended {
 	@Test(dataProvider="createConfig",dataProviderClass = ConfigDataProvider.class)
 	public void addConfigTest(ConfigDto configDto) {
 		ConfigMethod configMethod=PageFactory.initElements(driver, ConfigMethod.class);
-		configMethod.editConfiguration(configDto);		
+		configMethod.createConfiguration(configDto);		
 	}
 	
 	@Test(dataProvider="editConfig",dataProviderClass = ConfigDataProvider.class)

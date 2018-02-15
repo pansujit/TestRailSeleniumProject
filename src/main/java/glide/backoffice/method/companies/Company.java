@@ -45,7 +45,7 @@ public class Company {
 	 */
 	private void clickOnAddCompany() {
 		SeleniumUtility.clickOnElement(driver, homepageCompany.aTagAddCompanyHomepageCompanies);
-		SeleniumUtility.WaitElementToBeClickable(driver, editCompany.buttonTagSaveEditCompany);
+		SeleniumUtility.waitElementToBeClickable(driver, editCompany.buttonTagSaveEditCompany);
 		SeleniumUtility.fixedWait(1);
 	}
 	/**
@@ -53,7 +53,7 @@ public class Company {
 	 */
 	private void clickOnViewCompany() {
 		SeleniumUtility.clickOnElement(driver, homepageCompany.buttonTagViewHomepageCompanies("test_company"));
-		SeleniumUtility.WaitElementToBeClickable(driver, viewCompany.aTagEditViewCompany);
+		SeleniumUtility.waitElementToBeClickable(driver, viewCompany.aTagEditViewCompany);
 		SeleniumUtility.fixedWait(1);
 	}
 	
@@ -62,7 +62,7 @@ public class Company {
 	 */
 	private void clickOnEditCompany() {
 		SeleniumUtility.clickOnElement(driver, viewCompany.aTagEditViewCompany);
-		SeleniumUtility.WaitElementToBeClickable(driver, editCompany.buttonTagSaveEditCompany);
+		SeleniumUtility.waitElementToBeClickable(driver, editCompany.buttonTagSaveEditCompany);
 		SeleniumUtility.fixedWait(1);
 	}
 	/**
@@ -87,7 +87,7 @@ public class Company {
 	 */
 	private void clickOnSaveButton() {
 		SeleniumUtility.clickOnElement(driver, addCompany.buttonTagSaveEditCompany);
-		SeleniumUtility.WaitElementToBeClickable(driver, homepageCompany.aTagAddCompanyHomepageCompanies) ;
+		SeleniumUtility.waitElementToBeClickable(driver, homepageCompany.aTagAddCompanyHomepageCompanies) ;
 		SeleniumUtility.fixedWait(1);
 	}
 	
@@ -96,7 +96,7 @@ public class Company {
 	 */
 	private void clickOnSaveEditButton() {
 		SeleniumUtility.clickOnElement(driver, addCompany.buttonTagSaveEditCompany);
-		SeleniumUtility.WaitElementToBeClickable(driver, viewCompany.aTagEditViewCompany) ;
+		SeleniumUtility.waitElementToBeClickable(driver, viewCompany.aTagEditViewCompany) ;
 		SeleniumUtility.fixedWait(1);	
 	}
 	

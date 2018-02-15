@@ -57,9 +57,10 @@ public class FindVehicleBooking {
 	/**
 	 * This will find end date input element in Bookings-->Create Booking--> Find member-->Find vehicle
 	 */
-	public final By inputTagEndDateFindVehicleBooking= By.xpath(".//input[starts-with(@id,'returnDate')]");
-	
+	//public final By inputTagEndDateFindVehicleBooking= By.xpath(".//input[starts-with(@id,'returnDate')]");
+	public final By inputTagEndDateFindVehicleBooking= By.xpath(".//div[@class='boxedInput boxedInput--date']//input[contains(@data-reactid,'returnDate')]");
 
+	
 	/**
 	 * This will find  end date hour element in Bookings-->Create Booking--> Find member-->Find vehicle
 	 */

@@ -39,7 +39,7 @@ public abstract class BaseClassExtended {
     }
 	protected WebDriver driver;
 	DesiredCapabilities cap;
-	@BeforeTest
+	@BeforeClass
 	public void OpenBrowser() throws MalformedURLException, InterruptedException {
 		
 		/*cap= DesiredCapabilities.internetExplorer();
@@ -57,8 +57,7 @@ public abstract class BaseClassExtended {
 		driver.navigate().to("https://admin-valid-2-glide.tech.rcimobility.com/#/login");
 		//driver.navigate().to("https://web-dev-2-glide.tech.rcimobility.com/#/login");
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
-		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(15000, TimeUnit.MILLISECONDS);
 		login();
 
 	}
@@ -89,7 +88,7 @@ public abstract class BaseClassExtended {
 	}
 	
 	
-	/*@AfterTest
+	@AfterClass
 	public void closeBrowser() {
 		try {
 			driver.close();
@@ -98,5 +97,5 @@ public abstract class BaseClassExtended {
 		}finally {
 			driver.quit();
 		}
-	}*/
+	}
 }

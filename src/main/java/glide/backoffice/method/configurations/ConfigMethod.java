@@ -35,7 +35,7 @@ public class ConfigMethod {
 
 	private void clickOnAddConfigButton() {
 		SeleniumUtility.clickUsingAction(driver, homepageConfig.aTagAddConfigHomepageConfig);
-		SeleniumUtility.WaitElementToBeClickable(driver, addConfig.buttonTagSaveEditConfig);
+		SeleniumUtility.waitElementToBeClickable(driver, addConfig.buttonTagSaveEditConfig);
 		SeleniumUtility.fixedWait(1);
 
 	}
@@ -46,15 +46,15 @@ public class ConfigMethod {
 	}
 	private void clickOnSaveButton() {
 		SeleniumUtility.clickOnElement(driver, addConfig.buttonTagSaveEditConfig);
-		SeleniumUtility.WaitElementToBeClickable(driver, homepageConfig.aTagAddConfigHomepageConfig);
+		SeleniumUtility.waitElementToBeClickable(driver, homepageConfig.aTagAddConfigHomepageConfig);
 		SeleniumUtility.fixedWait(1);
 
 	}
 
 	private void clickOnEditConfigButton() {
 		while(commonMethods.checkVisibilityPaginationNext()) {
-			if(SeleniumUtility.checkElementIsVisible(driver, homepageConfig.spanTagConfigNameHomepageConfig("Dobdazyr"))) {
-				SeleniumUtility.clickOnElement(driver, homepageConfig.buttonTagEditHomepageConfig("Dobdazyr"));
+			if(SeleniumUtility.checkElementIsVisible(driver, homepageConfig.spanTagConfigNameHomepageConfig("Nagdobyr"))) {
+				SeleniumUtility.clickOnElement(driver, homepageConfig.buttonTagEditHomepageConfig("Nagdobyr"));
 				SeleniumUtility.waitElementToBeVisible(driver, addConfig.buttonTagSaveEditConfig);
 				SeleniumUtility.fixedWait(1);
 				break;
@@ -73,6 +73,7 @@ public class ConfigMethod {
 		clickOnSaveButton();
 	}
 	public void editConfiguration(ConfigDto configDto) {
+		System.out.println("name" +configDto.getConfigName());
 		clickOnEditConfigButton();
 		typeInputFields(configDto);
 		clickOnSaveButton();

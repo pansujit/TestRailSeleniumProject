@@ -1,0 +1,40 @@
+2018-02-13 16:09:52,058 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- OpenBrowser
+2018-02-13 16:09:55,261 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-13 16:09:56,338 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//input[@name='login']
+2018-02-13 16:09:56,428 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing text from given element :By.xpath: .//input[@name='login']
+2018-02-13 16:09:56,611 INFO [glide.backoffice.utility.SeleniumUtility] - Typing text on the given element: By.xpath: .//input[@name='login']
+2018-02-13 16:09:57,616 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//input[@name='password']
+2018-02-13 16:09:57,751 INFO [glide.backoffice.utility.SeleniumUtility] - Typing text on the given element: By.xpath: .//input[@name='password']
+2018-02-13 16:09:58,752 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//button[@class='ekButton ekButton--fullWidth loginForm_submitBtn']
+2018-02-13 16:09:58,815 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-13 16:10:00,887 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='sk-circle']in time: 2.072
+2018-02-13 16:10:02,888 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method OpenBrowser with the result:---- 1
+2018-02-13 16:10:02,894 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- selectSuperCompany
+2018-02-13 16:10:02,928 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//li[@class='sideMenu_section sideMenu_section--settings']/button
+2018-02-13 16:10:02,932 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//*[@id='mainContainer']/div/div[1]/header/div[1]/div
+2018-02-13 16:10:03,013 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//*[@id='mainContainer']/div/div[1]/header/div[1]/div
+2018-02-13 16:10:03,013 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-13 16:10:03,067 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//li[contains(@class,'sideMenu_section sideMenu_section--membersManagement')]/button
+2018-02-13 16:10:03,067 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//li[contains(@class,'sideMenu_section sideMenu_section--membersManagement')]/button
+2018-02-13 16:10:03,134 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-13 16:10:03,164 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//li[@class='sideMenu_section sideMenu_section--members']/a
+2018-02-13 16:10:03,254 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-13 16:10:07,344 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='sk-circle']in time: 4.09
+2018-02-13 16:10:11,352 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method selectSuperCompany with the result:---- 1
+2018-02-13 16:10:11,377 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- filterMemberByNameAndEmailTest
+2018-02-13 16:10:26,407 ERROR [glide.backoffice.utility.SeleniumUtility] - Either element is not found or is not visible  :By.xpath: .//input[@id='memberName']With exception :
+2018-02-13 16:10:26,407 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@class='membersPage_filters']/button
+2018-02-13 16:10:26,510 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-13 16:10:27,674 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='memberName']
+2018-02-13 16:10:27,674 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@class='searchMembersForm_actions']/button[@class='ekButton searchMembersForm_actionsButton']
+2018-02-13 16:10:27,783 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-13 16:10:29,843 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='sk-circle']in time: 2.06
+2018-02-13 16:10:31,869 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//input[@id='memberName']
+2018-02-13 16:10:32,171 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='email']
+2018-02-13 16:10:32,376 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@class='searchMembersForm_actions']/button[@class='ekButton searchMembersForm_actionsButton']
+2018-02-13 16:10:32,435 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-13 16:10:34,485 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='sk-circle']in time: 2.05
+2018-02-13 16:10:36,489 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method filterMemberByNameAndEmailTest with the result:---- 1
+2018-02-13 16:10:36,494 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-13 16:10:36,494 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " filterMemberByNameAndEmailTest "  is  Passed
+2018-02-13 16:10:36,494 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1

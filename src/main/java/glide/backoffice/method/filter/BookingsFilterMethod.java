@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import glide.backoffice.locators.bookings.FilterBookings;
-import glide.backoffice.locators.bookings.HomepageBookings;
 import glide.backoffice.locators.common.DatePicker;
 import glide.backoffice.method.common.CommonMethods;
 
@@ -15,14 +14,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BookingsFilterMethod {
 	WebDriver driver;
-	HomepageBookings homepageBookings;
 	FilterBookings filterBookings;
 	CommonMethods commonMethods;
 	DatePicker datePicker;
 
 	public BookingsFilterMethod(WebDriver ldriver){
 		this.driver=ldriver;
-		this.homepageBookings= PageFactory.initElements(driver,HomepageBookings.class);
 		this.filterBookings=PageFactory.initElements(driver,FilterBookings.class);
 		this.commonMethods=PageFactory.initElements(driver,CommonMethods.class);
 		this.datePicker=PageFactory.initElements(driver,DatePicker.class);

@@ -9,7 +9,6 @@ import glide.backoffice.method.filter.BookingsFilterMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -18,14 +17,17 @@ import org.openqa.selenium.support.PageFactory;
 import glide.backoffice.locators.bookings.FindVehicleBooking;
 import glide.backoffice.locators.bookings.HomepageBookings;
 import glide.backoffice.locators.menuitems.SidebarMenuItems;
-import glide.backoffice.logger.Logging;
 import glide.backoffice.locators.bookings.FindMemberBooking;
 
 import glide.backoffice.utility.DateHelper;
 import glide.backoffice.utility.SeleniumUtility;
-
+/**
+ * This is main class for booking page where all the methods for booking has been created.
+ * @author sujitpandey
+ *
+ */
 public class Booking implements Testme {
-
+	public static final String EMAIL_ADDRESS="sujit.pandey+24@glidemobility.com";
 	SidebarMenuItems sidebarMenuItems;
 	WebDriver driver;
 	FindMemberBooking findMemberBooking;
@@ -62,7 +64,7 @@ public class Booking implements Testme {
 	 * This method input email in email search box.
 	 */
 	private void inputEmailInSearchBox() {		
-		SeleniumUtility.sendText(driver, findMemberBooking.inputTagEmailFindMemberBooking, "sujit.pandey+24@glidemobility.com");
+		SeleniumUtility.sendText(driver, findMemberBooking.inputTagEmailFindMemberBooking, EMAIL_ADDRESS);
 	}
 	/**
 	 * This method click on the search button in the find-member to find the member to for booking
@@ -76,7 +78,7 @@ public class Booking implements Testme {
 	 * This method click on The book link of the member in find-member page
 	 */
 	private void clickOnBook() {		
-		SeleniumUtility.clickOnElement(driver, findMemberBooking.buttonTagBookFindMemberBooking("sujit.pandey+24@glidemobility.com"));
+		SeleniumUtility.clickOnElement(driver, findMemberBooking.buttonTagBookFindMemberBooking(EMAIL_ADDRESS));
 		SeleniumUtility.waitElementToBeVisible(driver, findVehicleBooking.buttonTagSearchFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
 
@@ -111,23 +113,19 @@ public class Booking implements Testme {
 	 * This method select the Start date which is today in find-vehicle page.
 	 */
 	private void selectStartDate() {		
-
 		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagStartDateFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.actionSendKeys(driver, Keys.ENTER,findVehicleBooking.divTagStartDatePopupFindVehicleBooking);
-		SeleniumUtility.fixedWait(1);
+		commonMethods.monthAndDayPicker(DateHelper.getCurrentDate());
 
 	}
 
 	/**
 	 * This method select the End date which is today in find-vehicle page.
 	 */
-	private void selectEndDate() {		
-
+	private void selectEndDate() {	
 		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagEndDateFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.actionSendKeys(driver, Keys.ENTER,findVehicleBooking.divTagEndDatePopupFindVehicleBooking);
-		SeleniumUtility.fixedWait(1);
+		commonMethods.monthAndDayPicker(DateHelper.getCurrentDate());
 
 	}
 
@@ -284,7 +282,7 @@ public class Booking implements Testme {
 	 */
 	public void filterBookingByEmail() {		
 
-		bookingFilterMethod.filterByEmail("sujit.pandey+24@glidemobility.com");		
+		bookingFilterMethod.filterByEmail(EMAIL_ADDRESS);		
 		bookingFilterMethod.deleteFilteredIconsInBooking();
 	}
 	/**
@@ -293,7 +291,7 @@ public class Booking implements Testme {
 	public void filterBookingByStatusAndEmail() {		
 
 		bookingFilterMethod.filterByStatus("completed");
-		bookingFilterMethod.filterByEmail("sujit.pandey+24@glidemobility.com");
+		bookingFilterMethod.filterByEmail(EMAIL_ADDRESS);
 		bookingFilterMethod.deleteFilteredIconsInBooking();
 
 	}
@@ -356,14 +354,14 @@ public class Booking implements Testme {
 		bookingFilterMethod.filterByDepatureDate("2016-11-22");
 		bookingFilterMethod.filterByFirstname("sujit");
 		bookingFilterMethod.filterByLastname("pandey");
-		bookingFilterMethod.filterByEmail("sujit.pandey+24@glidemobility.com");
+		bookingFilterMethod.filterByEmail(EMAIL_ADDRESS);
 		bookingFilterMethod.filterByBookingID("AAZZAZZAA");
 		bookingFilterMethod.filterByPlateNumber("xxxxxx");
 		bookingFilterMethod.filterByStatus("completed");
 		bookingFilterMethod.filterByDelayed("yes");
 		bookingFilterMethod.filterByInvoicingError("no");
-		//bookingFilterMethod.filterByBrand("xxxx");
-		//bookingFilterMethod.filterByModel("yyyyy");
+		/**bookingFilterMethod.filterByBrand("xxxx");
+		bookingFilterMethod.filterByModel("yyyyy");*/
 		bookingFilterMethod.deleteFilteredIconsInBooking();
 
 	}

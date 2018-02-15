@@ -1,10 +1,8 @@
 package glide.backoffice.utility;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,6 +39,13 @@ public class DateHelper {
 		return (rr-month);
 	}
 	
+	/**
+	 * This Static method does the date calculation. It checks also for the date pattern. If the pattern is not like 
+	 * "YYYY-MM-DD" format, it will throw an error and sends NULL List. Otherwise, it will return List of integers where 
+	 * 1st index for year and second index for currentMonth-givenMonth and 3rd index for given day.
+	 * @param myDate - Should be String 
+	 * @return {@code List<Integer>}
+	 */
 	public static List<Integer> selectdate(String myDate) {
 		List<Integer> returnData=new ArrayList<>();
 		if (!myDate.matches("\\d{4}-\\d{2}-\\d{2}")) {
@@ -60,6 +65,16 @@ public class DateHelper {
 		
 	}
 	
+	
+	/**
+	 * This Static method does the date calculation. It checks also for the date pattern. If the pattern is not like 
+	 * "YYYY-MM-DD" format, it will throw an error and sends NULL List. Otherwise, it will return List of integers where 
+	 * 1st index for Given year and second index for shownMonthInDatePicker-givenMonth and 3rd index for given day.
+	 * @param myDate - Should be String 
+	 * @param text - Should be String
+	 * @return {@code List<Integer>}
+	 * 
+	 */
 	public static List<Integer> selectdate(String myDate,String text) {
 		String[] monthFinder=text.split(" ");
 		
@@ -83,108 +98,43 @@ public class DateHelper {
 	
 	
 	
+	
 	/**
-	 * This method in dataHelper class will return Instant booking hour which is the actual hours in the system.
-	 * @return String
+	 * This Static method does the Month and day calculation. It checks also for the date pattern. If the pattern is not like 
+	 * "YYYY-MM-DD" format, it will throw an error and sends NULL List. Otherwise, it will return List of integers where 
+	 * 1st index for shownMonthInDatePicker-givenMonth and 2rd index for given day.
+	 * @param myDate - Should be String 
+	 * @param text - Should be String
+	 * @return {@code List<Integer>}
+	 * 
 	 */
-	public static String initialInstantBookingHour() {
-
-		DateFormat dateFormat = new SimpleDateFormat("HH");
-		Date date = new Date();
-		return dateFormat.format(date);
-	}
-	/**
-	 * This method in dataHelper class will return Instant booking minutes which is ceil to multiple of 5.
-	 * @return String
-	 */
-	public static String initialInstantBookingMinute() {
-
-		DateFormat dateFormat = new SimpleDateFormat("mm");
-		Date date = new Date();
-		int x=Integer.parseInt(dateFormat.format(date));
-		if(x==0) {
-			return String.format("%d", 5);
+	public static List<Integer> selectMonthAndDate(String myDate,String text) {
+		String[] monthFinder=text.split(" ");
+		System.out.println("tewt is "+text);
+		List<Integer> returnData=new ArrayList<>();
+		if (!myDate.matches("\\d{4}-\\d{2}-\\d{2}")) {
+		   log.error("year month date is not formatted as YYYY-MM-DD format: ",  new RuntimeException(myDate));
+		   return returnData;
 		}
-		else {
-			return(Integer.toString((int)Math.ceil(x/5.0)*5));
-		}	
-	}
-	/**
-	 * This method in dataHelper class will return Instant booking for return date which is 2 hours plus from return date
-	 * @return String 
-	 */
-	public static String finalInstantBookingHour() {
-
-		return Integer.toString(LocalDateTime.now().plusHours(2).getHour());	
-	}
-
-
-	/**
-	 * This method in dataHelper class will return Instant booking for return date which is 2 hours plus from return date
-	 * @param hours should be Integer
-	 * @return String 
-	 */
-	public static String customInstantBookingHour(int hours) {
-
-		return Integer.toString(LocalDateTime.now().plusHours(hours).getHour());	
-	}
-	/**
-	 * This method in dataHelper class will return Instant booking minutes which is ceil to multiple of 5.
-	 * @param minutes should be String
-	 * @return String
-	 */
-	public static String initialInstantBookingMinute(int minutes) {
-		if(minutes==0) {
-			return String.format("%d", 5);
-		}
-		else {
-			return(Integer.toString((int)Math.ceil(minutes/5.0)*5));
-		}	
-	}
-	/**
-	 * This is custom date for checking the year, month and days are after or equal to current date
-	 * @param year should be int
-	 * @param month should be int
-	 * @param day should be int
-	 * @return boolean
-	 */
-	public static boolean checkDate(int year, int month, int day) {
-		if (LocalDateTime.now().getYear()>year) 
-		{
-			return true;
-		}
-		else if (LocalDateTime.now().getYear()==year) 
-		{
-			if(LocalDateTime.now().getMonthValue()>month) {
-				return true;
-			}
-			else if(LocalDateTime.now().getMonthValue()==month) {
-				if(LocalDateTime.now().getDayOfMonth()>=day) {
-					return true;
-				}
-				else
-				{
-					return false;
-				}
-
-			}
-			else
-			{
-				return false;
-			}
-		}
-		else
-		{
-			return false;
-		}
+		int month=Month.valueOf(monthFinder[0].toUpperCase()).getValue();
+		String[] testdate=myDate.split("-");
+		int customMonth=Integer.parseInt(testdate[1]);
+		int customDate=Integer.parseInt(testdate[2]);
+		returnData.add(0,month-customMonth);
+		returnData.add(1,customDate);
+		return returnData;
+		
 		
 	}
 	
+	
+
 	/**
-	 * This method will return the hour and minute from the given time zone
-	 * @param hours
-	 * @param minute
-	 * @return
+	 * This method returns the Array of Strings. The hours and minutes are based on current hours and minutes plus given hour and minutes.
+	 * And it return always two digit hour(00 to 23) and two digit minutes (00 to 59)
+	 * @param hours - Should be Integer to calculate hours
+	 * @param minute - Should be Integer to calculate minutes
+	 * @return {@code String[]} Array of hours and minutes in String Array
 	 */
 	public static  String[] hourAndMinute(int hours, int minute) {
 		org.joda.time.LocalTime hourAndDate= org.joda.time.LocalTime.now().plusHours(hours).plusMinutes(minute);
@@ -207,6 +157,11 @@ public class DateHelper {
 		}
 		
 		return new String[] {hr, min};
+	}
+	
+	public static String getCurrentDate() {
+		Date date = new Date();
+		return new SimpleDateFormat("yyyy-MM-dd").format(date);
 	}
 
 

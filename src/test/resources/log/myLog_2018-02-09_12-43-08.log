@@ -1,0 +1,339 @@
+2018-02-09 12:43:08,356 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- OpenBrowser
+2018-02-09 12:43:11,542 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:43:12,615 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//input[@name='login']
+2018-02-09 12:43:12,700 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing text from given element :By.xpath: .//input[@name='login']
+2018-02-09 12:43:12,867 INFO [glide.backoffice.utility.SeleniumUtility] - Typing text on the given element: By.xpath: .//input[@name='login']
+2018-02-09 12:43:13,871 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//input[@name='password']
+2018-02-09 12:43:13,998 INFO [glide.backoffice.utility.SeleniumUtility] - Typing text on the given element: By.xpath: .//input[@name='password']
+2018-02-09 12:43:15,000 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//button[@class='ekButton ekButton--fullWidth loginForm_submitBtn']
+2018-02-09 12:43:15,064 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:43:19,155 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='sk-circle']in time: 4.091
+2018-02-09 12:43:21,160 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method OpenBrowser with the result:---- 1
+2018-02-09 12:43:21,165 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- clickOnBookingSidebar
+2018-02-09 12:43:21,170 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@class='header-actionIcons-companyName header-superCompanyAutoComplete-button']/button
+2018-02-09 12:43:23,255 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//div[@class='header-superCompanyAutoCompleteWrap']//input
+2018-02-09 12:43:25,295 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element and inserting text using action class :By.xpath: .//div[@class='header-superCompanyAutoCompleteWrap']//input
+2018-02-09 12:43:27,521 INFO [glide.backoffice.utility.SeleniumUtility] - Pressing the key: ENTER using action class
+2018-02-09 12:43:32,629 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//li[@class='sideMenu_section sideMenu_section--settings']/button
+2018-02-09 12:43:32,629 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//*[@id='mainContainer']/div/div[1]/header/div[1]/div
+2018-02-09 12:43:32,692 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//*[@id='mainContainer']/div/div[1]/header/div[1]/div
+2018-02-09 12:43:32,692 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:43:33,225 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//li[contains(@class,'sideMenu_section sideMenu_section--booking')]/a
+2018-02-09 12:43:33,336 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:43:33,349 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='sk-circle']in time: 0.013
+2018-02-09 12:43:35,355 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:43:35,377 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 0.022
+2018-02-09 12:43:39,386 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method clickOnBookingSidebar with the result:---- 1
+2018-02-09 12:43:39,399 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- filterBookingByAllTest
+2018-02-09 12:43:39,404 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:43:39,482 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:43:40,524 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_endDate']
+2018-02-09 12:43:40,661 INFO [glide.backoffice.utility.SeleniumUtility] - Taking the innertext of the given Webelement :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/div/div/div
+2018-02-09 12:43:40,664 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:43:42,700 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: //div/div[1]/div/div/div/div/div[1]/div[1]/div/div
+2018-02-09 12:43:42,820 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: //div/div[1]/div/div/div/div/div[1]/div[1]/div/div
+2018-02-09 12:43:44,825 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div/div//button/span[text()='2010']
+2018-02-09 12:43:44,924 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div/div//button/span[text()='2010']
+2018-02-09 12:43:44,924 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:43:45,961 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:43:49,035 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//button[@type='button']//span[text()='12']
+2018-02-09 12:43:49,098 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//button[@type='button']//span[text()='12']
+2018-02-09 12:43:49,101 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:43:51,160 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[2]/buttonin time: 2.059
+2018-02-09 12:43:52,164 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:43:52,212 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:43:53,245 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_startDate']
+2018-02-09 12:43:53,361 INFO [glide.backoffice.utility.SeleniumUtility] - Taking the innertext of the given Webelement :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/div/div/div
+2018-02-09 12:43:53,361 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:43:55,389 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: //div/div[1]/div/div/div/div/div[1]/div[1]/div/div
+2018-02-09 12:43:55,483 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: //div/div[1]/div/div/div/div/div[1]/div[1]/div/div
+2018-02-09 12:43:57,486 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div/div//button/span[text()='2016']
+2018-02-09 12:43:57,570 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div/div//button/span[text()='2016']
+2018-02-09 12:43:57,571 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:43:58,599 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:43:59,665 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:44:00,724 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:44:01,794 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:44:02,854 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:44:03,903 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:44:04,952 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:44:06,014 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:44:09,074 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//button[@type='button']//span[text()='22']
+2018-02-09 12:44:09,149 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//button[@type='button']//span[text()='22']
+2018-02-09 12:44:09,152 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:44:11,195 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[2]/buttonin time: 2.043
+2018-02-09 12:44:12,200 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:44:12,240 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:44:13,264 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_memberFirstName']
+2018-02-09 12:44:13,335 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:44:14,454 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='bookings_filter_value_input_memberFirstName']
+2018-02-09 12:44:14,454 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_confirm_button']
+2018-02-09 12:44:14,523 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:44:16,564 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 2.041
+2018-02-09 12:44:20,569 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:44:20,614 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:44:21,639 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_memberLastName']
+2018-02-09 12:44:21,712 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:44:22,836 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='bookings_filter_value_input_memberLastName']
+2018-02-09 12:44:22,836 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_confirm_button']
+2018-02-09 12:44:22,932 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:44:24,973 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 2.041
+2018-02-09 12:44:28,984 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:44:29,025 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:44:30,050 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_memberLogin']
+2018-02-09 12:44:30,123 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:44:31,378 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='bookings_filter_value_input_memberLogin']
+2018-02-09 12:44:31,378 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_confirm_button']
+2018-02-09 12:44:31,462 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:44:33,501 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 2.039
+2018-02-09 12:44:37,503 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:44:37,545 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:44:38,573 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_bookingId']
+2018-02-09 12:44:38,643 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:44:39,784 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='bookings_filter_value_input_bookingId']
+2018-02-09 12:44:39,784 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_confirm_button']
+2018-02-09 12:44:39,851 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:44:41,888 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 2.037
+2018-02-09 12:44:45,897 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:44:45,942 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:44:46,968 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_vehicleRegistrationNumber']
+2018-02-09 12:44:47,038 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:44:48,168 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='bookings_filter_value_input_vehicleRegistrationNumber']
+2018-02-09 12:44:48,168 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_confirm_button']
+2018-02-09 12:44:48,252 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:44:50,293 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 2.041
+2018-02-09 12:44:54,308 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:44:54,351 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:44:55,377 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_status']
+2018-02-09 12:44:57,452 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:44:57,467 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//span[@id='bookings_filter_type_status']in time: 0.015
+2018-02-09 12:44:57,467 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@class='advancedList_filtersInput']/div
+2018-02-09 12:44:58,559 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//span[@id='bookings_filter_value_COMPLETED']/div/div/div
+2018-02-09 12:44:58,560 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_value_COMPLETED']/div/div/div
+2018-02-09 12:44:58,651 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:45:00,699 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 2.048
+2018-02-09 12:45:03,702 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:45:03,762 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:45:04,795 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_delayed']
+2018-02-09 12:45:04,868 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:45:06,905 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//span[@id='bookings_filter_type_status']in time: 2.037
+2018-02-09 12:45:06,905 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@class='advancedList_filtersInput']/div
+2018-02-09 12:45:07,986 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//span[@id='bookings_filter_value_true']/div/div/div
+2018-02-09 12:45:07,987 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_value_true']/div/div/div
+2018-02-09 12:45:08,058 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:45:10,097 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 2.039
+2018-02-09 12:45:13,102 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:45:13,151 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:45:14,182 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_failed']
+2018-02-09 12:45:14,258 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:45:16,297 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//span[@id='bookings_filter_type_status']in time: 2.039
+2018-02-09 12:45:16,297 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@class='advancedList_filtersInput']/div
+2018-02-09 12:45:17,377 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//span[@id='bookings_filter_value_false']/div/div/div
+2018-02-09 12:45:17,377 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_value_false']/div/div/div
+2018-02-09 12:45:17,467 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:45:19,513 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 2.046
+2018-02-09 12:45:22,533 INFO [glide.backoffice.utility.SeleniumUtility] - Returning the Web Elements in List<WebElements> Format of BY element: By.cssSelector: div[id^="bookings_filterChip_"] svg
+2018-02-09 12:45:43,192 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method filterBookingByAllTest with the result:---- 1
+2018-02-09 12:45:43,197 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-09 12:45:43,197 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " filterBookingByAllTest "  is  Passed
+2018-02-09 12:45:43,197 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1
+2018-02-09 12:45:43,198 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- filterBookingByArrivalAndDepartureDateTest
+2018-02-09 12:45:43,199 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:45:43,265 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:45:44,298 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_endDate']
+2018-02-09 12:45:44,568 INFO [glide.backoffice.utility.SeleniumUtility] - Taking the innertext of the given Webelement :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/div/div/div
+2018-02-09 12:45:44,568 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:45:46,611 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: //div/div[1]/div/div/div/div/div[1]/div[1]/div/div
+2018-02-09 12:45:46,706 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: //div/div[1]/div/div/div/div/div[1]/div[1]/div/div
+2018-02-09 12:45:48,711 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div/div//button/span[text()='2010']
+2018-02-09 12:45:48,810 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div/div//button/span[text()='2010']
+2018-02-09 12:45:48,810 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:45:49,846 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[1]
+2018-02-09 12:45:50,917 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[1]
+2018-02-09 12:45:51,982 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[1]
+2018-02-09 12:45:53,051 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[1]
+2018-02-09 12:45:54,110 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[1]
+2018-02-09 12:45:55,182 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[1]
+2018-02-09 12:45:56,251 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[1]
+2018-02-09 12:45:57,316 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[1]
+2018-02-09 12:46:00,386 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//button[@type='button']//span[text()='12']
+2018-02-09 12:46:00,457 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//button[@type='button']//span[text()='12']
+2018-02-09 12:46:00,459 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:46:02,516 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[2]/buttonin time: 2.057
+2018-02-09 12:46:03,521 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:46:03,571 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:46:04,603 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_startDate']
+2018-02-09 12:46:04,705 INFO [glide.backoffice.utility.SeleniumUtility] - Taking the innertext of the given Webelement :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/div/div/div
+2018-02-09 12:46:04,705 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:46:06,731 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: //div/div[1]/div/div/div/div/div[1]/div[1]/div/div
+2018-02-09 12:46:06,812 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: //div/div[1]/div/div/div/div/div[1]/div[1]/div/div
+2018-02-09 12:46:08,817 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div/div//button/span[text()='2016']
+2018-02-09 12:46:08,908 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div/div//button/span[text()='2016']
+2018-02-09 12:46:08,908 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:46:09,936 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:46:11,000 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:46:12,066 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:46:13,130 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:46:14,201 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:46:15,265 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:46:16,330 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:46:17,376 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]
+2018-02-09 12:46:20,430 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//button[@type='button']//span[text()='22']
+2018-02-09 12:46:20,489 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//button[@type='button']//span[text()='22']
+2018-02-09 12:46:20,492 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:46:22,541 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[2]/buttonin time: 2.049
+2018-02-09 12:46:23,561 INFO [glide.backoffice.utility.SeleniumUtility] - Returning the Web Elements in List<WebElements> Format of BY element: By.cssSelector: div[id^="bookings_filterChip_"] svg
+2018-02-09 12:46:27,689 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method filterBookingByArrivalAndDepartureDateTest with the result:---- 1
+2018-02-09 12:46:27,690 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-09 12:46:27,690 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " filterBookingByArrivalAndDepartureDateTest "  is  Passed
+2018-02-09 12:46:27,690 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1
+2018-02-09 12:46:27,691 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- filterBookingByArrivalDateTest
+2018-02-09 12:46:27,692 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:46:27,755 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:46:28,797 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_endDate']
+2018-02-09 12:46:28,913 INFO [glide.backoffice.utility.SeleniumUtility] - Taking the innertext of the given Webelement :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/div/div/div
+2018-02-09 12:46:28,913 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:46:30,954 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: //div/div[1]/div/div/div/div/div[1]/div[1]/div/div
+2018-02-09 12:46:31,055 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: //div/div[1]/div/div/div/div/div[1]/div[1]/div/div
+2018-02-09 12:46:33,060 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div/div//button/span[text()='2016']
+2018-02-09 12:46:33,136 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div/div//button/span[text()='2016']
+2018-02-09 12:46:33,137 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:46:36,161 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//button[@type='button']//span[text()='22']
+2018-02-09 12:46:36,213 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//button[@type='button']//span[text()='22']
+2018-02-09 12:46:36,215 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:46:38,254 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[2]/buttonin time: 2.039
+2018-02-09 12:46:39,269 INFO [glide.backoffice.utility.SeleniumUtility] - Returning the Web Elements in List<WebElements> Format of BY element: By.cssSelector: div[id^="bookings_filterChip_"] svg
+2018-02-09 12:46:41,335 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method filterBookingByArrivalDateTest with the result:---- 1
+2018-02-09 12:46:41,336 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-09 12:46:41,336 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " filterBookingByArrivalDateTest "  is  Passed
+2018-02-09 12:46:41,336 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1
+2018-02-09 12:46:41,337 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- filterBookingByBookingIDTest
+2018-02-09 12:46:41,339 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:46:41,386 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:46:42,415 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_bookingId']
+2018-02-09 12:46:42,492 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:46:43,642 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='bookings_filter_value_input_bookingId']
+2018-02-09 12:46:43,642 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_confirm_button']
+2018-02-09 12:46:43,741 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:46:45,790 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 2.049
+2018-02-09 12:46:49,810 INFO [glide.backoffice.utility.SeleniumUtility] - Returning the Web Elements in List<WebElements> Format of BY element: By.cssSelector: div[id^="bookings_filterChip_"] svg
+2018-02-09 12:46:51,869 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method filterBookingByBookingIDTest with the result:---- 1
+2018-02-09 12:46:51,871 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-09 12:46:51,871 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " filterBookingByBookingIDTest "  is  Passed
+2018-02-09 12:46:51,871 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1
+2018-02-09 12:46:51,873 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- filterBookingByDepartureDateTest
+2018-02-09 12:46:51,873 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:46:51,927 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:46:52,955 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_startDate']
+2018-02-09 12:46:53,076 INFO [glide.backoffice.utility.SeleniumUtility] - Taking the innertext of the given Webelement :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/div/div/div
+2018-02-09 12:46:53,077 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:46:55,109 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: //div/div[1]/div/div/div/div/div[1]/div[1]/div/div
+2018-02-09 12:46:55,201 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: //div/div[1]/div/div/div/div/div[1]/div[1]/div/div
+2018-02-09 12:46:57,204 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div/div//button/span[text()='2016']
+2018-02-09 12:46:57,277 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[1]/div/div//button/span[text()='2016']
+2018-02-09 12:46:57,277 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:47:00,309 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//button[@type='button']//span[text()='22']
+2018-02-09 12:47:00,363 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//button[@type='button']//span[text()='22']
+2018-02-09 12:47:00,365 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:47:02,410 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div/div[1]/div/div/div/div/div[2]/div[2]/buttonin time: 2.045
+2018-02-09 12:47:06,462 INFO [glide.backoffice.utility.SeleniumUtility] - Returning the Web Elements in List<WebElements> Format of BY element: By.cssSelector: div[id^="bookings_filterChip_"] svg
+2018-02-09 12:47:08,579 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method filterBookingByDepartureDateTest with the result:---- 1
+2018-02-09 12:47:08,580 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-09 12:47:08,580 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " filterBookingByDepartureDateTest "  is  Passed
+2018-02-09 12:47:08,581 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1
+2018-02-09 12:47:08,582 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- filterBookingByEmailTest
+2018-02-09 12:47:08,583 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:47:08,659 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:47:09,704 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_memberLogin']
+2018-02-09 12:47:09,797 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:47:11,079 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='bookings_filter_value_input_memberLogin']
+2018-02-09 12:47:11,080 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_confirm_button']
+2018-02-09 12:47:11,206 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:47:13,249 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 2.043
+2018-02-09 12:47:17,270 INFO [glide.backoffice.utility.SeleniumUtility] - Returning the Web Elements in List<WebElements> Format of BY element: By.cssSelector: div[id^="bookings_filterChip_"] svg
+2018-02-09 12:47:19,373 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method filterBookingByEmailTest with the result:---- 1
+2018-02-09 12:47:19,375 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-09 12:47:19,375 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " filterBookingByEmailTest "  is  Passed
+2018-02-09 12:47:19,375 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1
+2018-02-09 12:47:19,376 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- filterBookingByFirstnameTest
+2018-02-09 12:47:19,377 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:47:19,432 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:47:20,462 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_memberFirstName']
+2018-02-09 12:47:20,545 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:47:21,677 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='bookings_filter_value_input_memberFirstName']
+2018-02-09 12:47:21,677 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_confirm_button']
+2018-02-09 12:47:21,765 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:47:23,811 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 2.045
+2018-02-09 12:47:27,830 INFO [glide.backoffice.utility.SeleniumUtility] - Returning the Web Elements in List<WebElements> Format of BY element: By.cssSelector: div[id^="bookings_filterChip_"] svg
+2018-02-09 12:47:29,927 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method filterBookingByFirstnameTest with the result:---- 1
+2018-02-09 12:47:29,929 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-09 12:47:29,929 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " filterBookingByFirstnameTest "  is  Passed
+2018-02-09 12:47:29,929 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1
+2018-02-09 12:47:29,930 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- filterBookingByLastnameTest
+2018-02-09 12:47:29,931 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:47:29,985 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:47:31,014 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_memberLastName']
+2018-02-09 12:47:31,099 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:47:32,233 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='bookings_filter_value_input_memberLastName']
+2018-02-09 12:47:32,233 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_confirm_button']
+2018-02-09 12:47:32,338 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:47:34,379 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 2.041
+2018-02-09 12:47:38,400 INFO [glide.backoffice.utility.SeleniumUtility] - Returning the Web Elements in List<WebElements> Format of BY element: By.cssSelector: div[id^="bookings_filterChip_"] svg
+2018-02-09 12:47:40,483 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method filterBookingByLastnameTest with the result:---- 1
+2018-02-09 12:47:40,484 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-09 12:47:40,484 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " filterBookingByLastnameTest "  is  Passed
+2018-02-09 12:47:40,484 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1
+2018-02-09 12:47:40,485 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- filterBookingByPlateNumberTest
+2018-02-09 12:47:40,486 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:47:40,537 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:47:41,568 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_vehicleRegistrationNumber']
+2018-02-09 12:47:41,666 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:47:42,798 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='bookings_filter_value_input_vehicleRegistrationNumber']
+2018-02-09 12:47:42,798 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_confirm_button']
+2018-02-09 12:47:42,900 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:47:42,952 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 0.052
+2018-02-09 12:47:46,968 INFO [glide.backoffice.utility.SeleniumUtility] - Returning the Web Elements in List<WebElements> Format of BY element: By.cssSelector: div[id^="bookings_filterChip_"] svg
+2018-02-09 12:47:49,028 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method filterBookingByPlateNumberTest with the result:---- 1
+2018-02-09 12:47:49,029 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-09 12:47:49,029 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " filterBookingByPlateNumberTest "  is  Passed
+2018-02-09 12:47:49,029 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1
+2018-02-09 12:47:49,031 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- filterBookingByStatus
+2018-02-09 12:47:49,032 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:47:49,084 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:47:50,113 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_status']
+2018-02-09 12:47:52,187 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:47:52,200 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//span[@id='bookings_filter_type_status']in time: 0.013
+2018-02-09 12:47:52,200 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@class='advancedList_filtersInput']/div
+2018-02-09 12:47:53,306 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//span[@id='bookings_filter_value_COMPLETED']/div/div/div
+2018-02-09 12:47:53,306 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_value_COMPLETED']/div/div/div
+2018-02-09 12:47:53,412 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:48:01,524 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 8.112
+2018-02-09 12:48:04,545 INFO [glide.backoffice.utility.SeleniumUtility] - Returning the Web Elements in List<WebElements> Format of BY element: By.cssSelector: div[id^="bookings_filterChip_"] svg
+2018-02-09 12:48:06,661 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method filterBookingByStatus with the result:---- 1
+2018-02-09 12:48:06,662 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-09 12:48:06,663 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " filterBookingByStatus "  is  Passed
+2018-02-09 12:48:06,663 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1
+2018-02-09 12:48:06,664 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- filterBookingByStatusAndEmailTest
+2018-02-09 12:48:06,665 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:48:06,744 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:48:07,778 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_status']
+2018-02-09 12:48:09,861 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:48:09,875 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//span[@id='bookings_filter_type_status']in time: 0.014
+2018-02-09 12:48:09,875 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@class='advancedList_filtersInput']/div
+2018-02-09 12:48:10,980 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//span[@id='bookings_filter_value_COMPLETED']/div/div/div
+2018-02-09 12:48:10,980 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_value_COMPLETED']/div/div/div
+2018-02-09 12:48:11,092 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:48:17,189 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 6.097
+2018-02-09 12:48:20,197 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_type_wrap']/div[1]/div[2]
+2018-02-09 12:48:20,256 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:48:21,281 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//span[@id='bookings_filter_type_memberLogin']
+2018-02-09 12:48:21,355 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-09 12:48:22,654 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='bookings_filter_value_input_memberLogin']
+2018-02-09 12:48:22,654 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@id='bookings_filter_confirm_button']
+2018-02-09 12:48:22,784 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-09 12:48:28,882 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='lds-rolling']in time: 6.098
+2018-02-09 12:48:32,907 INFO [glide.backoffice.utility.SeleniumUtility] - Returning the Web Elements in List<WebElements> Format of BY element: By.cssSelector: div[id^="bookings_filterChip_"] svg
+2018-02-09 12:48:37,102 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method filterBookingByStatusAndEmailTest with the result:---- 1
+2018-02-09 12:48:37,103 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-09 12:48:37,103 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " filterBookingByStatusAndEmailTest "  is  Passed
+2018-02-09 12:48:37,104 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1

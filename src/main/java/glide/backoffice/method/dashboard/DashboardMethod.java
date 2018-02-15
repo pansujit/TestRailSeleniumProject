@@ -102,7 +102,7 @@ public class DashboardMethod {
 
 		// This page is navigate to members page with filter status is TO_REVIEW
 		SeleniumUtility.clickOnElement(driver, homepageDashboard.aTagToValidateMemberContentContentHomepageDashboard);
-		SeleniumUtility.waitElementToBeVisible(driver, filterMembers.buttonTagMainButtonFilterMembers);
+		SeleniumUtility.waitElementToBeVisible(driver, filterMembers.buttonTagFiltersFilterMembers);
 		softAssert.assertTrue(driver.getCurrentUrl().contains("TO_REVIEW"));
 		driver.navigate().back();
 		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));

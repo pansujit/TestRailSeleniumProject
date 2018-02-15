@@ -26,9 +26,4 @@ public class CreateNewBooking extends BaseClassExtended {
 		Booking booking= PageFactory.initElements(driver, Booking.class);
 		booking.createBooking();
 	}
-
-
-	
-
-
 }

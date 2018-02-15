@@ -1,0 +1,49 @@
+2018-02-14 10:04:23,380 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- OpenBrowser
+2018-02-14 10:04:26,019 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-14 10:04:27,065 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//input[@name='login']
+2018-02-14 10:04:27,151 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing text from given element :By.xpath: .//input[@name='login']
+2018-02-14 10:04:27,319 INFO [glide.backoffice.utility.SeleniumUtility] - Typing text on the given element: By.xpath: .//input[@name='login']
+2018-02-14 10:04:28,322 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//input[@name='password']
+2018-02-14 10:04:28,444 INFO [glide.backoffice.utility.SeleniumUtility] - Typing text on the given element: By.xpath: .//input[@name='password']
+2018-02-14 10:04:29,448 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//button[@class='ekButton ekButton--fullWidth loginForm_submitBtn']
+2018-02-14 10:04:29,516 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-14 10:04:31,573 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='sk-circle']in time: 2.057
+2018-02-14 10:04:33,578 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method OpenBrowser with the result:---- 1
+2018-02-14 10:04:33,579 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- clickconfigurations
+2018-02-14 10:04:33,610 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//li[@class='sideMenu_section sideMenu_section--settings']/button
+2018-02-14 10:04:33,614 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//*[@id='mainContainer']/div/div[1]/header/div[1]/div
+2018-02-14 10:04:33,694 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//*[@id='mainContainer']/div/div[1]/header/div[1]/div
+2018-02-14 10:04:33,695 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-14 10:04:33,757 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//li[@class='sideMenu_section sideMenu_section--accountManagement']/button
+2018-02-14 10:04:33,757 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//li[@class='sideMenu_section sideMenu_section--accountManagement']/button
+2018-02-14 10:04:33,822 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-14 10:04:33,854 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//li[@class='sideMenu_section sideMenu_section--configurations']/a
+2018-02-14 10:04:39,029 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method clickconfigurations with the result:---- 1
+2018-02-14 10:04:39,289 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- addConfigTest
+2018-02-14 10:04:39,291 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//div[@class='pageManagementHeader_actionButton']/a
+2018-02-14 10:04:39,366 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//div[@class='pageManagementHeader_actionButton']/a
+2018-02-14 10:04:39,520 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be clickable in DOM
+2018-02-14 10:04:40,689 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='name']
+2018-02-14 10:04:40,785 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='vatCode']
+2018-02-14 10:04:40,993 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='vatRate']
+2018-02-14 10:04:40,993 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@class='configurationForm_actions']/button
+2018-02-14 10:04:41,366 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be clickable in DOM
+2018-02-14 10:04:42,367 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method addConfigTest with the result:---- 1
+2018-02-14 10:04:42,369 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-14 10:04:42,369 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " addConfigTest "  is  Passed
+2018-02-14 10:04:42,369 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1
+2018-02-14 10:04:42,371 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- editConfigTest
+2018-02-14 10:04:42,401 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:04:42,433 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//div[@class='configurationPage_list']//table/tbody/tr/td[1]/span/span[text()='Nagdobyr']
+2018-02-14 10:04:42,433 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@class='configurationPage_list']//table/tbody/tr/td[1]/span/span[text()='Nagdobyr']/../../../td[4]/button
+2018-02-14 10:04:42,499 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-14 10:04:43,701 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='vatCode']
+2018-02-14 10:04:43,910 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing and Typing text on the given element: By.xpath: .//input[@id='vatRate']
+2018-02-14 10:04:43,910 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//div[@class='configurationForm_actions']/button
+2018-02-14 10:04:44,170 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be clickable in DOM
+2018-02-14 10:04:45,176 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method editConfigTest with the result:---- 1
+2018-02-14 10:04:45,178 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-14 10:04:45,178 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " editConfigTest "  is  Passed
+2018-02-14 10:04:45,178 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 1
+2018-02-14 10:04:45,178 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- closeBrowser
+2018-02-14 10:04:45,330 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method closeBrowser with the result:---- 1

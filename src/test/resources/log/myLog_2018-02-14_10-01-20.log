@@ -1,0 +1,49 @@
+2018-02-14 10:01:20,236 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- OpenBrowser
+2018-02-14 10:01:25,491 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-14 10:01:26,555 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//input[@name='login']
+2018-02-14 10:01:26,640 INFO [glide.backoffice.utility.SeleniumUtility] - Clearing text from given element :By.xpath: .//input[@name='login']
+2018-02-14 10:01:26,806 INFO [glide.backoffice.utility.SeleniumUtility] - Typing text on the given element: By.xpath: .//input[@name='login']
+2018-02-14 10:01:27,810 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//input[@name='password']
+2018-02-14 10:01:27,941 INFO [glide.backoffice.utility.SeleniumUtility] - Typing text on the given element: By.xpath: .//input[@name='password']
+2018-02-14 10:01:28,943 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//button[@class='ekButton ekButton--fullWidth loginForm_submitBtn']
+2018-02-14 10:01:29,014 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be not visible in DOM
+2018-02-14 10:01:31,082 INFO [glide.backoffice.utility.SeleniumUtility] - The element is down: By.xpath: .//div[@class='sk-circle']in time: 2.068
+2018-02-14 10:01:33,083 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method OpenBrowser with the result:---- 1
+2018-02-14 10:01:33,084 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- clickconfigurations
+2018-02-14 10:01:33,118 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//li[@class='sideMenu_section sideMenu_section--settings']/button
+2018-02-14 10:01:33,122 INFO [glide.backoffice.utility.SeleniumUtility] - Moving to the given element using action class :By.xpath: .//*[@id='mainContainer']/div/div[1]/header/div[1]/div
+2018-02-14 10:01:33,193 INFO [glide.backoffice.utility.SeleniumUtility] - perform click Operation on element using action class :By.xpath: .//*[@id='mainContainer']/div/div[1]/header/div[1]/div
+2018-02-14 10:01:33,194 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-14 10:01:33,246 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//li[@class='sideMenu_section sideMenu_section--accountManagement']/button
+2018-02-14 10:01:33,247 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//li[@class='sideMenu_section sideMenu_section--accountManagement']/button
+2018-02-14 10:01:33,305 INFO [glide.backoffice.utility.SeleniumUtility] - Waiting for maximum 30 seconds to element to be visible in DOM
+2018-02-14 10:01:33,335 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//li[@class='sideMenu_section sideMenu_section--configurations']/a
+2018-02-14 10:01:38,487 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method clickconfigurations with the result:---- 1
+2018-02-14 10:01:38,749 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- addConfigTest
+2018-02-14 10:01:38,781 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:01:53,839 ERROR [glide.backoffice.utility.SeleniumUtility] - Either element is not found or is not visible  :By.xpath: .//div[@class='configurationPage_list']//table/tbody/tr/td[1]/span/span[text()='sdds']With exception :
+2018-02-14 10:01:53,839 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:01:54,033 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:02:09,091 ERROR [glide.backoffice.utility.SeleniumUtility] - Either element is not found or is not visible  :By.xpath: .//div[@class='configurationPage_list']//table/tbody/tr/td[1]/span/span[text()='sdds']With exception :
+2018-02-14 10:02:09,091 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:02:09,238 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:02:24,271 ERROR [glide.backoffice.utility.SeleniumUtility] - Either element is not found or is not visible  :By.xpath: .//div[@class='configurationPage_list']//table/tbody/tr/td[1]/span/span[text()='sdds']With exception :
+2018-02-14 10:02:24,279 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:02:24,433 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:02:39,484 ERROR [glide.backoffice.utility.SeleniumUtility] - Either element is not found or is not visible  :By.xpath: .//div[@class='configurationPage_list']//table/tbody/tr/td[1]/span/span[text()='sdds']With exception :
+2018-02-14 10:02:39,484 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:02:39,637 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:02:54,673 ERROR [glide.backoffice.utility.SeleniumUtility] - Either element is not found or is not visible  :By.xpath: .//div[@class='configurationPage_list']//table/tbody/tr/td[1]/span/span[text()='sdds']With exception :
+2018-02-14 10:02:54,673 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:02:54,824 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:03:09,846 ERROR [glide.backoffice.utility.SeleniumUtility] - Either element is not found or is not visible  :By.xpath: .//div[@class='configurationPage_list']//table/tbody/tr/td[1]/span/span[text()='sdds']With exception :
+2018-02-14 10:03:09,846 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:03:10,030 INFO [glide.backoffice.utility.SeleniumUtility] - The element is visible and displayed in DOM :By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:03:19,705 ERROR [glide.backoffice.utility.SeleniumUtility] - Either element is not found or is not visible  :By.xpath: .//div[@class='configurationPage_list']//table/tbody/tr/td[1]/span/span[text()='sdds']With exception :
+2018-02-14 10:03:19,706 INFO [glide.backoffice.utility.SeleniumUtility] - Click on Element using Selenium 'Click': By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']
+2018-02-14 10:03:19,709 ERROR [glide.backoffice.utility.SeleniumUtility] - Click event on element :By.xpath: .//button[@class='paginationControls_button paginationControls_button--next']  FAILED with exception: NoSuchWindowException
+2018-02-14 10:03:19,710 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method addConfigTest with the result:---- 2
+2018-02-14 10:03:19,714 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Starting method:---- teardown
+2018-02-14 10:03:19,714 INFO [glide.backoffice.utility.SeleniumUtility] - The Test : " addConfigTest "  is  Failed
+2018-02-14 10:03:19,715 INFO [glide.backoffice.utility.SeleniumUtility] - ScreenShot Taken for the test :addConfigTest
+2018-02-14 10:03:19,719 INFO [glide.backoffice.test.baseclass.BaseClassExtended] - Closing method teardown with the result:---- 2

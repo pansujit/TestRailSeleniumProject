@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Log4J Log Messages</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Wed Feb 14 10:03:05 CET 2018<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.test.baseclass.BaseClassExtended category">glide.backoffice.test.baseclass.BaseClassExtended</td>
+<td title="Message">Starting method:---- OpenBrowser</td>
+</tr>
+
+<tr>
+<td>3005</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Waiting for maximum 30 seconds to element to be visible in DOM</td>
+</tr>
+
+<tr>
+<td>4097</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Click on Element using Selenium 'Click': By.xpath: .//input[@name='login']</td>
+</tr>
+
+<tr>
+<td>4180</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Clearing text from given element :By.xpath: .//input[@name='login']</td>
+</tr>
+
+<tr>
+<td>4350</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Typing text on the given element: By.xpath: .//input[@name='login']</td>
+</tr>
+
+<tr>
+<td>5352</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Click on Element using Selenium 'Click': By.xpath: .//input[@name='password']</td>
+</tr>
+
+<tr>
+<td>5484</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Typing text on the given element: By.xpath: .//input[@name='password']</td>
+</tr>
+
+<tr>
+<td>6486</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Click on Element using Selenium 'Click': By.xpath: .//button[@class='ekButton ekButton--fullWidth loginForm_submitBtn']</td>
+</tr>
+
+<tr>
+<td>6557</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Waiting for maximum 30 seconds to element to be not visible in DOM</td>
+</tr>
+
+<tr>
+<td>8650</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">The element is down: By.xpath: .//div[@class='sk-circle']in time: 2.094</td>
+</tr>
+
+<tr>
+<td>10653</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.test.baseclass.BaseClassExtended category">glide.backoffice.test.baseclass.BaseClassExtended</td>
+<td title="Message">Closing method OpenBrowser with the result:---- 1</td>
+</tr>
+
+<tr>
+<td>10654</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.test.baseclass.BaseClassExtended category">glide.backoffice.test.baseclass.BaseClassExtended</td>
+<td title="Message">Starting method:---- clickconfigurations</td>
+</tr>
+
+<tr>
+<td>10690</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">The element is visible and displayed in DOM :By.xpath: .//li[@class='sideMenu_section sideMenu_section--settings']/button</td>
+</tr>
+
+<tr>
+<td>10694</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Moving to the given element using action class :By.xpath: .//*[@id='mainContainer']/div/div[1]/header/div[1]/div</td>
+</tr>
+
+<tr>
+<td>10770</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">perform click Operation on element using action class :By.xpath: .//*[@id='mainContainer']/div/div[1]/header/div[1]/div</td>
+</tr>
+
+<tr>
+<td>10770</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Waiting for maximum 30 seconds to element to be visible in DOM</td>
+</tr>
+
+<tr>
+<td>10825</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">The element is visible and displayed in DOM :By.xpath: .//li[@class='sideMenu_section sideMenu_section--accountManagement']/button</td>
+</tr>
+
+<tr>
+<td>10825</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Click on Element using Selenium 'Click': By.xpath: .//li[@class='sideMenu_section sideMenu_section--accountManagement']/button</td>
+</tr>
+
+<tr>
+<td>10877</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Waiting for maximum 30 seconds to element to be visible in DOM</td>
+</tr>
+
+<tr>
+<td>10908</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Click on Element using Selenium 'Click': By.xpath: .//li[@class='sideMenu_section sideMenu_section--configurations']/a</td>
+</tr>
+
+<tr>
+<td>16041</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.test.baseclass.BaseClassExtended category">glide.backoffice.test.baseclass.BaseClassExtended</td>
+<td title="Message">Closing method clickconfigurations with the result:---- 1</td>
+</tr>
+
+<tr>
+<td>16317</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.test.baseclass.BaseClassExtended category">glide.backoffice.test.baseclass.BaseClassExtended</td>
+<td title="Message">Starting method:---- addConfigTest</td>
+</tr>
+
+<tr>
+<td>16319</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Moving to the given element using action class :By.xpath: .//div[@class='pageManagementHeader_actionButton']/a</td>
+</tr>
+
+<tr>
+<td>16386</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">perform click Operation on element using action class :By.xpath: .//div[@class='pageManagementHeader_actionButton']/a</td>
+</tr>
+
+<tr>
+<td>16687</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Waiting for maximum 30 seconds to element to be clickable in DOM</td>
+</tr>
+
+<tr>
+<td>17848</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Clearing and Typing text on the given element: By.xpath: .//input[@id='name']</td>
+</tr>
+
+<tr>
+<td>17944</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Clearing and Typing text on the given element: By.xpath: .//input[@id='vatCode']</td>
+</tr>
+
+<tr>
+<td>18156</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Clearing and Typing text on the given element: By.xpath: .//input[@id='vatRate']</td>
+</tr>
+
+<tr>
+<td>18157</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Click on Element using Selenium 'Click': By.xpath: .//div[@class='configurationForm_actions']/button</td>
+</tr>
+
+<tr>
+<td>18704</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="glide.backoffice.utility.SeleniumUtility category">glide.backoffice.utility.SeleniumUtility</td>
+<td title="Message">Waiting for maximum 30 seconds to element to be clickable in DOM</td>
+</tr>

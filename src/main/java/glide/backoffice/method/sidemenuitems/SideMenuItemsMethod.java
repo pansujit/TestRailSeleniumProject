@@ -55,6 +55,7 @@ public class SideMenuItemsMethod {
 		clickOnMenu();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagBookingsSidebarMenuItems);
 		commonMethods.waitUntilElementToBeInvisible();
+		commonMethods.waitUntilTableContentVisible();
 		SeleniumUtility.fixedWait(2);
 	}
 
@@ -116,6 +117,14 @@ public class SideMenuItemsMethod {
 	public void clickOnBackusers() {
 		clickOnUsers();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagBackUsersSidebarMenuItems);
+		commonMethods.waitUntilElementToBeInvisible();
+		SeleniumUtility.fixedWait(2);
+
+	}
+	
+	public void clickOnMembers() {
+		clickOnUsers();
+		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagMembersSidebarMenuItems);
 		commonMethods.waitUntilElementToBeInvisible();
 		SeleniumUtility.fixedWait(2);
 

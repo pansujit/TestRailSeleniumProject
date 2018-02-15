@@ -10,11 +10,16 @@ import glide.backoffice.locators.common.CommonLocators;
 import glide.backoffice.locators.common.DatePicker;
 import glide.backoffice.utility.DateHelper;
 import glide.backoffice.utility.SeleniumUtility;
-
+/**
+ * This common methods contains helpful methods that are common in whole Back office system.
+ * @author sujitpandey
+ *
+ */
 public class CommonMethods {
 	WebDriver driver;
 	CommonLocators commonLocators;
 	DatePicker datePicker;
+	
 	public CommonMethods(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.commonLocators=PageFactory.initElements(driver, CommonLocators.class);
@@ -50,7 +55,7 @@ public class CommonMethods {
 	}
 	/**
 	 * This private method select the year in the date picker
-	 * @param year - should be String
+	 * @param year - Should be String in format "YYYY"
 	 */
 	private void selectYear(String year) {
 		SeleniumUtility.waitElementToBeVisible(driver, datePicker.divTagTopYearSelectorDatePicker);
@@ -63,10 +68,9 @@ public class CommonMethods {
 	}
 	/**
 	 * This private method Select the given month in the date picker by moving left or right next button.
-	 * @param month - Should be int
+	 * @param month - Should be integer
 	 */
 	private void selectMonth(int month) {
-		System.out.println("Month"+month);
 		if(month<0) {
 			for(int i=0;i<Math.abs(month);i++) {
 				SeleniumUtility.clickOnElement(driver, datePicker.buttonTagRightMonthMoverDatePicker);
@@ -84,7 +88,7 @@ public class CommonMethods {
 	/**
 	 * 
 	 * This private method Select the given date in the date picker.
-	 * @param date - should be String
+	 * @param date - Should be String
 	 */
 	private void selectDate(String date) {
 		SeleniumUtility.fixedWait(2);
@@ -92,21 +96,10 @@ public class CommonMethods {
 		SeleniumUtility.waitUntilElementisNotVisible(driver, datePicker.buttonTagCancelDatePicker);
 		SeleniumUtility.fixedWait(1);
 	}
-	/**
-	 * This private method choose year, month and date in the date picker
-	 * @param year - Should be String
-	 * @param month- Should be Integer
-	 * @param date- Should be String
-	 */
-	private void dateExtractorAndPicker(String year, int month,String date) {
-		selectYear(year);
-		selectMonth(month);
-		selectDate(date);
-	}
 	
 	/**
 	 * This public method, Choose the given date in date picker
-	 * @param oldDate
+	 * @param oldDate - Should be String in "YYYY-MM-DD" format
 	 */
 	public void datePicker(String oldDate) {
 		List<Integer> x=DateHelper.selectdate(oldDate,SeleniumUtility.getText(driver, datePicker.divTagMonthAndYearDatePicker));
@@ -114,7 +107,22 @@ public class CommonMethods {
 			selectYear(String.valueOf(x.get(0)));
 			selectMonth(x.get(1));
 			selectDate(String.valueOf(x.get(2)));
-		//dateExtractorAndPicker(String.valueOf(x.get(0)),x.get(1),String.valueOf(x.get(2)));
+		}
+		else {
+			SeleniumUtility.actionSendKeys(driver, Keys.ESCAPE);
+			SeleniumUtility.fixedWait(2);
+		}
+	}
+	/**
+	 * This public method, Ignore year and select the month and day. This method is especially use where the year is disabled
+	 * and can not have drop-down list.  For example, in while create booking.
+	 * @param oldDate - Should be String in format "YYYY-MM-DD"
+	 */
+	public void monthAndDayPicker(String oldDate) {
+		List<Integer> x=DateHelper.selectMonthAndDate(oldDate,SeleniumUtility.getText(driver, datePicker.divTagMonthAndYearDatePicker));
+		if(!x.isEmpty()) {
+			selectMonth(x.get(0));
+			selectDate(String.valueOf(x.get(1)));
 		}
 		else {
 			SeleniumUtility.actionSendKeys(driver, Keys.ESCAPE);
