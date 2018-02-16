@@ -3,7 +3,6 @@ package glide.backoffice.method.users.members;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import glide.backoffice.method.filter.MembersFilter;
 /**
  * This member method class contains all the methods related to the members in the back office. Primarily
  * Adding members, updating members, viewing and filtering members.
@@ -12,18 +11,18 @@ import glide.backoffice.method.filter.MembersFilter;
  */
 public class MembersMethod {
 	WebDriver driver;
-	MembersFilter membersFilter;
-	
+	MembersFilterMethod membersFilter;
+	MemberViewMethod memberViewMethod;
+	HomepageMethod homepageMethod;
+	MemberActionMenuMethod memberActionMenuMethod;
 	public MembersMethod(WebDriver ldriver) {
 		this.driver=ldriver;
-		this.membersFilter=PageFactory.initElements(driver, MembersFilter.class);
+		this.membersFilter=PageFactory.initElements(driver, MembersFilterMethod.class);
+		this.memberViewMethod=PageFactory.initElements(driver, MemberViewMethod.class);
+		this.homepageMethod=PageFactory.initElements(driver, HomepageMethod.class);
+		this.memberActionMenuMethod=PageFactory.initElements(driver, MemberActionMenuMethod.class);
+
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	/**
@@ -64,6 +63,15 @@ public class MembersMethod {
 		membersFilter.selectVIPOnMembersFilter(memberFilterDto.isVip());
 		membersFilter.clickOnSearchButton();
 		membersFilter.clickOnResetButton();
+	}
+	public void viewMember(String text) {
+		homepageMethod.clickOnViewLinkOfMember(text);
+	}
+	public void addCommentOnMember(String text) {
+		homepageMethod.clickOnViewLinkOfMember(text);
+		memberViewMethod.clickOnActionMenuIcon();
+		memberActionMenuMethod.addTextOnCommentBox();
+		
 	}
 	
 	

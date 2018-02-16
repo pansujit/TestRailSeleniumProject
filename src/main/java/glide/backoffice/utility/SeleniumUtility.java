@@ -348,13 +348,16 @@ public class SeleniumUtility {
 	 * @param element - Should be Selenium By
 	 */
 	public static void waitElementToBeVisible(WebDriver driver, By element) {
+		
+		
 		WebDriverWait wait= new WebDriverWait(driver,30);
 		try {
 			log.info("Waiting for maximum 30 seconds to element to be visible in DOM");
 			wait.until(ExpectedConditions.visibilityOf(driver.findElement(element)));
-
 		}catch(Exception e) {
+			
 			log.error("The element cannot be Visibled until 30 seconds: "+ element.toString());
+			
 			return;
 		}
 	}

@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 import com.github.javafaker.Faker;
 
 import glide.backoffice.enums.BackuserRoles;
-import glide.backoffice.method.users.BackuserDto;
+import glide.backoffice.method.users.backusers.BackuserDto;
 import glide.backoffice.utility.RandomGenerator;
 
 public class BackuserDataProvider {

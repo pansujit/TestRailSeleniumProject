@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 import glide.backoffice.dataprovider.BackuserDataProvider;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
-import glide.backoffice.method.users.BackuserDto;
-import glide.backoffice.method.users.BackuserMethod;
+import glide.backoffice.method.users.backusers.BackuserDto;
+import glide.backoffice.method.users.backusers.BackuserMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 
 public class BackuserTest extends BaseClassExtended {

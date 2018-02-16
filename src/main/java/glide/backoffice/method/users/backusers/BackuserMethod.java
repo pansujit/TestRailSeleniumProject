@@ -1,4 +1,4 @@
-package glide.backoffice.method.users;
+package glide.backoffice.method.users.backusers;
 
 
 import org.openqa.selenium.WebDriver;

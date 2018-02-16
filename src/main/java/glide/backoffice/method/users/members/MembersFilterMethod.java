@@ -1,4 +1,4 @@
-package glide.backoffice.method.filter;
+package glide.backoffice.method.users.members;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,12 +12,12 @@ import glide.backoffice.utility.SeleniumUtility;
  * @author sujitpandey
  * @created on Feb 13, 2018 4:40:29 PM
  */
-public class MembersFilter {
+public class MembersFilterMethod {
 	WebDriver driver;
 	FilterMembers filterMembers;
 	CommonMethods commonMethods;
 
-	public MembersFilter(WebDriver ldriver) {
+	public MembersFilterMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.filterMembers=PageFactory.initElements(driver, FilterMembers.class);
 		this.commonMethods=PageFactory.initElements(driver, CommonMethods.class);
@@ -62,7 +62,7 @@ public class MembersFilter {
 	/**
 	 * This private method click on the search button in member filter page and wait until loading circle disappear
 	 */
-	public void clickOnSearchButton() {
+	 void clickOnSearchButton() {
 		SeleniumUtility.clickOnElement(driver, filterMembers.buttonTagSearchFilterMembers);
 		commonMethods.waitUntilElementToBeInvisible();
 	}
@@ -71,7 +71,7 @@ public class MembersFilter {
 	 * This method input given name in the name input box to find the member with given name. 
 	 * @param text - Should be String
 	 */
-	public void inputMemberNameOnMembersFilter(String name) {
+	 void inputMemberNameOnMembersFilter(String name) {
 		clickOnFilters();
 		SeleniumUtility.clearTextAndSendText(driver, filterMembers.inputTagMemberNameFilterMembers, name);
 	}
@@ -79,7 +79,7 @@ public class MembersFilter {
 	 * This method input given email in the email input box to find the member with given email address. 
 	 * @param text - Should be String
 	 */
-	public void inputEmailOnMembersFilter(String email) {
+	 void inputEmailOnMembersFilter(String email) {
 		clickOnFilters();
 		SeleniumUtility.clearTextAndSendText(driver, filterMembers.inputTagEmailFilterMembers, email);
 		SeleniumUtility.fixedMilliSecondWait();
@@ -89,7 +89,7 @@ public class MembersFilter {
 	 * This method select the given Expedite Review status of the member in the filter with given text
 	 * @param text - Should be String
 	 */
-	public void selectExpediteReviewOnMembersFilter(boolean text) {
+	 void selectExpediteReviewOnMembersFilter(boolean text) {
 		clickOnFilters();
 		selectBooleanValueForMemberFilter(filterMembers.selectTagExpediteReviewFilterMembers,text);
 	}
@@ -97,7 +97,7 @@ public class MembersFilter {
 	 * This method select the given Technician status of the member in the filter with given text
 	 * @param text - Should be String
 	 */
-	public void selectTechnicianOnMembersFilter(boolean text) {
+	 void selectTechnicianOnMembersFilter(boolean text) {
 		clickOnFilters();
 		selectBooleanValueForMemberFilter(filterMembers.selectTagTechnicianStatusFilterMembers,text);
 	}
@@ -105,7 +105,7 @@ public class MembersFilter {
 	 * This method select the given VIP status of the member in the filter with given text
 	 * @param text - Should be String
 	 */
-	public void selectVIPOnMembersFilter(boolean text) {
+	 void selectVIPOnMembersFilter(boolean text) {
 		clickOnFilters();
 		selectBooleanValueForMemberFilter(filterMembers.selectTagVIPStatusFilterMembers,text);
 	}
@@ -113,7 +113,7 @@ public class MembersFilter {
 	 * This method select the given Professional status of the member in the filter with given text
 	 * @param text - Should be String
 	 */
-	public void selectProfessionalOnMembersFilter(boolean text) {
+	 void selectProfessionalOnMembersFilter(boolean text) {
 		clickOnFilters();
 		selectBooleanValueForMemberFilter(filterMembers.selectTagProfessionalStatusFilterMembers,text);
 	}
@@ -121,14 +121,14 @@ public class MembersFilter {
 	 * This method select the given validation status of the member in the filter with given text
 	 * @param text - Should be String
 	 */
-	public void selectValidationStatusOnMembersFilter(String text) {
+	 void selectValidationStatusOnMembersFilter(String text) {
 		clickOnFilters();
 		selectValueForMemberFilter(filterMembers.selectTagValidationStatusFilterMembers,text);
 	}
 	/**
 	 * This method click on the reset button of the member filter and wait until the loading icon disappear
 	 */
-	public void clickOnResetButton() {
+	 void clickOnResetButton() {
 		SeleniumUtility.clickOnElement(driver, filterMembers.buttonTagResetFilterMembers);
 		commonMethods.waitUntilElementToBeInvisible();
 	}
