@@ -624,7 +624,20 @@ public class SeleniumUtility {
 		}catch(Exception e) {
 			log.error("Either element is not found or is not selected  :"+ element.toString() );
 			
-		}
+		}	
+	}
+	
+	public static void scrollToView(WebDriver driver,By element) {
+		WebElement element1 = driver.findElement(element);
+		//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element1);
 		
+		//((JavascriptExecutor) driver).executeScript("window.scrollBy(100,-750)", "");
+		 ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			log.error("timeout"+ e.getMessage());
+
+		}
 	}
 }

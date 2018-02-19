@@ -88,7 +88,7 @@ public abstract class BaseClassExtended {
 	}
 	
 	
-	@AfterClass
+	/*@AfterClass
 	public void closeBrowser() {
 		try {
 			driver.close();
@@ -97,5 +97,5 @@ public abstract class BaseClassExtended {
 		}finally {
 			driver.quit();
 		}
-	}
+	}*/
 }

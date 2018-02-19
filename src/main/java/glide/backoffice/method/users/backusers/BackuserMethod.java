@@ -1,121 +1,68 @@
 package glide.backoffice.method.users.backusers;
 
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import glide.backoffice.locators.users.backusers.AddBackuser;
-import glide.backoffice.locators.users.backusers.FilterBackusers;
-import glide.backoffice.locators.users.backusers.HomepageBackusers;
-import glide.backoffice.locators.users.backusers.ViewBackuser;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
-import glide.backoffice.utility.SeleniumUtility;
-
+/**
+ * This Class contains all common and public methods for Backuser page of back office.
+ * @author sujitpandey
+ * @created on Feb 19, 2018 3:12:21 PM
+ */
 public class BackuserMethod {
-	
+
 	WebDriver driver;
-	HomepageBackusers homepageBackusers;
-	AddBackuser addBackuser;
-	FilterBackusers filterBackusers;
 	SideMenuItemsMethod sideMenuItemsMethod;
 	HeaderMethod headerMethod;
-	ViewBackuser viewBackuser;
+	BackuserHomepageMethod backuserHomepageMethod;
+	ViewBackuserMethod viewBackuserMethod;
+	AddEditBackuserMethod addEditBackuserMethod;
+	
 	public BackuserMethod(WebDriver ldriver) {
 		this.driver=ldriver;
-		this.homepageBackusers=PageFactory.initElements(driver, HomepageBackusers.class);
-		this.addBackuser=PageFactory.initElements(driver, AddBackuser.class);
-		this.filterBackusers=PageFactory.initElements(driver, FilterBackusers.class);
 		this.sideMenuItemsMethod=PageFactory.initElements(driver, SideMenuItemsMethod.class);
 		this.headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
-		this.viewBackuser=PageFactory.initElements(driver, ViewBackuser.class);
-	}
-	/**
-	 * This method clicks on Add a backuser button in backuser page
-	 */
-	private void clickOnAddABackuserButton() {
-		SeleniumUtility.clickOnElement(driver,homepageBackusers.aTagAddABackuserHomepageBackusers );
-		SeleniumUtility.waitElementToBeVisible(driver,addBackuser.buttonTagSaveEditBackuser);
-		SeleniumUtility.fixedWait(1);
-	}
-	
-	private void selectSuperCompany(String role,String superCompanyName) {
-		if(role.equalsIgnoreCase("ADMIN")||role.equalsIgnoreCase("FLEET_MANAGER")||role.equalsIgnoreCase("CALL_CENTER_OPERATOR")) {
-			SeleniumUtility.selectByVisibleText(driver, addBackuser.selectTagSuperCompanyEditBackuser, superCompanyName);
-		}
-		else {
-			return;
-		}
-	}
-	private void selectCompany(String role,String companyName) {
-		if(role.equalsIgnoreCase("FLEET_MANAGER")) {
-			SeleniumUtility.selectByVisibleText(driver, addBackuser.selectTagCompanyEditBackuser, companyName);
-		}
-		else {
-			return;
-		}
-	}
-	private void inputBackuserData(BackuserDto backuserDto) {
-		SeleniumUtility.clearTextAndSendText(driver, addBackuser.inputTagEmailEditBackuser, backuserDto.getEmail());
-		
-		SeleniumUtility.clickOnElement(driver, addBackuser.inputTagEmailCheckerBackuser);
-		SeleniumUtility.fixedWait(2);
-		SeleniumUtility.clickOnElement(driver, addBackuser.labelTagRoleEditBackuser(backuserDto.getRole()));
-		selectSuperCompany(backuserDto.getRole(),backuserDto.getSuperCompanyName());
-		SeleniumUtility.fixedWait(1);
-		selectCompany(backuserDto.getRole(),backuserDto.getCompanyName());
-		SeleniumUtility.clearTextAndSendText(driver, addBackuser.inputTagFirstnameEditBackuser, backuserDto.getFirstName());
-		SeleniumUtility.clearTextAndSendText(driver, addBackuser.inputTagLastnameEditBackuser, backuserDto.getLastName());
-		
-		SeleniumUtility.clearTextAndSendText(driver, addBackuser.inputTagPhoneEditBackuser, backuserDto.getPhoneNumber());
-		SeleniumUtility.clearTextAndSendText(driver, addBackuser.inputTagAddressEditBackuser, backuserDto.getAddress());
-	}
-	
-	private void clickOnSaveButton() {
-		SeleniumUtility.clickOnElement(driver, addBackuser.buttonTagSaveEditBackuser);
-		SeleniumUtility.waitElementToBeVisible(driver, homepageBackusers.aTagAddABackuserHomepageBackusers);
-		SeleniumUtility.fixedWait(1);
-	}
-	
-	private void clickOnSaveButtonOnEditBackuser() {
-		SeleniumUtility.clickOnElement(driver, addBackuser.buttonTagSaveEditBackuser);
-		SeleniumUtility.waitElementToBeVisible(driver, viewBackuser.aTagBackUserViewEdit);
-		SeleniumUtility.fixedWait(1);
-	}
-	private void clickOnEditButton() {
-		SeleniumUtility.clickOnElement(driver,viewBackuser.aTagBackUserViewEdit);
-		SeleniumUtility.waitElementToBeVisible(driver, addBackuser.buttonTagSaveEditBackuser);
-		SeleniumUtility.fixedWait(1);
-	}
-	private void clickOnViewButton(String testBackuser) {
-		SeleniumUtility.clickOnElement(driver, homepageBackusers.buttonTagViewHomepageBackusers(testBackuser));
-		SeleniumUtility.waitElementToBeVisible(driver, viewBackuser.aTagBackUserViewEdit);
-		SeleniumUtility.fixedWait(1);
+		this.backuserHomepageMethod=PageFactory.initElements(driver, BackuserHomepageMethod.class);
+		this.viewBackuserMethod=PageFactory.initElements(driver, ViewBackuserMethod.class);
+		this.addEditBackuserMethod=PageFactory.initElements(driver, AddEditBackuserMethod.class);
+
 
 	}
+	/**
+	 * This private method click on the back button in left side of the big search box.
+	 */
 	private void clickOnBackButton() {
 		headerMethod.clickOnHeaderBackButton();
 	}
-	
-	
-
+	/**
+	 * This public method create a new backuser to the super company with given permission and super company and company if applicable
+	 * @param backuserDto - Should be BackuserDto
+	 */
 	public void addABackuser(BackuserDto backuserDto) {
-		clickOnAddABackuserButton();
-		inputBackuserData(backuserDto);
-		clickOnSaveButton();
+		backuserHomepageMethod.clickOnAddABackuserButton();
+		addEditBackuserMethod.inputBackuserData(backuserDto);
+		addEditBackuserMethod.clickOnSaveButton();
 	}
+	/**
+	 * This public method redirect to the view page of any given backuser
+	 */
 	public void viewABackuser() {
-		clickOnViewButton("sujit.pandey+1a@glidemobility.com");
+		backuserHomepageMethod.clickOnViewButton("sujit.pandey+1a@glidemobility.com");
 		clickOnBackButton();
 	}
+	/**
+	 * This public method Edit the existing backuser with given information.
+	 * @param backuserDto - Should be BackuserDto
+	 */
 	public void editABackuser(BackuserDto backuserDto) {
-		clickOnViewButton("sujit.pandey+1a@glidemobility.com");
-		clickOnEditButton();
-		inputBackuserData(backuserDto);
-		clickOnSaveButtonOnEditBackuser();
+		backuserHomepageMethod.clickOnViewButton("sujit.pandey+1a@glidemobility.com");
+		viewBackuserMethod.clickOnEditButton();
+		addEditBackuserMethod.inputBackuserData(backuserDto);
+		addEditBackuserMethod.clickOnSaveButtonOnEditBackuser();
 		clickOnBackButton();
 	}
-	
-	
+
+
 
 }
