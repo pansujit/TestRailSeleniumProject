@@ -1,4 +1,4 @@
-package glide.backoffice.method.fleets;
+package glide.backoffice.method.fleets.vehicles;
 
 import lombok.*;
 

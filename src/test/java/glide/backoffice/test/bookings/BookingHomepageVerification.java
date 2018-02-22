@@ -27,8 +27,6 @@ public class BookingHomepageVerification  extends BaseClassExtended{
 	@Test
 	public void bookingHomepageTest() {
 		Booking booking= PageFactory.initElements(driver, Booking.class);
-		//should be delete later
-		//Assert.assertTrue("One of the element is not visible",booking.verifyBookingPage());
 	}
 
 }

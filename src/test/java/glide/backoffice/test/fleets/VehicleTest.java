@@ -5,8 +5,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import glide.backoffice.dataprovider.VehicleDataProvider;
-import glide.backoffice.method.fleets.VehicleDto;
-import glide.backoffice.method.fleets.VehicleMethod;
+import glide.backoffice.method.fleets.vehicles.VehicleDto;
+import glide.backoffice.method.fleets.vehicles.VehicleMethod;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;

@@ -14,12 +14,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 
-import glide.backoffice.locators.bookings.FindVehicleBooking;
-import glide.backoffice.locators.bookings.HomepageBookings;
 import glide.backoffice.locators.menuitems.SidebarMenuItems;
-import glide.backoffice.locators.bookings.FindMemberBooking;
 
-import glide.backoffice.utility.DateHelper;
 import glide.backoffice.utility.SeleniumUtility;
 /**
  * This is main class for booking page where all the methods for booking has been created.
@@ -30,175 +26,43 @@ public class Booking implements Testme {
 	public static final String EMAIL_ADDRESS="sujit.pandey+24@glidemobility.com";
 	SidebarMenuItems sidebarMenuItems;
 	WebDriver driver;
-	FindMemberBooking findMemberBooking;
-	FindVehicleBooking findVehicleBooking;
 	BookingsFilterMethod bookingsFilter;
-	HomepageBookings homepageBookings;
-	CommonMethods commonMethods;
 	SideMenuItemsMethod siteMenuItems;
 	BookingsFilterMethod bookingFilterMethod;
-
+	HomepageBookingsMethod homepageBookingsMethod;
+	FindMemberBookingMethod findMemberBookingMethod;
+	FindVehicleBookingMethod findVehicleBookingMethod;
+	CommonMethods commomMethods;
 	// This is the constructor for the class
 	public Booking(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.sidebarMenuItems=PageFactory.initElements(driver, SidebarMenuItems.class);
-		this.findMemberBooking=PageFactory.initElements(driver, FindMemberBooking.class);
-		this.findVehicleBooking=PageFactory.initElements(driver, FindVehicleBooking.class);
-		this.bookingsFilter= PageFactory.initElements(driver,BookingsFilterMethod.class);
-		this.homepageBookings= PageFactory.initElements(driver,HomepageBookings.class);
 		this.siteMenuItems= PageFactory.initElements(driver,SideMenuItemsMethod.class);
-		this.commonMethods= PageFactory.initElements(driver,CommonMethods.class);
 		this.bookingFilterMethod= PageFactory.initElements(driver,BookingsFilterMethod.class);
-	}
+		this.homepageBookingsMethod= PageFactory.initElements(driver,HomepageBookingsMethod.class);
+		this.findMemberBookingMethod= PageFactory.initElements(driver,FindMemberBookingMethod.class);
+		this.findVehicleBookingMethod= PageFactory.initElements(driver,FindVehicleBookingMethod.class);
+		this.commomMethods= PageFactory.initElements(driver,CommonMethods.class);
+}
 
-	/**
-	 * This method click on Create A Booking in the booking homepage and wait for the Member name search filter appeared in 
-	 * find-member page
-	 */
-	private void clickOnCreateBooking() {		
-		SeleniumUtility.clickOnElement(driver, homepageBookings.buttonTagCreateBookingHomepageBookings);
-		SeleniumUtility.waitElementToBeVisible(driver, findMemberBooking.inputTagNameFindMemberBooking);
-		SeleniumUtility.fixedWait(1);	
-	}
-	/**
-	 * This method input email in email search box.
-	 */
-	private void inputEmailInSearchBox() {		
-		SeleniumUtility.sendText(driver, findMemberBooking.inputTagEmailFindMemberBooking, EMAIL_ADDRESS);
-	}
-	/**
-	 * This method click on the search button in the find-member to find the member to for booking
-	 */
-	private void clickOnSearch() {
-		SeleniumUtility.clickOnElement(driver, findMemberBooking.buttonTagSearchFindMemberBooking);
-		SeleniumUtility.fixedWait(3);
 
-	}
-	/**
-	 * This method click on The book link of the member in find-member page
-	 */
-	private void clickOnBook() {		
-		SeleniumUtility.clickOnElement(driver, findMemberBooking.buttonTagBookFindMemberBooking(EMAIL_ADDRESS));
-		SeleniumUtility.waitElementToBeVisible(driver, findVehicleBooking.buttonTagSearchFindVehicleBooking);
-		SeleniumUtility.fixedWait(1);
-
-	}
-	/**
-	 * This method click on the Round trip radip button in find vehicle page
-	 */
-	private void clickOnRoundTrip() {		
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.divTagCheckRoundTripFindVehicleBooking);
-	}
-	/**
-	 * This method input the start address rather than the site name in find-vehicle page.
-	 */
-	private void inputStartAddress() {		
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagStartAddressFindVehicleBooking);
-		SeleniumUtility.sendText(driver, findVehicleBooking.inputTagStartAddressFindVehicleBooking, "1 Rue de Gramont, 75002 Paris, France");
-		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.sendEnter(driver, findVehicleBooking.inputTagStartAddressFindVehicleBooking);
-		SeleniumUtility.fixedWait(1);
-
-	}
-	/**
-	 * This method select the site name in from the drop down list in find-vehicle page
-	 */
-	private void selectInputAddress() {		
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagStartAddressFindVehicleBooking);
-		SeleniumUtility.clickUsingAction(driver, findVehicleBooking.liTagStartAddressPopupFindVehicleBooking("testCompanySite"));
-		SeleniumUtility.fixedWait(1);
-
-	}
-	/**
-	 * This method select the Start date which is today in find-vehicle page.
-	 */
-	private void selectStartDate() {		
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagStartDateFindVehicleBooking);
-		SeleniumUtility.fixedWait(1);
-		commonMethods.monthAndDayPicker(DateHelper.getCurrentDate());
-
-	}
-
-	/**
-	 * This method select the End date which is today in find-vehicle page.
-	 */
-	private void selectEndDate() {	
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagEndDateFindVehicleBooking);
-		SeleniumUtility.fixedWait(1);
-		commonMethods.monthAndDayPicker(DateHelper.getCurrentDate());
-
-	}
-
-	/**
-	 * This method click on search button to find the vehicle in find-vehicle page
-	 */
-	private void clickOnSearchBooking() {		
-
-		SeleniumUtility.fixedWait(2);
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.buttonTagSearchFindVehicleBooking);
-
-	}
 	/**
 	 * This method hold the test until the loading page is not disappeared.
 	 */
 	private void waitUntilElementNotToBeVisible() {		
 
-		commonMethods.waitUntilElementToBeInvisible();
-
+		commomMethods.waitUntilElementToBeInvisible();
 	}
-	/**
-	 * This method select the start hour and minutes. the hour and minutes should be give simultaneously.
-	 * @param hours - should be int between (00 to 23)
-	 * @param minute - should be int between (00 to 59)
-	 */
-	private void startHourAndMinute(int hours, int minute) {		
-
-		String[] data=DateHelper.hourAndMinute(hours, minute);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagStartHourFindVehicleBooking, data[0]);
-		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagStartMinuteFindVehicleBooking,  data[1]);
-		SeleniumUtility.fixedWait(1);
 
 
-	}
-	/**
-	 * This method select the End hour and minutes. the hour and minutes should be give simultaneously.
-	 * @param hours - should be int between (00 to 23)
-	 * @param minute - should be int between (00 to 59)
-	 */
-	private void endHourAndMinute(int hours, int minute) {		
 
-		String[] data=DateHelper.hourAndMinute(hours, minute);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagEndHourFindVehicleBooking, data[0]);
-		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagEndMinuteFindVehicleBooking, data[1]);
-		SeleniumUtility.fixedWait(1);
-
-
-	}
-	/**
-	 * This method will click on the confirm button of the given booking in find-vehicle page
-	 */
-	private void clickOnConfirmBooking() {		
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.buttonTagConfirmFindVehicleBooking("kkkkkkkkk", "PRIVATE"));
-		SeleniumUtility.fixedWait(3);
-
-	}
 	/**private void inputCustomField() {		
 
 		SeleniumUtility.sendText(driver, findVehicleBooking.inputTagCustomFieldFindVehicleBooking, "hello");
 		SeleniumUtility.fixedWait(3);
 
 	}*/
-	/**
-	 * This method click on Save button in Pop up page to confirm booking in find-vehicle page
-	 */
-	private void clickOnSaveButton() {		
 
-		SeleniumUtility.clickUsingAction(driver, findVehicleBooking.buttonTagSaveFindVehicleBooking);
-		SeleniumUtility.fixedWait(3);
-
-	}
 
 
 	/**
@@ -207,33 +71,33 @@ public class Booking implements Testme {
 	public void createBooking() {		
 
 		//click on create booking field in booking homepage 
-		clickOnCreateBooking();
+		homepageBookingsMethod.clickOnCreateBooking();
 		// type email address of the user to which we are going to create booking
-		inputEmailInSearchBox();
+		findMemberBookingMethod.inputEmailInSearchBox();
 		// Click on Search button to find member
-		clickOnSearch();
+		findMemberBookingMethod.clickOnSearch();
 		// click on BOOK icon in the member row
-		clickOnBook();
+		findMemberBookingMethod.clickOnBook();
 		//Select the radio button for round trip
-		clickOnRoundTrip();
+		findVehicleBookingMethod.clickOnRoundTrip();
 		// Type the start address. it will be the same for end address
-		inputStartAddress();
+		findVehicleBookingMethod.inputStartAddress();
 		// Select the end Date 
-		selectEndDate();
+		findVehicleBookingMethod.selectEndDate();
 		// Select the end hour and minutes the difference between endDataTime-startDataTime>=1hour
-		endHourAndMinute(1,30);
+		findVehicleBookingMethod.endHourAndMinute(1,30);
 		// Select the Start Date 
-		selectStartDate();
+		findVehicleBookingMethod.selectStartDate();
 		// Select the Start hour and minutes the difference between endDataTime-startDataTime>=1hour
-		startHourAndMinute(0,15);
+		findVehicleBookingMethod.startHourAndMinute(0,15);
 		// Click on Search booking button to find the vehicle
-		clickOnSearchBooking();
+		findVehicleBookingMethod.clickOnSearchBooking();
 		// Wait until the system finds the Booking
 		waitUntilElementNotToBeVisible();
 		// Click on confirm booking link in the result booking list
-		clickOnConfirmBooking();
+		findVehicleBookingMethod.clickOnConfirmBooking();
 		// Click on save button in booking pop up page
-		clickOnSaveButton();
+		findVehicleBookingMethod.clickOnSaveButton();
 		// Wait until the system redirect to the booking page
 		waitUntilElementNotToBeVisible();
 		// Click on invoice site menu

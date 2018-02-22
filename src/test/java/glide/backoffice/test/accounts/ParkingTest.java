@@ -8,7 +8,7 @@ import glide.backoffice.dataprovider.SiteDataProvider;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.method.sitesandparkings.ParkingDto;
-import glide.backoffice.method.sitesandparkings.SitesAndParkings;
+import glide.backoffice.method.sitesandparkings.SitesAndParkingsMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 
 public class ParkingTest extends BaseClassExtended {
@@ -22,13 +22,13 @@ public class ParkingTest extends BaseClassExtended {
 	
 	@Test(dataProvider="createParking",dataProviderClass=SiteDataProvider.class)
 	public void createASiteTest(ParkingDto parkingDto) {
-		SitesAndParkings sitesAndParkings= PageFactory.initElements(driver, SitesAndParkings.class);
+		SitesAndParkingsMethod sitesAndParkings= PageFactory.initElements(driver, SitesAndParkingsMethod.class);
 		sitesAndParkings.createParking(parkingDto);
 	}
 	
 	@Test(dataProvider="editParking",dataProviderClass=SiteDataProvider.class)
 	public void editASiteTest(ParkingDto parkingDto) {
-		SitesAndParkings sitesAndParkings= PageFactory.initElements(driver, SitesAndParkings.class);
+		SitesAndParkingsMethod sitesAndParkings= PageFactory.initElements(driver, SitesAndParkingsMethod.class);
 		sitesAndParkings.editParking(parkingDto);
 	}
 }

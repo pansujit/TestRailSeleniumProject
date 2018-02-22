@@ -10,7 +10,7 @@ import glide.backoffice.enums.CarBrands;
 import glide.backoffice.enums.CarModels;
 import glide.backoffice.enums.CarVersions;
 import glide.backoffice.enums.FuelType;
-import glide.backoffice.method.fleets.VehicleDto;
+import glide.backoffice.method.fleets.vehicles.VehicleDto;
 import glide.backoffice.utility.RandomGenerator;
 
 public class VehicleDataProvider {
