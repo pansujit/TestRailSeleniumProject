@@ -1,4 +1,4 @@
-package glide.backoffice.test.users;
+package glide.backoffice.test.users.members;
 
 
 import org.testng.annotations.Test;

@@ -1,6 +1,10 @@
 package glide.backoffice.test.dashboardtest;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import glide.backoffice.method.dashboard.DashboardMethod;
@@ -8,6 +12,10 @@ import glide.backoffice.test.baseclass.BaseClassExtended;
 
 public class DashboardTest extends BaseClassExtended {
 
+	@BeforeClass
+	public void openingBrowser() throws MalformedURLException, InterruptedException {
+		OpenBrowser();
+	}
 	
 	@Test(description= "This test verifies the visibility of all dashboard contents")
 	public void dashboradContentVisibilityTest() {
@@ -23,6 +31,10 @@ public class DashboardTest extends BaseClassExtended {
 	public void dashboradNavigationTest() {
 		DashboardMethod dashboardMethod=PageFactory.initElements(driver, DashboardMethod.class);
 		dashboardMethod.checkDashboardPageNavigation();
+	}
+	@AfterClass
+	public void closeAllBrowser() {
+		closeBrowser();
 	}
 
 }

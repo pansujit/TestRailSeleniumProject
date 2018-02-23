@@ -1,7 +1,10 @@
 package glide.backoffice.test.bookings;
 
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -12,7 +15,8 @@ import glide.backoffice.test.baseclass.BaseClassExtended;
 
 public class BookingFilterTest extends BaseClassExtended {
 	@BeforeClass
-	public void clickOnBookingSidebar() {
+	public void clickOnBookingSidebar() throws MalformedURLException, InterruptedException {
+			OpenBrowser();
 		HeaderMethod headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
 		headerMethod.selectSuperCompany();
@@ -89,10 +93,11 @@ public class BookingFilterTest extends BaseClassExtended {
 		
 		Booking booking= PageFactory.initElements(driver, Booking.class);
 		booking.filterBookingByArrivalDate();
-		
-		
-		
-	}
 	
+	}
+	@AfterClass
+	public void closeAllBrowser() {
+		closeBrowser();
+	}
 
 }

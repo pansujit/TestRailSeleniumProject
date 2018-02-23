@@ -1,6 +1,9 @@
-package glide.backoffice.test.fleets;
+package glide.backoffice.test.fleets.vehicles;
+
+import java.net.MalformedURLException;
 
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -14,7 +17,8 @@ import glide.backoffice.test.baseclass.BaseClassExtended;
 public class VehicleTest  extends BaseClassExtended{
 	
 	@BeforeClass
-	public void clickOnVehicles() {
+	public void clickOnVehicles() throws MalformedURLException, InterruptedException {
+			OpenBrowser();
 		HeaderMethod headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
 		headerMethod.selectSuperCompany();
@@ -36,5 +40,9 @@ public class VehicleTest  extends BaseClassExtended{
 	public void viewAVehicleTest() {
 		VehicleMethod vehicleMethod=PageFactory.initElements(driver, VehicleMethod.class);
 		vehicleMethod.viewAVehicle();	
+	}
+	@AfterClass
+	public void closeAllBrowser() {
+		closeBrowser();
 	}
 }

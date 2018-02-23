@@ -1,6 +1,9 @@
-package glide.backoffice.test.configurations;
+package glide.backoffice.test.accounts.configurations;
+
+import java.net.MalformedURLException;
 
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -13,9 +16,13 @@ import glide.backoffice.test.baseclass.BaseClassExtended;
 public class ConfigTest  extends BaseClassExtended {
 	
 	@BeforeClass
-	public void clickconfigurations() {
+	public void clickconfigurations() throws MalformedURLException, InterruptedException {
+		OpenBrowser();
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
 		siteMenuItems.clickOnConfigurations();	
+		
+			
+
 	}
 	
 	
@@ -30,6 +37,9 @@ public class ConfigTest  extends BaseClassExtended {
 		ConfigMethod configMethod=PageFactory.initElements(driver, ConfigMethod.class);
 		configMethod.editConfiguration(configDto);	
 	}
-	
+	@AfterClass
+	public void closeAllBrowser() {
+		closeBrowser();
+	}
 
 }

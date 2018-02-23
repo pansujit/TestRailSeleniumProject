@@ -1,6 +1,9 @@
-package glide.backoffice.test.companies;
+package glide.backoffice.test.accounts.companies;
+
+import java.net.MalformedURLException;
 
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -15,7 +18,9 @@ public class CompanyTest extends BaseClassExtended {
 	
 	
 	@BeforeClass(description="This runs once which will select the super company and click on company side bar menu")
-	public void selectSuperCompany() {
+	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
+
+			OpenBrowser();
 		HeaderMethod headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
 		headerMethod.selectSuperCompany();
@@ -42,6 +47,10 @@ public class CompanyTest extends BaseClassExtended {
 		Company company= PageFactory.initElements(driver, Company.class);
 		company.viewCompany();
 		
+	}
+	@AfterClass
+	public void closeAllBrowser() {
+		closeBrowser();
 	}
 
 }

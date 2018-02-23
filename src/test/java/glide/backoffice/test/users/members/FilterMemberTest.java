@@ -1,6 +1,9 @@
-package glide.backoffice.test.users;
+package glide.backoffice.test.users.members;
+
+import java.net.MalformedURLException;
 
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -13,7 +16,8 @@ import glide.backoffice.test.baseclass.BaseClassExtended;
 public class FilterMemberTest extends BaseClassExtended {
 	
 	@BeforeClass(description="This runs once which will select the super company and click on company side bar menu")
-	public void selectSuperCompany() {
+	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
+		OpenBrowser();
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
 		siteMenuItems.clickOnMembers();
 	}
@@ -38,6 +42,11 @@ public class FilterMemberTest extends BaseClassExtended {
 	public void filterMemberByVIPTest(MembersFilterDto memberFilterDto) {
 		MembersMethod memberMethod=PageFactory.initElements(driver, MembersMethod.class);
 		memberMethod.filterMemberByVIP(memberFilterDto);
+	}
+	
+	@AfterClass
+	public void closeAllBrowser() {
+		closeBrowser();
 	}
 
 }

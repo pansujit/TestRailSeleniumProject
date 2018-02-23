@@ -1,6 +1,9 @@
-package glide.backoffice.test.accounts;
+package glide.backoffice.test.accounts.sitesandparkings;
+
+import java.net.MalformedURLException;
 
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -13,7 +16,9 @@ import glide.backoffice.test.baseclass.BaseClassExtended;
 
 public class ParkingTest extends BaseClassExtended {
 	@BeforeClass
-	public void selectSuperCompany() {
+	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
+			OpenBrowser();
+
 		HeaderMethod headerMethod= PageFactory.initElements(driver, HeaderMethod.class);
 		headerMethod.selectSuperCompany();
 		SideMenuItemsMethod sideMenuItemsMethod= PageFactory.initElements(driver, SideMenuItemsMethod.class);
@@ -30,5 +35,9 @@ public class ParkingTest extends BaseClassExtended {
 	public void editASiteTest(ParkingDto parkingDto) {
 		SitesAndParkingsMethod sitesAndParkings= PageFactory.initElements(driver, SitesAndParkingsMethod.class);
 		sitesAndParkings.editParking(parkingDto);
+	}
+	@AfterClass
+	public void closeAllBrowser() {
+		closeBrowser();
 	}
 }

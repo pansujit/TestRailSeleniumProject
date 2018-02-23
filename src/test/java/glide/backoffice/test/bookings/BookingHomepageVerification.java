@@ -1,6 +1,9 @@
 package glide.backoffice.test.bookings;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -17,16 +20,22 @@ import junit.framework.Assert;
 public class BookingHomepageVerification  extends BaseClassExtended{
 	
 	@BeforeClass
-	public void selectSuperCompany() {
+	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
 		//SelectSuperCompany selectSuperCompany=PageFactory.initElements(driver, SelectSuperCompany.class);
 		//selectSuperCompany.selectSuperCompany();
-		
+	
+			OpenBrowser();
+
 	}
 
 	SoftAssert sa= new SoftAssert();
 	@Test
 	public void bookingHomepageTest() {
 		Booking booking= PageFactory.initElements(driver, Booking.class);
+	}
+	@AfterClass
+	public void closeAllBrowser() {
+		closeBrowser();
 	}
 
 }

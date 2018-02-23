@@ -29,7 +29,7 @@ import glide.backoffice.method.login.SignIn;
 import glide.backoffice.utility.SeleniumUtility;
 import listeners.MethodListener;
 @Listeners({MethodListener.class})
-public abstract class BaseClassExtended {
+ abstract public  class BaseClassExtended {
 	
 	public Logger log = Logger.getLogger(SeleniumUtility.class.getName());
 
@@ -39,7 +39,7 @@ public abstract class BaseClassExtended {
     }
 	protected WebDriver driver;
 	DesiredCapabilities cap;
-	@BeforeClass
+	//@BeforeClass
 	public void OpenBrowser() throws MalformedURLException, InterruptedException {
 		
 		/*cap= DesiredCapabilities.internetExplorer();
@@ -88,7 +88,7 @@ public abstract class BaseClassExtended {
 	}
 	
 	
-	/*@AfterClass
+	//@AfterClass
 	public void closeBrowser() {
 		try {
 			driver.close();
@@ -97,5 +97,5 @@ public abstract class BaseClassExtended {
 		}finally {
 			driver.quit();
 		}
-	}*/
+	}
 }

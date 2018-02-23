@@ -3,36 +3,41 @@
 <suite name="Suiteme">
 	<!--<listeners> <listener class-name="testrailtests.TestClassISuiteListener"></listener> 
 		</listeners> -->
-	<test name="Booking">
+	<test name="Sub Companies">
 		<classes>
-			<class name="glide.backoffice.test.bookings.BookingHomepageVerification" />
-			<class name="glide.backoffice.test.bookings.CreateNewBooking" />
+			<class name="glide.backoffice.test.companies.accounts.CompanyTest" />
 		</classes>
 	</test>
+	<test name="Configuration">
+		<classes>
+			<class name="glide.backoffice.test.accounts.configurations.ConfigTest" />
+		</classes>
+	</test>
+
+	<test name="SitesAndParking">
+		<classes>
+			<class name="glide.backoffice.test.accounts.sitesandparkings.ParkingTest" />
+			<class name="glide.backoffice.test.accounts.sitesandparkings.SiteTest" />
+		</classes>
+	</test>
+
+
+
 	<test name="Super Company">
 		<classes>
 			<class
-				name="glide.backoffice.test.supercompaniestest.AddNewSuperCompanyErrorTest" />
+				name="glide.backoffice.test.supercompaniestest.accounts.AddNewSuperCompanyErrorTest" />
 			<class
-				name="glide.backoffice.test.supercompaniestest.AddNewSuperCompanyTest" />
+				name="glide.backoffice.test.supercompaniestest.accounts.AddNewSuperCompanyTest" />
 			<class
-				name="glide.backoffice.test.supercompaniestest.SuperCompanyHomepageTest" />
+				name="glide.backoffice.test.supercompaniestest.accounts.SuperCompanyHomepageTest" />
 		</classes>
 	</test>
-	<test name="Back users">
+
+	<test name="Booking">
 		<classes>
-			<class name="glide.backoffice.test.users.BackuserTest" />
-			<class name="glide.backoffice.test.users.FilterMemberTest" />
-		</classes>
-	</test>
-	<test name="Header">
-		<classes>
-			<class name="glide.backoffice.test.headertest.HeaderTest" />
-		</classes>
-	</test>
-	<test name="Fleets">
-		<classes>
-			<class name="glide.backoffice.test.fleets.VehicleTest" />
+			<class name="glide.backoffice.test.bookings.BookingFilterTest" />
+			<class name="glide.backoffice.test.bookings.CreateNewBooking" />
 		</classes>
 	</test>
 	<test name="Dashboard">
@@ -40,16 +45,27 @@
 			<class name="glide.backoffice.test.dashboardtest.DashboardTest" />
 		</classes>
 	</test>
-
-	<test name="Configuration">
+	<test name="Fleets">
 		<classes>
-			<class name="glide.backoffice.test.configurations.ConfigTest" />
+			<class name="glide.backoffice.test.fleets.vehicles.VehicleTest" />
 		</classes>
 	</test>
-	<test name="Accounts">
+	<test name="Header">
 		<classes>
-			<class name="glide.backoffice.test.accounts.ParkingTest" />
-			<class name="glide.backoffice.test.accounts.SiteTest" />
+			<class name="glide.backoffice.test.headertest.HeaderTest" />
+		</classes>
+	</test>
+	<test name="Back users">
+		<classes>
+			<class name="glide.backoffice.test.users.backusers.BackuserTest" />
+		</classes>
+	</test>
+
+	<test name="Members">
+		<classes>
+			<class name="glide.backoffice.test.users.members.FilterMemberTest" />
+			<class name="glide.backoffice.test.users.members.MemberTest" />
+			<class name="glide.backoffice.test.users..members.ViewMemberTest" />
 		</classes>
 	</test>
 
