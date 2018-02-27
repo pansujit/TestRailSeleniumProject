@@ -20,8 +20,8 @@ public class FindMemberBookingMethod {
 	/**
 	 * This method input email in email search box.
 	 */
-	void inputEmailInSearchBox() {		
-		SeleniumUtility.sendText(driver, findMemberBooking.inputTagEmailFindMemberBooking, EMAIL_ADDRESS);
+	void inputEmailInSearchBox(String emailAddress) {		
+		SeleniumUtility.sendText(driver, findMemberBooking.inputTagEmailFindMemberBooking, emailAddress);
 	}
 	
 	/**
@@ -35,8 +35,8 @@ public class FindMemberBookingMethod {
 	/**
 	 * This method click on The book link of the member in find-member page
 	 */
-	 void clickOnBook() {		
-		SeleniumUtility.clickOnElement(driver, findMemberBooking.buttonTagBookFindMemberBooking(EMAIL_ADDRESS));
+	 void clickOnBook(String email) {		
+		SeleniumUtility.clickOnElement(driver, findMemberBooking.buttonTagBookFindMemberBooking(email));
 		SeleniumUtility.waitElementToBeVisible(driver, findVehicleBooking.buttonTagSearchFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
 

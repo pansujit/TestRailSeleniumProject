@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import glide.backoffice.dataprovider.VehicleDataProvider;
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.fleets.vehicles.VehicleDto;
 import glide.backoffice.method.fleets.vehicles.VehicleMethod;
 import glide.backoffice.method.header.HeaderMethod;
@@ -21,7 +22,7 @@ public class VehicleTest  extends BaseClassExtended{
 			OpenBrowser();
 		HeaderMethod headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
-		headerMethod.selectSuperCompany();
+		headerMethod.selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
 		siteMenuItems.clickOnVehicles();
 	}
 	@Test(dataProvider="addVehicle",dataProviderClass = VehicleDataProvider.class)

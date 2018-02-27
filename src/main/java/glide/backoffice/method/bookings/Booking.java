@@ -5,14 +5,16 @@ package glide.backoffice.method.bookings;
 import java.util.List;
 
 import glide.backoffice.method.common.CommonMethods;
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.filter.BookingsFilterMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
+import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.locators.menuitems.SidebarMenuItems;
 
@@ -32,7 +34,9 @@ public class Booking implements Testme {
 	HomepageBookingsMethod homepageBookingsMethod;
 	FindMemberBookingMethod findMemberBookingMethod;
 	FindVehicleBookingMethod findVehicleBookingMethod;
+	ViewBookingMethod viewBookingMethod;
 	CommonMethods commomMethods;
+	SoftAssert softAssert;
 	// This is the constructor for the class
 	public Booking(WebDriver ldriver) {
 		this.driver=ldriver;
@@ -43,6 +47,9 @@ public class Booking implements Testme {
 		this.findMemberBookingMethod= PageFactory.initElements(driver,FindMemberBookingMethod.class);
 		this.findVehicleBookingMethod= PageFactory.initElements(driver,FindVehicleBookingMethod.class);
 		this.commomMethods= PageFactory.initElements(driver,CommonMethods.class);
+		this.viewBookingMethod= PageFactory.initElements(driver,ViewBookingMethod.class);
+		this.softAssert= new SoftAssert();
+
 }
 
 
@@ -68,34 +75,34 @@ public class Booking implements Testme {
 	/**
 	 * This public method create a booking for a user using back office.
 	 */
-	public void createBooking() {		
+	public void createBooking(BookingDto bookingDto) {		
 
 		//click on create booking field in booking homepage 
 		homepageBookingsMethod.clickOnCreateBooking();
 		// type email address of the user to which we are going to create booking
-		findMemberBookingMethod.inputEmailInSearchBox();
+		findMemberBookingMethod.inputEmailInSearchBox(bookingDto.getMemberEmail());
 		// Click on Search button to find member
 		findMemberBookingMethod.clickOnSearch();
 		// click on BOOK icon in the member row
-		findMemberBookingMethod.clickOnBook();
+		findMemberBookingMethod.clickOnBook(bookingDto.getMemberEmail());
 		//Select the radio button for round trip
 		findVehicleBookingMethod.clickOnRoundTrip();
 		// Type the start address. it will be the same for end address
-		findVehicleBookingMethod.inputStartAddress();
+		findVehicleBookingMethod.inputStartAddress(bookingDto.getStartAddress());
 		// Select the end Date 
-		findVehicleBookingMethod.selectEndDate();
+		findVehicleBookingMethod.selectEndDate(bookingDto.getEndDate());
 		// Select the end hour and minutes the difference between endDataTime-startDataTime>=1hour
-		findVehicleBookingMethod.endHourAndMinute(1,30);
+		findVehicleBookingMethod.endHourAndMinute(bookingDto.getEndTimeHour(),bookingDto.getEndTimeMinutes());
 		// Select the Start Date 
-		findVehicleBookingMethod.selectStartDate();
+		findVehicleBookingMethod.selectStartDate(bookingDto.getStartDate());
 		// Select the Start hour and minutes the difference between endDataTime-startDataTime>=1hour
-		findVehicleBookingMethod.startHourAndMinute(0,15);
+		findVehicleBookingMethod.startHourAndMinute(bookingDto.getStartTimeHour(),bookingDto.getStartTimeMinutes());
 		// Click on Search booking button to find the vehicle
 		findVehicleBookingMethod.clickOnSearchBooking();
 		// Wait until the system finds the Booking
 		waitUntilElementNotToBeVisible();
 		// Click on confirm booking link in the result booking list
-		findVehicleBookingMethod.clickOnConfirmBooking();
+		findVehicleBookingMethod.clickOnConfirmBooking(Config.getProperty("VEHICLE_PLATE_NUMBER"),"private");
 		// Click on save button in booking pop up page
 		findVehicleBookingMethod.clickOnSaveButton();
 		// Wait until the system redirect to the booking page
@@ -104,6 +111,16 @@ public class Booking implements Testme {
 		siteMenuItems.clickOnInvoices();
 		// Click on Booking site menu
 		siteMenuItems.clickOnBookings();
+		//click on filter booking with scheduled
+		bookingFilterMethod.filterByStatus(bookingDto.getStatus());
+		//Click on View Button of the booking
+		homepageBookingsMethod.clickOnViewBookingButton(bookingDto.getFirstname()
+				,bookingDto.getStartDateTimeForBooking(),bookingDto.getEndDateTimeForBooking());
+		//Click on Cancel Booking
+		viewBookingMethod.clickOnCancelButton();
+		// confirm cancel
+		viewBookingMethod.confirmCancelBooking();
+		
 
 	}
 
@@ -146,7 +163,7 @@ public class Booking implements Testme {
 	 */
 	public void filterBookingByEmail() {		
 
-		bookingFilterMethod.filterByEmail(EMAIL_ADDRESS);		
+		bookingFilterMethod.filterByEmail(Config.getProperty("EDIT_MEMBER"));		
 		bookingFilterMethod.deleteFilteredIconsInBooking();
 	}
 	/**
@@ -155,7 +172,7 @@ public class Booking implements Testme {
 	public void filterBookingByStatusAndEmail() {		
 
 		bookingFilterMethod.filterByStatus("completed");
-		bookingFilterMethod.filterByEmail(EMAIL_ADDRESS);
+		bookingFilterMethod.filterByEmail(Config.getProperty("EDIT_MEMBER"));
 		bookingFilterMethod.deleteFilteredIconsInBooking();
 
 	}
@@ -218,7 +235,7 @@ public class Booking implements Testme {
 		bookingFilterMethod.filterByDepatureDate("2016-11-22");
 		bookingFilterMethod.filterByFirstname("sujit");
 		bookingFilterMethod.filterByLastname("pandey");
-		bookingFilterMethod.filterByEmail(EMAIL_ADDRESS);
+		bookingFilterMethod.filterByEmail(Config.getProperty("EDIT_MEMBER"));
 		bookingFilterMethod.filterByBookingID("AAZZAZZAA");
 		bookingFilterMethod.filterByPlateNumber("xxxxxx");
 		bookingFilterMethod.filterByStatus("completed");

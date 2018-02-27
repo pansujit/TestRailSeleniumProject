@@ -3,6 +3,7 @@ package glide.backoffice.method.fleets.vehicles;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.utility.SeleniumUtility;
 
@@ -54,7 +55,7 @@ public class VehicleMethod {
 	 */
 	public void editAVehicle(VehicleDto vehicleDto) {
 		//Click on Edit button in vehicle. There is not edit button so click anywher in given vehicle row
-		homepageVehicleMethod.clickOnVehicleToView("AABBCCDDEEFF");
+		homepageVehicleMethod.clickOnVehicleToView(Config.getProperty("EDIT_VEHICLE_PLATE_NUMBER"));
 		// Click on Edit Button of the vehicle
 		viewVehicleMethod.clickOnEditVehicle();
 		// Input data in the vehicle
@@ -75,7 +76,7 @@ public class VehicleMethod {
 	 */
 	public void viewAVehicle() {
 		//Click on Edit button in vehicle. There is not edit button so click anywher in given vehicle row
-		homepageVehicleMethod.clickOnVehicleToView("AABBCCDDEEFF");
+		homepageVehicleMethod.clickOnVehicleToView(Config.getProperty("EDIT_VEHICLE_PLATE_NUMBER"));
 		clickOnBackButton();
 
 	}

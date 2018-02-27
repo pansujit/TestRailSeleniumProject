@@ -25,6 +25,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.login.SignIn;
 import glide.backoffice.utility.SeleniumUtility;
 import listeners.MethodListener;
@@ -54,7 +55,10 @@ import listeners.MethodListener;
 		options.addArguments("start-fullscreen");
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
 		driver = new ChromeDriver(options);
-		driver.navigate().to("https://admin-valid-2-glide.tech.rcimobility.com/#/login");
+	//	driver.navigate().to("https://admin-valid-2-glide.tech.rcimobility.com/#/login");
+		//System.out.println("hello"+System.getProperty("dev2.properties"));
+		driver.navigate().to(Config.getProperty("BO_URL"));
+
 		//driver.navigate().to("https://web-dev-2-glide.tech.rcimobility.com/#/login");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(15000, TimeUnit.MILLISECONDS);
@@ -63,7 +67,7 @@ import listeners.MethodListener;
 	}
 	private void login() {
 		SignIn signin=PageFactory.initElements(driver, SignIn.class);
-		signin.signIn("admin@glidemobility.com", "1Aaaaaaa");
+		signin.signIn(Config.getProperty("BO_ADMIN"), Config.getProperty("BO_PASSWORD"));
 		//signin.signIn("sujit.pandey+1@glidemobility.com", "1Aaaaaaa");
 	}
 	

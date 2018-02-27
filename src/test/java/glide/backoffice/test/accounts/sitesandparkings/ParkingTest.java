@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import glide.backoffice.dataprovider.SiteDataProvider;
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.method.sitesandparkings.ParkingDto;
@@ -17,10 +18,9 @@ import glide.backoffice.test.baseclass.BaseClassExtended;
 public class ParkingTest extends BaseClassExtended {
 	@BeforeClass
 	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
-			OpenBrowser();
-
+		OpenBrowser();
 		HeaderMethod headerMethod= PageFactory.initElements(driver, HeaderMethod.class);
-		headerMethod.selectSuperCompany();
+		headerMethod.selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
 		SideMenuItemsMethod sideMenuItemsMethod= PageFactory.initElements(driver, SideMenuItemsMethod.class);
 		sideMenuItemsMethod.clickOnSitesAndParking();
 	}

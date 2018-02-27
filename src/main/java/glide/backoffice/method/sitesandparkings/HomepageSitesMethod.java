@@ -5,6 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import glide.backoffice.locators.accounts.sitesandparkings.AddSite;
 import glide.backoffice.locators.accounts.sitesandparkings.HomepageSites;
+import glide.backoffice.method.common.Config;
 import glide.backoffice.utility.SeleniumUtility;
 /**
  * This class contains all the method for the site and parking homepage page
@@ -33,7 +34,7 @@ public class HomepageSitesMethod {
 	 * This method click on The Edit site button and wait until the save button in the add site is displayed in back office.
 	 */
 	void clickOnEditSiteButton() {
-		SeleniumUtility.clickOnElement(driver, homepageSites.buttonTagEditSiteHomepageSites("autoTest_site"));
+		SeleniumUtility.clickOnElement(driver, homepageSites.buttonTagEditSiteHomepageSites(Config.getProperty("EDIT_SITE_NAME")));
 		SeleniumUtility.waitElementToBeVisible(driver, addSite.buttonTagSaveEditSite);
 		SeleniumUtility.fixedWait(1);
 	}

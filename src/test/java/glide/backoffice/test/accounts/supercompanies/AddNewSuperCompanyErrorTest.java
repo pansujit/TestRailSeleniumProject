@@ -1,4 +1,4 @@
-package glide.backoffice.test.accounts.supercompaniestest;
+package glide.backoffice.test.accounts.supercompanies;
 
 import java.net.MalformedURLException;
 
@@ -16,9 +16,7 @@ import glide.backoffice.test.baseclass.BaseClassExtended;
 public class AddNewSuperCompanyErrorTest extends BaseClassExtended {
 	@BeforeClass(description="This runs once which will click on Super companies on side bar menu")
 	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
-
-			OpenBrowser();
-
+		OpenBrowser();
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
 		siteMenuItems.clickOnSuperCompanies();
 	}

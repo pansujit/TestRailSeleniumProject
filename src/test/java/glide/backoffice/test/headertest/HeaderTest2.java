@@ -6,6 +6,9 @@ import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
+
+import com.gargoylesoftware.htmlunit.javascript.host.xml.XMLHttpRequest;
+
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 import glide.backoffice.test.baseclass.BaseClassExtended2;
@@ -37,5 +40,6 @@ public class HeaderTest2 extends BaseClassExtended2 {
 		String scriptToExecute = "var performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {}; var network = performance.getEntries() || {}; return network;";
 	    String netData = ((JavascriptExecutor)driver).executeScript(scriptToExecute).toString();
 	    System.out.println("hi"+netData);
+	  
 	}
 }

@@ -7,7 +7,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import glide.backoffice.dataprovider.BookingDataProvidor;
 import glide.backoffice.method.bookings.Booking;
+import glide.backoffice.method.bookings.BookingDto;
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
@@ -23,14 +26,14 @@ public class CreateNewBooking extends BaseClassExtended {
 
 		HeaderMethod headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
-		headerMethod.selectSuperCompany();
+		headerMethod.selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
 		siteMenuItems.clickOnBookings();	
 	}
 	
-	@Test
-	public void createNewBookingTest() throws InterruptedException {
+	@Test(dataProvider="createBooking",dataProviderClass=BookingDataProvidor.class)
+	public void createNewBookingTest(BookingDto bookingDto) throws InterruptedException {
 		Booking booking= PageFactory.initElements(driver, Booking.class);
-		booking.createBooking();
+		booking.createBooking(bookingDto);
 	}
 	@AfterClass
 	public void closeAllBrowser() {

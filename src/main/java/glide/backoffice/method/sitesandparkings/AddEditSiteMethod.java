@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import glide.backoffice.locators.accounts.sitesandparkings.AddParking;
 import glide.backoffice.locators.accounts.sitesandparkings.AddSite;
+import glide.backoffice.method.common.Config;
 import glide.backoffice.utility.SeleniumUtility;
 /**
  * This class contains all the method for add and edit site page
@@ -79,7 +80,7 @@ public class AddEditSiteMethod {
 	 * This method click on the Parking Edit button in edit site and wait until the Save button in add/edit parking page is displayed.
 	 */
 	void clickOnParkingEditButton() {
-		SeleniumUtility.clickOnElement(driver,addSite.buttonTagEditParkingEditSite("test_parking"));
+		SeleniumUtility.clickOnElement(driver,addSite.buttonTagEditParkingEditSite(Config.getProperty("EDIT_PARKING_NAME")));
 		SeleniumUtility.waitElementToBeVisible(driver, addParking.buttonTagSaveEditParking);
 		SeleniumUtility.fixedWait(1);
 		

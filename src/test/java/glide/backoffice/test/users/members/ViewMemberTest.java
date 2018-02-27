@@ -7,6 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.method.users.members.MembersMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
@@ -23,7 +24,7 @@ public class ViewMemberTest extends BaseClassExtended{
 	@Test
 	public void AddCommentOnMemberTest() {
 		MembersMethod membersMethod=PageFactory.initElements(driver, MembersMethod.class);
-		membersMethod.addCommentOnMember("rcimtesting+399133_287924@gmail.com");
+		membersMethod.addCommentOnMember(Config.getProperty("EDIT_MEMBER"));
 	}
 	@AfterClass
 	public void closeAllBrowser() {

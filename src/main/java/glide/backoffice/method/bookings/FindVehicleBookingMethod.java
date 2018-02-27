@@ -30,9 +30,9 @@ public class FindVehicleBookingMethod {
 	/**
 	 * This method input the start address rather than the site name in find-vehicle page.
 	 */
-	void inputStartAddress() {		
+	void inputStartAddress(String address) {		
 		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagStartAddressFindVehicleBooking);
-		SeleniumUtility.sendText(driver, findVehicleBooking.inputTagStartAddressFindVehicleBooking, "1 Rue de Gramont, 75002 Paris, France");
+		SeleniumUtility.sendText(driver, findVehicleBooking.inputTagStartAddressFindVehicleBooking, address);
 		SeleniumUtility.fixedWait(1);
 		SeleniumUtility.sendEnter(driver, findVehicleBooking.inputTagStartAddressFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
@@ -51,10 +51,10 @@ public class FindVehicleBookingMethod {
 	/**
 	 * This method select the End date which is today in find-vehicle page.
 	 */
-	void selectEndDate() {	
+	void selectEndDate(String mydate ) {	
 		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagEndDateFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
-		commonMethods.monthAndDayPicker(DateHelper.getCurrentDate());
+		commonMethods.monthAndDayPicker(mydate);
 	}
 
 	/**
@@ -62,12 +62,12 @@ public class FindVehicleBookingMethod {
 	 * @param hours - should be int between (00 to 23)
 	 * @param minute - should be int between (00 to 59)
 	 */
-	void endHourAndMinute(int hours, int minute) {		
+	void endHourAndMinute(String hours, String minute) {		
 
-		String[] data=DateHelper.hourAndMinute(hours, minute);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagEndHourFindVehicleBooking, data[0]);
+		//String[] data=DateHelper.hourAndMinute(hours, minute);
+		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagEndHourFindVehicleBooking, hours);
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagEndMinuteFindVehicleBooking, data[1]);
+		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagEndMinuteFindVehicleBooking, minute);
 		SeleniumUtility.fixedWait(1);
 	}
 
@@ -76,12 +76,12 @@ public class FindVehicleBookingMethod {
 	 * @param hours - should be int between (00 to 23)
 	 * @param minute - should be int between (00 to 59)
 	 */
-	void startHourAndMinute(int hours, int minute) {		
+	void startHourAndMinute(String hours, String minutes) {		
 
-		String[] data=DateHelper.hourAndMinute(hours, minute);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagStartHourFindVehicleBooking, data[0]);
+		//String[] data=DateHelper.hourAndMinute(hours, minute);
+		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagStartHourFindVehicleBooking, hours);
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagStartMinuteFindVehicleBooking,  data[1]);
+		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagStartMinuteFindVehicleBooking,  minutes);
 		SeleniumUtility.fixedWait(1);
 
 
@@ -90,10 +90,10 @@ public class FindVehicleBookingMethod {
 	/**
 	 * This method select the Start date which is today in find-vehicle page.
 	 */
-	void selectStartDate() {		
+	void selectStartDate(String myStartDate) {		
 		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagStartDateFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
-		commonMethods.monthAndDayPicker(DateHelper.getCurrentDate());
+		commonMethods.monthAndDayPicker(myStartDate);
 
 	}
 
@@ -112,8 +112,8 @@ public class FindVehicleBookingMethod {
 	/**
 	 * This method will click on the confirm button of the given booking in find-vehicle page
 	 */
-	void clickOnConfirmBooking() {		
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.buttonTagConfirmFindVehicleBooking("kkkkkkkkk", "PRIVATE"));
+	void clickOnConfirmBooking(String plateNumber, String bookingType) {		
+		SeleniumUtility.clickOnElement(driver, findVehicleBooking.buttonTagConfirmFindVehicleBooking(plateNumber, bookingType.toUpperCase()));
 		SeleniumUtility.fixedWait(3);
 	}
 

@@ -3,6 +3,7 @@ package glide.backoffice.dataprovider;
 
 import org.testng.annotations.DataProvider;
 
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.users.members.MembersFilterDto;
 
 
@@ -26,7 +27,7 @@ public class MembersDataProvider {
 
 		memberFilterDto=MembersFilterDto.builder()
 				.name("sujit")
-				.email("sujit.pandey+24@glidemobility.com")
+				.email(Config.getProperty("EDIT_MEMBER"))
 				.build();
 
 		return new Object[][] {{memberFilterDto}};
@@ -36,7 +37,7 @@ public class MembersDataProvider {
 	public Object[][] filterByEmail() {
 
 		memberFilterDto=MembersFilterDto.builder()
-				.email("sujit.pandey+24@glidemobility.com")
+				.email(Config.getProperty("EDIT_MEMBER"))
 				.build();
 
 		return new Object[][] {{memberFilterDto}};

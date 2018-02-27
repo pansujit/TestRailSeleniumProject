@@ -3,6 +3,7 @@ package glide.backoffice.method.users.backusers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 /**
@@ -48,7 +49,7 @@ public class BackuserMethod {
 	 * This public method redirect to the view page of any given backuser
 	 */
 	public void viewABackuser() {
-		backuserHomepageMethod.clickOnViewButton("sujit.pandey+1a@glidemobility.com");
+		backuserHomepageMethod.clickOnViewButton(Config.getProperty("EDIT_BACK_USER"));
 		clickOnBackButton();
 	}
 	/**
@@ -56,7 +57,7 @@ public class BackuserMethod {
 	 * @param backuserDto - Should be BackuserDto
 	 */
 	public void editABackuser(BackuserDto backuserDto) {
-		backuserHomepageMethod.clickOnViewButton("sujit.pandey+1a@glidemobility.com");
+		backuserHomepageMethod.clickOnViewButton(Config.getProperty("EDIT_BACK_USER"));
 		viewBackuserMethod.clickOnEditButton();
 		addEditBackuserMethod.inputBackuserData(backuserDto);
 		addEditBackuserMethod.clickOnSaveButtonOnEditBackuser();

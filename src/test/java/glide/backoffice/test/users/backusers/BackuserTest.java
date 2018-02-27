@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import glide.backoffice.dataprovider.BackuserDataProvider;
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.method.users.backusers.BackuserDto;
@@ -18,11 +19,10 @@ public class BackuserTest extends BaseClassExtended {
 	
 	@BeforeClass(description="This runs once which will select the super company and click on Backuser bar menu")
 	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
-			OpenBrowser();
-
+		OpenBrowser();
 		HeaderMethod headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
-		headerMethod.selectSuperCompany();
+		headerMethod.selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
 		siteMenuItems.clickOnBackusers();
 	}
 	

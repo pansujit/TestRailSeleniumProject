@@ -10,6 +10,7 @@ import glide.backoffice.locators.accounts.configurations.EditConfig;
 import glide.backoffice.locators.accounts.configurations.HomepageConfig;
 import glide.backoffice.locators.common.CommonLocators;
 import glide.backoffice.method.common.CommonMethods;
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.utility.SeleniumUtility;
 
@@ -53,8 +54,8 @@ public class ConfigMethod {
 
 	private void clickOnEditConfigButton() {
 		while(commonMethods.checkVisibilityPaginationNext()) {
-			if(SeleniumUtility.checkElementIsVisible(driver, homepageConfig.spanTagConfigNameHomepageConfig("Nagdobyr"))) {
-				SeleniumUtility.clickOnElement(driver, homepageConfig.buttonTagEditHomepageConfig("Nagdobyr"));
+			if(SeleniumUtility.checkElementIsVisible(driver, homepageConfig.spanTagConfigNameHomepageConfig(Config.getProperty("EDIT_CONFIGURATION_NAME")))) {
+				SeleniumUtility.clickOnElement(driver, homepageConfig.buttonTagEditHomepageConfig(Config.getProperty("EDIT_CONFIGURATION_NAME")));
 				SeleniumUtility.waitElementToBeVisible(driver, addConfig.buttonTagSaveEditConfig);
 				SeleniumUtility.fixedWait(1);
 				break;
@@ -73,7 +74,6 @@ public class ConfigMethod {
 		clickOnSaveButton();
 	}
 	public void editConfiguration(ConfigDto configDto) {
-		System.out.println("name" +configDto.getConfigName());
 		clickOnEditConfigButton();
 		typeInputFields(configDto);
 		clickOnSaveButton();

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import glide.backoffice.locators.companies.EditCompany;
 import glide.backoffice.locators.companies.HomepageCompany;
 import glide.backoffice.locators.companies.ViewCompany;
+import glide.backoffice.method.common.Config;
 import glide.backoffice.utility.SeleniumUtility;
 
 public class HomepageCompanyMethod {
@@ -34,7 +35,7 @@ public class HomepageCompanyMethod {
 		 * This method clicks on the view links of the given company 
 		 */
 		void clickOnViewCompany() {
-			SeleniumUtility.clickOnElement(driver, homepageCompany.buttonTagViewHomepageCompanies("test_company"));
+			SeleniumUtility.clickOnElement(driver, homepageCompany.buttonTagViewHomepageCompanies(Config.getProperty("EDIT_SUB_COMPANY_NAME")));
 			SeleniumUtility.waitElementToBeClickable(driver, viewCompany.aTagEditViewCompany);
 			SeleniumUtility.fixedWait(1);
 		}

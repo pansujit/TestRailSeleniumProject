@@ -5,7 +5,7 @@
 		</listeners> -->
 	<test name="Sub Companies">
 		<classes>
-			<class name="glide.backoffice.test.companies.accounts.CompanyTest" />
+			<class name="glide.backoffice.test.accounts.companies.CompanyTest" />
 		</classes>
 	</test>
 	<test name="Configuration">
@@ -23,14 +23,14 @@
 
 
 
-	<test name="Super Company">
+	<test name="Super-Company">
 		<classes>
 			<class
-				name="glide.backoffice.test.supercompaniestest.accounts.AddNewSuperCompanyErrorTest" />
+				name="glide.backoffice.test.accounts.supercompanies.AddNewSuperCompanyErrorTest" />
 			<class
-				name="glide.backoffice.test.supercompaniestest.accounts.AddNewSuperCompanyTest" />
+				name="glide.backoffice.test.accounts.supercompanies.AddNewSuperCompanyTest" />
 			<class
-				name="glide.backoffice.test.supercompaniestest.accounts.SuperCompanyHomepageTest" />
+				name="glide.backoffice.test.accounts.supercompanies.SuperCompanyHomepageTest" />
 		</classes>
 	</test>
 
@@ -65,7 +65,7 @@
 		<classes>
 			<class name="glide.backoffice.test.users.members.FilterMemberTest" />
 			<class name="glide.backoffice.test.users.members.MemberTest" />
-			<class name="glide.backoffice.test.users..members.ViewMemberTest" />
+			<class name="glide.backoffice.test.users.members.ViewMemberTest" />
 		</classes>
 	</test>
 
