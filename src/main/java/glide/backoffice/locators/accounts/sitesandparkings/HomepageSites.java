@@ -19,7 +19,7 @@ public class HomepageSites {
 	 * This locator will find site address element in homepage in Account-->Sites and parkings--> Homepage
 	 */
 	public final  By spanTagSiteAddressHomepageSites(String replacementText) {
-		String text="..//table/tbody/tr/td[1]/span/span[contains(text(),'xxxx')]/../../../td[2]/span/span";
+		String text=".//table/tbody/tr/td[1]/span/span[contains(text(),'xxxx')]/../../../td[2]/span/span";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}	
 	/**

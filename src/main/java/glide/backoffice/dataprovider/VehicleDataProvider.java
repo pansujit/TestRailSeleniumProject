@@ -10,6 +10,7 @@ import glide.backoffice.enums.CarBrands;
 import glide.backoffice.enums.CarModels;
 import glide.backoffice.enums.CarVersions;
 import glide.backoffice.enums.FuelType;
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.fleets.vehicles.VehicleDto;
 import glide.backoffice.utility.RandomGenerator;
 
@@ -56,9 +57,9 @@ public class VehicleDataProvider {
 		
 			Faker faker = new Faker(new Locale("fr"));
 		vehicleDto=VehicleDto.builder()
-				.carBrand("Renault")
-				.carModel("Captur")
-				.carVersion("Intens")
+				.carBrand(Config.getProperty("VEHICLE_BRAND"))
+				.carModel(Config.getProperty("VEHICLE_MODEL"))
+				.carVersion(Config.getProperty("VEHICLE_VERSION"))
 				.fuelType(FuelType.getFuelType())
 				.imageURL("https://"+faker.internet().url())
 				.deviceSerialNumber(faker.number().digits(10))
@@ -68,7 +69,7 @@ public class VehicleDataProvider {
 				.siteLocation("ss")
 				.parkingLocation("dd")
 				.vehicleType("Private car")
-				.vehicleColor("Red")
+				.vehicleColor(Config.getProperty("VEHICLE_COLOR"))
 				.systemInUse("INVERSE")
 				.seatNumber(faker.number().digits(1))
 				.vehicleVIN(faker.number().digits(17))

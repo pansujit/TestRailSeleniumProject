@@ -26,6 +26,35 @@ public class HomepageSC {
 		String text= ".//table/tbody/tr/td[1]/span/span[text()='xxxx']";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
+	
+	/**
+	 * This locators finds email element in the supercompanies--> homepage
+	 */
+	public final By spanTagCompanyEmailHomepageSC(String replacementText) {
+		String text= ".//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[2]/span/span";
+		return By.xpath(text.replace("xxxx", replacementText));
+	}
+	/**
+	 * This locators finds company Phone element in the supercompanies--> homepage
+	 */
+	public final By spanTagCompanyPhoneHomepageSC(String replacementText) {
+		String text= ".//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[3]/span/span";
+		return By.xpath(text.replace("xxxx", replacementText));
+	}
+	/**
+	 * This locators finds company Tax Number element in the supercompanies--> homepage
+	 */
+	public final By spanTagCompanyTaxNumberHomepageSC(String replacementText) {
+		String text= ".//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[4]/span/span";
+		return By.xpath(text.replace("xxxx", replacementText));
+	}
+	/**
+	 * This locators finds company Vat Number element in the supercompanies--> homepage
+	 */
+	public final By spanTagCompanyVatNumberHomepageSC(String replacementText) {
+		String text= ".//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[5]/span/span";
+		return By.xpath(text.replace("xxxx", replacementText));
+	}
 
 	/**
 	 * This locators finds Super company header name element in the super company homepage

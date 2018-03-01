@@ -2,10 +2,11 @@ package glide.backoffice.method.companies;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
 
-import glide.backoffice.locators.companies.EditCompany;
-import glide.backoffice.locators.companies.HomepageCompany;
-import glide.backoffice.locators.companies.ViewCompany;
+import glide.backoffice.locators.accounts.companies.EditCompany;
+import glide.backoffice.locators.accounts.companies.HomepageCompany;
+import glide.backoffice.locators.accounts.companies.ViewCompany;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.utility.SeleniumUtility;
 
@@ -14,12 +15,13 @@ public class HomepageCompanyMethod {
 	HomepageCompany homepageCompany;
 	EditCompany editCompany;
 	ViewCompany viewCompany;
+	SoftAssert softAssert;
 	public HomepageCompanyMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.homepageCompany=PageFactory.initElements(driver, HomepageCompany.class);
 		this.editCompany=PageFactory.initElements(driver, EditCompany.class);
 		this.viewCompany=PageFactory.initElements(driver, ViewCompany.class);
-
+		this.softAssert=new SoftAssert();
 	}
 	
 	/**
@@ -34,10 +36,28 @@ public class HomepageCompanyMethod {
 		/**
 		 * This method clicks on the view links of the given company 
 		 */
-		void clickOnViewCompany() {
-			SeleniumUtility.clickOnElement(driver, homepageCompany.buttonTagViewHomepageCompanies(Config.getProperty("EDIT_SUB_COMPANY_NAME")));
+		void clickOnViewCompany(String companyName) {
+			SeleniumUtility.clickOnElement(driver, homepageCompany.buttonTagViewHomepageCompanies(companyName));
 			SeleniumUtility.waitElementToBeClickable(driver, viewCompany.aTagEditViewCompany);
 			SeleniumUtility.fixedWait(1);
+		}
+		/**
+		 * This method compare the text in company homepage of the given company with given parameters and return the boolean result
+		 * @param companyName - Should be String
+		 * @param taxNumber - Should be String
+		 * @param companyEmail - Should be String
+		 * @param companyPhone - Should be String
+		 * @param companyVat - Should be String
+		 */
+		void assertCompanyEditCreate(String companyName,String taxNumber,String companyEmail,String companyPhone) {
+			softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+					homepageCompany.spanTagTaxNumberHomepageCompanies(companyName),taxNumber));
+			softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+					homepageCompany.spanTagEmailHomepageCompanies(companyName),companyEmail));
+			softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+					homepageCompany.spanTagPhoneHomepageCompanies(companyName),"+33"+companyPhone));
+			softAssert.assertTrue(!SeleniumUtility.getText(driver, homepageCompany.spanTagVatCodeHomepageCompanies(companyName)).isEmpty());
+			softAssert.assertAll();
 		}
 
 }

@@ -6,6 +6,7 @@ import org.testng.annotations.DataProvider;
 
 import com.github.javafaker.Faker;
 
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.sitesandparkings.ParkingDto;
 import glide.backoffice.method.sitesandparkings.SiteDto;
 import glide.backoffice.utility.RandomGenerator;
@@ -27,7 +28,7 @@ public class SiteDataProvider {
 					.automaticShorteningBooing(RandomGenerator.getRandomBoolean())
 					.penaltyOnExpiredBooing(RandomGenerator.getRandomBoolean())
 					.phisingSmartcard(RandomGenerator.getRandomBoolean())
-					.selectCompany("test_company")
+					.selectCompany(Config.getProperty("EDIT_SUB_COMPANY_NAME"))
 					.selectTimeZone("Europe/Paris")
 					.spontaneousBooking(true)
 					.spontaneousBookingType(RandomGenerator.getRandomBoolean())
@@ -45,8 +46,7 @@ public class SiteDataProvider {
 				.automaticExtendingBooing(RandomGenerator.getRandomBoolean())
 				.automaticShorteningBooing(RandomGenerator.getRandomBoolean())
 				.penaltyOnExpiredBooing(RandomGenerator.getRandomBoolean())
-				.phisingSmartcard(RandomGenerator.getRandomBoolean())
-				
+				.phisingSmartcard(RandomGenerator.getRandomBoolean())	
 				.spontaneousBooking(RandomGenerator.getRandomBoolean())
 				.spontaneousBookingType(RandomGenerator.getRandomBoolean())
 				.selectTimeZone("Europe/Paris")

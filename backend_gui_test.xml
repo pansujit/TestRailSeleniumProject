@@ -28,7 +28,7 @@
 			<class
 				name="glide.backoffice.test.accounts.supercompanies.AddNewSuperCompanyErrorTest" />
 			<class
-				name="glide.backoffice.test.accounts.supercompanies.AddNewSuperCompanyTest" />
+				name="glide.backoffice.test.accounts.supercompanies.SuperCompanyTest" />
 			<class
 				name="glide.backoffice.test.accounts.supercompanies.SuperCompanyHomepageTest" />
 		</classes>

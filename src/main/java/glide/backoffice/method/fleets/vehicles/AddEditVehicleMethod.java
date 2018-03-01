@@ -2,6 +2,7 @@ package glide.backoffice.method.fleets.vehicles;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import glide.backoffice.locators.fleets.vehicles.AddVehicle;
 import glide.backoffice.locators.fleets.vehicles.HomepageVehicles;
@@ -14,6 +15,7 @@ public class AddEditVehicleMethod {
 	
 	public AddEditVehicleMethod(WebDriver ldriver ) {
 		this.driver=ldriver;
+		this.addVehicle=PageFactory.initElements(driver, AddVehicle.class);
 	}
 	/**
 	 * This method click on elements, espeacially for the radio button, which has two choices, according to the 
@@ -33,6 +35,13 @@ public class AddEditVehicleMethod {
 		}
 
 	}
+	/**
+	 * This private method click on the fuel type of the vehicle on add/edit of the vehicle
+	 * @param fuelType - Should be String
+	 */
+	private void clickOnFuelType(String fuelType) {
+		SeleniumUtility.clickOnElement(driver, addVehicle.labelTagFuelTypeEditVehicle(fuelType));
+	}
 	
 	/**
 	 * This method adds the parameters in Add/Edit Vehicle in Vehicle Sections.Data should be get from VehicleDto
@@ -50,8 +59,7 @@ public class AddEditVehicleMethod {
 		SeleniumUtility.selectByVisibleText(driver, addVehicle.selectTagVehicleTypeEditVehicle, vehicleDto.getVehicleType());
 		SeleniumUtility.clearTextAndSendText(driver, addVehicle.inputTagDoorsNumberEditVehicle, vehicleDto.getNumberOfDoors());
 		SeleniumUtility.clearTextAndSendText(driver, addVehicle.inputTagNumberOfSeatsEditVehicle, vehicleDto.getSeatNumber());
-		SeleniumUtility.clickOnElement(driver, addVehicle.labelTagVehicleTypeElectricEditVehicle);
-
+		clickOnFuelType(vehicleDto.getFuelType());
 
 	}
 	

@@ -4,6 +4,7 @@ package glide.backoffice.method.bookings;
 
 import java.util.List;
 
+import glide.backoffice.method.common.ApiCallsMethod;
 import glide.backoffice.method.common.CommonMethods;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.filter.BookingsFilterMethod;
@@ -16,6 +17,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
+import glide.backoffice.enums.Status;
+import glide.backoffice.enums.UsageType;
 import glide.backoffice.locators.menuitems.SidebarMenuItems;
 
 import glide.backoffice.utility.SeleniumUtility;
@@ -50,7 +53,7 @@ public class Booking implements Testme {
 		this.viewBookingMethod= PageFactory.initElements(driver,ViewBookingMethod.class);
 		this.softAssert= new SoftAssert();
 
-}
+	}
 
 
 	/**
@@ -70,13 +73,7 @@ public class Booking implements Testme {
 
 	}*/
 
-
-
-	/**
-	 * This public method create a booking for a user using back office.
-	 */
-	public void createBooking(BookingDto bookingDto) {		
-
+	private void findVehicleForRoundTripBooking(BookingDto bookingDto) {
 		//click on create booking field in booking homepage 
 		homepageBookingsMethod.clickOnCreateBooking();
 		// type email address of the user to which we are going to create booking
@@ -101,28 +98,74 @@ public class Booking implements Testme {
 		findVehicleBookingMethod.clickOnSearchBooking();
 		// Wait until the system finds the Booking
 		waitUntilElementNotToBeVisible();
-		// Click on confirm booking link in the result booking list
-		findVehicleBookingMethod.clickOnConfirmBooking(Config.getProperty("VEHICLE_PLATE_NUMBER"),"private");
+	}
+	private void confirmBooking() {
 		// Click on save button in booking pop up page
 		findVehicleBookingMethod.clickOnSaveButton();
 		// Wait until the system redirect to the booking page
 		waitUntilElementNotToBeVisible();
-		// Click on invoice site menu
-		siteMenuItems.clickOnInvoices();
-		// Click on Booking site menu
-		siteMenuItems.clickOnBookings();
+		
+	}
+
+	/**
+	 * This public method create a booking for a user using back office.
+	 */
+	public void createPrivateRoundTripBooking(BookingDto bookingDto) {		
+		findVehicleForRoundTripBooking(bookingDto);
+		// Click on confirm booking link in the result booking list
+		findVehicleBookingMethod.clickOnConfirmBooking(Config.getProperty("VEHICLE_PLATE_NUMBER"),UsageType.Private.toString());
+		confirmBooking();
+		//get the booking Id using rest api
+		String bookingId=ApiCallsMethod.getBookingID();	
 		//click on filter booking with scheduled
 		bookingFilterMethod.filterByStatus(bookingDto.getStatus());
 		//Click on View Button of the booking
-		homepageBookingsMethod.clickOnViewBookingButton(bookingDto.getFirstname()
-				,bookingDto.getStartDateTimeForBooking(),bookingDto.getEndDateTimeForBooking());
+		homepageBookingsMethod.clickOnViewBookingButton(bookingId);
+		viewBookingMethod.assertScheduledBooking(bookingId, Config.getProperty("VEHICLE_PLATE_NUMBER"), UsageType.Private.toString(),
+				Config.getProperty("MEMBER_FIRSTNAME")+" "+Config.getProperty("MEMBER_LASTNAME"), Config.getProperty("SUPER_COMPANY_NAME"), 
+				Status.Scheduled.toString());
 		//Click on Cancel Booking
 		viewBookingMethod.clickOnCancelButton();
 		// confirm cancel
 		viewBookingMethod.confirmCancelBooking();
-		
+		viewBookingMethod.assertScheduledBooking(bookingId, Config.getProperty("VEHICLE_PLATE_NUMBER"), UsageType.Private.toString(),
+				Config.getProperty("MEMBER_FIRSTNAME")+" "+Config.getProperty("MEMBER_LASTNAME"), Config.getProperty("SUPER_COMPANY_NAME"), 
+				Status.Canceled.toString());
+		// Click on invoice site menu
+		siteMenuItems.clickOnInvoices();
+		// Click on Booking site menu
+		siteMenuItems.clickOnBookings();
+
 
 	}
+	
+	public void createBusinessRoundTripBooking(BookingDto bookingDto) {
+		findVehicleForRoundTripBooking(bookingDto);
+		// Click on confirm booking link in the result booking list
+		findVehicleBookingMethod.clickOnConfirmBooking(Config.getProperty("VEHICLE_PLATE_NUMBER"),UsageType.Business.toString());
+		confirmBooking();
+		//get the booking Id using rest api
+		String bookingId=ApiCallsMethod.getBookingID();	
+		//click on filter booking with scheduled
+		bookingFilterMethod.filterByStatus(bookingDto.getStatus());
+		//Click on View Button of the booking
+		homepageBookingsMethod.clickOnViewBookingButton(bookingId);
+		viewBookingMethod.assertScheduledBooking(bookingId, Config.getProperty("VEHICLE_PLATE_NUMBER"), UsageType.Business.toString(),
+				Config.getProperty("MEMBER_FIRSTNAME")+" "+Config.getProperty("MEMBER_LASTNAME"), Config.getProperty("SUPER_COMPANY_NAME"), 
+				Status.Scheduled.toString());
+		//Click on Cancel Booking
+		viewBookingMethod.clickOnCancelButton();
+		// confirm cancel
+		viewBookingMethod.confirmCancelBooking();
+		viewBookingMethod.assertScheduledBooking(bookingId, Config.getProperty("VEHICLE_PLATE_NUMBER"), UsageType.Business.toString(),
+				Config.getProperty("MEMBER_FIRSTNAME")+" "+Config.getProperty("MEMBER_LASTNAME"), Config.getProperty("SUPER_COMPANY_NAME"), 
+				Status.Canceled.toString());
+		// Click on invoice site menu
+		siteMenuItems.clickOnInvoices();
+		// Click on Booking site menu
+		siteMenuItems.clickOnBookings();
+	}
+
 
 
 	/**
@@ -130,7 +173,7 @@ public class Booking implements Testme {
 	 */
 	public void filterBookingByStatus() {		
 
-		bookingFilterMethod.filterByStatus("completed");
+		bookingFilterMethod.filterByStatus(Status.Completed.toString());
 		bookingFilterMethod.deleteFilteredIconsInBooking();
 	}
 	/**
@@ -171,7 +214,7 @@ public class Booking implements Testme {
 	 */
 	public void filterBookingByStatusAndEmail() {		
 
-		bookingFilterMethod.filterByStatus("completed");
+		bookingFilterMethod.filterByStatus(Status.Completed.toString());
 		bookingFilterMethod.filterByEmail(Config.getProperty("EDIT_MEMBER"));
 		bookingFilterMethod.deleteFilteredIconsInBooking();
 
@@ -238,7 +281,7 @@ public class Booking implements Testme {
 		bookingFilterMethod.filterByEmail(Config.getProperty("EDIT_MEMBER"));
 		bookingFilterMethod.filterByBookingID("AAZZAZZAA");
 		bookingFilterMethod.filterByPlateNumber("xxxxxx");
-		bookingFilterMethod.filterByStatus("completed");
+		bookingFilterMethod.filterByStatus(Status.Completed.toString());
 		bookingFilterMethod.filterByDelayed("yes");
 		bookingFilterMethod.filterByInvoicingError("no");
 		/**bookingFilterMethod.filterByBrand("xxxx");

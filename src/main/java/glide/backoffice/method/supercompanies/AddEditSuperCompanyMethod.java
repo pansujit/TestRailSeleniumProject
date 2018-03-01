@@ -36,26 +36,26 @@ public class AddEditSuperCompanyMethod {
 	 * @param superCompanyDto - Should be SuperCompanyDto
 	 */
 	void inputAddASuperCompany(SuperCompanyDto superCompanyDto) {
-		SeleniumUtility.sendText(driver, addSC.inputTagNameAddSC,superCompanyDto.getCompanyName());
+		SeleniumUtility.clearTextAndSendText(driver, addSC.inputTagNameAddSC,superCompanyDto.getCompanyName());
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.sendText(driver, addSC.inputTagAddressAddSC,superCompanyDto.getCompanyAddress());
+		SeleniumUtility.clearTextAndSendText(driver, addSC.inputTagAddressAddSC,superCompanyDto.getCompanyAddress());
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.sendText(driver, addSC.inputTagEmailAddSC, superCompanyDto.getEmail());
+		SeleniumUtility.clearTextAndSendText(driver, addSC.inputTagEmailAddSC, superCompanyDto.getEmail());
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.sendText(driver, addSC.inputTagPhoneNoAddSC, superCompanyDto.getPhoneNumber());
-		SeleniumUtility.sendText(driver, addSC.inputTagTaxNumberAddSC, superCompanyDto.getTaxNumber());
+		SeleniumUtility.clearTextAndSendText(driver, addSC.inputTagPhoneNoAddSC, superCompanyDto.getPhoneNumber());
+		SeleniumUtility.clearTextAndSendText(driver, addSC.inputTagTaxNumberAddSC, superCompanyDto.getTaxNumber());
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.sendText(driver, addSC.inputTagCapitalAddSC, superCompanyDto.getCapital());
+		SeleniumUtility.clearTextAndSendText(driver, addSC.inputTagCapitalAddSC, superCompanyDto.getCapital());
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.sendText(driver, addSC.inputTagTOUUrlAddSC, superCompanyDto.getTermsURL());
+		SeleniumUtility.clearTextAndSendText(driver, addSC.inputTagTOUUrlAddSC, superCompanyDto.getTermsURL());
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.sendText(driver, addSC.inputTagSubscriptionUrlAddSC, superCompanyDto.getSubscriptionURL());
+		SeleniumUtility.clearTextAndSendText(driver, addSC.inputTagSubscriptionUrlAddSC, superCompanyDto.getSubscriptionURL());
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.sendText(driver, addSC.inputTagAllowLockUnlockAddSC, superCompanyDto.getLockUnlockTime());
+		SeleniumUtility.clearTextAndSendText(driver, addSC.inputTagAllowLockUnlockAddSC, superCompanyDto.getLockUnlockTime());
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.sendText(driver, addSC.inputTagInvoiceNumberSuffixAddSC, superCompanyDto.getInvoiceNumberSuffix());
+		SeleniumUtility.clearTextAndSendText(driver, addSC.inputTagInvoiceNumberSuffixAddSC, superCompanyDto.getInvoiceNumberSuffix());
 		SeleniumUtility.fixedWait(1);
-		SeleniumUtility.sendText(driver, addSC.inputTagLegalFormAddSC, superCompanyDto.getCompanyLegalForm());
+		SeleniumUtility.clearTextAndSendText(driver, addSC.inputTagLegalFormAddSC, superCompanyDto.getCompanyLegalForm());
 		SeleniumUtility.fixedWait(1);
 		SeleniumUtility.selectByvalue(driver, addSC.selectTagEmailStylingAddSC, superCompanyDto.getEmailTemplate());
 		SeleniumUtility.fixedWait(1);

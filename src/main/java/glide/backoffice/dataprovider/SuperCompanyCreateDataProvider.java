@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import com.github.javafaker.Faker;
 
 import glide.backoffice.locators.accounts.supercompanies.SuperCompanyDto;
+import glide.backoffice.method.common.Config;
 
 public class SuperCompanyCreateDataProvider {
 	SuperCompanyDto superCompanyDto;
@@ -43,12 +44,12 @@ public class SuperCompanyCreateDataProvider {
 				.email(faker.internet().emailAddress())
 				.taxNumber(faker.number().digits(5))
 				.capital(faker.number().digits(6))
-				.subscriptionURL("http://"+faker.internet().url())
-				.termsURL("http://"+faker.internet().url())
+				.subscriptionURL("http://www"+faker.name().lastName()+faker.number().digits(3)+".com")
+				.termsURL("http://www"+faker.name().lastName()+faker.number().digits(3)+".com")
 				.lockUnlockTime(faker.number().digits(2))
 				.invoiceNumberSuffix(faker.company().name()+"-"+faker.company().suffix())
-				.emailTemplate("rrent")
-				.configuration("corse")
+				.emailTemplate(Config.getProperty("SUPER_COMPANY_EMAIL_TEMPLATE"))
+				.configuration(Config.getProperty("SUPER_COMPANY_CONFIGURATION"))
 				.companyLegalForm(faker.company().suffix().toUpperCase())
 				.build();
 			return new Object[][] {{superCompanyDto}};
@@ -60,4 +61,25 @@ public class SuperCompanyCreateDataProvider {
 				.build();
 			return new Object[][] {{superCompanyDto}};
 	}
+	
+	@DataProvider
+	public Object[][] editSuperCompany() {
+		
+			Faker faker = new Faker(new Locale("fr"));
+			superCompanyDto=SuperCompanyDto.builder()
+				.companyAddress(faker.address().fullAddress())
+				.phoneNumber("06"+faker.number().digits(8))
+				.email(faker.internet().emailAddress())
+				.taxNumber(faker.number().digits(5))
+				.capital(faker.number().digits(6))
+				.lockUnlockTime(faker.number().digits(2))
+				.invoiceNumberSuffix(faker.company().name()+"-"+faker.company().suffix())
+				.emailTemplate(Config.getProperty("SUPER_COMPANY_EMAIL_TEMPLATE"))
+				.configuration(Config.getProperty("SUPER_COMPANY_CONFIGURATION"))
+				.companyLegalForm(faker.company().suffix().toUpperCase())
+				.build();
+			return new Object[][] {{superCompanyDto}};
+	}
+	
+	
 }

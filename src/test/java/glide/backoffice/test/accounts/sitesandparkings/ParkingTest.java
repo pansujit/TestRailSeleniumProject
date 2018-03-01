@@ -24,12 +24,12 @@ public class ParkingTest extends BaseClassExtended {
 		SideMenuItemsMethod sideMenuItemsMethod= PageFactory.initElements(driver, SideMenuItemsMethod.class);
 		sideMenuItemsMethod.clickOnSitesAndParking();
 	}
-	
-	@Test(dataProvider="createParking",dataProviderClass=SiteDataProvider.class)
+	// The create parking is not running on the automation test which is more or less equal to edit a parking
+	/*@Test(dataProvider="createParking",dataProviderClass=SiteDataProvider.class)
 	public void createASiteTest(ParkingDto parkingDto) {
 		SitesAndParkingsMethod sitesAndParkings= PageFactory.initElements(driver, SitesAndParkingsMethod.class);
 		sitesAndParkings.createParking(parkingDto);
-	}
+	}*/
 	
 	@Test(dataProvider="editParking",dataProviderClass=SiteDataProvider.class)
 	public void editASiteTest(ParkingDto parkingDto) {

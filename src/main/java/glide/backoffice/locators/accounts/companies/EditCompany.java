@@ -1,4 +1,4 @@
-package glide.backoffice.locators.companies;
+package glide.backoffice.locators.accounts.companies;
 
 import org.openqa.selenium.By;
 

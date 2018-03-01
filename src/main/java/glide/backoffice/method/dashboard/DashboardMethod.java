@@ -11,6 +11,7 @@ import glide.backoffice.locators.fleets.technicalincidents.FilterIncidents;
 import glide.backoffice.locators.fleets.vehicledamages.HomepageDamages;
 import glide.backoffice.locators.fleets.vehicles.HomepageVehicles;
 import glide.backoffice.locators.users.members.FilterMembers;
+import glide.backoffice.method.common.CommonMethods;
 import glide.backoffice.utility.RegExpression;
 import glide.backoffice.utility.SeleniumUtility;
 
@@ -24,6 +25,7 @@ public class DashboardMethod {
 	FilterMembers filterMembers;
 	FilterIncidents filterIncidents;
 	HomepageDamages homepageDamages;
+	CommonMethods commonMethods;
 	public DashboardMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.softAssert= new SoftAssert();
@@ -33,6 +35,8 @@ public class DashboardMethod {
 		this.filterMembers=PageFactory.initElements(driver, FilterMembers.class);
 		this.filterIncidents=PageFactory.initElements(driver, FilterIncidents.class);
 		this.homepageDamages=PageFactory.initElements(driver, HomepageDamages.class);
+		this.commonMethods=PageFactory.initElements(driver, CommonMethods.class);
+
 	}
 
 
@@ -77,7 +81,8 @@ public class DashboardMethod {
 		SeleniumUtility.waitElementToBeVisible(driver, homepageBookings.buttonTagCreateBookingHomepageBookings);
 		softAssert.assertTrue(driver.getCurrentUrl().contains("IN_PROGRESS"));
 		driver.navigate().back();
-		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));
+		commonMethods.waitUntilElementToBeInvisible();
+	
 		
 		//This page is navigate to the booking page with filter Booking delayed true 
 		SeleniumUtility.clickOnElement(driver, homepageDashboard.aTagDelayedBookingContentContentHomepageDashboard);
@@ -91,40 +96,36 @@ public class DashboardMethod {
 		SeleniumUtility.waitElementToBeVisible(driver, homepageVehicles.buttonTagAddVehicleHomepageVehicles);
 		softAssert.assertTrue(driver.getCurrentUrl().contains("DIRTY"));
 		driver.navigate().back();
-		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));
+		commonMethods.waitUntilElementToBeInvisible();
 
 		// This page is navigate to the booking page with filter invoicing error is true
 		SeleniumUtility.clickOnElement(driver, homepageDashboard.aTagInvoicingErrorContentContentHomepageDashboard);
 		SeleniumUtility.waitElementToBeVisible(driver, homepageBookings.buttonTagCreateBookingHomepageBookings);
 		softAssert.assertTrue(driver.getCurrentUrl().contains("failed"));
 		driver.navigate().back();
-		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));
-
+		commonMethods.waitUntilElementToBeInvisible();
 		// This page is navigate to members page with filter status is TO_REVIEW
 		SeleniumUtility.clickOnElement(driver, homepageDashboard.aTagToValidateMemberContentContentHomepageDashboard);
 		SeleniumUtility.waitElementToBeVisible(driver, filterMembers.buttonTagFiltersFilterMembers);
 		softAssert.assertTrue(driver.getCurrentUrl().contains("TO_REVIEW"));
 		driver.navigate().back();
-		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));
-
+		commonMethods.waitUntilElementToBeInvisible();
 		// This page is navigate to the incident page 
 		SeleniumUtility.clickOnElement(driver, homepageDashboard.aTagTechnicalIncidentContentContentHomepageDashboard);
 		SeleniumUtility.waitElementToBeVisible(driver, filterIncidents.buttonTagMainButtonFilterIncidents);
 		softAssert.assertTrue(driver.getCurrentUrl().contains("incidents"));
 		driver.navigate().back();
-		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));
-
+		commonMethods.waitUntilElementToBeInvisible();
 		
 		SeleniumUtility.clickOnElement(driver, homepageDashboard.aTagVehicleDamagedContentContentHomepageDashboard);
 		SeleniumUtility.waitElementToBeVisible(driver, homepageDamages.buttonTagAddDamageHomepageDamages);
 		softAssert.assertTrue(driver.getCurrentUrl().contains("vehicle-damages"));
 		driver.navigate().back();
-		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));
-
+		commonMethods.waitUntilElementToBeInvisible();
 		SeleniumUtility.clickOnElement(driver, homepageDashboard.aTagFeedbackReportedContentContentHomepageDashboard);
 		softAssert.assertTrue(driver.getCurrentUrl().contains("feedbacks"));
 		driver.navigate().back();
-		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));
+		commonMethods.waitUntilElementToBeInvisible();
 		softAssert.assertAll();
 
 	}

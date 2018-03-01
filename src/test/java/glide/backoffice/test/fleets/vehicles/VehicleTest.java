@@ -25,11 +25,11 @@ public class VehicleTest  extends BaseClassExtended{
 		headerMethod.selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
 		siteMenuItems.clickOnVehicles();
 	}
-	@Test(dataProvider="addVehicle",dataProviderClass = VehicleDataProvider.class)
+	/*@Test(dataProvider="addVehicle",dataProviderClass = VehicleDataProvider.class)
 	public void AddAVehicleTest(VehicleDto vehicleDto) {
 		VehicleMethod vehicleMethod=PageFactory.initElements(driver, VehicleMethod.class);
 		vehicleMethod.addANewVehicle(vehicleDto);	
-	}
+	}*/
 	
 	@Test(dataProvider="editVehicle",dataProviderClass = VehicleDataProvider.class)
 	public void editAVehicleTest(VehicleDto vehicleDto) {

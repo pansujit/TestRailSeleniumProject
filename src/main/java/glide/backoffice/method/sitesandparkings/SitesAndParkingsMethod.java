@@ -3,7 +3,7 @@ package glide.backoffice.method.sitesandparkings;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.utility.SeleniumUtility;
 /**
@@ -49,12 +49,13 @@ public class SitesAndParkingsMethod {
 	 * @param siteDto - Should be  SiteDto
 	 */
 	public void editSite(SiteDto siteDto) {
-		homepageSitesMethod.clickOnEditSiteButton();
-		addEditSiteMethod.inputDataInSiteParamaters( siteDto);
+		homepageSitesMethod.clickOnEditSiteButton(Config.getProperty("EDIT_SITE_NAME"));
+		addEditSiteMethod.inputDataInSiteParamaters(siteDto);
 		addEditSiteMethod.clickonSaveButton();
 		SeleniumUtility.fixedWait(1);
 		clickOnBackButton();
 		homepageSitesMethod.waitToAddASiteVisible();
+		homepageSitesMethod.assertAddEditSite(Config.getProperty("EDIT_SITE_NAME"),siteDto.getSiteAddress());
 	}
 	
 	/**
@@ -62,24 +63,30 @@ public class SitesAndParkingsMethod {
 	 * @param parkingDto - Should be parkingDto
 	 */
 	public void createParking(ParkingDto parkingDto) {
-		homepageSitesMethod.clickOnEditSiteButton();
+		homepageSitesMethod.clickOnEditSiteButton(Config.getProperty("EDIT_SITE_NAME"));
 		addEditSiteMethod.clickOnAddParkingButton();
 		addEditParkingMethod.inputDataInParkingParamaters(parkingDto);
 		addEditParkingMethod.clickOnParkingSaveButton();
 		SeleniumUtility.fixedWait(1);
 		clickOnBackButton();
 		homepageSitesMethod.waitToAddASiteVisible();
+		
 	}
 	/**
 	 * This public method edit an existing parking in back office
 	 * @param parkingDto - Should be  ParkingDto
 	 */
 	public void editParking(ParkingDto parkingDto) {
-		homepageSitesMethod.clickOnEditSiteButton();
-		addEditSiteMethod.clickOnParkingEditButton();
+		homepageSitesMethod.clickOnEditSiteButton(Config.getProperty("EDIT_SITE_NAME"));
+		addEditSiteMethod.clickOnParkingEditButton(Config.getProperty("EDIT_PARKING_NAME"));
 		addEditParkingMethod.inputDataInParkingParamaters(parkingDto);
 		addEditParkingMethod.clickOnParkingSaveButton();
-		SeleniumUtility.fixedWait(1);
+		//this method has to be removed by depended method wait until something visible or invisible
+		SeleniumUtility.fixedWait(2);
+		addEditSiteMethod.assertEditAddParking(Config.getProperty("EDIT_PARKING_NAME"), 
+				 parkingDto.isPrivateAccess()? "yes" : "no",parkingDto.isElectricCharge()? "yes" : "no", 
+						 parkingDto.isDisableAccess()? "yes" : "no", parkingDto.isAllTimeOpen()? "yes" : "no", 
+								 parkingDto.isGsmConnection()? "yes" : "no");
 		clickOnBackButton();
 		homepageSitesMethod.waitToAddASiteVisible();
 	}

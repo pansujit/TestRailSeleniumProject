@@ -36,7 +36,7 @@ public class SidebarMenuItems {
 	 * This locator will find User Management tag in the back Office homepage
 	 */
 	public final By buttonTagUsersSidebarMenuItems= 
-			By.xpath(".//li[contains(@class,'sideMenu_section sideMenu_section--membersManagement')]/button");
+			By.xpath(".//li[@class='sideMenu_section sideMenu_section--membersManagement']/button");
 	
 	/**
 	 * This locator will find Booking Management tag in the back Office homepage
@@ -118,7 +118,7 @@ public class SidebarMenuItems {
 	/**
 	 * Locator for Vehicles Tag in Fleets in menu items in back office
 	 */
-	public final By aTagVehiclesSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--vehicle']/a");
+	public final By aTagVehiclesSidebarMenuItems= By.xpath(".//li[starts-with(@class,'sideMenu_section sideMenu_section--vehicle')]/a[contains(@href,'#/fleet')]");
 	
 	/**
 	 * Locator for Fines Tag in Fleets in menu items in back office

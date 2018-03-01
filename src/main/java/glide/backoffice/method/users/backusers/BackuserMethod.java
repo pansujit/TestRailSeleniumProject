@@ -50,6 +50,7 @@ public class BackuserMethod {
 	 */
 	public void viewABackuser() {
 		backuserHomepageMethod.clickOnViewButton(Config.getProperty("EDIT_BACK_USER"));
+		viewBackuserMethod.assertViewBackuser();
 		clickOnBackButton();
 	}
 	/**
@@ -62,6 +63,10 @@ public class BackuserMethod {
 		addEditBackuserMethod.inputBackuserData(backuserDto);
 		addEditBackuserMethod.clickOnSaveButtonOnEditBackuser();
 		clickOnBackButton();
+		sideMenuItemsMethod.clickOnBackusers();
+		backuserHomepageMethod.assertAddEditBackuser("sujit.pandey+test@glidemobility.com", backuserDto.getLastName(), 
+				backuserDto.getFirstName(), backuserDto.getRole());
+		
 	}
 
 

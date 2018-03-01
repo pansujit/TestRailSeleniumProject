@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import com.github.javafaker.Faker;
 
 import glide.backoffice.enums.BackuserRoles;
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.users.backusers.BackuserDto;
 import glide.backoffice.utility.RandomGenerator;
 
@@ -25,8 +26,9 @@ public class BackuserDataProvider {
 					.address(faker.address().fullAddress())
 					.phoneNumber(RandomGenerator.randomPhoneNumber())
 					.role(BackuserRoles.getBackuserRoles())
-					.superCompanyName("AirStone")
-					.companyName("test_company")
+					
+					.superCompanyName(Config.getProperty("SUPER_COMPANY_NAME"))
+					.companyName(Config.getProperty("EDIT_SUB_COMPANY_NAME"))
 					.build();
 	
 			return new Object[][] {{backuserDto}};
@@ -43,10 +45,9 @@ public class BackuserDataProvider {
 					.email(null)
 					.phoneNumber(RandomGenerator.randomPhoneNumber())
 					.role(BackuserRoles.getBackuserRoles())
-					.superCompanyName("AirStone")
-					.companyName("test_company")
+					.superCompanyName(Config.getProperty("SUPER_COMPANY_NAME"))
+					.companyName(Config.getProperty("EDIT_SUB_COMPANY_NAME"))
 					.build();
-	
 			return new Object[][] {{backuserDto}};
 	}
 

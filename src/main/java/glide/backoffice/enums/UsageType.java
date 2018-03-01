@@ -1,11 +1,12 @@
 package glide.backoffice.enums;
 
-public enum Status {
-Completed("Completed"),Canceled("Cancelled"),Scheduled("Scheduled"),Inprogress("Inprogress");
+public enum UsageType {
+	
+	Private("Private"),Business("Business");
 	
 	   private String value;
 
-	   Status(final String value) {
+	   UsageType(final String value) {
 	        this.value = value;
 	    }
 
@@ -17,4 +18,5 @@ Completed("Completed"),Canceled("Cancelled"),Scheduled("Scheduled"),Inprogress("
 	    public String toString() {
 	        return this.getValue();
 	    }
+
 }

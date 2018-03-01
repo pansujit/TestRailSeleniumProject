@@ -2,6 +2,7 @@ package glide.backoffice.method.users.backusers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.locators.users.backusers.AddBackuser;
 import glide.backoffice.locators.users.backusers.ViewBackuser;
@@ -16,11 +17,13 @@ public class ViewBackuserMethod {
 	WebDriver driver;
 	AddBackuser addBackuser;
 	ViewBackuser viewBackuser;
+	SoftAssert softAssert;
 	//Constructor for the ViewBackuserMethod
 	public ViewBackuserMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.addBackuser=PageFactory.initElements(driver, AddBackuser.class);
 		this.viewBackuser=PageFactory.initElements(driver, ViewBackuser.class);
+		this.softAssert=new SoftAssert();
 
 	}
 	/**
@@ -31,5 +34,9 @@ public class ViewBackuserMethod {
 		SeleniumUtility.waitElementToBeVisible(driver, addBackuser.buttonTagSaveEditBackuser);
 		SeleniumUtility.fixedWait(1);
 	}
+	 void assertViewBackuser() {
+		 softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, viewBackuser.aTagBackUserViewEdit));
+		 softAssert.assertAll();
+	 }
 
 }

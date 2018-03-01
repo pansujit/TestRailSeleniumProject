@@ -8,6 +8,7 @@ import org.testng.annotations.DataProvider;
 import com.github.javafaker.Faker;
 
 import glide.backoffice.locators.accounts.supercompanies.SuperCompanyDto;
+import glide.backoffice.method.common.Config;
 import glide.backoffice.method.companies.CompanyDto;
 import glide.backoffice.utility.RandomGenerator;
 import lombok.NoArgsConstructor;
@@ -15,10 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CompanyDataProvider {
 	CompanyDto companyDto;
-	@DataProvider
-	public void CompanyDataProvider() {
-		//intentionally make void for later use
-	}
+
 	
 	@DataProvider
 	public Object[][] createCompany() {
@@ -33,7 +31,7 @@ public class CompanyDataProvider {
 					.taxNumber(RandomGenerator.randomPhoneNumber().substring(0, 7))
 					.capital(RandomGenerator.randomPhoneNumber().substring(0, 5))
 					.email(faker.internet().emailAddress("t"+UUID.randomUUID().toString().substring(1, 4)))
-					.appliedConfiguration("asasd")
+					.appliedConfiguration(Config.getProperty("SUB_COMPANY_CONFIGURATION"))
 					.build();
 	
 			return new Object[][] {{companyDto}};
@@ -51,7 +49,7 @@ public class CompanyDataProvider {
 					.taxNumber(RandomGenerator.randomPhoneNumber().substring(0, 7))
 					.capital(RandomGenerator.randomPhoneNumber().substring(0, 5))
 					.email(faker.internet().emailAddress("t"+UUID.randomUUID().toString().substring(1, 4)))
-					.appliedConfiguration("asasd")
+					.appliedConfiguration(Config.getProperty("SUB_COMPANY_CONFIGURATION"))
 					.build();
 	
 			return new Object[][] {{companyDto}};

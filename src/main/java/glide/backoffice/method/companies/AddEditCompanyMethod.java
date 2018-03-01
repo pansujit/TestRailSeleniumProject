@@ -3,9 +3,9 @@ package glide.backoffice.method.companies;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import glide.backoffice.locators.companies.AddCompany;
-import glide.backoffice.locators.companies.HomepageCompany;
-import glide.backoffice.locators.companies.ViewCompany;
+import glide.backoffice.locators.accounts.companies.AddCompany;
+import glide.backoffice.locators.accounts.companies.HomepageCompany;
+import glide.backoffice.locators.accounts.companies.ViewCompany;
 import glide.backoffice.utility.SeleniumUtility;
 
 public class AddEditCompanyMethod {
@@ -53,12 +53,5 @@ public class AddEditCompanyMethod {
 		SeleniumUtility.fixedWait(1);	
 	}
 	
-	/**
-	 * This method clicks on the Edit link of the company. The edit is found after in the view page of company
-	 */
-	void clickOnEditCompany() {
-		SeleniumUtility.clickOnElement(driver, viewCompany.aTagEditViewCompany);
-		SeleniumUtility.waitElementToBeClickable(driver, addCompany.buttonTagSaveEditCompany);
-		SeleniumUtility.fixedWait(1);
-	}
+
 }

@@ -26,14 +26,14 @@ public class CompanyTest extends BaseClassExtended {
 		headerMethod.selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
 		siteMenuItems.clickOnCompanies();
 	}
-
-	@Test(dataProvider="createCompany",dataProviderClass = CompanyDataProvider.class,
+	// The creation of company is halted for the moment to reduce the no. of companies
+	/*@Test(dataProvider="createCompany",dataProviderClass = CompanyDataProvider.class,
 			description="This test verifies the creation of the new company from the back office")
 	public void createNewCompanyTest(CompanyDto companyDto) {
 		Company company= PageFactory.initElements(driver, Company.class);
 		company.createNewCompany(companyDto);
 
-	}
+	}*/
 
 	@Test(dataProvider="editCompany",dataProviderClass = CompanyDataProvider.class,
 			description="This test verifies the edit of the company from the back office")

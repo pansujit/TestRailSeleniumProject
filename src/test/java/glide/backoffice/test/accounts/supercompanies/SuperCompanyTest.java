@@ -13,7 +13,7 @@ import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.method.supercompanies.SuperCompaniesMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 
-public class AddNewSuperCompanyTest extends BaseClassExtended {
+public class SuperCompanyTest extends BaseClassExtended {
 
 	@BeforeClass(description="This runs once which will click on Super companies on side bar menu")
 	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
@@ -21,11 +21,18 @@ public class AddNewSuperCompanyTest extends BaseClassExtended {
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
 		siteMenuItems.clickOnSuperCompanies();
 	}
-	
-	@Test(dataProvider="createCompanyData",dataProviderClass = SuperCompanyCreateDataProvider.class)
+	// there is equal effect of creating super company and edit super company
+	/*@Test(dataProvider="createCompanyData",dataProviderClass = SuperCompanyCreateDataProvider.class)
 	public void createSuperCompanyTest(SuperCompanyDto superCompanyDto) {
 		SuperCompaniesMethod superCompanies=PageFactory.initElements(driver, SuperCompaniesMethod.class);
 		superCompanies.createSuperCompany(superCompanyDto);
+
+	}*/
+	
+	@Test(dataProvider="editSuperCompany",dataProviderClass = SuperCompanyCreateDataProvider.class)
+	public void editSuperCompanyTest(SuperCompanyDto superCompanyDto) {
+		SuperCompaniesMethod superCompanies=PageFactory.initElements(driver, SuperCompaniesMethod.class);
+		superCompanies.editSuperCompany(superCompanyDto);
 
 	}
 	@AfterClass

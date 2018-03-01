@@ -111,7 +111,7 @@ public class EditSite {
 	public final By labelTagSmartcardFishingEnabledFalseEditSite= By.xpath(".//input[@id='smartcardFishingEnabled_option_false']/../label");
 	/**
 
-
+/**********************************PARKING TABLE CONTENT*******************************************/
 	
 	/**
 	 * This locator will find Parking name element in Edit sites in Account-->Sites and parkings-->Edit
@@ -123,36 +123,41 @@ public class EditSite {
 	/**
 	 * This locator will find Private Access element in Edit sites in Account-->Sites and parkings-->Edit
 	 */
-	public final By spanTagPrivateAccessEditSite(String replacementText) {
-		String text=".//section[@class='siteDetailsPage_management']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[2]/button";
+	public final By spanTagParkingPrivateAccessEditSite(String replacementText) {
+		String text=
+				".//section[@class='siteDetailsPage_management']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[2]/span/span/span/span";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 	/**
 	 * This locator will find Electric Charger element in Edit sites in Account-->Sites and parkings-->Edit
 	 */
-	public final By aTagElectricChargerEditSite(String replacementText) {
-		String text=".//section[@class='siteDetailsPage_management']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[3]/button";
+	public final By spanTagParkingElectricChargerEditSite(String replacementText) {
+		String text=
+				".//section[@class='siteDetailsPage_management']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[3]/span/span/span/span";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 	/**
 	 * This locator will find Reduced Mobility Access element in Edit sites in Account-->Sites and parkings-->Edit
 	 */
-	public final By spanTagReducedMobAccessEditSite(String replacementText) {
-		String text=".//section[@class='siteDetailsPage_management']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[4]/button";
+	public final By spanTagParkingReducedMobAccessEditSite(String replacementText) {
+		String text=
+				".//section[@class='siteDetailsPage_management']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[4]/span/span/span/span";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 	/**
 	 * This locator will find Open 24/7 element in Edit sites in Account-->Sites and parkings-->Edit
 	 */
-	public final By spanTagOpenAllTimeEditSite(String replacementText) {
-		String text=".//section[@class='siteDetailsPage_management']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[5]/button";
+	public final By spanTagParkingOpenAllTimeEditSite(String replacementText) {
+		String text=
+				".//section[@class='siteDetailsPage_management']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[5]/span/span/span/span";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 	/**
 	 * This locator will find Good connectivity element in Edit sites in Account-->Sites and parkings-->Edit
 	 */
-	public final By spanTagEditGoodConnectivityEditSite(String replacementText) {
-		String text=".//section[@class='siteDetailsPage_management']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[6]/button";
+	public final By spanTagParkingGoodConnectivityEditSite(String replacementText) {
+		String text=
+				".//section[@class='siteDetailsPage_management']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[6]/span/span/span/span";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}	
 	/**

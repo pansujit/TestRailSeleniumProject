@@ -30,7 +30,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class SeleniumUtility {
-	
+
 	public static final String CLICK_INFO="Click on Element using Selenium 'Click': " ;
 	public static final String TYPE_TEXT="Typing text on the given element: ";
 	public static final String CLEAR_TEXT="Clearing text from given element :";
@@ -38,7 +38,7 @@ public class SeleniumUtility {
 	public static final String PRESS_KEY="Pressing the key: ";
 	public static final String FAILED_WITH_EXCEPTION=" FAILED with exception: ";
 	private SeleniumUtility() {
-		
+
 	}
 	static Logger log = Logger.getLogger(SeleniumUtility.class.getName());
 
@@ -67,8 +67,8 @@ public class SeleniumUtility {
 	public  static void sendText(WebDriver driver,By element,String text) {
 		try {
 			if(text!=null) {
-			driver.findElement(element).sendKeys(text);
-			log.info(TYPE_TEXT + element.toString() );
+				driver.findElement(element).sendKeys(text);
+				log.info(TYPE_TEXT + element.toString() );
 			}
 		}catch(Exception e) {
 			log.error("Cannot type text on element: "+ element.toString()+" "+FAILED_WITH_EXCEPTION+e.getClass().getSimpleName());
@@ -76,7 +76,7 @@ public class SeleniumUtility {
 
 		}	
 	}
-	
+
 	/**
 	 * This static method clear the input text and type the given text, in that text field.
 	 * @param driver- Should be WebDriver
@@ -86,9 +86,9 @@ public class SeleniumUtility {
 	public  static void clearTextAndSendText(WebDriver driver,By element,String text) {
 		try {
 			if(text!=null) {
-			driver.findElement(element).clear();
-			driver.findElement(element).sendKeys(text);
-			log.info(CLEAR_TYPE_TEXT + element.toString() );
+				driver.findElement(element).clear();
+				driver.findElement(element).sendKeys(text);
+				log.info(CLEAR_TYPE_TEXT + element.toString() );
 			}
 		}catch(Exception e) {
 			log.error("Cannot type text on element: "+ element.toString()+" "+FAILED_WITH_EXCEPTION+e.getClass().getSimpleName());
@@ -96,8 +96,8 @@ public class SeleniumUtility {
 
 		}	
 	}
-	
-	
+
+
 	/**
 	 * The method clears the text field of the given webElement
 	 * @param element the parameter should be Locator
@@ -218,9 +218,9 @@ public class SeleniumUtility {
 	public static boolean containsText(WebDriver driver,By element,String text2) {
 		Boolean text= false;
 		try {
-		text=(driver.findElement(element).getText()).contains(text2);
-		log.info("compare one text contains another text: "+ "text :"+ driver.findElement(element).getText()+ " text :"+text2 );
-		return text;
+			text=(driver.findElement(element).getText()).contains(text2);
+			log.info("compare one text contains another text: "+ "text :"+ driver.findElement(element).getText()+ " text :"+text2 );
+			return text;
 		}catch(Exception e) {
 			log.error("Element cannot be found to compare text: "+ element.toString()+" "+FAILED_WITH_EXCEPTION+e.getClass().getSimpleName());
 			throw(e);
@@ -228,19 +228,21 @@ public class SeleniumUtility {
 	}
 	/**
 	 * This method returns boolean result after compare two text ignoring its case.
-	 * @param text1 - Should be String
-	 * @param text2 - Should be String
-	 * @return {@code Boolean}
+	 * @param driver - Should be Selenium WebDriver
+	 * @param element - Should be Selenium By
+	 * @param text - Should be String
+	 * @return {@code boolean}
 	 */
-	public static boolean compareIgnoreCaseText(WebDriver driver,By element,String text2) {		
-		Boolean text= false;
+	public static boolean compareIgnoreCaseText(WebDriver driver,By element,String text) {		
+		Boolean status= false;
 		try {
-		text=driver.findElement(element).getText().compareToIgnoreCase(text2)==0;
-		log.info("compare one text with another text with ingoring case: "+ "text1 :"+ driver.findElement(element).getText()+ " text2 :"+text2 );
-		return text;
+			status=driver.findElement(element).getText().compareToIgnoreCase(text)==0;
+			log.info("compare one text with another text with ingoring case: "+ "text1 :"+ driver.findElement(element).getText()+ " text2 :"+text );
+			return status;
 		}catch(Exception e) {
 			log.error("Element cannot be found to compare text: "+ element.toString()+" "+FAILED_WITH_EXCEPTION+e.getClass().getSimpleName());
 			throw(e);
+			
 		}
 	}
 
@@ -271,7 +273,7 @@ public class SeleniumUtility {
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(element));
 			log.info("Waiting for maximum 30 seconds to element to be clickable in DOM");
-			
+
 		}catch(Exception e) {
 			log.error("The element cannot be clickable until 30 seconds: "+ element.toString());
 			return;
@@ -336,7 +338,7 @@ public class SeleniumUtility {
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(element)));
 			log.info("Waiting for maximum 30 seconds to element to be clickable in DOM");
-			
+
 		}catch(Exception e) {
 			log.error("The element cannot be clickable until 30 seconds: "+ element.toString());
 			return;
@@ -348,16 +350,16 @@ public class SeleniumUtility {
 	 * @param element - Should be Selenium By
 	 */
 	public static void waitElementToBeVisible(WebDriver driver, By element) {
-		
-		
+
+
 		WebDriverWait wait= new WebDriverWait(driver,30);
 		try {
 			log.info("Waiting for maximum 30 seconds to element to be visible in DOM");
 			wait.until(ExpectedConditions.visibilityOf(driver.findElement(element)));
 		}catch(Exception e) {
-			
+
 			log.error("The element cannot be Visibled until 30 seconds: "+ element.toString());
-			
+
 			return;
 		}
 	}
@@ -380,7 +382,7 @@ public class SeleniumUtility {
 	 * @param sec should be integer
 	 */
 	public static void fixedMilliSecondWait() {
-		
+
 		try {
 			Thread.sleep(200);
 		} catch (InterruptedException e) {
@@ -442,7 +444,7 @@ public class SeleniumUtility {
 		action.moveToElement(element1).click().build().perform();
 		log.info("perform click Operation on element using action class :"+ element.toString());
 	}
-	
+
 	/**
 	 * This method will enter the text on the given text field using selenium actions 
 	 * @param driver - Should be WebDriver
@@ -512,9 +514,9 @@ public class SeleniumUtility {
 	 */
 	public static void selectByVisibleText(WebDriver driver,By element,String text) {
 		if(text!=null) {
-		log.info("Selecting the element by visible text in element :"+element.toString()+ " "+"with value :"+text );
-		Select select= new Select(driver.findElement(element));
-		select.selectByVisibleText(text);
+			log.info("Selecting the element by visible text in element :"+element.toString()+ " "+"with value :"+text );
+			Select select= new Select(driver.findElement(element));
+			select.selectByVisibleText(text);
 		}
 	}
 	/**
@@ -525,9 +527,9 @@ public class SeleniumUtility {
 	 */
 	public static void selectByvalue(WebDriver driver,By element,String text) {
 		if(text!=null) {
-		log.info("Selecting the element by value in element :"+element.toString()+ " "+"with value :"+text );
-		Select select= new Select(driver.findElement(element));
-		select.selectByValue(text);
+			log.info("Selecting the element by value in element :"+element.toString()+ " "+"with value :"+text );
+			Select select= new Select(driver.findElement(element));
+			select.selectByValue(text);
 		}
 	}
 	/**
@@ -537,13 +539,16 @@ public class SeleniumUtility {
 	 * @return boolean
 	 */
 	public static boolean checkElementIsVisible(WebDriver driver, By element) {
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		boolean status=false;
 		try {
 			status=driver.findElement(element).isDisplayed();
 			log.info("The element is visible and displayed in DOM :"+ element.toString());
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			return status;
 
 		}catch(Exception e) {
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			log.error("Either element is not found or is not visible  :"+ element.toString()+ "With exception :" );
 			return status;
 		}
@@ -574,7 +579,7 @@ public class SeleniumUtility {
 		try {
 			log.info("Checking whether the element is selected or not :"+ element.toString());
 			return driver.findElement(element).isSelected();
-			
+
 
 		}catch(Exception e) {
 			log.info("Either element is not found or is not selected  :"+ element.toString() );
@@ -609,7 +614,7 @@ public class SeleniumUtility {
 			return elements;
 		}
 	}
-	
+
 	/**
 	 * This static method clicks on the given element using Selenium JavascriptExecutor
 	 * @param driver - Should be WebDriver
@@ -617,22 +622,29 @@ public class SeleniumUtility {
 	 */
 	public static void clickWithJavaScript(WebDriver driver,By element) {
 		try {
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("return arguments[0].click();", driver.findElement(element));
-		log.info("Clicking on given element is successful with JavaScript :"+ element.toString());
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("return arguments[0].click();", driver.findElement(element));
+			log.info("Clicking on given element is successful with JavaScript :"+ element.toString());
 
 		}catch(Exception e) {
 			log.error("Either element is not found or is not selected  :"+ element.toString() );
-			
+
 		}	
 	}
 	
+	public static int getSizeofOptionsInSelect(WebDriver driver,By element) {
+		Select select= new Select(driver.findElement(element));
+		List<WebElement> l = select.getOptions();
+		return l.size();
+		
+	}
+
 	public static void scrollToView(WebDriver driver,By element) {
 		WebElement element1 = driver.findElement(element);
 		//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element1);
-		
+
 		//((JavascriptExecutor) driver).executeScript("window.scrollBy(100,-750)", "");
-		 ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+		((JavascriptExecutor)driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {

@@ -31,27 +31,32 @@ public class ViewBooking {
 	public final By buttonTagCancelPopViewBooking= 
 			By.xpath(".//button[@class='ekButton ekButton--reverse bookingDetailPage_cancelBooking_abort_button']");
 
-	/**
-	 * This will find element booking id in Bookings-->Homepage-->View
-	 */
-	public final By spanTagBookingIDViewBooking= By.xpath(".//div[@class='bookingDetail_line']/div[5]/a/../../div[1]/span[2]");
 
-	/**
-	 * This will find Booking type element in Bookings-->Homepage-->View
-	 */
-	public final By spanTagBookingTypeViewBooking= By.xpath(".//div[@class='bookingDetail_line']/div[5]/a/../../div[2]/span[2]/span/span");
-
-	/**
-	 * This will find Status element in Bookings-->Homepage-->View
-	 */
-	public final By spanTagStatusViewBooking= By.xpath(".//div[@class='bookingDetail_line']/div[5]/a/../../div[3]/span[2]/span/span");
-
-	/**
-	 * This will find Member Name element in Bookings-->Homepage-->View
-	 */
-	public final By spanTagMemberNameViewBooking= By.xpath(".//div[@class='bookingDetail_line']/div[5]/a/../../div[4]/a/span");
-
-
+	
+	public final By spanTagBookingIdOnViewBooking(String bookingId) {
+		String text=".//span[@class='bookingDetail_item_result' and text()='xxxx']";
+		return By.xpath(text.replace("xxxx", bookingId));		
+	}
+	public final By spanTagUsageTypeOnViewBooking(String bookingId) {
+		String text=".//span[@class='bookingDetail_item_result' and text()='xxxx']/../../div[2]/span[2]/span/span";
+		return By.xpath(text.replace("xxxx", bookingId));		
+	}
+	public final By spanTagStatusOnViewBooking(String bookingId) {
+		String text=".//span[@class='bookingDetail_item_result' and text()='xxxx']/../../div[3]/span[2]/span/span";
+		return By.xpath(text.replace("xxxx", bookingId));		
+	}
+	public final By spanTagCompanyNameOnViewBooking(String bookingId) {
+		String text=".//span[@class='bookingDetail_item_result' and text()='xxxx']/../../div[5]/a/span";
+		return By.xpath(text.replace("xxxx", bookingId));		
+	}
+	public final By spanTagMemberNameOnViewBooking(String bookingId) {
+		String text=".//span[@class='bookingDetail_item_result' and text()='xxxx']/../../div[4]/a/span";
+		return By.xpath(text.replace("xxxx", bookingId));		
+	}
+	public final By spanTagVehiclePlateOnViewBooking(String vehicleNumberPlate) {
+		String text=".//span[@class='bookingDetail_item_result' and text()='xxxx']";
+		return By.xpath(text.replace("xxxx", vehicleNumberPlate));		
+	}
 	
 
 	

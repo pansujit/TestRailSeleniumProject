@@ -46,13 +46,38 @@ public class EditBackuser {
 
 
 	/**
-	 * This locator will find the Super company tag in BackUsers Edit page in the User Management->BackUsers->View->Edit
+	 * This locator will find the avilable Super company tag in BackUsers Edit page in the User Management->BackUsers->View->Edit
 	 */
-	public final By selectTagSuperCompanyEditBackuser= By.xpath(".//select[@name='companyId']");
+	public final By selectTagAvailableSuperCompanyEditBackuser= By.xpath(".//select[@id='availableCompaniesSelect']");
+	
 	/**
-	 * This locator will find the Company tag in BackUsers Edit page in the User Management->BackUsers->View->Edit
+	 * This locator will find the Selected Super company tag in BackUsers Edit page in the User Management->BackUsers->View->Edit
 	 */
-	public final By selectTagCompanyEditBackuser=By.xpath(".//select[@name='subCompanyId']");
+	public final By selectTagSelectedSuperCompanyEditBackuser= By.xpath(".//select[@id='selectedCompaniesSelect']");
+	
+	/**
+	 * This locator will find the Arrow tag that move the super company to the right in 
+	 * BackUsers Edit page in the User Management->BackUsers->View->Edit
+	 */
+	public final By buttonTagMoveCompanyRightEditBackuser= 
+			By.xpath(".//button[@class='fleetUsagesForm_assignButton fleetUsagesForm_assignButton--right']");
+	
+	/**
+	  * This locator will find the super company tag element in Fleet manager role in  
+	 * BackUsers Edit page in the User Management->BackUsers->View->Edit
+	 */
+	public final By selectagSuperCompanyForFleetMGREditBackuser= By.xpath(".//select[@name='companyId']");
+	
+	
+	/**
+	 * This locator will find the Available Company tag in BackUsers Edit page in the User Management->BackUsers->View->Edit
+	 */
+	public final By selectTagAvailableCompanyEditBackuser=By.xpath(".//select[@id='availableSubCompaniesSelect']");
+	/**
+	 * This locator will find the Selected sub Company tag in BackUsers Edit page in the User Management->BackUsers->View->Edit
+	 */
+	public final By selectTagSelectedCompanyEditBackuser=By.xpath(".//select[@id='selectedSubCompaniesSelect']");
+	
 	/**
 	 * This locator will find the Save tag in BackUsers Edit page in the User Management->BackUsers->View->Edit
 	 */

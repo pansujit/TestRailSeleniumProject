@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import glide.backoffice.dataprovider.BackuserDataProvider;
+import glide.backoffice.logger.Logging;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
@@ -17,7 +18,7 @@ import glide.backoffice.test.baseclass.BaseClassExtended;
 
 public class BackuserTest extends BaseClassExtended {
 	
-	@BeforeClass(description="This runs once which will select the super company and click on Backuser bar menu")
+	@BeforeClass(alwaysRun=true,description="This runs once which will select the super company and click on Backuser bar menu")
 	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
 		OpenBrowser();
 		HeaderMethod headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
@@ -25,13 +26,13 @@ public class BackuserTest extends BaseClassExtended {
 		headerMethod.selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
 		siteMenuItems.clickOnBackusers();
 	}
-	
-	@Test(dataProvider="addBackuser",dataProviderClass = BackuserDataProvider.class,
+	// the edit back user is more or less same as creating back user
+	/*@Test(dataProvider="addBackuser",dataProviderClass = BackuserDataProvider.class,
 			description="This test verifies the Addition of the backuser in the back office")
 	public void addBackuserTest(BackuserDto backuserDto) {
 		BackuserMethod backuser= PageFactory.initElements(driver, BackuserMethod.class);
 		backuser.addABackuser(backuserDto);	
-	}
+	}*/
 	@Test(dataProvider="editBackuser",dataProviderClass = BackuserDataProvider.class,
 			description="This test verifies the edit of backuser from the back office")
 	public void editBackuserTest(BackuserDto backuserDto) {
@@ -44,7 +45,7 @@ public class BackuserTest extends BaseClassExtended {
 		BackuserMethod backuser= PageFactory.initElements(driver, BackuserMethod.class);
 		backuser.viewABackuser();	
 	}
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

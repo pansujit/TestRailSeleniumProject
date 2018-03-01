@@ -25,6 +25,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import glide.backoffice.logger.Logging;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.login.SignIn;
 import glide.backoffice.utility.SeleniumUtility;
@@ -42,7 +43,6 @@ import listeners.MethodListener;
 	DesiredCapabilities cap;
 	//@BeforeClass
 	public void OpenBrowser() throws MalformedURLException, InterruptedException {
-		
 		/*cap= DesiredCapabilities.internetExplorer();
 		cap.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
 		cap.setPlatform(Platform.WINDOWS);
@@ -73,7 +73,7 @@ import listeners.MethodListener;
 	
 	@AfterMethod
 	public void teardown(ITestResult result){
-		
+		Logging.log.info(Thread.currentThread().getStackTrace()[1].getMethodName());
 		if(ITestResult.FAILURE==result.getStatus())
 		{
 			SeleniumUtility.printStatus("Failed",result.getName());

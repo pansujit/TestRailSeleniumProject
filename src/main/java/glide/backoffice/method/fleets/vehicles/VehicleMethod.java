@@ -5,6 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
+import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.utility.SeleniumUtility;
 
 public class VehicleMethod {
@@ -13,12 +14,14 @@ public class VehicleMethod {
 	HomepageVehicleMethod homepageVehicleMethod;
 	AddEditVehicleMethod addEditVehicleMethod;
 	ViewVehicleMethod viewVehicleMethod;
+	SideMenuItemsMethod sideMenuItemsMethod;
 	public VehicleMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 		this.homepageVehicleMethod=PageFactory.initElements(driver, HomepageVehicleMethod.class);
 		this.addEditVehicleMethod=PageFactory.initElements(driver, AddEditVehicleMethod.class);
 		this.viewVehicleMethod=PageFactory.initElements(driver, ViewVehicleMethod.class);
+		this.sideMenuItemsMethod=PageFactory.initElements(driver, SideMenuItemsMethod.class);
 
 	}
 	/**
@@ -70,6 +73,9 @@ public class VehicleMethod {
 		addEditVehicleMethod.inputOprerationalData(vehicleDto);
 		addEditVehicleMethod.clickOnSave();
 		clickOnBackButton();
+		sideMenuItemsMethod.clickOnVehicles();
+		homepageVehicleMethod.assertAddEditVehicle(Config.getProperty("EDIT_VEHICLE_PLATE_NUMBER"), 
+				Config.getProperty("SUPER_COMPANY_NAME"), vehicleDto.getCarModel(), vehicleDto.getCarBrand(), vehicleDto.getFuelType());
 	}
 	/**
 	 * This method click on plate number of a vehicle to view details of that vehicle
@@ -77,6 +83,7 @@ public class VehicleMethod {
 	public void viewAVehicle() {
 		//Click on Edit button in vehicle. There is not edit button so click anywher in given vehicle row
 		homepageVehicleMethod.clickOnVehicleToView(Config.getProperty("EDIT_VEHICLE_PLATE_NUMBER"));
+		viewVehicleMethod.assertVehicleView();
 		clickOnBackButton();
 
 	}

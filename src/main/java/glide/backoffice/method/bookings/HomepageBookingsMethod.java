@@ -31,11 +31,13 @@ public class HomepageBookingsMethod {
 		SeleniumUtility.fixedWait(1);	
 	}
 	
-	void clickOnViewBookingButton(String firstname,String startDateTime, String endDateTime) {
-		SeleniumUtility.moveToElementAction(driver, homepageBookings.highlightBookingOnViewBooking(firstname, startDateTime, endDateTime));
-		SeleniumUtility.clickOnElement(driver, homepageBookings.clickOnViewBookingButton(firstname, startDateTime, endDateTime));
+	void clickOnViewBookingButton(String bookingId) {
+		SeleniumUtility.moveToElementAction(driver, homepageBookings.highlightBookingOnHomepageBookings(bookingId));
+		SeleniumUtility.clickOnElement(driver, homepageBookings.clickOnViewBookingButtonHomepageBookings(bookingId));
 		commonMethods.waitUntilElementToBeInvisible();
 		SeleniumUtility.fixedWait(1);
 	}
+	
+
 
 }

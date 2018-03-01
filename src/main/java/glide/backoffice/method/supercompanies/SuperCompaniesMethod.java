@@ -9,6 +9,10 @@ import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.locators.accounts.supercompanies.SuperCompanyDto;
 import glide.backoffice.locators.headers.HeaderItem;
+import glide.backoffice.method.common.CommonMethods;
+import glide.backoffice.method.common.Config;
+import glide.backoffice.method.header.HeaderMethod;
+import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.utility.SeleniumUtility;
 /**
  * This class contains all the method for the super companies
@@ -21,6 +25,10 @@ public class SuperCompaniesMethod {
 	HeaderItem headerItem;
 	AddEditSuperCompanyMethod addEditSuperCompanyMethod;
 	HomepageSuperCompaniesMethod homepageSuperCompaniesMethod;
+	ViewSuperCompanyMethod viewSuperCompanyMethod;
+	SideMenuItemsMethod sideMenuItemsMethod;
+	CommonMethods commonMethods;
+	HeaderMethod headerMethod;
 	// no args constructor
 	public SuperCompaniesMethod() {
 
@@ -32,8 +40,9 @@ public class SuperCompaniesMethod {
 		this.headerItem=PageFactory.initElements(driver, HeaderItem.class);
 		this.addEditSuperCompanyMethod=PageFactory.initElements(driver, AddEditSuperCompanyMethod.class);
 		this.homepageSuperCompaniesMethod=PageFactory.initElements(driver, HomepageSuperCompaniesMethod.class);
-
-
+		this.viewSuperCompanyMethod=PageFactory.initElements(driver, ViewSuperCompanyMethod.class);
+		this.sideMenuItemsMethod=PageFactory.initElements(driver, SideMenuItemsMethod.class);
+		this.headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 	}
 
 
@@ -94,6 +103,25 @@ public class SuperCompaniesMethod {
 		}
 		softAssert.assertTrue(status);
 		softAssert.assertAll();
+	}
+	
+	
+	/**
+	 * This public method edit a super company with given input in the existing super company.
+	 * @param superCompanyDto -  Should be SuperCompanyDto
+	 */
+	public void editSuperCompany(SuperCompanyDto superCompanyDto) {
+		homepageSuperCompaniesMethod.clickOnViewButtonOfSuperCompany(Config.getProperty("EDIT_SUPER_COMPANY_NAME"));
+		viewSuperCompanyMethod.clickonEditButton();
+		addEditSuperCompanyMethod.inputAddASuperCompany(superCompanyDto);
+		addEditSuperCompanyMethod.clickOnSaveButton();
+		SeleniumUtility.fixedWait(5);
+		headerMethod.clickOnHeaderBackButton();
+		SeleniumUtility.fixedWait(2);
+		sideMenuItemsMethod.clickOnSuperCompanies();
+		SeleniumUtility.fixedWait(2);
+		homepageSuperCompaniesMethod.assertEditSuperCompany(Config.getProperty("EDIT_SUPER_COMPANY_NAME"), superCompanyDto.getEmail());
+
 	}
 
 

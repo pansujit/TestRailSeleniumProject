@@ -24,7 +24,6 @@ public class AddNewSuperCompanyErrorTest extends BaseClassExtended {
 	public void ValidateIntegerFieldTest(SuperCompanyDto superCompanyDto) {
 		SuperCompaniesMethod superCompanies=PageFactory.initElements(driver, SuperCompaniesMethod.class);
 		superCompanies.integerToStringError(superCompanyDto);
-
 	}
 	@Test(dataProvider="returnEmptyData",dataProviderClass = SuperCompanyCreateDataProvider.class)
 	public void homepageValidationTest(SuperCompanyDto superCompanyDto) {

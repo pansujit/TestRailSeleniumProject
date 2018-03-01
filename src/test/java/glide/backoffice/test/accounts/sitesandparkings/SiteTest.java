@@ -30,18 +30,19 @@ public class SiteTest extends BaseClassExtended {
 		sideMenuItemsMethod.clickOnSitesAndParking();
 	}
 
-	@Test(dataProvider="createSite",dataProviderClass=SiteDataProvider.class,
+	/*@Test(dataProvider="createSite",dataProviderClass=SiteDataProvider.class,
 			description="This test verifies that creation of the sites in back office")
 	public void createASiteTest(SiteDto siteDto) {
 		SitesAndParkingsMethod sitesAndParkings= PageFactory.initElements(driver, SitesAndParkingsMethod.class);
 		sitesAndParkings.createSite(siteDto);
-	}
+	}*/
 
 	@Test(dataProvider="editSite",dataProviderClass=SiteDataProvider.class, 
 			description="This test verifies that a site be edited from the back office")
 	public void editASiteTest(SiteDto siteDto) {
 		SitesAndParkingsMethod sitesAndParkings= PageFactory.initElements(driver, SitesAndParkingsMethod.class);
 		sitesAndParkings.editSite(siteDto);
+		
 	}
 	@AfterClass
 	public void closeAllBrowser() {

@@ -16,35 +16,16 @@ public class EditVehicle {
 	public final By labelTagTransmissionManualEditVehicle=By.xpath(".//input[@id='transmissionType_option_MANUAL']/../label");
 	
 	/**
-	 * This method locator will find Vehicle type Electric
+	 * This method locator will find Vehicle type according to given one. The option is "Electric", "LPG","petrol","diesel"
+	 * and "Hybrid"
 	 *  element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By labelTagVehicleTypeElectricEditVehicle=By.xpath(".//input[@id='vehicleType_option_ELECTRIC']/../label");
+	public final By labelTagFuelTypeEditVehicle(String fuelType) {
+		String text =".//input[@id='vehicleType_option_xxxx']/../label";
+		return By.xpath(text.replace("xxxx", fuelType));
+	}
 	
-	/**
-	 * This method locator will find Vehicle type Diesel
-	 *  element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By labelTagVehicleTypeDieselEditVehicle=By.xpath(".//input[@id='vehicleType_option_DIESEL']/../label");
-	
-	/**
-	 * This method locator will find Vehicle type Petrol
-	 * element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By labelTagVehicleTypePetrolEditVehicle=By.xpath(".//input[@id='vehicleType_option_PETROL']/../label");
-	
-	/**
-	 * This method locator will find Vehicle type Hybrid
-	 * element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By labelTagVehicleTypeHybridEditVehicle=By.xpath(".//input[@id='vehicleType_option_HYBRID']/../label");
-	
-	/**
-	 * This method locator will find Vehicle type LPG
-	 *  element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By labelTagVehicleTypeLPGEditVehicle=By.xpath(".//input[@id='vehicleType_option_LPG']/../label");
-	
+
 	/**
 	 * This method locator will find Car Brand select element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */

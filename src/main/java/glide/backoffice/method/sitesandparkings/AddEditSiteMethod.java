@@ -3,6 +3,7 @@ package glide.backoffice.method.sitesandparkings;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.locators.accounts.sitesandparkings.AddParking;
 import glide.backoffice.locators.accounts.sitesandparkings.AddSite;
@@ -17,10 +18,12 @@ public class AddEditSiteMethod {
 	WebDriver driver;
 	AddSite addSite;
 	AddParking addParking;
+	SoftAssert softAssert;
 	public AddEditSiteMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.addSite=PageFactory.initElements(driver, AddSite.class);
 		this.addParking=PageFactory.initElements(driver, AddParking.class);
+		this.softAssert=new SoftAssert();
 	}
 	/**
 	 * This private method, select the radio button, depending upon the the boolean value.
@@ -79,8 +82,8 @@ public class AddEditSiteMethod {
 	/**
 	 * This method click on the Parking Edit button in edit site and wait until the Save button in add/edit parking page is displayed.
 	 */
-	void clickOnParkingEditButton() {
-		SeleniumUtility.clickOnElement(driver,addSite.buttonTagEditParkingEditSite(Config.getProperty("EDIT_PARKING_NAME")));
+	void clickOnParkingEditButton(String parkingName) {
+		SeleniumUtility.clickOnElement(driver,addSite.buttonTagEditParkingEditSite(parkingName));
 		SeleniumUtility.waitElementToBeVisible(driver, addParking.buttonTagSaveEditParking);
 		SeleniumUtility.fixedWait(1);
 		
@@ -93,6 +96,19 @@ public class AddEditSiteMethod {
 		SeleniumUtility.clickOnElement(driver, addSite.aTagAddParkingEditSite);
 		SeleniumUtility.waitElementToBeVisible(driver, addParking.buttonTagSaveEditParking);
 		SeleniumUtility.fixedWait(1);
+	}
+	void assertEditAddParking(String parkingName,String electricCharge,String privateAccess,String reducedMob,String openAll,String connectivity) {
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+				addSite.spanTagParkingPrivateAccessEditSite(parkingName), privateAccess));
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+				addSite.spanTagParkingElectricChargerEditSite(parkingName), electricCharge));
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+				addSite.spanTagParkingReducedMobAccessEditSite(parkingName), reducedMob));
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+				addSite.spanTagParkingOpenAllTimeEditSite(parkingName), openAll));
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+				addSite.spanTagParkingGoodConnectivityEditSite(parkingName), connectivity));
+		softAssert.assertAll();
 	}
 
 
