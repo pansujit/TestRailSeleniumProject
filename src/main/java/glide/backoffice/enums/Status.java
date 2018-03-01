@@ -1,7 +1,7 @@
 package glide.backoffice.enums;
 
 public enum Status {
-Completed("Completed"),Canceled("Cancelled"),Scheduled("Scheduled"),Inprogress("Inprogress");
+Completed("Completed"),Canceled("Canceled"),Scheduled("Scheduled"),Inprogress("Inprogress");
 	
 	   private String value;
 

@@ -73,7 +73,6 @@ import listeners.MethodListener;
 	
 	@AfterMethod
 	public void teardown(ITestResult result){
-		Logging.log.info(Thread.currentThread().getStackTrace()[1].getMethodName());
 		if(ITestResult.FAILURE==result.getStatus())
 		{
 			SeleniumUtility.printStatus("Failed",result.getName());

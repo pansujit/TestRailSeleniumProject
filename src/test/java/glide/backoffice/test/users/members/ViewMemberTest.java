@@ -26,7 +26,7 @@ public class ViewMemberTest extends BaseClassExtended{
 		MembersMethod membersMethod=PageFactory.initElements(driver, MembersMethod.class);
 		membersMethod.addCommentOnMember(Config.getProperty("EDIT_MEMBER"));
 	}
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

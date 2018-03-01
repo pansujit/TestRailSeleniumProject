@@ -135,6 +135,7 @@ public class Booking implements Testme {
 		siteMenuItems.clickOnInvoices();
 		// Click on Booking site menu
 		siteMenuItems.clickOnBookings();
+		
 
 
 	}

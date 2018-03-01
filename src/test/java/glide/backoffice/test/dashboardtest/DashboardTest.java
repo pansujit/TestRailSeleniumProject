@@ -32,7 +32,7 @@ public class DashboardTest extends BaseClassExtended {
 		DashboardMethod dashboardMethod=PageFactory.initElements(driver, DashboardMethod.class);
 		dashboardMethod.checkDashboardPageNavigation();
 	}
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

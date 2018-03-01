@@ -25,7 +25,7 @@ public class SuperCompanyHomepageTest extends BaseClassExtended {
 
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

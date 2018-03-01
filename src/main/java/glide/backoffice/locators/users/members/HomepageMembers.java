@@ -103,18 +103,29 @@ public class HomepageMembers {
 	/**
 	 * This locators find all the WebElements for FirstName in member table in User Management->Member-->Homepage
 	 */
-	public final By  spanTagAllFirstnameHomepageMembers=By.xpath(".//table[@class='tableView']/tbody/tr/td[1]/span/span");
+	public final By  spanTagAllFirstnameHomepageMembers=By.xpath(".//table[@class='tableView']/tbody/tr/td[2]/span/span");
 	
 	/**
 	 * This locators find all the WebElements for LastName in member table in User Management->Member-->Homepage
 	 */
-	public final By  spanTagAllLastnameHomepageMembers=By.xpath(".//table[@class='tableView']/tbody/tr/td[2]/span/span");
+	public final By  spanTagAllLastnameHomepageMembers=By.xpath(".//table[@class='tableView']/tbody/tr/td[1]/span/span");
 
 	/**
 	 * This locators find all the WebElements for Email in member table in User Management->Member-->Homepage
 	 */
 	public final By  spanTagAllEmailnameHomepageMembers=By.xpath(".//table[@class='tableView']/tbody/tr/td[3]/span/span");
+	
+	/**
+	 * This locators find all the WebElements for VIP in member table in User Management->Member-->Homepage
+	 */
+	public final By  spanTagAllVIPnameHomepageMembers=By.xpath(".//table[@class='tableView']/tbody/tr/td[7]/span/span");
+	
+	
+	/**
+	 * This locator find all table row in the member table in User Management->Member-->Homepage
+	 */
+	public final By  trTagGetAllRowsHomepageMembers=By.xpath(".//*/table/tbody/tr");
 
-
+	
 
 }

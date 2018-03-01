@@ -42,7 +42,7 @@ public class VehicleTest  extends BaseClassExtended{
 		VehicleMethod vehicleMethod=PageFactory.initElements(driver, VehicleMethod.class);
 		vehicleMethod.viewAVehicle();	
 	}
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

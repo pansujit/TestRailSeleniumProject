@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -242,7 +243,7 @@ public class SeleniumUtility {
 		}catch(Exception e) {
 			log.error("Element cannot be found to compare text: "+ element.toString()+" "+FAILED_WITH_EXCEPTION+e.getClass().getSimpleName());
 			throw(e);
-			
+
 		}
 	}
 
@@ -631,12 +632,40 @@ public class SeleniumUtility {
 
 		}	
 	}
-	
+	/**
+	 * This static method get the size of the options in the select list 
+	 * @param driver - Should be WebDriver
+	 * @param element - Should be Selenium By
+	 * @return integer
+	 */
 	public static int getSizeofOptionsInSelect(WebDriver driver,By element) {
+		log.info("counting the number of items in the select option list of element: "+element.toString());
 		Select select= new Select(driver.findElement(element));
 		List<WebElement> l = select.getOptions();
+		log.info("found: "+l+ " elements  in the select list :"+element.toString());
+
 		return l.size();
-		
+
+	}
+	/**
+	 * This static utility method get the all webElements of the given locators and compare the text of the each element with
+	 * given text and return true if all match otherwise return false.
+	 * @param driver - Should be WebDriver
+	 * @param element - Should be Selenium By
+	 * @param compareText - Should be String
+	 * @return boolean
+	 */
+	public static boolean compareTextInWebElements(WebDriver driver,By element,String compareText) {
+		boolean status= true;
+		List<WebElement> totalElements=driver.findElements(element);
+		for(WebElement totalElement:totalElements) {
+			if(!totalElement.getText().toLowerCase().contains(compareText.toLowerCase())) {
+				status=false;
+				break;
+			}
+		}
+		return status;
+
 	}
 
 	public static void scrollToView(WebDriver driver,By element) {

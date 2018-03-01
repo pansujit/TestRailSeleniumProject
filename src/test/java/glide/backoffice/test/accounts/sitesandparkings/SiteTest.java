@@ -44,7 +44,7 @@ public class SiteTest extends BaseClassExtended {
 		sitesAndParkings.editSite(siteDto);
 		
 	}
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

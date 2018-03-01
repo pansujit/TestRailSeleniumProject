@@ -35,7 +35,7 @@ public class SuperCompanyTest extends BaseClassExtended {
 		superCompanies.editSuperCompany(superCompanyDto);
 
 	}
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

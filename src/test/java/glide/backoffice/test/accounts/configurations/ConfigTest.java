@@ -35,7 +35,7 @@ public class ConfigTest  extends BaseClassExtended {
 		ConfigMethod configMethod=PageFactory.initElements(driver, ConfigMethod.class);
 		configMethod.editConfiguration(configDto);	
 	}*/
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

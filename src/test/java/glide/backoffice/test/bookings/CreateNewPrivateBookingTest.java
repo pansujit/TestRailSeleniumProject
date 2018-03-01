@@ -17,7 +17,7 @@ import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 
 
-public class CreateNewBooking extends BaseClassExtended {
+public class CreateNewPrivateBookingTest extends BaseClassExtended {
 	
 	
 	@BeforeClass
@@ -40,7 +40,7 @@ public class CreateNewBooking extends BaseClassExtended {
 		booking.createBusinessRoundTripBooking(bookingDto);
 	}
 	
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

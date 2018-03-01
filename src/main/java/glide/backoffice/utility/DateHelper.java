@@ -12,14 +12,13 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 
+
+
 public class DateHelper {
-	static Logger log = Logger.getLogger(DateHelper.class.getName());
+	static Logger log = Logger.getLogger(SeleniumUtility.class.getName());
 	  private DateHelper() {
 		    throw new IllegalStateException("Utility class");
 		  }
-
-		
-
 
 	/**
 	 * This method in dataHelper class will compare actual month and month in the calendar and return the difference.

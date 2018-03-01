@@ -41,7 +41,7 @@ public class HeaderTest extends BaseClassExtended {
 	}*/
 	
 	}
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

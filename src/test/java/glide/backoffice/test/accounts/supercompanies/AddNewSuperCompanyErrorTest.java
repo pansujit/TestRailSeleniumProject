@@ -31,7 +31,7 @@ public class AddNewSuperCompanyErrorTest extends BaseClassExtended {
 		superCompanies.checkAllErrorInCreateSuperCompany(superCompanyDto);
 
 	}
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

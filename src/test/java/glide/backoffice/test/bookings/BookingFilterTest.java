@@ -9,8 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import glide.backoffice.method.bookings.Booking;
-import glide.backoffice.method.common.Config;
-import glide.backoffice.method.header.HeaderMethod;
+
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 
@@ -18,7 +17,6 @@ public class BookingFilterTest extends BaseClassExtended {
 	@BeforeClass
 	public void clickOnBookingSidebar() throws MalformedURLException, InterruptedException {
 		OpenBrowser();
-		HeaderMethod headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
 		//headerMethod.selectSuperCompany(Config.getProperty("ASC"));
 		siteMenuItems.clickOnBookings();	
@@ -96,7 +94,7 @@ public class BookingFilterTest extends BaseClassExtended {
 		booking.filterBookingByArrivalDate();
 	
 	}
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

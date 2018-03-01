@@ -10,8 +10,8 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.stream.IntStream;
 
+
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDateTime;
 import org.joda.time.LocalTime;
@@ -28,7 +28,7 @@ public class Jptclass {
 	static final String path = "src/test/resources/log4j.properties";
 
 	public static void main(String[] args) throws MalformedURLException, IOException, APIException, InterruptedException {
-		PropertyConfigurator.configure(path);
+		
 		//System.out.println(System.getProperty("os.name"));
 		//System.out.println(Browser.ie.getBrowserName());
 		//System.out.println(OperatingSystem.windows.getOSName());

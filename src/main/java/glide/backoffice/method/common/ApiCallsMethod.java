@@ -20,7 +20,7 @@ public class ApiCallsMethod {
 	 * This method login to the and if successful returns the xauth token if not return null
 	 * @return - Should be String
 	 */
-	public static String autheticateUserForXAuthToken() {
+	private static String autheticateUserForXAuthToken() {
 		//Create new jsonObject and add some properties
 		SeleniumUtility.fixedWait(2);
 		JsonObject newObject = new JsonObject();
@@ -40,7 +40,10 @@ public class ApiCallsMethod {
 				return null;
 			
 	}
-	
+	/**
+	 * This is public static method to get the bookingID of the given vehicle plate number, departure date, type and status
+	 * @return String
+	 */
 	public static String getBookingID() {
 		String token=autheticateUserForXAuthToken();
 		if(token==null) {

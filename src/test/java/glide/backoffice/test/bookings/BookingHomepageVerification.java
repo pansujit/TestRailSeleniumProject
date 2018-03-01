@@ -33,7 +33,7 @@ public class BookingHomepageVerification  extends BaseClassExtended{
 	public void bookingHomepageTest() {
 		Booking booking= PageFactory.initElements(driver, Booking.class);
 	}
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

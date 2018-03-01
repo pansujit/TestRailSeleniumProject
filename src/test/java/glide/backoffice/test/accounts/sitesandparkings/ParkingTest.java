@@ -36,7 +36,7 @@ public class ParkingTest extends BaseClassExtended {
 		SitesAndParkingsMethod sitesAndParkings= PageFactory.initElements(driver, SitesAndParkingsMethod.class);
 		sitesAndParkings.editParking(parkingDto);
 	}
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

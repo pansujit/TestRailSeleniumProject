@@ -16,14 +16,13 @@ public class Config {
 
 	private static String fileCheck(){
 		String fileTranslateFile=null;
-		File file= new File("src/main/resources/conf/"+System.getProperty("TestFile"));
+		File file= new File("src/main/resources/conf/"+System.getProperty("environment"));
 		if(file.exists()){
 			fileTranslateFile=file.getAbsolutePath();
 		}
 
 		else
 		{
-			Logging.log.error("Property file NOT FOUND");
 		}
 
 		return fileTranslateFile;

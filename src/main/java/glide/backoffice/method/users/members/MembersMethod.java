@@ -26,14 +26,28 @@ public class MembersMethod {
 	
 	
 	/**
-	 * This public method, filter the member by given name, The input should be MembersFilterDto and it will extract the member's name
+	 * This public method, filter the member by given  first name, The input should be MembersFilterDto and it will extract the member's name
 	 * @param memberFilterDto - Should be {@code MembersFilterDto}
 	 */
 	public void filterMemberByName(MembersFilterDto memberFilterDto) {
 		membersFilter.inputMemberNameOnMembersFilter(memberFilterDto.getName());
 		membersFilter.clickOnSearchButton();
+		// this is assert method where the email is unique.
+		homepageMethod.assertFilterMemberMethod(null, null, memberFilterDto.getName(),null);
 		membersFilter.clickOnResetButton();
 	}
+	/**
+	 * This public method, filter the member by given lastname, The input should be MembersFilterDto and it will extract the member's lastname
+	 * @param memberFilterDto - Should be {@code MembersFilterDto}
+	 */
+	public void filterMemberByLastname(MembersFilterDto memberFilterDto) {
+		membersFilter.inputMemberNameOnMembersFilter(memberFilterDto.getName());
+		membersFilter.clickOnSearchButton();
+		// this is assert method where the email is unique.
+		homepageMethod.assertFilterMemberMethod(null, null,null, memberFilterDto.getName());
+		membersFilter.clickOnResetButton();
+	}
+	
 	/**
 	 * This public method, filter the member by given name, The input should be MembersFilterDto and it will extract the member's Email
 	 * @param memberFilterDto - Should be {@code MembersFilterDto}
@@ -41,6 +55,8 @@ public class MembersMethod {
 	public void filterMemberByEmail(MembersFilterDto memberFilterDto) {
 		membersFilter.inputEmailOnMembersFilter(memberFilterDto.getEmail());
 		membersFilter.clickOnSearchButton();
+		// this is assert method where the email is unique.
+		homepageMethod.assertFilterMemberMethod(memberFilterDto.getEmail(), null, null,null);
 		membersFilter.clickOnResetButton();
 	}
 	/**
@@ -51,6 +67,8 @@ public class MembersMethod {
 		membersFilter.inputMemberNameOnMembersFilter(memberFilterDto.getName());
 		membersFilter.inputEmailOnMembersFilter(memberFilterDto.getEmail());
 		membersFilter.clickOnSearchButton();
+		// this is assert method where the email is unique.
+		homepageMethod.assertFilterMemberMethod(memberFilterDto.getEmail(), null, memberFilterDto.getName(),null);
 		membersFilter.clickOnResetButton();
 
 	}
@@ -62,12 +80,23 @@ public class MembersMethod {
 	public void filterMemberByVIP(MembersFilterDto memberFilterDto) {
 		membersFilter.selectVIPOnMembersFilter(memberFilterDto.isVip());
 		membersFilter.clickOnSearchButton();
+		homepageMethod.assertFilterMemberMethod(null, memberFilterDto.isVip()?"Yes":"No", null,null);
 		membersFilter.clickOnResetButton();
 	}
+	/**
+	 * This public method click on the view link of the given member and verify the attributes of the view page of the member
+	 * @param text - Should be String
+	 */
 	public void viewMember(String text) {
 		homepageMethod.clickOnViewLinkOfMember(text);
 	}
+	/**
+	 * This public method add a comment on the member page and verify the comment on comment box
+	 * @param text - Should be String
+	 */
 	public void addCommentOnMember(String text) {
+		membersFilter.inputEmailOnMembersFilter(text);
+		membersFilter.clickOnSearchButton();
 		homepageMethod.clickOnViewLinkOfMember(text);
 		memberViewMethod.clickOnActionMenuIcon();
 		memberActionMenuMethod.addTextOnCommentBox();

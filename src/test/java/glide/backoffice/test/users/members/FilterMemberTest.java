@@ -21,11 +21,16 @@ public class FilterMemberTest extends BaseClassExtended {
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
 		siteMenuItems.clickOnMembers();
 	}
-	
 	@Test(dataProvider="filterByName",dataProviderClass = MembersDataProvider.class)
-	public void filterMemberByNameTest(MembersFilterDto memberFilterDto) {
+	public void filterMemberByLastnameTest(MembersFilterDto memberFilterDto) {
 		MembersMethod memberMethod=PageFactory.initElements(driver, MembersMethod.class);
 		memberMethod.filterMemberByName(memberFilterDto);
+	}
+	
+	@Test(dataProvider="filterByLastName",dataProviderClass = MembersDataProvider.class)
+	public void filterMemberByNameTest(MembersFilterDto memberFilterDto) {
+		MembersMethod memberMethod=PageFactory.initElements(driver, MembersMethod.class);
+		memberMethod.filterMemberByLastname(memberFilterDto);
 	}
 	@Test(dataProvider="filterByEmail",dataProviderClass = MembersDataProvider.class)
 	public void filterMemberByEmailTest(MembersFilterDto memberFilterDto) {
@@ -44,7 +49,7 @@ public class FilterMemberTest extends BaseClassExtended {
 		memberMethod.filterMemberByVIP(memberFilterDto);
 	}
 	
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

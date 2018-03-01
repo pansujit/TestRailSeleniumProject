@@ -48,7 +48,7 @@ public class CompanyTest extends BaseClassExtended {
 		company.viewCompany();
 
 	}
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}

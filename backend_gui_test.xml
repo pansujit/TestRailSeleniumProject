@@ -37,7 +37,8 @@
 	<test name="Booking">
 		<classes>
 			<class name="glide.backoffice.test.bookings.BookingFilterTest" />
-			<class name="glide.backoffice.test.bookings.CreateNewBooking" />
+			<class name="glide.backoffice.test.bookings.CreateNewPrivateBookingTest" />
+			<class name="glide.backoffice.test.bookings.CreateNewBusinessBookingTest" />
 		</classes>
 	</test>
 	<test name="Dashboard">
