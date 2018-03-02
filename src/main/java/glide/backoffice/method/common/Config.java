@@ -16,7 +16,7 @@ public class Config {
 
 	private static String fileCheck(){
 		String fileTranslateFile=null;
-		File file= new File("src/main/resources/conf/"+System.getProperty("environment"));
+		File file= new File("src/main/resources/conf/"+System.getProperty("environment")+".properties");
 		if(file.exists()){
 			fileTranslateFile=file.getAbsolutePath();
 		}

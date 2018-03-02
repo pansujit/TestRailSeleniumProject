@@ -43,19 +43,23 @@ public class HomepageMethod {
 	 */
 	void assertFilterMemberMethod(String email,String vip,String firstname,String lastname) {
 		if(email!=null) {
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageMembers.spanTagEmailHomepageMembers(email)));
+			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageMembers.spanTagEmailHomepageMembers(email))
+					,"The email "+email+ " in the member table is not available " );
 
 		}
 		if(email==null && vip==null && firstname!=null && lastname==null) {
-			softAssert.assertTrue(SeleniumUtility.compareTextInWebElements(driver, homepageMembers.spanTagAllFirstnameHomepageMembers, firstname));
+			softAssert.assertTrue(SeleniumUtility.compareTextInWebElements(driver, homepageMembers.spanTagAllFirstnameHomepageMembers, firstname),
+					"Either member table is not available or the given firstname "+firstname+" is not matching with existing one");
 
 		}
 		if(email==null && vip!=null && firstname==null && lastname==null) {
-			softAssert.assertTrue(SeleniumUtility.compareTextInWebElements(driver, homepageMembers.spanTagAllVIPnameHomepageMembers, vip));
+			softAssert.assertTrue(SeleniumUtility.compareTextInWebElements(driver, homepageMembers.spanTagAllVIPnameHomepageMembers, vip),
+			"Either member table is not available or the given VIP "+vip+" is not matching with existing one");
 		}
 		
 		if(email==null && vip==null && firstname==null && lastname!=null) {
-			softAssert.assertTrue(SeleniumUtility.compareTextInWebElements(driver, homepageMembers.spanTagAllLastnameHomepageMembers, lastname));
+			softAssert.assertTrue(SeleniumUtility.compareTextInWebElements(driver, homepageMembers.spanTagAllLastnameHomepageMembers, lastname),
+					"Either member table is not available or the given lastname "+lastname+" is not matching with existing one");
 		}
 
 		

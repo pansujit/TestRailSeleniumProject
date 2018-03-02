@@ -3,7 +3,10 @@
 <suite name="Suiteme">
 	<!--<listeners> <listener class-name="testrailtests.TestClassISuiteListener"></listener> 
 		</listeners> -->
-	<test name="Sub Companies">
+		
+		<listeners> <listener class-name="listeners.ExtentTestNGIReporterListener"></listener> 
+		</listeners> 
+	<!--<test name="Sub Companies">
 		<classes>
 			<class name="glide.backoffice.test.accounts.companies.CompanyTest" />
 		</classes>
@@ -41,6 +44,13 @@
 			<class name="glide.backoffice.test.bookings.CreateNewBusinessBookingTest" />
 		</classes>
 	</test>
+		<test name="Back users">
+		<classes>
+			<class name="glide.backoffice.test.users.backusers.BackuserTest" />
+		</classes>
+	</test>
+	
+	-->
 	<test name="Dashboard">
 		<classes>
 			<class name="glide.backoffice.test.dashboardtest.DashboardTest" />
@@ -56,11 +66,7 @@
 			<class name="glide.backoffice.test.headertest.HeaderTest" />
 		</classes>
 	</test>
-	<test name="Back users">
-		<classes>
-			<class name="glide.backoffice.test.users.backusers.BackuserTest" />
-		</classes>
-	</test>
+
 
 	<test name="Members">
 		<classes>
