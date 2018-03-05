@@ -1,4 +1,4 @@
-package glide.backoffice.enums;
+package glide.backoffice.dataprovider;
 
 public class ErrorMessages {
 	private ErrorMessages() {

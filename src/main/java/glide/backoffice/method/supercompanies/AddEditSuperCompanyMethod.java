@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
-import glide.backoffice.enums.ErrorMessages;
+import glide.backoffice.dataprovider.ErrorMessages;
 import glide.backoffice.locators.accounts.supercompanies.AddSC;
 import glide.backoffice.locators.accounts.supercompanies.AddSCError;
 import glide.backoffice.locators.accounts.supercompanies.HomepageSC;

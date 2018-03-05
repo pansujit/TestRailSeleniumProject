@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suiteme">
+<suite name="GUI BackOffice Test">
 	<!--<listeners> <listener class-name="testrailtests.TestClassISuiteListener"></listener> 
 		</listeners> -->
 		
 		<listeners> <listener class-name="listeners.ExtentTestNGIReporterListener"></listener> 
 		</listeners> 
-	<!--<test name="Sub Companies">
+	<test name="Sub Companies">
 		<classes>
 			<class name="glide.backoffice.test.accounts.companies.CompanyTest" />
 		</classes>
@@ -50,7 +50,7 @@
 		</classes>
 	</test>
 	
-	-->
+	
 	<test name="Dashboard">
 		<classes>
 			<class name="glide.backoffice.test.dashboardtest.DashboardTest" />

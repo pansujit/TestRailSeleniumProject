@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import glide.backoffice.locators.common.CommonLocators;
 import glide.backoffice.locators.common.DatePicker;
+import glide.backoffice.locators.common.SuceessErrorPopupMessage;
 import glide.backoffice.utility.DateHelper;
 import glide.backoffice.utility.SeleniumUtility;
 /**
@@ -19,12 +20,13 @@ public class CommonMethods {
 	WebDriver driver;
 	CommonLocators commonLocators;
 	DatePicker datePicker;
+	SuceessErrorPopupMessage suceessErrorPopupMessage;
 	
 	public CommonMethods(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.commonLocators=PageFactory.initElements(driver, CommonLocators.class);
 		this.datePicker=PageFactory.initElements(driver, DatePicker.class);
-
+		this.suceessErrorPopupMessage=PageFactory.initElements(driver, SuceessErrorPopupMessage.class);
 	}
 	/**
 	 * This public method in CommonMethods click on pagination next icon.
@@ -128,6 +130,11 @@ public class CommonMethods {
 			SeleniumUtility.actionSendKeys(driver, Keys.ESCAPE);
 			SeleniumUtility.fixedWait(2);
 		}
+	}
+	
+	
+	public boolean assertErrorSuccessMessage(String text) {
+		return SeleniumUtility.compareIgnoreCaseText(driver, suceessErrorPopupMessage.spanTagPopupSuceessErrorPopupMessage, text);
 	}
 	
 }
