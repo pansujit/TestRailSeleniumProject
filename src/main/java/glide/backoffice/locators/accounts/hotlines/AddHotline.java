@@ -19,7 +19,7 @@ public class AddHotline extends EditHotline {
 	 *  This locator will find Error message text element in "Email of the customer service"  
 	 *  in Account-->Hotlines--> Add a Hotline
 	 */
-	public final By sapnTagNameCompanyEmailEditHotline= 
+	public final By spanTagNameCompanyEmailAddHotline= 
 			By.xpath(".//div[@class='fieldErrorMsg fieldErrorMsg--companyForm']/span/span");
 
 	

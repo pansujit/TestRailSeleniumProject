@@ -42,7 +42,7 @@ public class HomepageHotlines {
 	 * This locator will find Email element in Account-->Hotlines--> Homepage
 	 */
 	public final By spanTagTableEmailHomepageHotlines(String replacementText) {
-		String myText= ".//div[@id='mainContainer']//table/tbody/tr/td[2]/span/span[text()='xxxx']";
+		String myText= ".//div[@id='mainContainer']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[2]/span/span";
 		return By.xpath(myText.replace("xxxx", replacementText));
 		
 	}
@@ -51,7 +51,7 @@ public class HomepageHotlines {
 	 * This locator will find Name element in Account-->Hotlines--> Homepage
 	 */
 	public final By spanTagTableNameHomepageHotlines(String replacementText) {
-		String myText= ".//div[@id='mainContainer']//table/tbody/tr/td[2]/span/span[text()='xxxx']/../../../td[1]/span/span";
+		String myText= ".//div[@id='mainContainer']//table/tbody/tr/td[1]/span/span[text()='xxxx']";
 		return By.xpath(myText.replace("xxxx", replacementText));
 		
 	}
@@ -59,15 +59,15 @@ public class HomepageHotlines {
 	 * This locator will find Phone element in Account-->Hotlines--> Homepage
 	 */
 	public final By spanTagTablePhoneHomepageHotlines(String replacementText) {
-		String myText= ".//div[@id='mainContainer']//table/tbody/tr/td[2]/span/span[text()='xxxx']/../../../td[3]/span/span";
+		String myText= ".//div[@id='mainContainer']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[3]/span/span";
 		return By.xpath(myText.replace("xxxx", replacementText));
 		
 	}
 	/**
 	 * This locator will find Edit element in Account-->Hotlines--> Homepage
 	 */
-	public final By spanTagTableEditHomepageHotlines(String replacementText) {
-		String myText= ".//div[@id='mainContainer']//table/tbody/tr/td[2]/span/span[text()='xxxx']/../../../td[4]/span/span";
+	public final By buttonTagTableEditHomepageHotlines(String replacementText) {
+		String myText= ".//div[@id='mainContainer']//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[4]/button";
 		return By.xpath(myText.replace("xxxx", replacementText));
 		
 	}

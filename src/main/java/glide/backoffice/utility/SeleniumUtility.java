@@ -379,8 +379,7 @@ public class SeleniumUtility {
 		}
 	}
 	/**
-	 * This is fixed wait for the system
-	 * @param sec should be integer
+	 * This is fixed wait of 200  millisecond 
 	 */
 	public static void fixedMilliSecondWait() {
 
