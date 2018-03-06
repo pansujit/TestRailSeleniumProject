@@ -13,7 +13,7 @@ public class AddCompanyErrors {
 	 * This will find Company Address Error element in company Add in  Account-->Companies-->Add a company
 	 */
 	public final By inputTagAddressAddCompanyErrors= 
-			By.xpath(".//div[@class='geosuggest subCompanyForm_AddressAutocomplete']/input/../../../div/span/span");
+			By.xpath(".//div[@class='geosuggest subCompanyForm_AddressAutocomplete']/input/../../div[2]/span/span");
 	
 	/**
 	 * This will find Email Error element in company Add in  Account-->Companies-->Add a company

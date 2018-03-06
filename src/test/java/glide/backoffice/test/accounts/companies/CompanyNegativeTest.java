@@ -8,16 +8,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import glide.backoffice.dataprovider.CompanyDataProvider;
-import glide.backoffice.method.accounts.companies.CompanyMethod;
 import glide.backoffice.method.accounts.companies.CompanyDto;
+import glide.backoffice.method.accounts.companies.CompanyMethod;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 
-public class CompanyTest extends BaseClassExtended {
-
-
+public class CompanyNegativeTest extends BaseClassExtended{
 	@BeforeClass(description="This runs once which will select the super company and click on company side bar menu")
 	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
 		OpenBrowser();
@@ -26,31 +24,19 @@ public class CompanyTest extends BaseClassExtended {
 		headerMethod.selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
 		siteMenuItems.clickOnCompanies();
 	}
-	// The creation of company is halted for the moment to reduce the no. of companies
-	/*@Test(dataProvider="createCompany",dataProviderClass = CompanyDataProvider.class,
-			description="This test verifies the creation of the new company from the back office")
-	public void createNewCompanyTest(CompanyDto companyDto) {
-		Company company= PageFactory.initElements(driver, Company.class);
-		company.createNewCompany(companyDto);
-
-	}*/
-
-	@Test(dataProvider="editCompany",dataProviderClass = CompanyDataProvider.class,
-			description="This test verifies the edit of the company from the back office")
-	public void editCompanyTest(CompanyDto companyDto) {
+	@Test(priority=1)
+	public void editAddcompanyErrorTest() {
 		CompanyMethod company= PageFactory.initElements(driver, CompanyMethod.class);
-		company.editCompany(companyDto);
-
+		company.addEditCompanyErrorCheck();
 	}
-	@Test(description="This test verifies the Viewing of the new company from the back office")
-	public void viewCompanyTest() {
+	@Test(priority=2,dataProvider="fieldValidationErrorCompany",dataProviderClass=CompanyDataProvider.class)
+	public void editAddcompanyValidationErrorTest(CompanyDto companyDto) {
 		CompanyMethod company= PageFactory.initElements(driver, CompanyMethod.class);
-		company.viewCompany();
-
+		company.addEditCompanyValidationErrorCheck(companyDto);
 	}
+
 	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}
-
 }

@@ -1,4 +1,4 @@
-package glide.backoffice.method.companies;
+package glide.backoffice.method.accounts.companies;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

@@ -27,7 +27,6 @@ public class HotlineTest extends BaseClassExtended {
 		hotlineMethod.editAHotline(hotlineDto);
 	}
 	
-	
 	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();

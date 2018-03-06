@@ -8,8 +8,8 @@ import org.testng.annotations.DataProvider;
 import com.github.javafaker.Faker;
 
 import glide.backoffice.locators.accounts.supercompanies.SuperCompanyDto;
+import glide.backoffice.method.accounts.companies.CompanyDto;
 import glide.backoffice.method.common.Config;
-import glide.backoffice.method.companies.CompanyDto;
 import glide.backoffice.utility.RandomGenerator;
 import lombok.NoArgsConstructor;
 
@@ -54,6 +54,25 @@ public class CompanyDataProvider {
 	
 			return new Object[][] {{companyDto}};
 	}
+	
+	@DataProvider
+	public Object[][] fieldValidationErrorCompany() {
+		
+			Faker faker = new Faker(new Locale("fr"));
+			companyDto=CompanyDto.builder()
+					.companyName((faker.name().firstName()+faker.name().lastName()+faker.address().cityName()).substring(0,9))
+					.address(faker.address().fullAddress())
+					.phoneNumber((faker.name().firstName()+faker.name().lastName()+faker.address().cityName()).substring(0,9))
+					.logoURL(faker.company().url())
+					.taxNumber(faker.name().firstName())
+					.capital(faker.name().firstName())
+					.email(faker.name().firstName())
+					.build();
+	
+			return new Object[][] {{companyDto}};
+	}
+	
+	
 	
 	
 

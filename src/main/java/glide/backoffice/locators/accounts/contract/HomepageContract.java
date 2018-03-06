@@ -51,7 +51,7 @@ public class HomepageContract {
 	/**
 	 * This locator will find Reference error element in Account-->Contract--> Homepage
 	 */
-	public final By spanTagTeferenceHomepageContract= 
+	public final By spanTagReferenceErrorHomepageContract= 
 			By.xpath(".//div[@class='fieldErrorMsg fieldErrorMsg--contractForm' and contains(@data-reactid,'contractForm_reference')]/span/span");
 	
 	

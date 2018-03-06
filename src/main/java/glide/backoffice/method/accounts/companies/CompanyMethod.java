@@ -1,14 +1,15 @@
-package glide.backoffice.method.companies;
+package glide.backoffice.method.accounts.companies;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import glide.backoffice.dataprovider.ErrorMessages;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 
 
-public class Company {
+public class CompanyMethod {
 	
 	WebDriver driver;
 	HeaderMethod headerMethod;
@@ -16,7 +17,7 @@ public class Company {
 	AddEditCompanyMethod addEditCompanyMethod;
 	SideMenuItemsMethod siteMenuItems;
 	ViewCompanyMethod viewCompanyMethod;
-	public Company(WebDriver ldriver) {
+	public CompanyMethod(WebDriver ldriver) {
 		this.driver=ldriver;	
 		this.headerMethod=PageFactory.initElements(driver, HeaderMethod.class);	
 		this.homepageCompanyMethod=PageFactory.initElements(driver, HomepageCompanyMethod.class);	
@@ -66,8 +67,25 @@ public class Company {
 		homepageCompanyMethod.clickOnViewCompany(Config.getProperty("EDIT_SUB_COMPANY_NAME"));
 		viewCompanyMethod.assertViewCompany();
 		clickOnBackHeaderButton();
-		
-
+	}
+	/**
+	 * This public method checks for the all the mandatory field error message and check with given message in super company add/edit page.
+	 */
+	public void addEditCompanyErrorCheck() {
+		homepageCompanyMethod.clickOnAddCompany();
+		addEditCompanyMethod.clickOnSaveErrorButton();
+		addEditCompanyMethod.assertCompanyErrorCheck(ErrorMessages.FIELD_IS_REQUIRED);
+	}
+	/**
+	 * This public method check the error messages when input is provided other that what is defined for that input field in add/edit
+	 * sub-company page.
+	 * @param companyDto - Should be CompanyDto
+	 */
+	public void addEditCompanyValidationErrorCheck(CompanyDto companyDto) {
+		addEditCompanyMethod.inputToNewCompanyFields(companyDto);
+		addEditCompanyMethod.clickOnSaveErrorButton();
+		addEditCompanyMethod.assertCompanyFieldValidationErrorCheck(ErrorMessages.INTEGER_FIELD_ERROR,
+				ErrorMessages.INVALID_URL_ERROR,ErrorMessages.INVALID_EMAIL_ERROR);
 	}
 	
 	
