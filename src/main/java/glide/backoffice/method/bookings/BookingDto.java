@@ -23,5 +23,8 @@ public class BookingDto {
 	String firstname;
 	String startDateTimeForBooking;
 	String endDateTimeForBooking;
+	boolean statusToSelectTripType;
+	String usageType;
+	boolean paidBooking;
 
 }

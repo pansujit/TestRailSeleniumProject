@@ -21,6 +21,7 @@ public class HotlineTest extends BaseClassExtended {
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
 		siteMenuItems.clickOnHotlines();
 	}
+	
 	@Test(dataProvider="editHotline", dataProviderClass=HotlineDataProvider.class)
 	public void editAHotline(HotlineDto hotlineDto) {
 		HotlineMethod hotlineMethod=PageFactory.initElements(driver, HotlineMethod.class);

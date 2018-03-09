@@ -1,4 +1,4 @@
-package glide.backoffice.method.supercompanies;
+package glide.backoffice.method.accounts.supercompanies;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -18,10 +18,19 @@ public class ViewSuperCompanyMethod {
 
 	}
 	
-	void clickonEditButton() {
+	/**
+	 * This method click on the Edit button in view page of given super company in back office
+	 */
+	void clickOnEditButton() {
 		SeleniumUtility.clickOnElement(driver, viewSC.aTagEditSuperCompanyViewSC);
-		SeleniumUtility.checkElementIsVisible(driver, addSC.buttonTagSaveButtonAddSC);
-		SeleniumUtility.fixedWait(2);
+
+	}
+	/**
+	 * This method waits until the Edit button of view page of  the super company is displayed in backoffice
+	 */
+	void waitUntilEditButtonIsVisible() {
+		SeleniumUtility.checkElementIsVisible(driver, viewSC.aTagEditSuperCompanyViewSC);
+		SeleniumUtility.fixedWait(1);
 	}
 
 }

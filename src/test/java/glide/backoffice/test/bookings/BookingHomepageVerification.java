@@ -6,11 +6,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.method.bookings.Booking;
+import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
-import junit.framework.Assert;
 
 /**
  * This page will verify the booking home page
@@ -18,21 +17,20 @@ import junit.framework.Assert;
  *
  */
 public class BookingHomepageVerification  extends BaseClassExtended{
-	
+
 	@BeforeClass
 	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
-		//SelectSuperCompany selectSuperCompany=PageFactory.initElements(driver, SelectSuperCompany.class);
-		//selectSuperCompany.selectSuperCompany();
-	
-			OpenBrowser();
-
+		OpenBrowser();
+		SideMenuItemsMethod sideMenuItemsMethod= PageFactory.initElements(driver, SideMenuItemsMethod.class);
+		sideMenuItemsMethod.clickOnBookings();
 	}
 
-	SoftAssert sa= new SoftAssert();
 	@Test
 	public void bookingHomepageTest() {
 		Booking booking= PageFactory.initElements(driver, Booking.class);
+		booking.verifyHomepageBooking();
 	}
+	
 	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();

@@ -37,8 +37,12 @@ public class FindMemberBookingMethod {
 	 */
 	 void clickOnBook(String email) {		
 		SeleniumUtility.clickOnElement(driver, findMemberBooking.buttonTagBookFindMemberBooking(email));
-		SeleniumUtility.waitElementToBeVisible(driver, findVehicleBooking.buttonTagSearchFindVehicleBooking);
-		SeleniumUtility.fixedWait(1);
-
 	}
+	 /**
+	  * This method waits for the Name field to be displayed in find member page of create booking in back office
+	  */
+	 void waitForNameFieldIsVisible() {
+			SeleniumUtility.waitElementToBeVisible(driver, findMemberBooking.inputTagNameFindMemberBooking);
+			SeleniumUtility.fixedWait(1);
+	 }
 }

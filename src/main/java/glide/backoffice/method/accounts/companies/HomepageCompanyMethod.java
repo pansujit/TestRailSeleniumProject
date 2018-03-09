@@ -42,6 +42,13 @@ public class HomepageCompanyMethod {
 			SeleniumUtility.fixedWait(1);
 		}
 		/**
+		 * This method waits until the Add button in company homepage is displayed
+		 */
+		void waitUntilAddButtonIsVisible() {
+			SeleniumUtility.waitElementToBeClickable(driver, homepageCompany.aTagAddCompanyHomepageCompanies) ;
+			SeleniumUtility.fixedWait(1);
+		}
+		/**
 		 * This method compare the text in company homepage of the given company with given parameters and return the boolean result
 		 * @param companyName - Should be String
 		 * @param taxNumber - Should be String

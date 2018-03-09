@@ -6,7 +6,7 @@ import org.testng.annotations.DataProvider;
 
 import com.github.javafaker.Faker;
 
-import glide.backoffice.method.configurations.ConfigDto;
+import glide.backoffice.method.accounts.configurations.ConfigDto;
 import glide.backoffice.utility.RandomGenerator;
 
 public class ConfigDataProvider {

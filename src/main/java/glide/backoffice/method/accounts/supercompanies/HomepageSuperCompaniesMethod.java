@@ -1,4 +1,4 @@
-package glide.backoffice.method.supercompanies;
+package glide.backoffice.method.accounts.supercompanies;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -36,13 +36,11 @@ public class HomepageSuperCompaniesMethod {
 	void clickOnAddASuperCompanyButton() {
 		//This is temporary method  to click on element using java script need some work around 
 		SeleniumUtility.clickWithJavaScript(driver, homepageSC.aTagAddSuperCompanyHomepageSC);
-		SeleniumUtility.waitElementToBeVisible(driver, addSC.buttonTagSaveButtonAddSC);
-		SeleniumUtility.fixedWait(1);
+
 	}
 	void clickOnViewButtonOfSuperCompany(String superCompanyName) {
 		SeleniumUtility.clickOnElement(driver, homepageSC.buttonTagViewSuperCompanyHomepageSC(superCompanyName));
-		SeleniumUtility.checkElementIsVisible(driver, viewSC.aTagEditSuperCompanyViewSC);
-		SeleniumUtility.fixedWait(1);
+
 	}
 	/**
 	 * This method verifies the some of the elements are present in the super company homepage.
@@ -66,6 +64,9 @@ public class HomepageSuperCompaniesMethod {
 		softAssert.assertTrue(!SeleniumUtility.getText(driver, homepageSC.spanTagCompanyTaxNumberHomepageSC(superCompany)).isEmpty());
 		softAssert.assertTrue(!SeleniumUtility.getText(driver, homepageSC.spanTagCompanyPhoneHomepageSC(superCompany)).isEmpty());
 		softAssert.assertAll();
+		
+	}
+	void waitUntilAddSCButtonIsVisible() {
 		
 	}
 }

@@ -52,7 +52,7 @@ import listeners.MethodListener;
 
 		driver= new RemoteWebDriver(new URL("http://192.168.1.42:4444/wd/hub"),cap);*/
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("start-fullscreen");
+		//options.addArguments("start-fullscreen");
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
 		driver = new ChromeDriver(options);
 	//	driver.navigate().to("https://admin-valid-2-glide.tech.rcimobility.com/#/login");
@@ -60,7 +60,8 @@ import listeners.MethodListener;
 		driver.navigate().to(Config.getProperty("BO_URL"));
 
 		//driver.navigate().to("https://web-dev-2-glide.tech.rcimobility.com/#/login");
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
+		driver.manage().window().fullscreen();
 		driver.manage().timeouts().implicitlyWait(15000, TimeUnit.MILLISECONDS);
 		login();
 

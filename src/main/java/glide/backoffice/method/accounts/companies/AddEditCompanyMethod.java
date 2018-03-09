@@ -46,25 +46,7 @@ public class AddEditCompanyMethod {
 	 */
 	void clickOnSaveButton() {
 		SeleniumUtility.clickOnElement(driver, addCompany.buttonTagSaveEditCompany);
-		SeleniumUtility.waitElementToBeClickable(driver, homepageCompany.aTagAddCompanyHomepageCompanies) ;
-		SeleniumUtility.fixedWait(1);
-	}
 
-
-	/**
-	 * This method clicks on Save button in Edit page in company.
-	 */
-	void clickOnSaveEditButton() {
-		SeleniumUtility.clickOnElement(driver, addCompany.buttonTagSaveEditCompany);
-		SeleniumUtility.waitElementToBeClickable(driver, viewCompany.aTagEditViewCompany) ;
-		SeleniumUtility.fixedWait(1);	
-	}
-	/**
-	 * This method click on Save button on when the page is not redirect to any other page.
-	 */
-	void clickOnSaveErrorButton() {
-		SeleniumUtility.clickOnElement(driver, addCompany.buttonTagSaveEditCompany);
-		SeleniumUtility.fixedWait(1);
 	}
 
 	void assertCompanyErrorCheck(String errorMessage) {

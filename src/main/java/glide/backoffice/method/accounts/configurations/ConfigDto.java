@@ -1,4 +1,4 @@
-package glide.backoffice.method.configurations;
+package glide.backoffice.method.accounts.configurations;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

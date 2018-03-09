@@ -90,11 +90,6 @@ public class FindVehicleBooking {
 		return By.xpath((text.replace("xxxx", plateNumber)).replace("yyyy",usageType));
 	}
 	
-	/**
-	 * This will find Paid Check Box element in Bookings-->Create Booking--> Find member-->Find vehicle
-	 */
-	public final By divTagPaidCheckBoxFindVehicleBooking= By.xpath(".//div[@class='checkboxMaterial']/div/div/div[1]");
-	
 	
 	/**
 	 * This will find Custom field Element element in Bookings-->Create Booking--> Find member-->Find vehicle
@@ -104,13 +99,18 @@ public class FindVehicleBooking {
 	
 	
 	/**
-	 * This will find Save Button element in Bookings-->Create Booking--> Find member-->Find vehicle
+	 * This will find Save Button element in Bookings-->Create Booking--> Find member-->Find vehicle--popup
 	 */
 	public final By buttonTagSaveFindVehicleBooking= By.xpath(".//button[@class='ekButton addBookingConfirmationForm_button']");
 	
+	/**
+	 * This will find Paid Booking Button element in Bookings-->Create Booking--> Find member-->Find vehicle-->popup
+	 */
+	public final By inputTagPaidBookingVehicleBooking= By.xpath(".//div[@class='checkboxMaterial']//input");
+	
 
 	/**
-	 * This will find Cancel button element in Bookings-->Create Booking--> Find member-->Find vehicle
+	 * This will find Cancel button element in Bookings-->Create Booking--> Find member-->Find vehicle--popup
 	 */
 	public final By buttonTagCancelFindVehicleBooking= 
 			By.xpath("//button[@class='ekButton ekButton--reverse addBookingConfirmationForm_button']");

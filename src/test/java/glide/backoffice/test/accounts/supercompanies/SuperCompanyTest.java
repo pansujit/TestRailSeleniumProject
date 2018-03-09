@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 
 import glide.backoffice.dataprovider.SuperCompanyCreateDataProvider;
 import glide.backoffice.locators.accounts.supercompanies.SuperCompanyDto;
+import glide.backoffice.method.accounts.supercompanies.SuperCompaniesMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
-import glide.backoffice.method.supercompanies.SuperCompaniesMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 
 public class SuperCompanyTest extends BaseClassExtended {

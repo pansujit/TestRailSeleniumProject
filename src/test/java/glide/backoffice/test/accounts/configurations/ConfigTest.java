@@ -8,8 +8,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import glide.backoffice.dataprovider.ConfigDataProvider;
-import glide.backoffice.method.configurations.ConfigDto;
-import glide.backoffice.method.configurations.ConfigMethod;
+import glide.backoffice.method.accounts.configurations.ConfigDto;
+import glide.backoffice.method.accounts.configurations.ConfigMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 
@@ -20,21 +20,20 @@ public class ConfigTest  extends BaseClassExtended {
 		OpenBrowser();
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
 		siteMenuItems.clickOnConfigurations();	
-
 	}
 	
-	
-	@Test(dataProvider="createConfig",dataProviderClass = ConfigDataProvider.class)
+	/*@Test(dataProvider="createConfig",dataProviderClass = ConfigDataProvider.class)
 	public void addConfigTest(ConfigDto configDto) {
 		//ConfigMethod configMethod=PageFactory.initElements(driver, ConfigMethod.class);
 		//configMethod.createConfiguration(configDto);		
-	}
-	//here is some problem need to do again
-	/*@Test(dataProvider="editConfig",dataProviderClass = ConfigDataProvider.class)
+	}*/
+	
+	@Test(dataProvider="editConfig",dataProviderClass = ConfigDataProvider.class)
 	public void editConfigTest(ConfigDto configDto) {
 		ConfigMethod configMethod=PageFactory.initElements(driver, ConfigMethod.class);
-		configMethod.editConfiguration(configDto);	
-	}*/
+		configMethod.editConfiguration(configDto);		
+	}
+	
 	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();

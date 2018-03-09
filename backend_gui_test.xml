@@ -39,6 +39,7 @@
 
 	<test name="Booking">
 		<classes>
+		<class name="glide.backoffice.test.bookings.BookingHomepageVerification" />
 			<class name="glide.backoffice.test.bookings.BookingFilterTest" />
 			<class name="glide.backoffice.test.bookings.CreateNewPrivateBookingTest" />
 			<class name="glide.backoffice.test.bookings.CreateNewBusinessBookingTest" />

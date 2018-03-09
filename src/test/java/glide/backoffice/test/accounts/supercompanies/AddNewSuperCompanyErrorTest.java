@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 
 import glide.backoffice.dataprovider.SuperCompanyCreateDataProvider;
 import glide.backoffice.locators.accounts.supercompanies.SuperCompanyDto;
+import glide.backoffice.method.accounts.supercompanies.SuperCompaniesMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
-import glide.backoffice.method.supercompanies.SuperCompaniesMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 
 public class AddNewSuperCompanyErrorTest extends BaseClassExtended {
@@ -20,12 +20,12 @@ public class AddNewSuperCompanyErrorTest extends BaseClassExtended {
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
 		siteMenuItems.clickOnSuperCompanies();
 	}
-	@Test(dataProvider="nonInteDataForIntFieldTest",dataProviderClass = SuperCompanyCreateDataProvider.class)
+	@Test(dataProvider="nonInteDataForIntFieldTest",dataProviderClass = SuperCompanyCreateDataProvider.class,priority=2)
 	public void ValidateIntegerFieldTest(SuperCompanyDto superCompanyDto) {
 		SuperCompaniesMethod superCompanies=PageFactory.initElements(driver, SuperCompaniesMethod.class);
 		superCompanies.integerToStringError(superCompanyDto);
 	}
-	@Test(dataProvider="returnEmptyData",dataProviderClass = SuperCompanyCreateDataProvider.class)
+	@Test(dataProvider="returnEmptyData",dataProviderClass = SuperCompanyCreateDataProvider.class,priority=1)
 	public void homepageValidationTest(SuperCompanyDto superCompanyDto) {
 		SuperCompaniesMethod superCompanies=PageFactory.initElements(driver, SuperCompaniesMethod.class);
 		superCompanies.checkAllErrorInCreateSuperCompany(superCompanyDto);

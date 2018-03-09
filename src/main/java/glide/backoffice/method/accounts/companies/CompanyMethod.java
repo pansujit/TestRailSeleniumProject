@@ -7,6 +7,7 @@ import glide.backoffice.dataprovider.ErrorMessages;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
+import glide.backoffice.utility.SeleniumUtility;
 
 
 public class CompanyMethod {
@@ -42,6 +43,7 @@ public class CompanyMethod {
 		homepageCompanyMethod.clickOnAddCompany();
 		addEditCompanyMethod.inputToNewCompanyFields(companyDto);
 		addEditCompanyMethod.clickOnSaveButton();
+		homepageCompanyMethod.waitUntilAddButtonIsVisible();
 	}
 	
 	/**
@@ -53,9 +55,9 @@ public class CompanyMethod {
 		homepageCompanyMethod.clickOnViewCompany(Config.getProperty("EDIT_SUB_COMPANY_NAME"));
 		viewCompanyMethod.clickOnEditCompany();
 		addEditCompanyMethod.inputToNewCompanyFields(companyDto);
-		addEditCompanyMethod.clickOnSaveEditButton();
+		addEditCompanyMethod.clickOnSaveButton();
+		viewCompanyMethod.waitUntilEditButtonIsVisible();
 		clickOnBackHeaderButton();
-		siteMenuItems.clickOnCompanies();
 		homepageCompanyMethod.assertCompanyEditCreate(Config.getProperty("EDIT_SUB_COMPANY_NAME"),
 				companyDto.getTaxNumber(), companyDto.getEmail(), companyDto.getPhoneNumber());
 	}
@@ -73,7 +75,8 @@ public class CompanyMethod {
 	 */
 	public void addEditCompanyErrorCheck() {
 		homepageCompanyMethod.clickOnAddCompany();
-		addEditCompanyMethod.clickOnSaveErrorButton();
+		addEditCompanyMethod.clickOnSaveButton();
+		SeleniumUtility.fixedWait(2);
 		addEditCompanyMethod.assertCompanyErrorCheck(ErrorMessages.FIELD_IS_REQUIRED);
 	}
 	/**
@@ -83,7 +86,8 @@ public class CompanyMethod {
 	 */
 	public void addEditCompanyValidationErrorCheck(CompanyDto companyDto) {
 		addEditCompanyMethod.inputToNewCompanyFields(companyDto);
-		addEditCompanyMethod.clickOnSaveErrorButton();
+		addEditCompanyMethod.clickOnSaveButton();
+		SeleniumUtility.fixedWait(2);
 		addEditCompanyMethod.assertCompanyFieldValidationErrorCheck(ErrorMessages.INTEGER_FIELD_ERROR,
 				ErrorMessages.INVALID_URL_ERROR,ErrorMessages.INVALID_EMAIL_ERROR);
 	}

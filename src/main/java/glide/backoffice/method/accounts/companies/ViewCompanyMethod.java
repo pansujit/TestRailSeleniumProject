@@ -33,11 +33,21 @@ public class ViewCompanyMethod {
 		SeleniumUtility.waitElementToBeClickable(driver, addCompany.buttonTagSaveEditCompany);
 		SeleniumUtility.fixedWait(1);
 	}
-	
+	/**
+	 * This method waits until the Edit button in view page in sub-company view is displayed 
+	 */
+	void waitUntilEditButtonIsVisible() {
+		SeleniumUtility.waitElementToBeClickable(driver, viewCompany.aTagEditViewCompany) ;
+		SeleniumUtility.fixedWait(1);
+	}
+	/**
+	 * This method compare the some view sub-company elements text, position and existence with given value.
+	 */
 	void assertViewCompany() {
 		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver,  viewCompany.aTagEditViewCompany));
 		softAssert.assertAll();
 	}
+
 
 
 }

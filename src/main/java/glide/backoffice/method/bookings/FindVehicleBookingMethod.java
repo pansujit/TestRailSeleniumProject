@@ -21,10 +21,16 @@ public class FindVehicleBookingMethod {
 	}
 
 	/**
-	 * This method click on the Round trip radip button in find vehicle page
+	 * This method click on the radio button to select the trip type depending upon the given status, if status is true, click on round trip
+	 * else click on one way
 	 */
-	void clickOnRoundTrip() {		
-		SeleniumUtility.clickOnElement(driver, findVehicleBooking.divTagCheckRoundTripFindVehicleBooking);
+	void chooseTripType(boolean status) {
+		if(status) {
+			SeleniumUtility.clickOnElement(driver, findVehicleBooking.divTagCheckRoundTripFindVehicleBooking);
+
+		}else{
+			SeleniumUtility.clickOnElement(driver, findVehicleBooking.divTagCheckOneWayFindVehicleBooking);
+		}
 	}
 
 	/**
@@ -124,6 +130,39 @@ public class FindVehicleBookingMethod {
 
 		SeleniumUtility.clickUsingAction(driver, findVehicleBooking.buttonTagSaveFindVehicleBooking);
 		SeleniumUtility.fixedWait(3);
+	}
+
+	/**
+	 * This method check the paid booking checkbox depend upon the boolean true or false. if the boolean is true, checkbox is check else
+	 * checkbox is unchecked. 
+	 * @param status - Should be boolean
+	 */
+	void clickOnPaidBooking(boolean status) {
+		if(status) {
+			if(SeleniumUtility.checkElementIsSelected(driver, findVehicleBooking.inputTagPaidBookingVehicleBooking)) {
+				return;
+			}else {
+				SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagPaidBookingVehicleBooking);
+			}			
+		}else {
+			if(SeleniumUtility.checkElementIsSelected(driver, findVehicleBooking.inputTagPaidBookingVehicleBooking)) {
+				SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagPaidBookingVehicleBooking);
+
+			}else {
+				return;
+			}
+		}
+
+
+	}
+
+	/*
+	 * 
+	 * This method waits until the search button is visible on the find vehicle page in create booking in back office
+	 */
+	void waitUntilSearchButtonIsVisible() {
+		SeleniumUtility.waitElementToBeVisible(driver, findVehicleBooking.buttonTagSearchFindVehicleBooking);
+		SeleniumUtility.fixedWait(1);
 	}
 
 }

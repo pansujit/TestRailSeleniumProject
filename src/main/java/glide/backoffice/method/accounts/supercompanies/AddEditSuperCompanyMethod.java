@@ -1,4 +1,4 @@
-package glide.backoffice.method.supercompanies;
+package glide.backoffice.method.accounts.supercompanies;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -67,9 +67,7 @@ public class AddEditSuperCompanyMethod {
 	 * This method click on the Save button in the SaveButton in the Add/Edit super company page
 	 */
 	 void clickOnSaveButton() {
-		SeleniumUtility.clickOnElement(driver, addSC.buttonTagSaveButtonAddSC);
-		
-		
+		SeleniumUtility.clickOnElement(driver, addSC.buttonTagSaveButtonAddSC);	
 	}
 		/**
 		 * This method click on the Save button in the cancelButton in the Add/Edit super company page
@@ -109,5 +107,13 @@ public class AddEditSuperCompanyMethod {
 			softAssert.assertTrue(SeleniumUtility.compareText(driver, addSCError.spanTagSubscriptionUrlErrorAddSC, ErrorMessages.INVALID_URL_ERROR));
 			softAssert.assertAll();
 
+	 }
+	 
+	 /**
+	  * This method waits until the Save button in the add.edit page of the super company is displayed in back office
+	  */
+	 void waitUntilSaveButtonIsVisible() {
+			SeleniumUtility.checkElementIsVisible(driver, addSC.buttonTagSaveButtonAddSC);
+			SeleniumUtility.fixedWait(2);
 	 }
 }

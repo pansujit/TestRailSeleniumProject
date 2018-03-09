@@ -1,4 +1,4 @@
-package glide.backoffice.method.supercompanies;
+package glide.backoffice.method.accounts.supercompanies;
 
 import java.util.List;
 
@@ -9,10 +9,8 @@ import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.locators.accounts.supercompanies.SuperCompanyDto;
 import glide.backoffice.locators.headers.HeaderItem;
-import glide.backoffice.method.common.CommonMethods;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
-import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.utility.SeleniumUtility;
 /**
  * This class contains all the method for the super companies
@@ -26,9 +24,8 @@ public class SuperCompaniesMethod {
 	AddEditSuperCompanyMethod addEditSuperCompanyMethod;
 	HomepageSuperCompaniesMethod homepageSuperCompaniesMethod;
 	ViewSuperCompanyMethod viewSuperCompanyMethod;
-	SideMenuItemsMethod sideMenuItemsMethod;
-	CommonMethods commonMethods;
 	HeaderMethod headerMethod;
+	
 	// no args constructor
 	public SuperCompaniesMethod() {
 
@@ -41,7 +38,6 @@ public class SuperCompaniesMethod {
 		this.addEditSuperCompanyMethod=PageFactory.initElements(driver, AddEditSuperCompanyMethod.class);
 		this.homepageSuperCompaniesMethod=PageFactory.initElements(driver, HomepageSuperCompaniesMethod.class);
 		this.viewSuperCompanyMethod=PageFactory.initElements(driver, ViewSuperCompanyMethod.class);
-		this.sideMenuItemsMethod=PageFactory.initElements(driver, SideMenuItemsMethod.class);
 		this.headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 	}
 
@@ -59,11 +55,12 @@ public class SuperCompaniesMethod {
 	 */
 	public void checkAllErrorInCreateSuperCompany(SuperCompanyDto superCompanyDto) {
 		homepageSuperCompaniesMethod.clickOnAddASuperCompanyButton();
+		addEditSuperCompanyMethod.waitUntilSaveButtonIsVisible();
 		addEditSuperCompanyMethod.inputAddASuperCompany(superCompanyDto);
 		addEditSuperCompanyMethod.clickOnSaveButton();
 		addEditSuperCompanyMethod.validateSuperCompanyAddError();
 		addEditSuperCompanyMethod.clickOnCancelButton();
-
+		homepageSuperCompaniesMethod.waitUntilAddSCButtonIsVisible();
 	}
 	/**
 	 * This public method input the given input in the add super company field and check the Integer to String error
@@ -71,10 +68,12 @@ public class SuperCompaniesMethod {
 	 */
 	public void integerToStringError(SuperCompanyDto superCompanyDto) {
 		homepageSuperCompaniesMethod.clickOnAddASuperCompanyButton();
+		addEditSuperCompanyMethod.waitUntilSaveButtonIsVisible();
 		addEditSuperCompanyMethod.inputAddASuperCompany(superCompanyDto);
 		addEditSuperCompanyMethod.clickOnSaveButton();
 		addEditSuperCompanyMethod.validateIntegerToStringError();
 		addEditSuperCompanyMethod.clickOnCancelButton();
+		homepageSuperCompaniesMethod.waitUntilAddSCButtonIsVisible();
 	}
 	/**
 	 * This public method create a super company with given input in the super company.
@@ -83,9 +82,12 @@ public class SuperCompaniesMethod {
 	public void createSuperCompany(SuperCompanyDto superCompanyDto) {
 		boolean status=false;
 		homepageSuperCompaniesMethod.clickOnAddASuperCompanyButton();
+		addEditSuperCompanyMethod.waitUntilSaveButtonIsVisible();
+		SeleniumUtility.fixedWait(1);
 		addEditSuperCompanyMethod.inputAddASuperCompany(superCompanyDto);
 		addEditSuperCompanyMethod.clickOnSaveButton();
-		SeleniumUtility.fixedWait(15);
+		homepageSuperCompaniesMethod.waitUntilAddSCButtonIsVisible();
+		SeleniumUtility.fixedWait(2);
 		SeleniumUtility.clickOnElement(driver, headerItem.inputTagBigSearchBoxHeaderItem);
 		SeleniumUtility.fixedWait(1);
 		SeleniumUtility.sendText(driver, headerItem.inputTagBigSearchBoxHeaderItem, superCompanyDto.getCompanyName());
@@ -112,13 +114,14 @@ public class SuperCompaniesMethod {
 	 */
 	public void editSuperCompany(SuperCompanyDto superCompanyDto) {
 		homepageSuperCompaniesMethod.clickOnViewButtonOfSuperCompany(Config.getProperty("EDIT_SUPER_COMPANY_NAME"));
-		viewSuperCompanyMethod.clickonEditButton();
+		viewSuperCompanyMethod.waitUntilEditButtonIsVisible();
+		viewSuperCompanyMethod.clickOnEditButton();
+		addEditSuperCompanyMethod.waitUntilSaveButtonIsVisible();
 		addEditSuperCompanyMethod.inputAddASuperCompany(superCompanyDto);
 		addEditSuperCompanyMethod.clickOnSaveButton();
-		SeleniumUtility.fixedWait(5);
+		viewSuperCompanyMethod.waitUntilEditButtonIsVisible();
 		headerMethod.clickOnHeaderBackButton();
-		SeleniumUtility.fixedWait(2);
-		sideMenuItemsMethod.clickOnSuperCompanies();
+		homepageSuperCompaniesMethod.waitUntilAddSCButtonIsVisible();
 		SeleniumUtility.fixedWait(2);
 		homepageSuperCompaniesMethod.assertEditSuperCompany(Config.getProperty("EDIT_SUPER_COMPANY_NAME"), superCompanyDto.getEmail());
 
