@@ -21,6 +21,8 @@
 		<classes>
 			<class name="glide.backoffice.test.accounts.sitesandparkings.ParkingTest" />
 			<class name="glide.backoffice.test.accounts.sitesandparkings.SiteTest" />
+			<class name="glide.backoffice.test.accounts.sitesandparkings.AddParkingNegativeTest" />
+			<class name="glide.backoffice.test.accounts.sitesandparkings.AddSiteNegativeTest" />
 		</classes>
 	</test>
 

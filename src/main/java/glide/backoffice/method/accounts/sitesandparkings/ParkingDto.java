@@ -1,4 +1,4 @@
-package glide.backoffice.method.sitesandparkings;
+package glide.backoffice.method.accounts.sitesandparkings;
 
 import lombok.*;
 

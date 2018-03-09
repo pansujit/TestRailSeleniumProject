@@ -238,7 +238,8 @@ public class SeleniumUtility {
 		Boolean status= false;
 		try {
 			status=driver.findElement(element).getText().compareToIgnoreCase(text)==0;
-			log.info("compare one text with another text with ingoring case: "+ "text1 :"+ driver.findElement(element).getText()+ " text2 :"+text );
+			log.info("compare one text with another text with ingoring case: "+ "text1 :"+ driver.findElement(element).getText()+ " text2 :"+text + 
+					"and status is" + status);
 			return status;
 		}catch(Exception e) {
 			log.error("Element cannot be found to compare text: "+ element.toString()+" "+FAILED_WITH_EXCEPTION+e.getClass().getSimpleName());

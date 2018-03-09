@@ -1,11 +1,13 @@
-package glide.backoffice.method.sitesandparkings;
+package glide.backoffice.method.accounts.sitesandparkings;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.locators.accounts.sitesandparkings.AddParking;
 import glide.backoffice.locators.accounts.sitesandparkings.AddSite;
+import glide.backoffice.locators.accounts.sitesandparkings.ErrorAddParking;
 import glide.backoffice.utility.SeleniumUtility;
 /**
  * This class contains all the method for add and edit parking page
@@ -16,11 +18,14 @@ public class AddEditParkingMethod {
 	WebDriver driver;
 	AddParking addParking;
 	AddSite addSite;
+	SoftAssert softAssert;
+	ErrorAddParking errorAddParking;
 	public AddEditParkingMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.addParking=PageFactory.initElements(driver, AddParking.class);
 		this.addSite=PageFactory.initElements(driver, AddSite.class);
-
+		this.errorAddParking=PageFactory.initElements(driver, ErrorAddParking.class);
+		this.softAssert= new SoftAssert();
 	}
 	/**
 	 * This private method, select the radio button, depending upon the the boolean value.
@@ -70,4 +75,44 @@ public class AddEditParkingMethod {
 		SeleniumUtility.waitElementToBeVisible(driver, addSite.aTagAddParkingEditSite);
 		SeleniumUtility.fixedWait(1);
 	}
+	 
+	 void waitUntilSaveButtonIsVisibleInAddParking() {
+			SeleniumUtility.waitElementToBeVisible(driver, addParking.buttonTagSaveEditParking);
+			SeleniumUtility.fixedWait(1);	 
+	 }
+	 /**
+	  * This method verifies that the message coming from the mandatory field when input is not provided is same as provided text
+	  * @param assertionText - Should be String
+	  */
+	 void assertMandatoryFieldErrorInAddParking(String assertionText) {
+		 softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver,
+				 errorAddParking.inputTagEditLongitudeErrorAddParking,assertionText ), 
+				 "Message Got from longitude field error is not equal to given text "+ "\""+assertionText+"\"");
+		 
+		 softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver,
+				 errorAddParking.inputTagLatitudeErrorAddParking, assertionText), 
+				 "Message Got from Latitude field error is not equal to given text "+ "\""+assertionText+"\"");
+		 
+		 softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver,
+				 errorAddParking.inputTagNameErrorAddParking, assertionText), 
+				 "Message Got from Name field error is not equal to given text "+ "\""+assertionText+"\"");
+		 
+		 softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver,
+				 errorAddParking.labelTagDisabledAccessFalseErrorAddParking, assertionText), 
+				 "Message Got from Disable Access field error is not equal to given text "+ "\""+assertionText+"\"");
+		 
+		 softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver,
+				 errorAddParking.labelTagGSMConnectionFalseErrorAddParking, assertionText), 
+				 "Message Got from GSM Connection field error is not equal to given text "+ "\""+assertionText+"\"");
+		 
+		 softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver,
+				 errorAddParking.labelTagElectricChargingFalseErrorAddParking, assertionText), 
+				 "Message Got from Electric Charge field error is not equal to given text "+ "\""+assertionText+"\"");
+		 
+		 softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver,
+				 errorAddParking.labelTagPrivateAccessFalseErrorAddParking, assertionText), 
+				 "Message Got from Private Access field error is not equal to given text "+ "\""+assertionText+"\"");
+		 
+		 softAssert.assertAll();
+	 }
 }

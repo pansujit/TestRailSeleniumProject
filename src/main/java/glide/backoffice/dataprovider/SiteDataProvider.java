@@ -6,9 +6,9 @@ import org.testng.annotations.DataProvider;
 
 import com.github.javafaker.Faker;
 
+import glide.backoffice.method.accounts.sitesandparkings.ParkingDto;
+import glide.backoffice.method.accounts.sitesandparkings.SiteDto;
 import glide.backoffice.method.common.Config;
-import glide.backoffice.method.sitesandparkings.ParkingDto;
-import glide.backoffice.method.sitesandparkings.SiteDto;
 import glide.backoffice.utility.RandomGenerator;
 
 public class SiteDataProvider {

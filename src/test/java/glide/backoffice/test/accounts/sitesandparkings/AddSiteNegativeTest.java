@@ -7,20 +7,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import glide.backoffice.dataprovider.SiteDataProvider;
-import glide.backoffice.method.accounts.sitesandparkings.SiteDto;
 import glide.backoffice.method.accounts.sitesandparkings.SitesAndParkingsMethod;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
-/**
- * 
- * @author sujitpandey
- * @created on Feb 22, 2018 4:29:00 PM
- */
-public class SiteTest extends BaseClassExtended {
 
+public class AddSiteNegativeTest extends BaseClassExtended{
 	@BeforeClass
 	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
 		OpenBrowser();
@@ -29,24 +22,16 @@ public class SiteTest extends BaseClassExtended {
 		SideMenuItemsMethod sideMenuItemsMethod= PageFactory.initElements(driver, SideMenuItemsMethod.class);
 		sideMenuItemsMethod.clickOnSitesAndParking();
 	}
-
-	/*@Test(dataProvider="createSite",dataProviderClass=SiteDataProvider.class,
-			description="This test verifies that creation of the sites in back office")
-	public void createASiteTest(SiteDto siteDto) {
+	
+	@Test
+	public void MandatoryFieldEmptyErrorTest() {
 		SitesAndParkingsMethod sitesAndParkings= PageFactory.initElements(driver, SitesAndParkingsMethod.class);
-		sitesAndParkings.createSite(siteDto);
-	}*/
-
-	@Test(dataProvider="editSite",dataProviderClass=SiteDataProvider.class, 
-			description="This test verifies that a site be edited from the back office")
-	public void editASiteTest(SiteDto siteDto) {
-		SitesAndParkingsMethod sitesAndParkings= PageFactory.initElements(driver, SitesAndParkingsMethod.class);
-		sitesAndParkings.editSite(siteDto);
+		sitesAndParkings.manadatorySiteFieldEmptyError();
 		
 	}
+	
 	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}
-
 }

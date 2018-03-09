@@ -12,7 +12,6 @@ import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.locators.headers.HeaderItem;
 import glide.backoffice.utility.SeleniumUtility;
-import junit.framework.Assert;
 
 public class HeaderMethod {
 	SoftAssert softAssert;
@@ -139,7 +138,9 @@ public class HeaderMethod {
 		SeleniumUtility.fixedWait(1);
 		softAssert.assertAll();
 	}
-	
+	/**
+	 * This method click on header back button and wait until 2 second
+	 */
 	public void clickOnHeaderBackButton() {
 		SeleniumUtility.clickUsingAction(driver, headerItem.aTagBackButtonHeaderItem);
 		SeleniumUtility.fixedWait(2);

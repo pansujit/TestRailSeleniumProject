@@ -1,4 +1,4 @@
-package glide.backoffice.method.sitesandparkings;
+package glide.backoffice.method.accounts.sitesandparkings;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.locators.accounts.sitesandparkings.AddParking;
 import glide.backoffice.locators.accounts.sitesandparkings.AddSite;
-import glide.backoffice.method.common.Config;
+import glide.backoffice.locators.accounts.sitesandparkings.ErrorAddSite;
 import glide.backoffice.utility.SeleniumUtility;
 /**
  * This class contains all the method for add and edit site page
@@ -19,10 +19,12 @@ public class AddEditSiteMethod {
 	AddSite addSite;
 	AddParking addParking;
 	SoftAssert softAssert;
+	ErrorAddSite  errorAddSite;
 	public AddEditSiteMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.addSite=PageFactory.initElements(driver, AddSite.class);
 		this.addParking=PageFactory.initElements(driver, AddParking.class);
+		this.errorAddSite=PageFactory.initElements(driver, ErrorAddSite.class);
 		this.softAssert=new SoftAssert();
 	}
 	/**
@@ -80,21 +82,23 @@ public class AddEditSiteMethod {
 	}
 	
 	/**
-	 * This method click on the Parking Edit button in edit site and wait until the Save button in add/edit parking page is displayed.
+	 * This method click on the Parking Edit button in edit site.
 	 */
 	void clickOnParkingEditButton(String parkingName) {
 		SeleniumUtility.clickOnElement(driver,addSite.buttonTagEditParkingEditSite(parkingName));
-		SeleniumUtility.waitElementToBeVisible(driver, addParking.buttonTagSaveEditParking);
-		SeleniumUtility.fixedWait(1);
-		
-		
 	}
 	/**
 	 * This method click on Add parking button in edit site and wait until the Save button in add parking is appear.
 	 */
 	void clickOnAddParkingButton() {
 		SeleniumUtility.clickOnElement(driver, addSite.aTagAddParkingEditSite);
-		SeleniumUtility.waitElementToBeVisible(driver, addParking.buttonTagSaveEditParking);
+
+	}
+	/**
+	 * This method waits until the Save button is visible in Add/edit sites in back office
+	 */
+	void waitUntilSaveButtonIsVisible() {
+		SeleniumUtility.waitElementToBeVisible(driver, addSite.buttonTagSaveEditSite);
 		SeleniumUtility.fixedWait(1);
 	}
 	void assertEditAddParking(String parkingName,String electricCharge,String privateAccess,String reducedMob,String openAll,String connectivity) {
@@ -110,6 +114,22 @@ public class AddEditSiteMethod {
 				addSite.spanTagParkingGoodConnectivityEditSite(parkingName), connectivity));
 		softAssert.assertAll();
 	}
+	
+	/**
+	 * This method verifies that given text is equal to error text for the mandatory field in Add site in back office
+	 * @param assertionText - Should be String
+	 */
+	void assertMandatoryFieldErrorCheck(String assertionText) {
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver,errorAddSite.inputTagAddressErrorAddSite,assertionText),
+				"Address Error text  doesnot match with given assertion text " + "\""+assertionText+"\"");
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver,errorAddSite.inputTagNameErrorAddSite,assertionText),
+				"Name error text doesnot match with given assertion text " + "\""+assertionText+"\"");
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver,errorAddSite.selectTagCompanyErrorAddSite,assertionText),
+				"Company error text doesnot match with given assertion text " + "\""+assertionText+"\"");
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver,errorAddSite.selectTagTimeZoneErrorAddSite,assertionText),
+				"Time Zone error text doesnot match with given assertion text " + "\""+assertionText+"\"");
+		softAssert.assertAll();
+		}
 
 
 }

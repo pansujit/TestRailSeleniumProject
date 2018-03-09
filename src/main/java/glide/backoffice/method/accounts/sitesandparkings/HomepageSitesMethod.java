@@ -1,4 +1,4 @@
-package glide.backoffice.method.sitesandparkings;
+package glide.backoffice.method.accounts.sitesandparkings;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -30,21 +30,19 @@ public class HomepageSitesMethod {
 	 */
 	void clickOnAddSiteButton() {
 		SeleniumUtility.clickOnElement(driver, homepageSites.aTagAddSiteHomepageSites);
-		SeleniumUtility.waitElementToBeVisible(driver, addSite.buttonTagSaveEditSite);
-		SeleniumUtility.fixedWait(1);
+
 	}
 	/**
 	 * This method click on The Edit site button and wait until the save button in the add site is displayed in back office.
 	 */
 	void clickOnEditSiteButton(String siteName) {
 		SeleniumUtility.clickOnElement(driver, homepageSites.buttonTagEditSiteHomepageSites(siteName));
-		SeleniumUtility.waitElementToBeVisible(driver, addSite.buttonTagSaveEditSite);
-		SeleniumUtility.fixedWait(1);
+
 	}
 	/**
 	 * This method wait until the Add a site button is displayed in back office.
 	 */
-	void waitToAddASiteVisible() {
+	void waitToAddASiteIsVisible() {
 		SeleniumUtility.waitElementToBeVisible(driver, homepageSites.aTagAddSiteHomepageSites);
 		SeleniumUtility.fixedWait(1);
 	}
