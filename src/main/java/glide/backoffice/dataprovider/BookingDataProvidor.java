@@ -2,20 +2,15 @@ package glide.backoffice.dataprovider;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 import org.testng.annotations.DataProvider;
 
-import com.github.javafaker.Faker;
 
-import glide.backoffice.enums.BackuserRoles;
 import glide.backoffice.enums.Status;
 import glide.backoffice.enums.UsageType;
 import glide.backoffice.method.bookings.BookingDto;
 import glide.backoffice.method.common.Config;
-import glide.backoffice.method.users.backusers.BackuserDto;
 import glide.backoffice.utility.DateHelper;
-import glide.backoffice.utility.RandomGenerator;
 
 public class BookingDataProvidor {
 	private static final String START_ADDRESS="1 Rue de Gramont, 75002 Paris, France";

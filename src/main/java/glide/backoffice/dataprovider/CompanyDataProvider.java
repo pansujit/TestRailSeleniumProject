@@ -7,7 +7,6 @@ import org.testng.annotations.DataProvider;
 
 import com.github.javafaker.Faker;
 
-import glide.backoffice.locators.accounts.supercompanies.SuperCompanyDto;
 import glide.backoffice.method.accounts.companies.CompanyDto;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.utility.RandomGenerator;
