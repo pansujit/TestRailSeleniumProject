@@ -13,7 +13,7 @@ import glide.backoffice.method.accounts.configurations.ConfigMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 
-public class ConfigurationErrorTest extends BaseClassExtended {
+public class ConfigurationNegativeTest extends BaseClassExtended {
 	
 	@BeforeClass
 	public void clickconfigurations() throws MalformedURLException, InterruptedException {

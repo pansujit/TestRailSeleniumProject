@@ -46,8 +46,13 @@ public class HomepageHotlineMethod {
 	 */
 	void addANewHotline() {
 		SeleniumUtility.clickOnElement(driver, homepageHotlines.aTagAddAHotlineHomepageHotlines);
-		SeleniumUtility.waitElementToBeVisible(driver, addHotline.buttonTagSaveEditHotline);
-		SeleniumUtility.fixedMilliSecondWait();
+	}
+	/**
+	 * This method waits until the Add a Hotline button is visible in backoffice
+	 */
+	void waitUntilAddHotlineButtonIsVisible() {
+		SeleniumUtility.waitElementToBeVisible(driver, homepageHotlines.aTagAddAHotlineHomepageHotlines);
+		SeleniumUtility.fixedWait(1);
 	}
 
 }
