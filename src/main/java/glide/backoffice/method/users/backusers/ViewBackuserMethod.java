@@ -13,7 +13,7 @@ import glide.backoffice.utility.SeleniumUtility;
  * @created on Feb 19, 2018 3:16:32 PM
  */
 public class ViewBackuserMethod {
-	
+
 	WebDriver driver;
 	AddBackuser addBackuser;
 	ViewBackuser viewBackuser;
@@ -27,16 +27,24 @@ public class ViewBackuserMethod {
 
 	}
 	/**
-	 * This method click on the Edit button in the Backuser view page and wait until the Save button is appeared in Edit backuser page
+	 * This method click on the Edit button in the Backuser view page in back office
 	 */
-	 void clickOnEditButton() {
+	void clickOnEditButton() {
 		SeleniumUtility.clickOnElement(driver,viewBackuser.aTagBackUserViewEdit);
-		SeleniumUtility.waitElementToBeVisible(driver, addBackuser.buttonTagSaveEditBackuser);
+	}
+	/**
+	 * This method waits until the edit button is visible of view page of back user in back office
+	 */
+	void waitUntilEditButtonIsVisible() {
+		SeleniumUtility.waitElementToBeVisible(driver, viewBackuser.aTagBackUserViewEdit);
 		SeleniumUtility.fixedWait(1);
 	}
-	 void assertViewBackuser() {
-		 softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, viewBackuser.aTagBackUserViewEdit));
-		 softAssert.assertAll();
-	 }
+	/**
+	 * This method asserts that edit button is visible in view page of the back user in back office
+	 */
+	void assertViewBackuser() {
+		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, viewBackuser.aTagBackUserViewEdit));
+		softAssert.assertAll();
+	}
 
 }

@@ -7,17 +7,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import glide.backoffice.dataprovider.BackuserDataProvider;
-import glide.backoffice.logger.Logging;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
-import glide.backoffice.method.users.backusers.BackuserDto;
 import glide.backoffice.method.users.backusers.BackuserMethod;
 import glide.backoffice.test.baseclass.BaseClassExtended;
 
-public class BackuserTest extends BaseClassExtended {
-	
+public class BackuserNegativeTest extends BaseClassExtended{
 	@BeforeClass(alwaysRun=true,description="This runs once which will select the super company and click on Backuser bar menu")
 	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
 		OpenBrowser();
@@ -26,29 +22,18 @@ public class BackuserTest extends BaseClassExtended {
 		headerMethod.selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
 		siteMenuItems.clickOnBackusers();
 	}
-	// the edit back user is more or less same as creating back user
-	/*@Test(dataProvider="addBackuser",dataProviderClass = BackuserDataProvider.class,
-			description="This test verifies the Addition of the backuser in the back office")
-	public void addBackuserTest(BackuserDto backuserDto) {
+	
+	@Test
+	public void missingMandatoryBackuserTest() {
 		BackuserMethod backuser= PageFactory.initElements(driver, BackuserMethod.class);
-		backuser.addABackuser(backuserDto);	
-	}*/
-	@Test(dataProvider="editBackuser",dataProviderClass = BackuserDataProvider.class,
-			description="This test verifies the edit of backuser from the back office")
-	public void editBackuserTest(BackuserDto backuserDto) {
-		BackuserMethod backuser= PageFactory.initElements(driver, BackuserMethod.class);
-		backuser.editABackuser(backuserDto);	
+		backuser.mandatoryMissingFieldValidation();
 	}
-
-	@Test(description="This test verifies the view of any backuser from the back office")
-	public void viewBackuserTest() {
-		BackuserMethod backuser= PageFactory.initElements(driver, BackuserMethod.class);
-		backuser.viewABackuser();	
-	}
+	
+	
 	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
 	}
 
-
+	
 }

@@ -3,9 +3,9 @@ package glide.backoffice.method.users.backusers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import glide.backoffice.dataprovider.ErrorMessages;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
-import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 /**
  * This Class contains all common and public methods for Backuser page of back office.
  * @author sujitpandey
@@ -14,7 +14,6 @@ import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
 public class BackuserMethod {
 
 	WebDriver driver;
-	SideMenuItemsMethod sideMenuItemsMethod;
 	HeaderMethod headerMethod;
 	BackuserHomepageMethod backuserHomepageMethod;
 	ViewBackuserMethod viewBackuserMethod;
@@ -22,7 +21,6 @@ public class BackuserMethod {
 	
 	public BackuserMethod(WebDriver ldriver) {
 		this.driver=ldriver;
-		this.sideMenuItemsMethod=PageFactory.initElements(driver, SideMenuItemsMethod.class);
 		this.headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 		this.backuserHomepageMethod=PageFactory.initElements(driver, BackuserHomepageMethod.class);
 		this.viewBackuserMethod=PageFactory.initElements(driver, ViewBackuserMethod.class);
@@ -42,14 +40,19 @@ public class BackuserMethod {
 	 */
 	public void addABackuser(BackuserDto backuserDto) {
 		backuserHomepageMethod.clickOnAddABackuserButton();
+		addEditBackuserMethod.waitUntilSaveButtonIsVisible();
 		addEditBackuserMethod.inputBackuserData(backuserDto);
 		addEditBackuserMethod.clickOnSaveButton();
+		backuserHomepageMethod.waitUntilAddBackuesrButtonIsVisible();
+		backuserHomepageMethod.assertAddEditBackuser("sujit.pandey+test@glidemobility.com", backuserDto.getLastName(), 
+				backuserDto.getFirstName(), backuserDto.getRole());
 	}
 	/**
 	 * This public method redirect to the view page of any given backuser
 	 */
 	public void viewABackuser() {
 		backuserHomepageMethod.clickOnViewButton(Config.getProperty("EDIT_BACK_USER"));
+		viewBackuserMethod.waitUntilEditButtonIsVisible();
 		viewBackuserMethod.assertViewBackuser();
 		clickOnBackButton();
 	}
@@ -59,14 +62,23 @@ public class BackuserMethod {
 	 */
 	public void editABackuser(BackuserDto backuserDto) {
 		backuserHomepageMethod.clickOnViewButton(Config.getProperty("EDIT_BACK_USER"));
+		viewBackuserMethod.waitUntilEditButtonIsVisible();
 		viewBackuserMethod.clickOnEditButton();
+		addEditBackuserMethod.waitUntilSaveButtonIsVisible();
 		addEditBackuserMethod.inputBackuserData(backuserDto);
 		addEditBackuserMethod.clickOnSaveButtonOnEditBackuser();
+		viewBackuserMethod.waitUntilEditButtonIsVisible();
 		clickOnBackButton();
-		sideMenuItemsMethod.clickOnBackusers();
 		backuserHomepageMethod.assertAddEditBackuser("sujit.pandey+test@glidemobility.com", backuserDto.getLastName(), 
 				backuserDto.getFirstName(), backuserDto.getRole());
 		
+	}
+	
+	public void mandatoryMissingFieldValidation() {
+		backuserHomepageMethod.clickOnAddABackuserButton();
+		addEditBackuserMethod.waitUntilSaveButtonIsVisible();
+		addEditBackuserMethod.clickOnSaveButton();
+		addEditBackuserMethod.assertMissingMandatoryFields(ErrorMessages.FIELD_IS_REQUIRED);
 	}
 
 

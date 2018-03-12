@@ -2,8 +2,10 @@ package glide.backoffice.method.users.backusers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.locators.users.backusers.AddBackuser;
+import glide.backoffice.locators.users.backusers.BackuserCreateErrors;
 import glide.backoffice.locators.users.backusers.HomepageBackusers;
 import glide.backoffice.locators.users.backusers.ViewBackuser;
 import glide.backoffice.utility.SeleniumUtility;
@@ -14,12 +16,15 @@ public class AddEditBackuserMethod {
 	AddBackuser addBackuser;
 	HomepageBackusers homepageBackusers;
 	ViewBackuser viewBackuser;
+	BackuserCreateErrors backuserCreateErrors;
+	SoftAssert softAssert;
 	public AddEditBackuserMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.addBackuser=PageFactory.initElements(driver, AddBackuser.class);
 		this.homepageBackusers=PageFactory.initElements(driver, HomepageBackusers.class);
 		this.viewBackuser=PageFactory.initElements(driver, ViewBackuser.class);
-
+		this.backuserCreateErrors=PageFactory.initElements(driver, BackuserCreateErrors.class);
+		this.softAssert= new SoftAssert();
 	}
 
 	private void selectSuperCompanies(String superCompanyName) {
@@ -73,7 +78,13 @@ public class AddEditBackuserMethod {
 			}
 		}
 	}
-
+	/**
+	 * This method waits until the SAVE button is displayed on ADD/Edit Backuser in back office
+	 */
+	void waitUntilSaveButtonIsVisible() {
+		SeleniumUtility.waitElementToBeVisible(driver, addBackuser.buttonTagSaveEditBackuser);
+		SeleniumUtility.fixedWait(1);
+	}
 
 	void inputBackuserData(BackuserDto backuserDto) {
 		SeleniumUtility.clearTextAndSendText(driver, addBackuser.inputTagEmailEditBackuser, backuserDto.getEmail());
@@ -93,13 +104,27 @@ public class AddEditBackuserMethod {
 
 	void clickOnSaveButton() {
 		SeleniumUtility.clickOnElement(driver, addBackuser.buttonTagSaveEditBackuser);
-		SeleniumUtility.waitElementToBeVisible(driver, homepageBackusers.aTagAddABackuserHomepageBackusers);
-		SeleniumUtility.fixedWait(1);
 	}
 
 	void clickOnSaveButtonOnEditBackuser() {
 		SeleniumUtility.clickOnElement(driver, addBackuser.buttonTagSaveEditBackuser);
-		SeleniumUtility.waitElementToBeVisible(driver, viewBackuser.aTagBackUserViewEdit);
-		SeleniumUtility.fixedWait(1);
+
+	}
+	
+	void assertMissingMandatoryFields(String assertionText) {
+		
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+				backuserCreateErrors.spanTagEmailBackUsersCreateErrors, assertionText));
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+				backuserCreateErrors.spanTagPhoneNOBackUsersCreateErrors, assertionText));
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+				backuserCreateErrors.spanTagFirstnameBackUsersCreateErrors, assertionText));
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+				backuserCreateErrors.spanTagLastnameBackUsersCreateErrors, assertionText));
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+				backuserCreateErrors.spanTagAddressBackUsersCreateErrors, assertionText));
+		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+				backuserCreateErrors.spanTagRoleBackUsersCreateErrors, assertionText));
+		softAssert.assertAll();
 	}
 }

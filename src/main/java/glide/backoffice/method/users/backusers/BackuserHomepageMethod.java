@@ -29,12 +29,19 @@ public class BackuserHomepageMethod {
 	}
 
 	/**
-	 * This method click on the Add a backuser button and wait until the Save Button in Add back user page appears.
+	 * This method click on the Add a backuser button in back office
 	 */
 	void clickOnAddABackuserButton() {
 		SeleniumUtility.clickOnElement(driver,homepageBackusers.aTagAddABackuserHomepageBackusers );
-		SeleniumUtility.waitElementToBeVisible(driver,addBackuser.buttonTagSaveEditBackuser);
+	}
+
+	/**
+	 * This method  waits until the ADD A Backuser button is displayed in backuser homepage in backoffice
+	 */
+	void waitUntilAddBackuesrButtonIsVisible() {
+		SeleniumUtility.checkElementIsVisible(driver, homepageBackusers.aTagAddABackuserHomepageBackusers);
 		SeleniumUtility.fixedWait(1);
+
 	}
 	/**
 	 * This method click on theView link of a given backuser  and wait until the Edit Button in Add back View page appears.  
@@ -42,8 +49,6 @@ public class BackuserHomepageMethod {
 	 */
 	void clickOnViewButton(String testBackuser) {
 		SeleniumUtility.clickOnElement(driver, homepageBackusers.buttonTagViewHomepageBackusers(testBackuser));
-		SeleniumUtility.waitElementToBeVisible(driver, viewBackuser.aTagBackUserViewEdit);
-		SeleniumUtility.fixedWait(1);
 
 	}
 
