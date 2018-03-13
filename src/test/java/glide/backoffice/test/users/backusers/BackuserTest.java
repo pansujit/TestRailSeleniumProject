@@ -19,11 +19,11 @@ import glide.backoffice.test.baseclass.BaseClassExtended;
 public class BackuserTest extends BaseClassExtended {
 	
 	@BeforeClass(alwaysRun=true,description="This runs once which will select the super company and click on Backuser bar menu")
-	public void selectSuperCompany() throws MalformedURLException, InterruptedException {
+	public void selectSuperCompany() throws MalformedURLException, InterruptedException{
 		OpenBrowser();
-		HeaderMethod headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
+		//HeaderMethod headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
-		headerMethod.selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
+		//headerMethod.selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
 		siteMenuItems.clickOnBackusers();
 	}
 	// the edit back user is more or less same as creating back user

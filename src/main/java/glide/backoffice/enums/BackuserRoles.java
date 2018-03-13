@@ -10,4 +10,23 @@ public enum BackuserRoles {
 		Random generator = new Random();
 		return backuserRole[generator.nextInt(backuserRole.length)].toString();
 	}
+	
+	public static String getBackUserValue(String value) {
+		String myValue=null;
+		switch(value) {
+		case "ADMIN":
+			myValue="Admin";
+			break;
+		case "FLEET_MANAGER":
+			myValue="Fleet manager";
+			break;
+		case "CALL_CENTER_OPERATOR":
+			myValue="Callcenter officer";
+			break;
+		default:
+		}
+	
+		return myValue;
+		
+	}
 }

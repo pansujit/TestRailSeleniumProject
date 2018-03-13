@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import glide.backoffice.dataprovider.ErrorMessages;
+import glide.backoffice.method.common.CommonMethods;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 /**
@@ -18,14 +19,17 @@ public class BackuserMethod {
 	BackuserHomepageMethod backuserHomepageMethod;
 	ViewBackuserMethod viewBackuserMethod;
 	AddEditBackuserMethod addEditBackuserMethod;
-	
+	FilterBackusersMethod filterBackusersMethod;
+	CommonMethods commonMethods;
+	private static final String EDIT_BACK_USER=Config.getProperty("EDIT_BACK_USER");
 	public BackuserMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 		this.backuserHomepageMethod=PageFactory.initElements(driver, BackuserHomepageMethod.class);
 		this.viewBackuserMethod=PageFactory.initElements(driver, ViewBackuserMethod.class);
 		this.addEditBackuserMethod=PageFactory.initElements(driver, AddEditBackuserMethod.class);
-
+		this.filterBackusersMethod=PageFactory.initElements(driver, FilterBackusersMethod.class);
+		this.commonMethods=PageFactory.initElements(driver, CommonMethods.class);
 
 	}
 	/**
@@ -47,11 +51,18 @@ public class BackuserMethod {
 		backuserHomepageMethod.assertAddEditBackuser("sujit.pandey+test@glidemobility.com", backuserDto.getLastName(), 
 				backuserDto.getFirstName(), backuserDto.getRole());
 	}
+	
 	/**
 	 * This public method redirect to the view page of any given backuser
 	 */
 	public void viewABackuser() {
-		backuserHomepageMethod.clickOnViewButton(Config.getProperty("EDIT_BACK_USER"));
+		// click on filter and search by email
+		filterBackusersMethod.clickOnFilter();
+		filterBackusersMethod.inputEmailInEmailField(EDIT_BACK_USER);
+		filterBackusersMethod.clickOnSearchButton();
+		commonMethods.waitUntilTableContentVisible();
+		
+		backuserHomepageMethod.clickOnViewButton(EDIT_BACK_USER);
 		viewBackuserMethod.waitUntilEditButtonIsVisible();
 		viewBackuserMethod.assertViewBackuser();
 		clickOnBackButton();
@@ -61,15 +72,21 @@ public class BackuserMethod {
 	 * @param backuserDto - Should be BackuserDto
 	 */
 	public void editABackuser(BackuserDto backuserDto) {
-		backuserHomepageMethod.clickOnViewButton(Config.getProperty("EDIT_BACK_USER"));
-		viewBackuserMethod.waitUntilEditButtonIsVisible();
+		// click on filter and search by email
+		filterBackusersMethod.clickOnFilter();
+		filterBackusersMethod.inputEmailInEmailField(EDIT_BACK_USER);
+		filterBackusersMethod.clickOnSearchButton();
+		commonMethods.waitUntilTableContentVisible();
+		//Click on the view button of the given member
+		backuserHomepageMethod.clickOnViewButton(EDIT_BACK_USER);
+		viewBackuserMethod.waitUntilEditButtonIsVisible();	
 		viewBackuserMethod.clickOnEditButton();
 		addEditBackuserMethod.waitUntilSaveButtonIsVisible();
 		addEditBackuserMethod.inputBackuserData(backuserDto);
 		addEditBackuserMethod.clickOnSaveButtonOnEditBackuser();
 		viewBackuserMethod.waitUntilEditButtonIsVisible();
 		clickOnBackButton();
-		backuserHomepageMethod.assertAddEditBackuser("sujit.pandey+test@glidemobility.com", backuserDto.getLastName(), 
+		backuserHomepageMethod.assertAddEditBackuser(EDIT_BACK_USER, backuserDto.getLastName(), 
 				backuserDto.getFirstName(), backuserDto.getRole());
 		
 	}

@@ -12,8 +12,6 @@ import glide.backoffice.utility.RandomGenerator;
 public class ConfigDataProvider {
 	ConfigDto configDto;
 
-
-
 	@DataProvider
 	public Object[][] createConfig() {
 
@@ -31,8 +29,8 @@ public class ConfigDataProvider {
 	public Object[][] editConfig() {
 		configDto=null;
 		configDto=ConfigDto.builder()
-				.vatNumber(RandomGenerator.randomPhoneNumber().substring(2, 5))
-				.vatPercentage(RandomGenerator.randomNumberGenerator())
+				.vatNumber("1"+RandomGenerator.randomPhoneNumber().substring(2, 5))
+				.vatPercentage(RandomGenerator.randomNumberGenerator().substring(0,5))
 				.build();
 
 		return new Object[][] {{configDto}};

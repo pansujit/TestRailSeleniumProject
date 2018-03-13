@@ -47,5 +47,12 @@ public class FilterBackusers {
 	 * This locator will find select tag role element in homepage in the User Management->BackUsers->Homepage-->Filters
 	 */
 	public final By selectTagRoleFilterBackusers= By.xpath(".//select[@id='role']");
+	
+	/**
+	 * This locator will find Filter tag  element in homepage in the User Management->BackUsers->Homepage
+	 */
+	public final By buttonTagFilterButtonFilterBackusers= By.xpath(".//div[@class='membersPage_filters']/button");
+	
+	
 
 }

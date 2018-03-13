@@ -3,17 +3,36 @@
 <suite name="GUI BackOffice Test">
 	<!--<listeners> <listener class-name="testrailtests.TestClassISuiteListener"></listener> 
 		</listeners> -->
-		
-		<listeners> <listener class-name="listeners.ExtentTestNGIReporterListener"></listener> 
-		</listeners> 
-	<test name="Sub Companies">
+
+	<listeners>
+		<listener class-name="listeners.ExtentTestNGIReporterListener"></listener>
+	</listeners>
+	<test name="Sub-Companies">
 		<classes>
 			<class name="glide.backoffice.test.accounts.companies.CompanyTest" />
+			<class name="glide.backoffice.test.accounts.companies.CompanyNegativeTest" />
 		</classes>
 	</test>
 	<test name="Configuration">
 		<classes>
 			<class name="glide.backoffice.test.accounts.configurations.ConfigTest" />
+			<class
+				name="glide.backoffice.test.accounts.configurations.ConfigurationNegativeTest" />
+		</classes>
+	</test>
+
+	<test name="Contract">
+		<classes>
+			<class name="glide.backoffice.test.accounts.contracts.ContractTest" />
+			<class
+				name="glide.backoffice.test.accounts.contracts.ContractNegativeTest" />
+		</classes>
+	</test>
+
+	<test name="Hotline">
+		<classes>
+			<class name="glide.backoffice.test.accounts.hotlines.HotlineTest" />
+			<class name="glide.backoffice.test.accounts.hotlines.HotlineNegativeTest" />
 		</classes>
 	</test>
 
@@ -21,11 +40,12 @@
 		<classes>
 			<class name="glide.backoffice.test.accounts.sitesandparkings.ParkingTest" />
 			<class name="glide.backoffice.test.accounts.sitesandparkings.SiteTest" />
-			<class name="glide.backoffice.test.accounts.sitesandparkings.AddParkingNegativeTest" />
-			<class name="glide.backoffice.test.accounts.sitesandparkings.AddSiteNegativeTest" />
+			<class
+				name="glide.backoffice.test.accounts.sitesandparkings.AddParkingNegativeTest" />
+			<class
+				name="glide.backoffice.test.accounts.sitesandparkings.AddSiteNegativeTest" />
 		</classes>
 	</test>
-
 
 
 	<test name="Super-Company">
@@ -41,19 +61,12 @@
 
 	<test name="Booking">
 		<classes>
-		<class name="glide.backoffice.test.bookings.BookingHomepageVerification" />
+			<class name="glide.backoffice.test.bookings.BookingHomepageVerification" />
 			<class name="glide.backoffice.test.bookings.BookingFilterTest" />
 			<class name="glide.backoffice.test.bookings.CreateNewPrivateBookingTest" />
 			<class name="glide.backoffice.test.bookings.CreateNewBusinessBookingTest" />
 		</classes>
 	</test>
-		<test name="Back users">
-		<classes>
-			<class name="glide.backoffice.test.users.backusers.BackuserTest" />
-		</classes>
-	</test>
-	
-	
 	<test name="Dashboard">
 		<classes>
 			<class name="glide.backoffice.test.dashboardtest.DashboardTest" />
@@ -69,7 +82,12 @@
 			<class name="glide.backoffice.test.headertest.HeaderTest" />
 		</classes>
 	</test>
-
+	<test name="Back users">
+		<classes>
+			<class name="glide.backoffice.test.users.backusers.BackuserTest" />
+			<class name="glide.backoffice.test.users.backusers.BackuserNegativeTest" />
+		</classes>
+	</test>
 
 	<test name="Members">
 		<classes>

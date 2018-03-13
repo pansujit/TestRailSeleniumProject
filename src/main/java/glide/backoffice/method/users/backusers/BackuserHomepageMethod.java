@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
+import glide.backoffice.enums.BackuserRoles;
 import glide.backoffice.locators.users.backusers.AddBackuser;
+import glide.backoffice.locators.users.backusers.FilterBackusers;
 import glide.backoffice.locators.users.backusers.HomepageBackusers;
 import glide.backoffice.locators.users.backusers.ViewBackuser;
 import glide.backoffice.utility.SeleniumUtility;
@@ -20,12 +22,15 @@ public class BackuserHomepageMethod {
 	AddBackuser addBackuser;
 	ViewBackuser viewBackuser;
 	SoftAssert softAssert;
+	FilterBackusers filterBackusers;
 	public BackuserHomepageMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.homepageBackusers=PageFactory.initElements(driver, HomepageBackusers.class);
 		this.addBackuser=PageFactory.initElements(driver, AddBackuser.class);
 		this.viewBackuser=PageFactory.initElements(driver, ViewBackuser.class);
-		this.softAssert=new SoftAssert();
+		this.softAssert=new SoftAssert();		this.viewBackuser=PageFactory.initElements(driver, ViewBackuser.class);
+		this.filterBackusers=PageFactory.initElements(driver, FilterBackusers.class);
+
 	}
 
 	/**
@@ -58,9 +63,10 @@ public class BackuserHomepageMethod {
 		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
 				homepageBackusers.spanTagFirstnameHomepageBackusers(email), firstname));
 		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
-				homepageBackusers.spanTagRoleHomepageBackusers(email), role));
+				homepageBackusers.spanTagRoleHomepageBackusers(email),BackuserRoles.getBackUserValue(role)));
 		softAssert.assertTrue(!SeleniumUtility.getText(driver, homepageBackusers.spanTagStatusHomepageBackusers(email)).isEmpty());
 		softAssert.assertAll();
 	}
+
 
 }

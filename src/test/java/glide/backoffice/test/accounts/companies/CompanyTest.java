@@ -53,7 +53,7 @@ public class CompanyTest extends BaseClassExtended {
 	}
 	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
-		//closeBrowser();
+		closeBrowser();
 	}
 
 }
