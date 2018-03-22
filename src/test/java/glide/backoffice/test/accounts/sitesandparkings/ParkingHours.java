@@ -1,7 +1,5 @@
 package glide.backoffice.test.accounts.sitesandparkings;
 
-import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import glide.backoffice.test.baseclass.BaseClassExtended;
