@@ -135,8 +135,25 @@ public class SideMenuItemsMethod {
 		commonMethods.waitUntilElementToBeInvisible();
 		SeleniumUtility.fixedWait(2);
 	}
-	
-	
 
+	/**
+	 * This method click on the smartcards sidebar menu item in back office
+	 */
+    public void clickOnSmartcards() {
+		clickOnUsers();
+		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagSmartcardsSidebarMenuItems);
+		commonMethods.waitUntilElementToBeInvisible();
+		SeleniumUtility.fixedWait(2);
+    }
+
+	/**
+	 * This method click on the smartcard Events sidebar menu item in back office
+	 */
+	public void clickOnSmartcardEvents() {
+		clickOnUsers();
+		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagSmartcardsEventsSidebarMenuItems);
+		commonMethods.waitUntilElementToBeInvisible();
+		SeleniumUtility.fixedWait(2);
+	}
 
 }

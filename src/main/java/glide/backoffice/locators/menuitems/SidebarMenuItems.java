@@ -160,7 +160,7 @@ public class SidebarMenuItems {
 	/**
 	 * LLocator for Smartcards Tag in USERS in menu items in back office
 	 */
-	public final By aTagSmartcardsSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--smartcards]/a");
+	public final By aTagSmartcardsSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--smartcards']/a");
 	
 	/**
 	 * Locator for Smartcards Events Tag in USERS in menu items in back office

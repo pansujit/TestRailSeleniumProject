@@ -1,13 +1,13 @@
 package glide.backoffice.test.headertest;
 
-import java.net.MalformedURLException;
-
+import glide.backoffice.method.header.HeaderMethod;
+import glide.backoffice.test.baseclass.BaseClassExtended;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import glide.backoffice.method.header.HeaderMethod;
-import glide.backoffice.test.baseclass.BaseClassExtended;
+
+import java.net.MalformedURLException;
 
 public class HeaderTest extends BaseClassExtended {
 

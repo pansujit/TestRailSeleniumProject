@@ -29,4 +29,13 @@ public class HomepageSmartcards {
 		String text=".//table[@class='tableView']/tbody/tr/td/span/span[text()='xxxx']/../../../td/span/span[text()='yyyy']/../../../td[5]/button";
 		return By.xpath(text.replace("xxxx", replacementTextFirstname).replace("yyyy", replacementTextSurname));
 	}
+	/**
+	 * This locator will find Refresh button in Smart Card homepage in the User Management->SmartCards
+	 */
+	public final By buttonTagRefreshHomepageSmartcards= By.xpath(".//button[@id='smartcards_list_refresh_button']");
+	/**
+	 * This locators finds the Table in the smartcard homepage in User-->SmartCards
+	 */
+	public final  By divTagTableHomepageSmartcards= By.xpath(".//div[@class='advancedList_data advancedList_dataFiltered']");
+
 }
