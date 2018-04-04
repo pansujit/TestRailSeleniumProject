@@ -58,6 +58,21 @@ public class SeleniumUtility {
 			throw(e);
 		}
 	}
+	
+	/**
+	 * This method click on given element using Selenium click.
+	 * @param driver- Should be WebDriver
+	 * @param element - Should be Selenium WebElement
+	 */
+	public static void clickOnElement(WebDriver driver,WebElement element) {
+		try {
+			element.click();
+			log.info(CLICK_INFO + (element.toString()));	
+		}catch(Exception e) {
+			log.error("Click event on element :"+" "+FAILED_WITH_EXCEPTION+e.getClass().getSimpleName());
+			throw(e);
+		}
+	}
 
 	/**
 	 * This method type the text on the given input field using Selenium sendkeys method?

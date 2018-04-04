@@ -167,4 +167,9 @@ public class SidebarMenuItems {
 	 */
 	public final By aTagSmartcardsEventsSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--smartcardsEvents']/a");
 
+	/**
+	 * Locator for Vehicle Planning Tag in USERS in menu items in back office
+	 */
+	public final By aTagVehiclePlanningSidebarMenuItems= By.xpath(".//li[@class='sideMenu_section sideMenu_section--vehiclePlanning']/a");
+
 }

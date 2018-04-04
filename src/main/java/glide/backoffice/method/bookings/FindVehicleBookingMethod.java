@@ -24,7 +24,7 @@ public class FindVehicleBookingMethod {
 	 * This method click on the radio button to select the trip type depending upon the given status, if status is true, click on round trip
 	 * else click on one way
 	 */
-	void chooseTripType(boolean status) {
+	public void chooseTripType(boolean status) {
 		if(status) {
 			SeleniumUtility.clickOnElement(driver, findVehicleBooking.divTagCheckRoundTripFindVehicleBooking);
 
@@ -57,7 +57,7 @@ public class FindVehicleBookingMethod {
 	/**
 	 * This method select the End date which is today in find-vehicle page.
 	 */
-	void selectEndDate(String mydate ) {	
+	public void selectEndDate(String mydate ) {	
 		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagEndDateFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
 		commonMethods.monthAndDayPicker(mydate);
@@ -68,7 +68,7 @@ public class FindVehicleBookingMethod {
 	 * @param hours - should be int between (00 to 23)
 	 * @param minute - should be int between (00 to 59)
 	 */
-	void endHourAndMinute(String hours, String minute) {		
+	public void endHourAndMinute(String hours, String minute) {		
 
 		//String[] data=DateHelper.hourAndMinute(hours, minute);
 		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagEndHourFindVehicleBooking, hours);
@@ -82,7 +82,7 @@ public class FindVehicleBookingMethod {
 	 * @param hours - should be int between (00 to 23)
 	 * @param minute - should be int between (00 to 59)
 	 */
-	void startHourAndMinute(String hours, String minutes) {		
+	public void startHourAndMinute(String hours, String minutes) {		
 
 		//String[] data=DateHelper.hourAndMinute(hours, minute);
 		SeleniumUtility.selectByVisibleText(driver, findVehicleBooking.selectTagStartHourFindVehicleBooking, hours);
@@ -96,7 +96,7 @@ public class FindVehicleBookingMethod {
 	/**
 	 * This method select the Start date which is today in find-vehicle page.
 	 */
-	void selectStartDate(String myStartDate) {		
+	public void selectStartDate(String myStartDate) {		
 		SeleniumUtility.clickOnElement(driver, findVehicleBooking.inputTagStartDateFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
 		commonMethods.monthAndDayPicker(myStartDate);
@@ -108,7 +108,7 @@ public class FindVehicleBookingMethod {
 	/**
 	 * This method click on search button to find the vehicle in find-vehicle page
 	 */
-	void clickOnSearchBooking() {		
+	public void clickOnSearchBooking() {		
 
 		SeleniumUtility.fixedWait(2);
 		SeleniumUtility.clickOnElement(driver, findVehicleBooking.buttonTagSearchFindVehicleBooking);
@@ -118,7 +118,7 @@ public class FindVehicleBookingMethod {
 	/**
 	 * This method will click on the confirm button of the given booking in find-vehicle page
 	 */
-	void clickOnConfirmBooking(String plateNumber, String bookingType) {		
+	 void clickOnConfirmBooking(String plateNumber, String bookingType) {		
 		SeleniumUtility.clickOnElement(driver, findVehicleBooking.buttonTagConfirmFindVehicleBooking(plateNumber, bookingType.toUpperCase()));
 		SeleniumUtility.fixedWait(3);
 	}
@@ -126,7 +126,7 @@ public class FindVehicleBookingMethod {
 	/**
 	 * This method click on Save button in Pop up page to confirm booking in find-vehicle page
 	 */
-	void clickOnSaveButton() {		
+	 public void clickOnSaveButton() {		
 
 		SeleniumUtility.clickUsingAction(driver, findVehicleBooking.buttonTagSaveFindVehicleBooking);
 		SeleniumUtility.fixedWait(3);
@@ -137,7 +137,7 @@ public class FindVehicleBookingMethod {
 	 * checkbox is unchecked. 
 	 * @param status - Should be boolean
 	 */
-	void clickOnPaidBooking(boolean status) {
+	 public void clickOnPaidBooking(boolean status) {
 		if(status) {
 			if(SeleniumUtility.checkElementIsSelected(driver, findVehicleBooking.inputTagPaidBookingVehicleBooking)) {
 				return;

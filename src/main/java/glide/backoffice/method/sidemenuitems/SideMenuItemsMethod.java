@@ -155,5 +155,12 @@ public class SideMenuItemsMethod {
 		commonMethods.waitUntilElementToBeInvisible();
 		SeleniumUtility.fixedWait(2);
 	}
+	
+	public void clickOnVehiclePlanning() {
+		clickOnMenu();
+		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagVehiclePlanningSidebarMenuItems);
+		commonMethods.waitUntilElementToBeInvisible();
+		SeleniumUtility.fixedWait(2);
+	}
 
 }

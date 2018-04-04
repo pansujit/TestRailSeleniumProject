@@ -15,7 +15,8 @@ public class ApiCallsMethod {
 
 	private static final  String  AUTHENTICATE="/api/v2/users/authenticate";
 	private static final  String  SEARCHBOOKING="/api/v2/bookings/search-index";
-	
+	private static final  String  SEARCHVEHICLE="/api/v2/vehicles/search";
+
 	/**
 	 * This method login to the and if successful returns the xauth token if not return null
 	 * @return - Should be String
@@ -72,6 +73,33 @@ public class ApiCallsMethod {
 				.post(Config.getProperty("BASEURI")+SEARCHBOOKING);
 		return searchBookingResponse.jsonPath().getString("results.id[0]");
 	
+	}
+	
+	public static String  getVehicleId() {
+		
+		String token=autheticateUserForXAuthToken();
+		if(token==null) {
+			return null;
+		}
+	
+		// This new json object to create the page object
+		JsonObject page = new JsonObject();
+		page.addProperty("number", 1);
+		page.addProperty("size", 1);
+		
+		// This new Json add object will create the Json request for booking search
+		JsonObject searchVehicle = new JsonObject();
+		searchVehicle.addProperty("plateNumber", Config.getProperty("EDIT_VEHICLE_PLATE_NUMBER"));
+		searchVehicle.add("page", page);
+		// The will call the api  Search booking
+		Response searchBookingResponse=given()
+				.header("X-AUTH-TOKEN", token)
+				.contentType("application/json")
+				.body(searchVehicle.toString())
+				.when()
+				.post(Config.getProperty("BASEURI")+SEARCHVEHICLE);
+		return searchBookingResponse.jsonPath().getString("results.id[0]");
+		
 	}
 
 }

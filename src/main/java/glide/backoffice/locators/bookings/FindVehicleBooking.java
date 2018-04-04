@@ -31,7 +31,7 @@ public class FindVehicleBooking {
 	/**
 	 * This will find  start date input element in Bookings-->Create Booking--> Find member-->Find vehicle
 	 */
-	public final By inputTagStartDateFindVehicleBooking= By.xpath(".//input[starts-with(@id,'pickupDate')]");
+	public final By inputTagStartDateFindVehicleBooking= By.xpath(".//input[@id='pickupDate']");
 	
 	/**
 	 * This will find start calender popup element in Bookings-->Create Booking--> Find member-->Find vehicle
@@ -58,7 +58,7 @@ public class FindVehicleBooking {
 	 * This will find end date input element in Bookings-->Create Booking--> Find member-->Find vehicle
 	 */
 	//public final By inputTagEndDateFindVehicleBooking= By.xpath(".//input[starts-with(@id,'returnDate')]");
-	public final By inputTagEndDateFindVehicleBooking= By.xpath(".//div[@class='boxedInput boxedInput--date']//input[contains(@data-reactid,'returnDate')]");
+	public final By inputTagEndDateFindVehicleBooking= By.xpath(".//input[@id='returnDate']");
 
 	
 	/**
