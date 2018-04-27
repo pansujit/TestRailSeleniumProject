@@ -26,6 +26,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import glide.backoffice.logger.Logging;
+import glide.backoffice.method.common.CheckData.Parameter;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.login.SignIn;
 import glide.backoffice.utility.SeleniumUtility;
@@ -33,7 +34,7 @@ import listeners.MethodListener;
 @Listeners({MethodListener.class})
  abstract public  class BaseClassExtended {
 	
-	public Logger log = Logger.getLogger(SeleniumUtility.class.getName());
+	public Logger log = Logger.getLogger(BaseClassExtended.class.getName());
 
 	static{
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
@@ -41,8 +42,9 @@ import listeners.MethodListener;
     }
 	protected WebDriver driver;
 	DesiredCapabilities cap;
+	
 	//@BeforeClass
-	public void OpenBrowser() throws MalformedURLException, InterruptedException {
+	protected void OpenBrowser() throws MalformedURLException, InterruptedException {
 		/*cap= DesiredCapabilities.internetExplorer();
 		cap.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
 		cap.setPlatform(Platform.WINDOWS);
@@ -51,13 +53,17 @@ import listeners.MethodListener;
 		cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 
 		driver= new RemoteWebDriver(new URL("http://192.168.1.42:4444/wd/hub"),cap);*/
-		//ChromeOptions options = new ChromeOptions();
+		
 		//options.addArguments("start-fullscreen");
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-		//driver = new ChromeDriver(options);
+		
+		
 	//	driver.navigate().to("https://admin-valid-2-glide.tech.rcimobility.com/#/login");
 		//System.out.println("hello"+System.getProperty("dev2.properties"));
-		driver.navigate().to(Config.getProperty("BO_URL"));
+		
+		ChromeOptions options = new ChromeOptions();
+		System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+		driver = new ChromeDriver(options);
+		driver.navigate().to(Config.get(Parameter.BO_URL));//Config.getProperty("BO_URL"));
 
 		driver.manage().window().maximize();
 		//driver.manage().window().fullscreen();
@@ -65,13 +71,13 @@ import listeners.MethodListener;
 		login();
 
 	}
-	private void login() {
+	protected void login() {
 		SignIn signin=PageFactory.initElements(driver, SignIn.class);
 		signin.signIn(Config.getProperty("BO_ADMIN"), Config.getProperty("BO_PASSWORD"));
 		//signin.signIn("sujit.pandey+1@glidemobility.com", "1Aaaaaaa");
 	}
 	
-	@AfterMethod
+	/*@AfterMethod
 	public void teardown(ITestResult result){
 		if(ITestResult.FAILURE==result.getStatus())
 		{
@@ -82,7 +88,7 @@ import listeners.MethodListener;
 			SeleniumUtility.printStatus("Passed",result.getName());
 		}
 
-	}
+	}*/
 
 
 	private void getScreenshot(WebDriver driver, String name){
@@ -91,14 +97,28 @@ import listeners.MethodListener;
 	}
 	
 	
-	//@AfterClass
+	//@AfterClass(alwaysRun=true)
 	public void closeBrowser() {
-		try {
-			driver.close();
-		}catch(Exception e) {
-			
-		}finally {
 			driver.quit();
-		}
+		
 	}
+	/*	@AfterMethod(alwaysRun=true)
+	public void closeOnlyInstance(ITestResult result) {
+		if(ITestResult.FAILURE==result.getStatus())
+		{
+			SeleniumUtility.printStatus("Failed",result.getName());
+			getScreenshot(driver,result.getName());
+		}
+		else {
+			SeleniumUtility.printStatus("Passed",result.getName());
+		}
+		try {
+			driver.manage().deleteAllCookies();
+		} catch (Exception ignored) {
+			System.out.println("Unable to clear cookies, driver object is not viable...");
+		}
+		
+		
+		driver.close();
+	}*/
 }

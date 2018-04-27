@@ -24,5 +24,6 @@ public class VehiclePlanningDto {
 	boolean statusToSelectTripType;
 	String usageType;
 	boolean paidBooking;
+	String vehicleStatus;
 
 }

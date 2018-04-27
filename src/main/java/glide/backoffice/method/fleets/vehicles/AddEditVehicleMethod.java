@@ -1,6 +1,7 @@
 package glide.backoffice.method.fleets.vehicles;
 
-import org.openqa.selenium.By;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -9,58 +10,103 @@ import glide.backoffice.locators.fleets.vehicles.HomepageVehicles;
 import glide.backoffice.utility.SeleniumUtility;
 
 public class AddEditVehicleMethod {
+	static Logger log = Logger.getLogger(AddEditVehicleMethod.class.getName());
+
 	WebDriver driver;
 	HomepageVehicles homepageVehicles;
 	AddVehicle addVehicle;
-	
+	ImagePopupMethod imagePopupMethod;
 	public AddEditVehicleMethod(WebDriver ldriver ) {
 		this.driver=ldriver;
 		this.addVehicle=PageFactory.initElements(driver, AddVehicle.class);
+		this.imagePopupMethod=PageFactory.initElements(driver, ImagePopupMethod.class);
 	}
-	/**
-	 * This method click on elements, espeacially for the radio button, which has two choices, according to the 
-	 * response got from the data (Boolean response) and wait for fixed 1 sec
-	 * @param status - Should be boolean
-	 * @param elementTrue - Should be Selenium By
-	 * @param elementFalse - Should be Selenium By
-	 */
-	private void selectRadioButton(boolean status, By elementTrue,By elementFalse) {
-		if(status) {
-			SeleniumUtility.clickOnElement(driver, elementTrue);
-			SeleniumUtility.fixedWait(1);
-		}
-		else {
-			SeleniumUtility.clickOnElement(driver, elementFalse);
-			SeleniumUtility.fixedWait(1);
-		}
 
-	}
-	/**
-	 * This private method click on the fuel type of the vehicle on add/edit of the vehicle
-	 * @param fuelType - Should be String
-	 */
-	private void clickOnFuelType(String fuelType) {
-		SeleniumUtility.clickOnElement(driver, addVehicle.labelTagFuelTypeEditVehicle(fuelType));
-	}
 	
 	/**
 	 * This method adds the parameters in Add/Edit Vehicle in Vehicle Sections.Data should be get from VehicleDto
 	 * @param vehicleDto - should be VehicleDto
 	 */
 	void inputVehicleData(VehicleDto vehicleDto) {
-		selectRadioButton(vehicleDto.isGearBox(),addVehicle.labelTagTransMissionAutomaticEditVehicle,
-				addVehicle.labelTagTransmissionManualEditVehicle);
-		SeleniumUtility.selectByVisibleText(driver, addVehicle.selectTagCarBrandEditVehicle, vehicleDto.getCarBrand());
-		SeleniumUtility.selectByVisibleText(driver, addVehicle.selectTagCarModelEditVehicle, vehicleDto.getCarModel());
-		SeleniumUtility.selectByVisibleText(driver, addVehicle.selectTagCarVersionEditVehicle, vehicleDto.getCarVersion());
-		SeleniumUtility.clearTextAndSendText(driver, addVehicle.inputTagPictureURLEditVehicle, vehicleDto.getImageURL()+"/xx.jpg");
-		SeleniumUtility.selectByVisibleText(driver, addVehicle.selectTagVehicleClassEditVehicle, vehicleDto.getVehicleClass());
-		SeleniumUtility.selectByVisibleText(driver, addVehicle.selectTagVehicleColorEditVehicle, vehicleDto.getVehicleColor());
-		SeleniumUtility.selectByVisibleText(driver, addVehicle.selectTagVehicleTypeEditVehicle, vehicleDto.getVehicleType());
-		SeleniumUtility.clearTextAndSendText(driver, addVehicle.inputTagDoorsNumberEditVehicle, vehicleDto.getNumberOfDoors());
-		SeleniumUtility.clearTextAndSendText(driver, addVehicle.inputTagNumberOfSeatsEditVehicle, vehicleDto.getSeatNumber());
-		clickOnFuelType(vehicleDto.getFuelType());
+		
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagCarBrandEditVehicle);
+		SeleniumUtility.fixedWait(5);
+		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getCarBrand());
+		
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagCarModelEditVehicle);
+		SeleniumUtility.fixedWait(1);
+		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getCarModel());
+		
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagCarVersionEditVehicle);
+		SeleniumUtility.fixedWait(1);
+		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getCarVersion());
+		
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagVehicleColorEditVehicle);
+		SeleniumUtility.fixedWait(1);
+		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getVehicleColor());
+		
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagVehicleTypeEditVehicle);
+		SeleniumUtility.fixedWait(1);
+		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getVehicleType());
+		
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagVehicleClassEditVehicle);
+		SeleniumUtility.fixedWait(1);
+		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getVehicleClass());
+		
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagGearBoxEditVehicle);
+		SeleniumUtility.fixedWait(1);
+		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getGearBox());
+		
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagFuelTypeEditVehicle);
+		SeleniumUtility.fixedWait(1);
+		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getFuelType());
+		
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagNumberOfDoorsEditVehicle);
+		SeleniumUtility.fixedWait(1);
+		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getNumberOfDoors());
+		
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagNumberOfSeatsEditVehicle);
+		SeleniumUtility.fixedWait(1);
+		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getNumberOfDoors());
+		
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagOwnerEditVehicle);
+		SeleniumUtility.fixedWait(1);
+		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getOwnerOfVehicle());
+		
+		uploadRegistrationDocument(vehicleDto.getFileName());
+		SeleniumUtility.clickOnElement(driver, addVehicle.inputTagPictureURLEditVehicle);
+		imagePopupMethod.waitUntilImageURLIsVisible();
+		imagePopupMethod.inputURLInImageField(vehicleDto.getImageURL());
+		imagePopupMethod.clickOnOkButton();
+		imagePopupMethod.waitUntilImageURLNotIsVisible();
+	}
+	
+	void uploadRegistrationDocument(String fileName) {
+		String data=SeleniumUtility.fileCheck(fileName);
+		if(data==null) {
+			log.error("Absolute path is not found for the file "+ fileName);
+			return;
+		}
+		else {
+			SeleniumUtility.sendText(driver, addVehicle.inputTagRegistrationDocLEditVehicle, data);
+		}
+	}
+	
+	void clickonVisibleTextOnAddEditVehicleDropdown(String vehicleElement) {
+		if(SeleniumUtility.checkElementIsVisible(driver, addVehicle.divTagDropdownTextEditVehicle(vehicleElement))){
+			//SeleniumUtility.moveToElementAction(driver, addVehicle.divTagDropdownTextEditVehicle(vehicleElement));
+			//SeleniumUtility.clickOnElement(driver, addVehicle.divTagDropdownTextEditVehicle(vehicleElement));
+			SeleniumUtility.clickWithJavaScript(driver, addVehicle.divTagDropdownTextEditVehicle(vehicleElement));
+			SeleniumUtility.fixedWait(1);
+		}
+		else {
+			SeleniumUtility.actionSendKeys(driver, Keys.ESCAPE);
+			SeleniumUtility.fixedWait(1);
+		}
 
+	}
+	private void waitUntilDataIsDisplayedInDropdown() {
+		
 	}
 	
 	/**
@@ -70,9 +116,12 @@ public class AddEditVehicleMethod {
 	void inputAdministrationData(VehicleDto vehicleDto) {
 		SeleniumUtility.clearTextAndSendText(driver, addVehicle.inputTagVINNumberEditVehicle, vehicleDto.getVehicleVIN());
 		SeleniumUtility.clearTextAndSendText(driver, addVehicle.inputTagPlateNumberEditVehicle, vehicleDto.getPlateNumber());
-		selectRadioButton(vehicleDto.isOwnerOfVehicle(),addVehicle.labelTagRCICompanyEditVehicle,
-				addVehicle.labelTagCurrentCompanyEditVehicle);
-		SeleniumUtility.selectByVisibleText(driver, addVehicle.selectTagServiceLevelEditVehicle, vehicleDto.getServiceLevel());
+
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagSiteLocationEditVehicle);
+		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getSiteLocation());
+		// This parking location is causing problem whilel creating  a vehicle, disabling for the moment
+		//SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagParkingLocationEditVehicle);
+		//clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getParkingLocation());
 
 	}
 	
@@ -81,7 +130,8 @@ public class AddEditVehicleMethod {
 	 * @param vehicleDto - Should be VehicleDto
 	 */
 	 void inputOprerationalData(VehicleDto vehicleDto) {
-		SeleniumUtility.selectByvalue(driver,addVehicle.selectTagUsedSystemEditVehicle,vehicleDto.getSystemInUse());
+		 SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagUsedSystemEditVehicle);
+			clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getSystemInUse());
 		SeleniumUtility.clearTextAndSendText(driver,addVehicle.inputTagDeviceSerialNumberEditVehicle,vehicleDto.getDeviceSerialNumber());
 
 	}
@@ -89,8 +139,11 @@ public class AddEditVehicleMethod {
 	 * This method will click on Save or Next button in Add or edit vehicle.
 	 */
 	void clickOnSave() {
-		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagNextEditVehicle);
-		SeleniumUtility.fixedWait(5);
+		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagSaveEditVehicle);
 
+	}
+	
+	void waitUntilSaveButtonIsVisible() {
+		SeleniumUtility.waitElementToBeVisible(driver, addVehicle.buttonTagSaveEditVehicle);
 	}
 }

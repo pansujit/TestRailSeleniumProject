@@ -25,24 +25,30 @@ public class HomepageVehicleMethod {
 	}
 	
 	/**
-	 * This methods click on Add a Vehicle Button in Vehicle Home page and wait upto 30s to the "NEXT" button in Add/edit vehicle to
-	 * be visibled and further wait 1s for fixed delay.
+	 * This methods click on Add a Vehicle Button in Vehicle Home page 
 	 */
 	void clickOnAddAVehicleButton() {
 		SeleniumUtility.clickOnElement(driver, homepageVehicles.buttonTagAddVehicleHomepageVehicles);
-		SeleniumUtility.waitElementToBeVisible(driver, addVehicle.buttonTagNextEditVehicle);
-		SeleniumUtility.fixedWait(1);
-
 	}
 	
 	/**
 	 * This method click on Vehicle number plate  to view the vehicle in detail
 	 */
 	void clickOnVehicleToView(String plateNumber){
-		SeleniumUtility.clickOnElement(driver, homepageVehicles.divTagPlateNumberHomepageVehicles(plateNumber));
-		SeleniumUtility.waitElementToBeVisible(driver, viewVehicle.buttonTagEditVehicleViewVehicle);
-		SeleniumUtility.fixedWait(1);		
+		SeleniumUtility.clickOnElement(driver, homepageVehicles.divTagPlateNumberHomepageVehicles(plateNumber));		
 	}
+	void waitUntilAddAVehicleButtonIsVisible() {
+		SeleniumUtility.waitElementToBeVisible(driver, homepageVehicles.buttonTagAddVehicleHomepageVehicles);
+	}
+	
+	/**
+	 * 
+	 * @param plateNumber
+	 * @param companyName
+	 * @param model
+	 * @param brand
+	 * @param fuelType
+	 */
 
 	void assertAddEditVehicle(String plateNumber,String companyName,String model,String brand,String fuelType) {
 		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 

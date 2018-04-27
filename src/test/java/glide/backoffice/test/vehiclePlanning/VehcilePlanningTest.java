@@ -1,6 +1,7 @@
 package glide.backoffice.test.vehiclePlanning;
 
 import java.net.MalformedURLException;
+import java.util.Random;
 
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
@@ -27,17 +28,32 @@ public class VehcilePlanningTest extends BaseClassExtended {
 		headerMethod.selectCompany(Config.getProperty("SUB_COMPANY_NAME"));
         siteMenuItems.clickOnVehiclePlanning();
 	}
-	@Test(dataProvider="createRoundTripBusinessBooking",dataProviderClass = VehiclePlanningDataProvider.class)
+	/*@Test(dataProvider="createRoundTripBusinessBooking",dataProviderClass = VehiclePlanningDataProvider.class)
 	/*public void homepageVehiclePlanningTest() {
 		VehiclePlanningMethod vehiclePlanningMethod=PageFactory.initElements(driver, VehiclePlanningMethod.class);
 		vehiclePlanningMethod.homepageVerification();
 	}*/
-	public void homepageVehiclePlanningTest(VehiclePlanningDto vehiclePlanningDto) {
+	/*public void homepageVehiclePlanningTest(VehiclePlanningDto vehiclePlanningDto) {
 		VehiclePlanningMethod vehiclePlanningMethod=PageFactory.initElements(driver, VehiclePlanningMethod.class);
 		vehiclePlanningMethod.createBooking(vehiclePlanningDto);
 	}
+	@Test(dataProvider="addStatusVehiclePlanning",dataProviderClass = VehiclePlanningDataProvider.class)
+	public void homepageVehiclePlanningTest(VehiclePlanningDto vehiclePlanningDto) {
+		VehiclePlanningMethod vehiclePlanningMethod=PageFactory.initElements(driver, VehiclePlanningMethod.class);
+		vehiclePlanningMethod.addStatusFromVehiclePlanning(vehiclePlanningDto);;
+	}
 	
-	
+	@Test(dataProvider="addStatusVehiclePlanning",dataProviderClass = VehiclePlanningDataProvider.class)
+	public void homepageVehiclePlanningDaysTest(VehiclePlanningDto vehiclePlanningDto) {
+		VehiclePlanningMethod vehiclePlanningMethod=PageFactory.initElements(driver, VehiclePlanningMethod.class);
+		vehiclePlanningMethod.daysRowsCount(vehiclePlanningDto);	
+	}*/
+	@Test
+	public void backAndFrontArrowTest() {
+		VehiclePlanningMethod vehiclePlanningMethod=PageFactory.initElements(driver, VehiclePlanningMethod.class);
+		vehiclePlanningMethod.backAndFrontArrow();
+	}
+
 	/*@AfterClass
 	public void closeAllBrowser() {
 		closeBrowser();

@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.locators.headers.HeaderItem;
+import glide.backoffice.method.common.CommonMethods;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.utility.SeleniumUtility;
 
@@ -19,11 +20,14 @@ public class HeaderMethod {
 	WebDriver driver;
 	HeaderItem headerItem;
 	HeaderSearchResult headerSearchResult;
+	CommonMethods commonMethods;
 	public HeaderMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.headerItem=PageFactory.initElements(driver, HeaderItem.class);
 		this.softAssert= new SoftAssert();
 		this.headerSearchResult=PageFactory.initElements(driver, HeaderSearchResult.class);
+		this.commonMethods=PageFactory.initElements(driver, CommonMethods.class);
+
 	}
 
 
@@ -38,7 +42,8 @@ public class HeaderMethod {
 		SeleniumUtility.actionClickAndSendKeys(driver, headerItem.inputTagSuperCompaniesHeaderItem, superCompanyName);
 		SeleniumUtility.fixedWait(2);
 		SeleniumUtility.actionSendKeys(driver, Keys.ENTER);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		SeleniumUtility.fixedWait(1);
 	}
 	public void selectSuperCompany() {
 		SeleniumUtility.clickOnElement(driver, headerItem.buttonTagSuperCompaniesHeaderItem);
@@ -48,7 +53,8 @@ public class HeaderMethod {
 		SeleniumUtility.actionClickAndSendKeys(driver, headerItem.inputTagSuperCompaniesHeaderItem, "AirStone");
 		SeleniumUtility.fixedWait(2);
 		SeleniumUtility.actionSendKeys(driver, Keys.ENTER);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		SeleniumUtility.fixedWait(1);
 	}
 	public void selectCompany(String companyName) {
 		if(companyName==null) {
@@ -61,7 +67,8 @@ public class HeaderMethod {
 		SeleniumUtility.actionClickAndSendKeys(driver, headerItem.inputTagCompaniesHeaderItem, companyName);
 		SeleniumUtility.fixedWait(2);
 		SeleniumUtility.actionSendKeys(driver, Keys.ENTER);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		SeleniumUtility.fixedWait(1);
 	}
 	public void selectCompany() {
 		SeleniumUtility.clickOnElement(driver, headerItem.buttonTagCompaniesHeaderItem);
@@ -71,7 +78,8 @@ public class HeaderMethod {
 		SeleniumUtility.actionClickAndSendKeys(driver, headerItem.inputTagCompaniesHeaderItem, "testingCompany");
 		SeleniumUtility.fixedWait(2);
 		SeleniumUtility.actionSendKeys(driver, Keys.ENTER);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		SeleniumUtility.fixedWait(1);
 	}
 	/**
 	 * This private method input text on the big search box

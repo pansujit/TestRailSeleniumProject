@@ -10,6 +10,7 @@ import glide.backoffice.enums.CarBrands;
 import glide.backoffice.enums.CarModels;
 import glide.backoffice.enums.CarVersions;
 import glide.backoffice.enums.FuelType;
+import glide.backoffice.enums.Gearbox;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.fleets.vehicles.VehicleDto;
 import glide.backoffice.utility.RandomGenerator;
@@ -26,6 +27,7 @@ public class VehicleDataProvider {
 	public Object[][] addVehicle() {
 		
 			Faker faker = new Faker(new Locale("fr"));
+			String text=faker.number().digits(1);
 		vehicleDto=VehicleDto.builder()
 				.carBrand("Renault")
 				.carModel("Captur")
@@ -33,9 +35,9 @@ public class VehicleDataProvider {
 				.fuelType(FuelType.getFuelType())
 				.imageURL("https://"+faker.internet().url())
 				.deviceSerialNumber(faker.number().digits(10))
-				.gearBox(RandomGenerator.getRandomBoolean())
-				.numberOfDoors(faker.number().digits(1))
-				.ownerOfVehicle(true)
+				.gearBox(Gearbox.getGearbox())
+				.numberOfDoors(text.equals("0")?"1":text)
+				.ownerOfVehicle("Current company")
 				.siteLocation("ss")
 				.parkingLocation("dd")
 				.vehicleType("Private car")
@@ -46,6 +48,7 @@ public class VehicleDataProvider {
 				.vehicleVIN(faker.number().digits(17))
 				.vehicleClass("A")
 				.serviceLevel("Basic")
+				.fileName("test_image.jpeg")
 					.build();
 	
 			return new Object[][] {{vehicleDto}};
@@ -54,8 +57,9 @@ public class VehicleDataProvider {
 	
 	@DataProvider
 	public Object[][] editVehicle() {
-		
-			Faker faker = new Faker(new Locale("fr"));
+		Faker faker = new Faker(new Locale("fr"));
+		String text=faker.number().digits(1);
+			
 		vehicleDto=VehicleDto.builder()
 				.carBrand(Config.getProperty("VEHICLE_BRAND"))
 				.carModel(Config.getProperty("VEHICLE_MODEL"))
@@ -63,9 +67,9 @@ public class VehicleDataProvider {
 				.fuelType(FuelType.getFuelType())
 				.imageURL("https://"+faker.internet().url())
 				.deviceSerialNumber(faker.number().digits(10))
-				.gearBox(RandomGenerator.getRandomBoolean())
-				.numberOfDoors(faker.number().digits(1))
-				.ownerOfVehicle(true)
+				.gearBox(Gearbox.getGearbox())
+				.numberOfDoors(text.equals("0")?"1":text)
+				.ownerOfVehicle("Current company")
 				.siteLocation("ss")
 				.parkingLocation("dd")
 				.vehicleType("Private car")

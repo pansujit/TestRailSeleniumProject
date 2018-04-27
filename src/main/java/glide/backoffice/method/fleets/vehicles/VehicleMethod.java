@@ -3,6 +3,7 @@ package glide.backoffice.method.fleets.vehicles;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import glide.backoffice.method.common.CommonMethods;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
@@ -15,6 +16,8 @@ public class VehicleMethod {
 	AddEditVehicleMethod addEditVehicleMethod;
 	ViewVehicleMethod viewVehicleMethod;
 	SideMenuItemsMethod sideMenuItemsMethod;
+	CommonMethods commonMethods;
+	FilterVehiclesMethod filterVehiclesMethod;
 	public VehicleMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
@@ -22,6 +25,8 @@ public class VehicleMethod {
 		this.addEditVehicleMethod=PageFactory.initElements(driver, AddEditVehicleMethod.class);
 		this.viewVehicleMethod=PageFactory.initElements(driver, ViewVehicleMethod.class);
 		this.sideMenuItemsMethod=PageFactory.initElements(driver, SideMenuItemsMethod.class);
+		this.commonMethods=PageFactory.initElements(driver, CommonMethods.class);
+		this.filterVehiclesMethod=PageFactory.initElements(driver, FilterVehiclesMethod.class);
 
 	}
 	/**
@@ -41,15 +46,19 @@ public class VehicleMethod {
 		// Input data in the vehicle
 		addEditVehicleMethod.inputVehicleData(vehicleDto);
 		SeleniumUtility.fixedWait(1);
-		addEditVehicleMethod.clickOnSave();
 		// Input data in the Administration
 		addEditVehicleMethod.inputAdministrationData(vehicleDto);
 		SeleniumUtility.fixedWait(1);
-		addEditVehicleMethod.clickOnSave();
 		// Input data in the operational in vehicle
-		//addEditVehicleMethod.inputOprerationalData(vehicleDto);
-		//addEditVehicleMethod.clickOnSave();
+		addEditVehicleMethod.inputOprerationalData(vehicleDto);
+		// click on save button
+		addEditVehicleMethod.clickOnSave();
+		// wait until rotating circle is invisible
+		commonMethods.waitUntilElementToBeInvisible();
 	}
+	
+	
+	
 	
 	
 	/**
@@ -64,18 +73,16 @@ public class VehicleMethod {
 		// Input data in the vehicle
 		addEditVehicleMethod.inputVehicleData(vehicleDto);
 		SeleniumUtility.fixedWait(1);
-		addEditVehicleMethod.clickOnSave();
 		// Input data in the Administration
 		addEditVehicleMethod.inputAdministrationData(vehicleDto);
 		SeleniumUtility.fixedWait(1);
-		addEditVehicleMethod.clickOnSave();
 		// Input data in the operational in vehicle
 		addEditVehicleMethod.inputOprerationalData(vehicleDto);
 		addEditVehicleMethod.clickOnSave();
-		clickOnBackButton();
-		sideMenuItemsMethod.clickOnVehicles();
-		homepageVehicleMethod.assertAddEditVehicle(Config.getProperty("EDIT_VEHICLE_PLATE_NUMBER"), 
-				Config.getProperty("SUPER_COMPANY_NAME"), vehicleDto.getCarModel(), vehicleDto.getCarBrand(), vehicleDto.getFuelType());
+		//clickOnBackButton();
+		//sideMenuItemsMethod.clickOnVehicles();
+		//homepageVehicleMethod.assertAddEditVehicle(Config.getProperty("EDIT_VEHICLE_PLATE_NUMBER"), 
+		//		Config.getProperty("SUPER_COMPANY_NAME"), vehicleDto.getCarModel(), vehicleDto.getCarBrand(), vehicleDto.getFuelType());
 	}
 	/**
 	 * This method click on plate number of a vehicle to view details of that vehicle
@@ -86,6 +93,42 @@ public class VehicleMethod {
 		viewVehicleMethod.assertVehicleView();
 		clickOnBackButton();
 
+	}
+	
+	public void filtervehicle(VehicleFilterDto vehicleFilterDto) {
+		
+		filterVehiclesMethod.clickOnBrand();
+		filterVehiclesMethod.selectFilterKeyAndValue(vehicleFilterDto.getBrand());
+		commonMethods.waitUntilTableContentVisible();
+		//filterVehiclesMethod.clickOnBrandDeleteIcon();
+		filterVehiclesMethod.clickOnModel();
+		filterVehiclesMethod.selectFilterKeyAndValue(vehicleFilterDto.getModel());
+		commonMethods.waitUntilTableContentVisible();
+		filterVehiclesMethod.clickOnVersion();
+		filterVehiclesMethod.selectFilterKeyAndValue(vehicleFilterDto.getVersion());
+		commonMethods.waitUntilTableContentVisible();
+		filterVehiclesMethod.clickOnVehicleCategory();
+		filterVehiclesMethod.selectFilterKeyAndValue(vehicleFilterDto.getVehicleCategory());
+		commonMethods.waitUntilTableContentVisible();
+		filterVehiclesMethod.clickOnVehicleColor();
+		filterVehiclesMethod.selectFilterKeyAndValue(vehicleFilterDto.getColor());
+		commonMethods.waitUntilTableContentVisible();
+		filterVehiclesMethod.clickOnSystemType();
+		filterVehiclesMethod.selectFilterKeyAndValue(vehicleFilterDto.getSystemType());
+		commonMethods.waitUntilTableContentVisible();
+		filterVehiclesMethod.clickOnVehicleStatus();
+		filterVehiclesMethod.selectFilterKeyAndValue(vehicleFilterDto.getVehicleStatus());
+		commonMethods.waitUntilTableContentVisible();
+		filterVehiclesMethod.clickOnType();
+		filterVehiclesMethod.selectFilterKeyAndValue(vehicleFilterDto.getType());
+		commonMethods.waitUntilTableContentVisible();
+		filterVehiclesMethod.clickOnCleanlinessStatus();
+		filterVehiclesMethod.selectFilterKeyAndValue(vehicleFilterDto.getCleanlinessStatus());
+		commonMethods.waitUntilTableContentVisible();
+		filterVehiclesMethod.clickOnPlateNumber();
+		filterVehiclesMethod.inputFilterPlateNumber(vehicleFilterDto.getPlateNumber());
+		filterVehiclesMethod.clickOnConfirmButtonToPreserveInputField();
+		commonMethods.waitUntilTableContentVisible();
 	}
 
 }

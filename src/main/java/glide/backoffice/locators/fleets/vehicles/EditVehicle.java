@@ -4,82 +4,77 @@ import org.openqa.selenium.By;
 
 public class EditVehicle {
 	/**
-	 * This method locator will find Transmission type Automatic
+	 * This method locator will find Gear Box 
 	 * element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By labelTagTransMissionAutomaticEditVehicle=By.xpath(".//input[@id='transmissionType_option_AUTOMATIC']/../label");
+	public final By buttonTagGearBoxEditVehicle=By.xpath(".//div[contains(@id,'Gearbox-')]//button");
 	
 	/**
-	 * This method locator will find Transmision type manual 
+	 * This method locator will find dropdown content  
 	 * element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By labelTagTransmissionManualEditVehicle=By.xpath(".//input[@id='transmissionType_option_MANUAL']/../label");
-	
-	/**
-	 * This method locator will find Vehicle type according to given one. The option is "Electric", "LPG","petrol","diesel"
-	 * and "Hybrid"
-	 *  element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By labelTagFuelTypeEditVehicle(String fuelType) {
-		String text =".//input[@id='vehicleType_option_xxxx']/../label";
-		return By.xpath(text.replace("xxxx", fuelType));
+	public final By divTagDropdownTextEditVehicle(String replaceDropdownText) {
+		String text=".//span[@role='menuitem']/div/div/div[text()='xxxx']";
+		return By.xpath(text.replace("xxxx", replaceDropdownText));
 	}
 	
+	/**
+	 * This method locator will find Vehicle fuel type button
+	 *  element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
+	 */
+	public final By buttonTagFuelTypeEditVehicle= By.xpath(".//div[contains(@id,'Vehicletype-')]//button");
+	
+	/**
+	 * This method locator will find Car Brand button element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
+	 */
+	public final By buttonTagCarBrandEditVehicle=By.xpath(".//div[contains(@id,'Carbrand-')]//button");
+	
+	/**
+	 * This method locator will find Car Model button element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
+	 */
+	public final By buttonTagCarModelEditVehicle=By.xpath(".//div[contains(@id,'Carmodel-')]//button");
+	
+	/**
+	 * This method locator will find Car Version button element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
+	 */
+	public final By buttonTagCarVersionEditVehicle=By.xpath(".//div[contains(@id,'Carversion-')]//button");
+	
+	/**
+	 * This method locator will find Number Of seats button element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
+	 */
+	public final By buttonTagNumberOfSeatsEditVehicle=By.xpath(".//div[contains(@id,'Numberofseats-')]//button");
+	
+	/**
+	 * This method locator will find Number Of doors button element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
+	 */
+	public final By buttonTagNumberOfDoorsEditVehicle=By.xpath(".//div[contains(@id,'Numberofdoors-')]//button");
+	
+	
+	/**
+	 * This method locator will find Vehicle class button element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
+	 */
+	public final By buttonTagVehicleClassEditVehicle=By.xpath(".//div[contains(@id,'Vehicleclass-')]//button");
+	
+	/**
+	 * This method locator will find Vehicle Color button element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
+	 */
+	public final By buttonTagVehicleColorEditVehicle=By.xpath(".//div[contains(@id,'Color-')]//button");
+	
+	/**
+	 * This method locator will find Vehicle Type button element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
+	 */
+	public final By buttonTagVehicleTypeEditVehicle=By.xpath(".//div[contains(@id,'Type-')]//button");
 
-	/**
-	 * This method locator will find Car Brand select element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By selectTagCarBrandEditVehicle=By.xpath(".//select[@id='carBrand']");
-	
-	/**
-	 * This method locator will find Car Model element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By selectTagCarModelEditVehicle=By.xpath(".//select[@id='carModel']");
-	
-	/**
-	 * This method locator will find Car Version element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By selectTagCarVersionEditVehicle=By.xpath(".//select[@id='carVersion']");
-	
-	/**
-	 * This method locator will find Number Of seats element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By inputTagNumberOfSeatsEditVehicle=By.xpath(".//input[@id='numberOfSeats']");
-	
-	/**
-	 * This method locator will find Vehicle class select element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By selectTagVehicleClassEditVehicle=By.xpath(".//select[@id='vehicleClass' and @name='vehicleClass']");
-	
-	/**
-	 * This method locator will find Vehicle Color element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By selectTagVehicleColorEditVehicle=By.xpath(".//select[@id='vehicleColor']");
-	
-	/**
-	 * This method locator will find Vehicle Type select element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By selectTagVehicleTypeEditVehicle=By.xpath(".//select[@id='vehicleClass' and @name='type']");
-	
-	/**
-	 * This method locator will find Doors Number input element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By inputTagDoorsNumberEditVehicle=By.xpath(".//input[@id='doorsNumber']");
-	
 	/**
 	 * This method locator will find picture URL input element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By inputTagPictureURLEditVehicle=By.xpath(".//input[@id='pictureUrl']");
-	
-	/**
-	 * This method locator will find Next Button element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By buttonTagNextEditVehicle=By.xpath(".//div[@class='vehicleForm_actions']/button[@class='ekButton vehicleForm_actionsButton']");
+	public final By inputTagPictureURLEditVehicle=By.xpath(".//div[@class='newVehicleForm_carImg']/img");
 
 	/**
-	 * This method locator will find Cancel element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
+	 * This method locator will find Vehicle Registration document input element 
+	 * in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By buttonTagCancelEditVehicle=By.xpath(".//div[@class='vehicleForm_actions']/button[@class='ekButton vehicleForm_actionsLink']");
+	public final By inputTagRegistrationDocLEditVehicle=By.xpath(".//input[@id='registrationFile']");
 
 
 	
@@ -88,54 +83,52 @@ public class EditVehicle {
 	/**
 	 * This method locator will find VIN number element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By inputTagVINNumberEditVehicle=By.xpath(".//input[@id='vinNumber']");
+	public final By inputTagVINNumberEditVehicle=By.xpath(".//input[contains(@id,'VINnumber-')]");
 
 	
 	/**
 	 * This method locator will find Plate number element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By inputTagPlateNumberEditVehicle=By.xpath(".//input[@id='licencePlate']");
+	public final By inputTagPlateNumberEditVehicle=By.xpath(".//input[contains(@id,'Platenumber-')]");
 	
-	/**
-	 * This method locator will find Curren company radio Input 
-	 * element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
-	 */
-	public final By labelTagCurrentCompanyEditVehicle=By.xpath(".//input[@id='vehicleOwner_option_currentCompany']/../label");
-
+	
+	//missing vehicle resgistration document upload file and first date of registration input field
+	
 
 	/**
-	 * This method locator will find RCI Mobility radio input element 
+	 * This method locator will find owner of the vehicle button element 
 	 * in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By labelTagRCICompanyEditVehicle=By.xpath(".//input[@id='vehicleOwner_option_default']/../label");
+	public final By buttonTagOwnerEditVehicle=By.xpath(".//div[contains(@id,'Ownerofthevehicle-')]//button");
 
 	/**
-	 * This method locator will find Site Location select 
+	 * This method locator will find Site Location button 
 	 * element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By selectTagSiteLocationEditVehicle=By.xpath(".//select[@id='siteLocation']");
+	public final By buttonTagSiteLocationEditVehicle=By.xpath(".//div[contains(@id,'Sitelocation-')]//button");
 	
 	/**
-	 * This method locator will find Parking Location Select 
+	 * This method locator will find Parking Location button 
 	 * element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By selectTagParkingLocationEditVehicle=By.xpath(".//select[@id='parkingLocation']");
+	public final By buttonTagParkingLocationEditVehicle=By.xpath(".//div[contains(@id,'Parkinglocation-')]//button");
 
 	
+	//service level 
 	
 	/**
 	 * This method locator will find Service level select 
 	 * element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By selectTagServiceLevelEditVehicle=By.xpath(".//select[@id='serviceLevel']");
+	//public final By selectTagServiceLevelEditVehicle=By.xpath(".//select[@id='serviceLevel']");
 
 	
 	
 	/**
-	 * This method locator will find System in Use select 
+	 * This method locator will find System in Use button 
 	 * element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By selectTagUsedSystemEditVehicle=By.xpath(".//select[@id='usedSystems']");
+	public final By buttonTagUsedSystemEditVehicle=By.xpath(".//div[contains(@id,'Systeminuse-')]//button");
 
 	
 	
@@ -143,8 +136,13 @@ public class EditVehicle {
 	 * This method locator will find Device Serial Number 
 	 * element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By inputTagDeviceSerialNumberEditVehicle=By.xpath(".//input[@id='deviceSerialNumber']");
+	public final By inputTagDeviceSerialNumberEditVehicle=By.xpath(".//input[contains(@id,'Deviceserialnumber-')]");
 
-	
+	/**
+	 * This method locator will find Save button
+	 * element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
+	 */
+	public final By buttonTagSaveEditVehicle=By.xpath(".//button[@class='ekButton newVehicleForm_button']");
+
 	
 }

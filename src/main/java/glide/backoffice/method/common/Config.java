@@ -7,6 +7,7 @@ import org.testng.TestNG;
 import org.testng.TestRunner;
 
 import glide.backoffice.logger.Logging;
+import glide.backoffice.method.common.CheckData.Parameter;
 
 import java.io.File;
 public class Config {
@@ -40,6 +41,9 @@ public class Config {
 	}
 	public static String getProperty(String key) {
 		return defaultProps.getProperty(key);
+	}
+	public static String get(Parameter parameter) {
+		return defaultProps.getProperty(CheckData.get(parameter));
 	}
 
 

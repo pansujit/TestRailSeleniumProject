@@ -8,78 +8,49 @@ public class HomepageSC {
 	 * This locators finds add super company element in the super company homepage
 	 */
 	public final By aTagAddSuperCompanyHomepageSC= By.xpath(".//div[@class='pageManagementHeader_actionButton']/a");
-	/**
-	 * This locators finds whole table element in the super company homepage
+	
+
+	
+	
+	
+/**
+	 * This locators finds company name element in the supercompanies --> homepage
 	 */
-	public final By tableTagTableSuperCompanyHomepageSC= By.xpath(".//table[@class='tableView']");
-	/**
-	 * This locators finds view of a super company element in the super company homepage
-	 */
-	public final By buttonTagViewSuperCompanyHomepageSC(String replacementText) {
-		String text= ".//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../..//td/button";
-		return By.xpath(text.replace("xxxx", replacementText));
-	}
-	/**
-	 * This locators finds company name element in the super company homepage
-	 */
-	public final By spanTagCompanyNameHomepageSC(String replacementText) {
-		String text= ".//table/tbody/tr/td[1]/span/span[text()='xxxx']";
+	public final By divTagCompanyNameHomepageSC(String replacementText) {
+		String text= ".//div[starts-with(@id,'companies_list_row_')]/div[1 and text()='xxxx']";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 	
 	/**
 	 * This locators finds email element in the supercompanies--> homepage
 	 */
-	public final By spanTagCompanyEmailHomepageSC(String replacementText) {
-		String text= ".//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[2]/span/span";
+	public final By divTagCompanyEmailHomepageSC(String replacementText) {
+		String text= ".//div[starts-with(@id,'companies_list_row_')]/div[1 and text()='xxxx']/../div[2]";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 	/**
 	 * This locators finds company Phone element in the supercompanies--> homepage
 	 */
-	public final By spanTagCompanyPhoneHomepageSC(String replacementText) {
-		String text= ".//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[3]/span/span";
-		return By.xpath(text.replace("xxxx", replacementText));
-	}
-	/**
-	 * This locators finds company Tax Number element in the supercompanies--> homepage
-	 */
-	public final By spanTagCompanyTaxNumberHomepageSC(String replacementText) {
-		String text= ".//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[4]/span/span";
-		return By.xpath(text.replace("xxxx", replacementText));
-	}
-	/**
-	 * This locators finds company Vat Number element in the supercompanies--> homepage
-	 */
-	public final By spanTagCompanyVatNumberHomepageSC(String replacementText) {
-		String text= ".//table/tbody/tr/td[1]/span/span[text()='xxxx']/../../../td[5]/span/span";
+	public final By divTagCompanyPhoneHomepageSC(String replacementText) {
+		String text= ".//div[starts-with(@id,'companies_list_row_')]/div[1 and text()='xxxx']/../div[3]";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 
+
+	
 	/**
-	 * This locators finds Super company header name element in the super company homepage
+	 * This locators finds super company name  header element in the super companies --> homepage
 	 */
-	public final By spanTagHeaderSCNameHomepageSC= By.xpath(".//table/thead/tr/th[1]/span/span/span");
+	public final By divTagHeaderSCNameHomepageSC= By.xpath(".//div[@class='cursorPointer advancedList_header_sortIcon']");
 	/**
-	 * This locators finds super company header email element in the super company homepage
+	 * This locators finds super company header email element in the super companies --> homepage
 	 */
-	public final By spanTagHeaderSCEmailHomepageSC= By.xpath(".//table/thead/tr/th[2]/span/span/span");
+	public final By spanTagHeaderSCEmailHomepageSC= By.xpath(".//*[@class='advancedList_header row']/div[2]/div/span/span");
 	/**
-	 * This locators finds super company header phone numbers element in the super company homepage
+	 * This locators finds super company header phone numbers element in the super companies --> homepage
 	 */
-	public final By spanTagHeaderSCPhoneNoHomepageSC= By.xpath(".//table/thead/tr/th[3]/span/span/span");
-	/**
-	 * This locators finds super company header tax number element in the super company homepage
-	 */
-	public final By spanTagHeaderSCTaxNumberHomepageSC= By.xpath(".//table/thead/tr/th[4]/span/span/span");
-	/**
-	 * This locators finds super company header vat number element in the super company homepage
-	 */
-	public final By spanTagHeaderSCVatNumberHomepageSC= By.xpath(".//table/thead/tr/th[5]/span/span/span");
-	/**
-	 * This locators finds super company header Action element in the super company homepage
-	 */
-	public final By buttonTagHeaderSCActionHomepageSC= By.xpath(".//table/thead/tr/th[6]/span/span/span");
+	public final By spanTagHeaderSCPhoneNoHomepageSC= By.xpath(".//*[@class='advancedList_header row']/div[3]/div/span/span");
+
 
 
 

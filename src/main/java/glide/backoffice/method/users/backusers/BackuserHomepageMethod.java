@@ -59,12 +59,9 @@ public class BackuserHomepageMethod {
 
 	void assertAddEditBackuser(String email,String lastname,String firstname,String role) {
 		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
-				homepageBackusers.spanTagLastnameHomepageBackusers(email), lastname));
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
-				homepageBackusers.spanTagFirstnameHomepageBackusers(email), firstname));
+				homepageBackusers.spanTagFullnameHomepageBackusers(email), firstname+" "+lastname)); 
 		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
 				homepageBackusers.spanTagRoleHomepageBackusers(email),BackuserRoles.getBackUserValue(role)));
-		softAssert.assertTrue(!SeleniumUtility.getText(driver, homepageBackusers.spanTagStatusHomepageBackusers(email)).isEmpty());
 		softAssert.assertAll();
 	}
 

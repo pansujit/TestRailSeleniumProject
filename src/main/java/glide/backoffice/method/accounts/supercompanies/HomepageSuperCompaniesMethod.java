@@ -39,7 +39,7 @@ public class HomepageSuperCompaniesMethod {
 
 	}
 	void clickOnViewButtonOfSuperCompany(String superCompanyName) {
-		SeleniumUtility.clickOnElement(driver, homepageSC.buttonTagViewSuperCompanyHomepageSC(superCompanyName));
+		SeleniumUtility.clickOnElement(driver, homepageSC.divTagCompanyNameHomepageSC(superCompanyName));
 
 	}
 	/**
@@ -47,22 +47,15 @@ public class HomepageSuperCompaniesMethod {
 	 */
 	void validateSuperCompanyHomepage() {
 		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.aTagAddSuperCompanyHomepageSC));
-		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.tableTagTableSuperCompanyHomepageSC));
-		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.buttonTagHeaderSCActionHomepageSC));
 		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.spanTagHeaderSCEmailHomepageSC));
-		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.spanTagHeaderSCNameHomepageSC));
-		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.spanTagHeaderSCTaxNumberHomepageSC));
-		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.spanTagHeaderSCVatNumberHomepageSC));
 		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.spanTagHeaderSCPhoneNoHomepageSC));
 		softAssert.assertAll();
 	}
 	
 	void assertEditSuperCompany(String superCompany, String email) {
 		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
-				homepageSC.spanTagCompanyEmailHomepageSC(superCompany), email));
-		softAssert.assertTrue(!SeleniumUtility.getText(driver, homepageSC.spanTagCompanyVatNumberHomepageSC(superCompany)).isEmpty());
-		softAssert.assertTrue(!SeleniumUtility.getText(driver, homepageSC.spanTagCompanyTaxNumberHomepageSC(superCompany)).isEmpty());
-		softAssert.assertTrue(!SeleniumUtility.getText(driver, homepageSC.spanTagCompanyPhoneHomepageSC(superCompany)).isEmpty());
+				homepageSC.divTagCompanyEmailHomepageSC(superCompany), email));
+		softAssert.assertTrue(!SeleniumUtility.getText(driver, homepageSC.divTagCompanyPhoneHomepageSC(superCompany)).isEmpty());
 		softAssert.assertAll();
 		
 	}

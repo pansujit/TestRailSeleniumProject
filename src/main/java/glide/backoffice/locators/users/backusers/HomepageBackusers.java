@@ -5,38 +5,30 @@ import org.openqa.selenium.By;
 public class HomepageBackusers {
 	
 	/**
-	 * This locator will find the LastName header tag element in table in the User Management-->BackUsers-->Homepage
+	 * This locator will find Add a Back user button element in table in the User Management-->BackUsers-->Homepage
 	 */
-	public final By aTagAddABackuserHomepageBackusers= By.xpath(".//div[@class='pageManagementHeader_actionButton']/a");
+	public final By aTagAddABackuserHomepageBackusers= By.xpath(".//button[@id='backUsers_create_button']");
 	
 	/**
 	 * This locator will find the LastName header tag element in table in the User Management-->BackUsers-->Homepage
 	 */
-	public final By spanTagLastnameHeaderHomepageBackusers= By.xpath(".//table[@class='tableView']/thead/tr/th[1]/span");
-	/**
-	 * This locator will find the FirstName header tag element in table in the User Management-->BackUsers-->Homepage
-	 */
-	public final By spanTagFirstnameHeaderHomepageBackusers= By.xpath(".//table[@class='tableView']/thead/tr/th[2]/span");
-
-	/**
-	 * This locator will find the Email header tag element in table in the User Management-->BackUsers-->Homepage
-	 */
-	public final By spanTagEmailHeaderHomepageBackusers= By.xpath(".//table[@class='tableView']/thead/tr/th[3]/span");
+	public final By divTagLastnameHeaderHomepageBackusers= By.xpath(".//div[@class='advancedList_header row']/div[1]/div");
 	/**
 	 * This locator will find the Role header tag element in table in the User Management-->BackUsers-->Homepage		
 	 */
-	public final By spanTagRoleHeaderHomepageBackusers= By.xpath(".//table[@class='tableView']/thead/tr/th[5]/span");
+	public final By divTagRoleHeaderHomepageBackusers= By.xpath(".//div[@class='advancedList_header row']/div[3]/div");
 	/**
-	 * This locators will find the Status header tag element in table in the User Management-->BackUsers-->Homepage
+	 * This locators will find the Company name header tag element in table in the User Management-->BackUsers-->Homepage
 	 */
-	public final By spanTagStatusHeaderHomepageBackusers= By.xpath(".//table[@class='tableView']/thead/tr/th[6]/span");
+	public final By divTagCompanyNameHeaderHomepageBackusers= By.xpath(".//div[@class='advancedList_header row']/div[2]/div");
 	/**
 	 * This locator method find the view Tag element in table in the User Management-->BackUsers-->Homepage
 	 * @param replacementText should be String ({@code email})
 	 * @return {@code Selenium public final By}
 	 */
 	public final By buttonTagViewHomepageBackusers(String replacementText) {
-		String text=".//table[@class='tableView']/tbody/tr/td[3]/span/span[text()='xxxx']/../../../td[8]/button";
+		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]/div[2]/span[2 and text()='xxxx']"
+				+ "/../../..//div[@class='advancedList_detailIcon']/button";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 
@@ -46,44 +38,35 @@ public class HomepageBackusers {
 	 * @return {@code Selenium By}
 	 */
 	public final By spanTagEmailHomepageBackusers(String replacementText) {
-		String text=".//table[@class='tableView']/tbody/tr/td[3]/span/span[text()='xxxx']";
+		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]/div[2]/span[2 and text()='xxxx']";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 	/**
-	 * This locator method will find the Lastname tag element in table in the User Management-->BackUsers-->Homepage
+	 * This locator method will find the Full name tag element in table in the User Management-->BackUsers-->Homepage
 	 * @param replacementText should be String ({@code Email})
 	 * @return {@code Selenium By}
 	 */
-	public final By spanTagLastnameHomepageBackusers(String replacementText) {
-		String text=".//table[@class='tableView']/tbody/tr/td[3]/span/span[text()='xxxx']/../../../td[1]/span/span";
+	public final By spanTagFullnameHomepageBackusers(String replacementText) {
+		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]/div[2]/span[2 and text()='xxxx']/../span[1]";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
-	/**
-	 * This locator method will find the Email tag element in table in the User Management-->BackUsers-->Homepage
-	 * @param replacementText should be String ({@code Email})
-	 * @return {@code Selenium By}
-	 */
-	public final By spanTagFirstnameHomepageBackusers(String replacementText) {
-		String text=".//table[@class='tableView']/tbody/tr/td[3]/span/span[text()='xxxx']/../../../td[2]/span/span";
-		return By.xpath(text.replace("xxxx", replacementText));
-	}
-	
+
 	/**
 	 * This locator method will find the Role tag element in table in the User Management-->BackUsers-->Homepage
 	 * @param replacementText should be String ({@code Email})
 	 * @return {@code Selenium By}
 	 */
 	public final By spanTagRoleHomepageBackusers(String replacementText) {
-		String text=".//table[@class='tableView']/tbody/tr/td[3]/span/span[text()='xxxx']/../../../td[5]/span/span";
+		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]/div[2]/span[2 and text()='xxxx']/../../../div[3]/span/span";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 	/**
-	 * This locator method will find the Status tag element in table in the User Management-->BackUsers-->Homepage
+	 * This locator method will find the Company name tag element in table in the User Management-->BackUsers-->Homepage
 	 * @param replacementText should be String ({@code Email})
 	 * @return {@code Selenium By}
 	 */
-	public final By spanTagStatusHomepageBackusers(String replacementText) {
-		String text=".//table[@class='tableView']/tbody/tr/td[3]/span/span[text()='xxxx']/../../../td[6]/span/span";
+	public final By spanTagCompanyNameHomepageBackusers(String replacementText) {
+		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]/div[2]/span[2 and text()='xxxx']/../../../div[2]/span";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 

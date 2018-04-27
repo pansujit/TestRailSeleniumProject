@@ -8,8 +8,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import glide.backoffice.dataprovider.CompanyDataProvider;
+import glide.backoffice.enums.Status;
+import glide.backoffice.enums.UsageType;
 import glide.backoffice.method.accounts.companies.CompanyDto;
 import glide.backoffice.method.accounts.companies.CompanyMethod;
+import glide.backoffice.method.common.CheckData;
+import glide.backoffice.method.common.CheckData.Parameter;
 import glide.backoffice.method.common.Config;
 import glide.backoffice.method.header.HeaderMethod;
 import glide.backoffice.method.sidemenuitems.SideMenuItemsMethod;
@@ -21,7 +25,7 @@ public class CompanyNegativeTest extends BaseClassExtended{
 		OpenBrowser();
 		HeaderMethod headerMethod=PageFactory.initElements(driver, HeaderMethod.class);
 		SideMenuItemsMethod siteMenuItems= PageFactory.initElements(driver, SideMenuItemsMethod.class); 
-		headerMethod.selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
+		//headerMethod.selectSuperCompany();
 		siteMenuItems.clickOnCompanies();
 	}
 	@Test(priority=1)
@@ -29,7 +33,7 @@ public class CompanyNegativeTest extends BaseClassExtended{
 		CompanyMethod company= PageFactory.initElements(driver, CompanyMethod.class);
 		company.addEditCompanyErrorCheck();
 	}
-	@Test(priority=2,dataProvider="fieldValidationErrorCompany",dataProviderClass=CompanyDataProvider.class)
+	/*@Test(priority=2,dataProvider="fieldValidationErrorCompany",dataProviderClass=CompanyDataProvider.class)
 	public void editAddcompanyValidationErrorTest(CompanyDto companyDto) {
 		CompanyMethod company= PageFactory.initElements(driver, CompanyMethod.class);
 		company.addEditCompanyValidationErrorCheck(companyDto);
@@ -38,5 +42,5 @@ public class CompanyNegativeTest extends BaseClassExtended{
 	@AfterClass(alwaysRun=true)
 	public void closeAllBrowser() {
 		closeBrowser();
-	}
+	}*/
 }

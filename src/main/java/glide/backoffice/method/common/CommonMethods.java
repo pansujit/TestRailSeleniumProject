@@ -89,7 +89,7 @@ public class CommonMethods {
 	}
 	/**
 	 * 
-	 * This private method Select the given date in the date picker.
+	 * This private method Select the given days in the date picker.
 	 * @param date - Should be String
 	 */
 	private void selectDate(String date) {

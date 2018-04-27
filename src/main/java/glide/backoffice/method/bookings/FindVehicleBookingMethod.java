@@ -65,8 +65,8 @@ public class FindVehicleBookingMethod {
 
 	/**
 	 * This method select the End hour and minutes. the hour and minutes should be give simultaneously.
-	 * @param hours - should be int between (00 to 23)
-	 * @param minute - should be int between (00 to 59)
+	 * @param hours - should be String between (00 to 23)
+	 * @param minute - should be String between (00 to 59)
 	 */
 	public void endHourAndMinute(String hours, String minute) {		
 

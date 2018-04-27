@@ -25,21 +25,24 @@ public class AddStatusPlanning {
 	/**
 	 * This locator will find element in Add status page in the Vehicle Planing->homepage->Add status
 	 */
-	public final By divTagEndHoursAddStatusPlanning= 
+	public final By divTagEndHourAddStatusPlanning= 
 	By.xpath(".//div[@class='VehiclePlanningEditBooking_col1Row2_dateWrap']//select[@name='endHour']");
 	/**
 	 * This locator will find element in Add status page in the Vehicle Planing->homepage->Add status
 	 */
 	public final By divTagEndMinuteAddStatusPlanning= 
-			By.xpath(".//div[@class='VehiclePlanningEditBooking_col1Row2_dateWrap']//select[@name='EndMinute']");
+			By.xpath(".//div[@class='VehiclePlanningEditBooking_col1Row2_dateWrap']//select[@name='endMinute']");
 	/**
 	 * This locator will find DropDown for vehicle status element in Add status page in the Vehicle Planing->homepage->Add status
 	 */
-	public final By divTagVehicleStatusAddStatusPlanning= By.xpath(".//section/form/div[2]/div[1]");
+	public final By divTagVehicleStatusAddStatusPlanning= By.xpath(".//section/form/div[2]/div[1]/button");
 	/**
 	 * This locator will find Status List element in Add status page in the Vehicle Planing->homepage->Add status
 	 */
-	public final By divTagStatusListAddStatusPlanning= By.xpath(".//div[@role='menu']/div/span/div/div/div[text()='Ready']");
+	public final By divTagStatusListAddStatusPlanning(String status) {
+		String text= ".//div[@role='menu']/div/span/div/div/div[text()='xxxx']";
+				return By.xpath(text.replace("xxxx", status));
+	}
 	
 	
 	/**

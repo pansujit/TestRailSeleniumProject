@@ -12,7 +12,6 @@ Completed("Completed"),Canceled("Canceled"),Scheduled("Scheduled"),Inprogress("I
 	    public String getValue() {
 	        return value;
 	    }
-
 	    @Override
 	    public String toString() {
 	        return this.getValue();

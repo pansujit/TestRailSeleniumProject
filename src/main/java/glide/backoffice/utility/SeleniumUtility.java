@@ -181,7 +181,7 @@ public class SeleniumUtility {
 	 * @return {@code Boolean}
 	 */
 	public static boolean compareText(String text1,String text2) {
-		log.info("comparing the one text to another");
+		log.info("comparing the one text to another "+"text1: "+text1+" text2: "+text2);
 		return text1.equals(text2);
 	}
 	/**
@@ -630,6 +630,19 @@ public class SeleniumUtility {
 			return elements;
 		}
 	}
+	
+	public static boolean compareIntegers(int firstInt, int secontInt) {
+		 boolean status= false;
+		 if(firstInt==0 || secontInt==0) {
+			 log.error("Either on of the integer is zero "+ firstInt + " "+secontInt  );
+			 return status;
+		 }
+		 else {
+			 log.info("comparing two Integers are equal or not "+ "int1:"+firstInt+ " int2: "+secontInt);
+			  status=(firstInt==secontInt)?true:false;
+			  return status;
+		 }
+	}
 
 	/**
 	 * This static method clicks on the given element using Selenium JavascriptExecutor
@@ -695,5 +708,22 @@ public class SeleniumUtility {
 			log.error("timeout"+ e.getMessage());
 
 		}
+	}
+	
+	public static String fileCheck(String fileName){
+		
+		String fileTranslateFile=null;
+		File file= new File("src/test/resources/file/"+fileName);
+		if(file.exists()){
+			fileTranslateFile=file.getAbsolutePath();
+			
+		}
+		
+		else
+		{
+			log.error("NO FILE FOUND with name "+ fileName);
+		}
+		
+		return fileTranslateFile;
 	}
 }

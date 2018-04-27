@@ -12,18 +12,18 @@ public class HomepageVehiclePlanning {
 	/**
 	 * This locator will find Select Days element in Vehicle Planning page in the Vehicle Planing->homepage
 	 */
-	public final By divTagSelectDaysHomepageVehiclePlanning= 
-			By.xpath(".//div[@class='vehiclePlanningSetup_container_inline']/div/div[2]/div/div/div[2]");
+	public final By buttonTagDaysArrowHomepageVehiclePlanning= 
+			By.xpath(".//div[@class='vehiclePlanningSetup_container_inline']/div/div[2]/div/div/button");
 	/**
 	 * This locator will find Select Sites element in Vehicle Planning page in the Vehicle Planing->homepage
 	 */
 	public final By divTagSelectSitesHomepageVehiclePlanning= 
-			By.xpath(".//div[@class='vehiclePlanningSetup_container_inline']/div/div[4]/div/div/div[2]");
+			By.xpath(".//div[@class='vehiclePlanningSetup_container_inline']/div/div[4]/div/div/div[1]");
 	/**
 	 * This locator will find Date element in Vehicle Planning page in the Vehicle Planing->homepage
 	 */
 	public final By inputTagSelectDateHomepageVehiclePlanning= 
-			By.xpath(".//input[@id='vehiclePlanningSetup_startDate']/../..");
+			By.xpath(".//input[@id='vehiclePlanningSetup_startDate']");
 	/**
 	 * This locator will find Add status in Vehicle Planning page in the Vehicle Planing->homepage
 	 */
@@ -70,5 +70,21 @@ public class HomepageVehiclePlanning {
 		String text=	".//div[@class='vehiclePlanning_vehicleRow_registrationNumber']/a[text()='xxxx']/../../..//div[@class='vehiclePlanning_booking']";	
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
+	
+	public final By divTagSelectDaysHomepageVehiclePlanning(String stringNumberDfDays) {
+		String text=".//div[@role='menu']//span//div[contains(text(),xxxx)]";
+		return By.xpath(text.replace("xxxx", stringNumberDfDays));
+
+	}
+	/**
+	 * This locator will find Forward arrow element in Vehicle Planning page in the Vehicle Planing->homepage
+	 */
+	public final By divTagForwardArrowHomepageVehiclePlanning= By.xpath(".//div[@class='vehiclePlanningSetup_changePeriodWrap']/button[2]/div");
+	
+	/**
+	 * This locator will find Backward arrow element in Vehicle Planning page in the Vehicle Planing->homepage
+	 */
+	public final By divTagBackwardArrowHomepageVehiclePlanning= By.xpath(".//div[@class='vehiclePlanningSetup_changePeriodWrap']/button[1]/div");
+
 
 }

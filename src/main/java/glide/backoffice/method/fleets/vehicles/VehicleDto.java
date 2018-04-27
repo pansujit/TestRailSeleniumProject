@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 public class VehicleDto {
 	String imageURL;
-	boolean gearBox;
+	String gearBox;
 	String carBrand;
 	String carModel;
 	String carVersion;
@@ -20,11 +20,14 @@ public class VehicleDto {
 	String fuelType;
 	String vehicleVIN;
 	String plateNumber;
-	boolean ownerOfVehicle;
+	String ownerOfVehicle;
 	String siteLocation;
 	String parkingLocation;
 	String serviceLevel;
 	String systemInUse;
 	String deviceSerialNumber;
 	String installationDate;
+	String type;
+	String fileName;
+	
 }
