@@ -1,5 +1,8 @@
 package glide.backoffice.method.users.backusers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
@@ -111,20 +114,20 @@ public class AddEditBackuserMethod {
 
 	}
 	
-	void assertMissingMandatoryFields(String assertionText) {
-		
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+	List<Boolean> assertMissingMandatoryFields(String assertionText) {
+		List<Boolean> assertValue= new ArrayList<>();
+		assertValue.add(0,SeleniumUtility.compareIgnoreCaseText(driver, 
 				backuserCreateErrors.spanTagEmailBackUsersCreateErrors, assertionText));
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+		assertValue.add(1,SeleniumUtility.compareIgnoreCaseText(driver, 
 				backuserCreateErrors.spanTagPhoneNOBackUsersCreateErrors, assertionText));
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+		assertValue.add(2,SeleniumUtility.compareIgnoreCaseText(driver, 
 				backuserCreateErrors.spanTagFirstnameBackUsersCreateErrors, assertionText));
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+		assertValue.add(3,SeleniumUtility.compareIgnoreCaseText(driver, 
 				backuserCreateErrors.spanTagLastnameBackUsersCreateErrors, assertionText));
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+		assertValue.add(4,SeleniumUtility.compareIgnoreCaseText(driver, 
 				backuserCreateErrors.spanTagAddressBackUsersCreateErrors, assertionText));
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+		assertValue.add(5,SeleniumUtility.compareIgnoreCaseText(driver, 
 				backuserCreateErrors.spanTagRoleBackUsersCreateErrors, assertionText));
-		softAssert.assertAll();
+		return assertValue;
 	}
 }

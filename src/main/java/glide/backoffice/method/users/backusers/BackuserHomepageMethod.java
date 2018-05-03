@@ -1,5 +1,8 @@
 package glide.backoffice.method.users.backusers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
@@ -54,15 +57,21 @@ public class BackuserHomepageMethod {
 	 */
 	void clickOnViewButton(String testBackuser) {
 		SeleniumUtility.clickOnElement(driver, homepageBackusers.buttonTagViewHomepageBackusers(testBackuser));
-
+		
+	}
+	
+	void moveToBackUser(String email) {
+		SeleniumUtility.moveToElementAction(driver, homepageBackusers.spanTagEmailHomepageBackusers(email));
+		SeleniumUtility.fixedMilliSecondWait();
 	}
 
-	void assertAddEditBackuser(String email,String lastname,String firstname,String role) {
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+	List<Boolean> assertAddEditBackuser(String email,String lastname,String firstname,String role) {
+		List<Boolean> assertValue= new ArrayList<>();
+		assertValue.add(0,SeleniumUtility.compareIgnoreCaseText(driver, 
 				homepageBackusers.spanTagFullnameHomepageBackusers(email), firstname+" "+lastname)); 
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+		assertValue.add(1,SeleniumUtility.compareIgnoreCaseText(driver, 
 				homepageBackusers.spanTagRoleHomepageBackusers(email),BackuserRoles.getBackUserValue(role)));
-		softAssert.assertAll();
+		return assertValue;
 	}
 
 

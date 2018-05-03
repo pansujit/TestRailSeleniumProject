@@ -27,7 +27,7 @@ public class HomepageBackusers {
 	 * @return {@code Selenium public final By}
 	 */
 	public final By buttonTagViewHomepageBackusers(String replacementText) {
-		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]/div[2]/span[2 and text()='xxxx']"
+		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]//div/span[2 and text()='xxxx']"
 				+ "/../../..//div[@class='advancedList_detailIcon']/button";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
@@ -38,7 +38,7 @@ public class HomepageBackusers {
 	 * @return {@code Selenium By}
 	 */
 	public final By spanTagEmailHomepageBackusers(String replacementText) {
-		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]/div[2]/span[2 and text()='xxxx']";
+		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]//div/span[2 and text()='xxxx']";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 	/**
@@ -47,7 +47,7 @@ public class HomepageBackusers {
 	 * @return {@code Selenium By}
 	 */
 	public final By spanTagFullnameHomepageBackusers(String replacementText) {
-		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]/div[2]/span[2 and text()='xxxx']/../span[1]";
+		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]//div/span[2 and text()='xxxx']/../span[1]";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 
@@ -57,7 +57,7 @@ public class HomepageBackusers {
 	 * @return {@code Selenium By}
 	 */
 	public final By spanTagRoleHomepageBackusers(String replacementText) {
-		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]/div[2]/span[2 and text()='xxxx']/../../../div[3]/span/span";
+		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]//div/span[2 and text()='xxxx']/../../../div[3]/span/span";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 	/**
@@ -66,7 +66,7 @@ public class HomepageBackusers {
 	 * @return {@code Selenium By}
 	 */
 	public final By spanTagCompanyNameHomepageBackusers(String replacementText) {
-		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]/div[2]/span[2 and text()='xxxx']/../../../div[2]/span";
+		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]//div/span[2 and text()='xxxx']/../../../div[2]/span";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
 

@@ -1,5 +1,8 @@
 package glide.backoffice.method.users.backusers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
@@ -30,21 +33,25 @@ public class ViewBackuserMethod {
 	 * This method click on the Edit button in the Backuser view page in back office
 	 */
 	void clickOnEditButton() {
-		SeleniumUtility.clickOnElement(driver,viewBackuser.aTagBackUserViewEdit);
+		SeleniumUtility.clickOnElement(driver,viewBackuser.aTagEditViewBackuser);
 	}
 	/**
 	 * This method waits until the edit button is visible of view page of back user in back office
 	 */
 	void waitUntilEditButtonIsVisible() {
-		SeleniumUtility.waitElementToBeVisible(driver, viewBackuser.aTagBackUserViewEdit);
+		SeleniumUtility.waitElementToBeVisible(driver, viewBackuser.aTagEditViewBackuser);
 		SeleniumUtility.fixedWait(1);
 	}
 	/**
 	 * This method asserts that edit button is visible in view page of the back user in back office
+	 * @return 
 	 */
-	void assertViewBackuser() {
-		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, viewBackuser.aTagBackUserViewEdit));
-		softAssert.assertAll();
+	List<Boolean> assertViewBackuser(String email) {
+		List<Boolean> assertValue= new ArrayList<>();
+		assertValue.add(0,SeleniumUtility.checkElementIsVisible(driver, viewBackuser.aTagEditViewBackuser));
+		assertValue.add(1,SeleniumUtility.checkElementIsVisible(driver, viewBackuser.buttonTagSuspendViewBackuser));
+		assertValue.add(2,SeleniumUtility.checkElementIsVisible(driver, viewBackuser.spanTagEmailAddressViewBackuser(email)));
+		return assertValue;
 	}
 
 }

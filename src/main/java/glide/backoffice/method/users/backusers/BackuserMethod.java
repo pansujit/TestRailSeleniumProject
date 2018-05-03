@@ -1,5 +1,7 @@
 package glide.backoffice.method.users.backusers;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -41,43 +43,53 @@ public class BackuserMethod {
 	/**
 	 * This public method create a new backuser to the super company with given permission and super company and company if applicable
 	 * @param backuserDto - Should be BackuserDto
+	 * @return 
 	 */
-	public void addABackuser(BackuserDto backuserDto) {
+	public List<Boolean> addABackuser(BackuserDto backuserDto) {
 		backuserHomepageMethod.clickOnAddABackuserButton();
 		addEditBackuserMethod.waitUntilSaveButtonIsVisible();
 		addEditBackuserMethod.inputBackuserData(backuserDto);
 		addEditBackuserMethod.clickOnSaveButton();
 		backuserHomepageMethod.waitUntilAddBackuesrButtonIsVisible();
-		backuserHomepageMethod.assertAddEditBackuser("sujit.pandey+test@glidemobility.com", backuserDto.getLastName(), 
+		filterBackusersMethod.clickOnFilter();
+		filterBackusersMethod.clickOnEmail();
+		filterBackusersMethod.inputEmail(backuserDto.getEmail());
+		filterBackusersMethod.clickOnConfirmButton();
+		commonMethods.waitUntilTableContentVisible();
+		return backuserHomepageMethod.assertAddEditBackuser(backuserDto.getEmail(), backuserDto.getLastName(), 
 				backuserDto.getFirstName(), backuserDto.getRole());
 	}
 	
 	/**
 	 * This public method redirect to the view page of any given backuser
+	 * @return 
 	 */
-	public void viewABackuser() {
+	public List<Boolean> viewABackuser() {
 		// click on filter and search by email
 		filterBackusersMethod.clickOnFilter();
-		filterBackusersMethod.inputEmailInEmailField(EDIT_BACK_USER);
-		filterBackusersMethod.clickOnSearchButton();
+		filterBackusersMethod.clickOnEmail();
+		filterBackusersMethod.inputEmail(EDIT_BACK_USER);
+		filterBackusersMethod.clickOnConfirmButton();
 		commonMethods.waitUntilTableContentVisible();
-		
+		backuserHomepageMethod.moveToBackUser(EDIT_BACK_USER);
 		backuserHomepageMethod.clickOnViewButton(EDIT_BACK_USER);
 		viewBackuserMethod.waitUntilEditButtonIsVisible();
-		viewBackuserMethod.assertViewBackuser();
-		clickOnBackButton();
+		return viewBackuserMethod.assertViewBackuser(EDIT_BACK_USER);
 	}
 	/**
 	 * This public method Edit the existing backuser with given information.
 	 * @param backuserDto - Should be BackuserDto
+	 * @return 
 	 */
-	public void editABackuser(BackuserDto backuserDto) {
+	public List<Boolean> editABackuser(BackuserDto backuserDto) {
 		// click on filter and search by email
 		filterBackusersMethod.clickOnFilter();
-		filterBackusersMethod.inputEmailInEmailField(EDIT_BACK_USER);
-		filterBackusersMethod.clickOnSearchButton();
+		filterBackusersMethod.clickOnEmail();
+		filterBackusersMethod.inputEmail(EDIT_BACK_USER);
+		filterBackusersMethod.clickOnConfirmButton();
 		commonMethods.waitUntilTableContentVisible();
 		//Click on the view button of the given member
+		backuserHomepageMethod.moveToBackUser(EDIT_BACK_USER);
 		backuserHomepageMethod.clickOnViewButton(EDIT_BACK_USER);
 		viewBackuserMethod.waitUntilEditButtonIsVisible();	
 		viewBackuserMethod.clickOnEditButton();
@@ -86,16 +98,16 @@ public class BackuserMethod {
 		addEditBackuserMethod.clickOnSaveButtonOnEditBackuser();
 		viewBackuserMethod.waitUntilEditButtonIsVisible();
 		clickOnBackButton();
-		backuserHomepageMethod.assertAddEditBackuser(EDIT_BACK_USER, backuserDto.getLastName(), 
+		return backuserHomepageMethod.assertAddEditBackuser(EDIT_BACK_USER, backuserDto.getLastName(), 
 				backuserDto.getFirstName(), backuserDto.getRole());
 		
 	}
 	
-	public void mandatoryMissingFieldValidation() {
+	public List<Boolean> mandatoryMissingFieldValidation() {
 		backuserHomepageMethod.clickOnAddABackuserButton();
 		addEditBackuserMethod.waitUntilSaveButtonIsVisible();
 		addEditBackuserMethod.clickOnSaveButton();
-		addEditBackuserMethod.assertMissingMandatoryFields(ErrorMessages.FIELD_IS_REQUIRED);
+		return addEditBackuserMethod.assertMissingMandatoryFields(ErrorMessages.FIELD_IS_REQUIRED);
 	}
 
 

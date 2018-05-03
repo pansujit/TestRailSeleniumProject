@@ -1,4 +1,4 @@
-package glide.backoffice.method.users.Smartcards;
+package glide.backoffice.method.users.smartcards;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
