@@ -58,7 +58,7 @@ public class SeleniumUtility {
 			throw(e);
 		}
 	}
-	
+
 	/**
 	 * This method click on given element using Selenium click.
 	 * @param driver- Should be WebDriver
@@ -105,6 +105,30 @@ public class SeleniumUtility {
 				driver.findElement(element).clear();
 				driver.findElement(element).sendKeys(text);
 				log.info(CLEAR_TYPE_TEXT + element.toString() );
+			}
+		}catch(Exception e) {
+			log.error("Cannot type text on element: "+ element.toString()+" "+FAILED_WITH_EXCEPTION+e.getClass().getSimpleName());
+			throw(e);
+
+		}	
+	}
+	/**
+	 * This static method clear the input text by character and type the given text, in that text field.
+	 * @param driver- Should be WebDriver
+	 * @param element - Should be Selenium By
+	 * @param text - Should be String
+	 */
+	public  static void clearTextAndSendText(WebDriver driver,By element,String text,String byCharacter) {
+
+		try {
+			if(text!=null) {
+				driver.findElement(element).clear();
+				
+				for(int i=0;i<text.length();i++) {
+					driver.findElement(element).sendKeys(String.valueOf(text.charAt(i)));
+				}
+				log.info(CLEAR_TYPE_TEXT +" :"+ " text in " +element.toString() );
+
 			}
 		}catch(Exception e) {
 			log.error("Cannot type text on element: "+ element.toString()+" "+FAILED_WITH_EXCEPTION+e.getClass().getSimpleName());
@@ -630,18 +654,18 @@ public class SeleniumUtility {
 			return elements;
 		}
 	}
-	
+
 	public static boolean compareIntegers(int firstInt, int secontInt) {
-		 boolean status= false;
-		 if(firstInt==0 || secontInt==0) {
-			 log.error("Either on of the integer is zero "+ firstInt + " "+secontInt  );
-			 return status;
-		 }
-		 else {
-			 log.info("comparing two Integers are equal or not "+ "int1:"+firstInt+ " int2: "+secontInt);
-			  status=(firstInt==secontInt)?true:false;
-			  return status;
-		 }
+		boolean status= false;
+		if(firstInt==0 || secontInt==0) {
+			log.error("Either on of the integer is zero "+ firstInt + " "+secontInt  );
+			return status;
+		}
+		else {
+			log.info("comparing two Integers are equal or not "+ "int1:"+firstInt+ " int2: "+secontInt);
+			status=(firstInt==secontInt)?true:false;
+			return status;
+		}
 	}
 
 	/**
@@ -709,21 +733,21 @@ public class SeleniumUtility {
 
 		}
 	}
-	
+
 	public static String fileCheck(String fileName){
-		
+
 		String fileTranslateFile=null;
 		File file= new File("src/test/resources/file/"+fileName);
 		if(file.exists()){
 			fileTranslateFile=file.getAbsolutePath();
-			
+
 		}
-		
+
 		else
 		{
 			log.error("NO FILE FOUND with name "+ fileName);
 		}
-		
+
 		return fileTranslateFile;
 	}
 }

@@ -1,5 +1,8 @@
 package glide.backoffice.method.accounts.supercompanies;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
@@ -35,7 +38,7 @@ public class HomepageSuperCompaniesMethod {
 	 */
 	void clickOnAddASuperCompanyButton() {
 		//This is temporary method  to click on element using java script need some work around 
-		SeleniumUtility.clickWithJavaScript(driver, homepageSC.aTagAddSuperCompanyHomepageSC);
+		SeleniumUtility.clickWithJavaScript(driver, homepageSC.buttonTagAddSuperCompanyHomepageSC);
 
 	}
 	void clickOnViewButtonOfSuperCompany(String superCompanyName) {
@@ -46,17 +49,17 @@ public class HomepageSuperCompaniesMethod {
 	 * This method verifies the some of the elements are present in the super company homepage.
 	 */
 	void validateSuperCompanyHomepage() {
-		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.aTagAddSuperCompanyHomepageSC));
+		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.buttonTagAddSuperCompanyHomepageSC));
 		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.spanTagHeaderSCEmailHomepageSC));
 		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.spanTagHeaderSCPhoneNoHomepageSC));
 		softAssert.assertAll();
 	}
 	
-	void assertEditSuperCompany(String superCompany, String email) {
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
-				homepageSC.divTagCompanyEmailHomepageSC(superCompany), email));
-		softAssert.assertTrue(!SeleniumUtility.getText(driver, homepageSC.divTagCompanyPhoneHomepageSC(superCompany)).isEmpty());
-		softAssert.assertAll();
+	List<String> assertEditSuperCompany(String superCompany) {
+		List<String> assertValue= new ArrayList<>();
+		assertValue.add(0, SeleniumUtility.getText(driver, homepageSC.divTagCompanyNameHomepageSC(superCompany))); 
+		assertValue.add(1, SeleniumUtility.getText(driver, homepageSC.divTagCompanyEmailHomepageSC(superCompany))); 
+		return assertValue;
 		
 	}
 	void waitUntilAddSCButtonIsVisible() {

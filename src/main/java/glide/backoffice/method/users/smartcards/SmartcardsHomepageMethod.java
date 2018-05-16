@@ -23,6 +23,10 @@ public class SmartcardsHomepageMethod {
 		SeleniumUtility.checkElementIsVisible(driver,homepageSmartcards.buttonTagRefreshHomepageSmartcards);
 		SeleniumUtility.fixedWait(1);
 	}
+	void clickOnView(String cardNumber) {
+		SeleniumUtility.clickOnElement(driver, homepageSmartcards.spanTagCardNumberHomepageSmartcards(cardNumber));
+	}
+	
 
 	/**
 	 * This method checks for the table is present on the smartcard homepage or not
@@ -32,8 +36,6 @@ public class SmartcardsHomepageMethod {
 				homepageSmartcards.buttonTagRefreshHomepageSmartcards),
 				"The table is not present in the smartcard homepage");
 		softAssert.assertAll();
-
 	}
-
 
 }

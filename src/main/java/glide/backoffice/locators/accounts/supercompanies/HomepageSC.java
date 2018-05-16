@@ -7,7 +7,7 @@ public class HomepageSC {
 	/**
 	 * This locators finds add super company element in the super company homepage
 	 */
-	public final By aTagAddSuperCompanyHomepageSC= By.xpath(".//div[@class='pageManagementHeader_actionButton']/a");
+	public final By buttonTagAddSuperCompanyHomepageSC= By.xpath(".//button[@id='companies_add_company_button']");
 	
 
 	

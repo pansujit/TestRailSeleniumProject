@@ -74,7 +74,7 @@ public class AddEditSuperCompanyMethod {
 		 */
 		 void clickOnCancelButton() {
 			SeleniumUtility.clickOnElement(driver, addSC.aTagCancelButtonAddSC);
-			SeleniumUtility.waitElementToBeVisible(driver, homepageSC.aTagAddSuperCompanyHomepageSC);
+			SeleniumUtility.waitElementToBeVisible(driver, homepageSC.buttonTagAddSuperCompanyHomepageSC);
 			SeleniumUtility.fixedWait(5);
 		}
 	 /**
@@ -96,7 +96,7 @@ public class AddEditSuperCompanyMethod {
 			softAssert.assertAll();
 	 }
 	 /**
-	  * This method verifies the interger/String only error when misplace the contents (eg. String --> Integer and viceversa)
+	  * This method verifies the integer/String only error when misplace the contents (eg. String --> Integer and viceversa)
 	  */
 	 void validateIntegerToStringError() {
 			softAssert.assertTrue(SeleniumUtility.compareText(driver, addSCError.spanTagCapitalErrorAddSC, ErrorMessages.INTEGER_FIELD_ERROR));
