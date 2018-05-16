@@ -23,7 +23,6 @@ public class Testme {
 		String match="orčpžsíáýdéèö";
 		String text = Normalizer.normalize("orčpžsíáýdéèö", Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
 		//match = match.replaceAll("[^\\p{ASCII}]", "");
-		System.out.println(text);
 	}	
 	
 	
