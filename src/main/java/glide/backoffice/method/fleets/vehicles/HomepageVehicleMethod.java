@@ -1,5 +1,8 @@
 package glide.backoffice.method.fleets.vehicles;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
@@ -23,14 +26,14 @@ public class HomepageVehicleMethod {
 		this.softAssert=new SoftAssert();
 
 	}
-	
+
 	/**
 	 * This methods click on Add a Vehicle Button in Vehicle Home page 
 	 */
 	void clickOnAddAVehicleButton() {
 		SeleniumUtility.clickOnElement(driver, homepageVehicles.buttonTagAddVehicleHomepageVehicles);
 	}
-	
+
 	/**
 	 * This method click on Vehicle number plate  to view the vehicle in detail
 	 */
@@ -40,7 +43,7 @@ public class HomepageVehicleMethod {
 	void waitUntilAddAVehicleButtonIsVisible() {
 		SeleniumUtility.waitElementToBeVisible(driver, homepageVehicles.buttonTagAddVehicleHomepageVehicles);
 	}
-	
+
 	/**
 	 * 
 	 * @param plateNumber
@@ -48,17 +51,20 @@ public class HomepageVehicleMethod {
 	 * @param model
 	 * @param brand
 	 * @param fuelType
+	 * @return 
 	 */
 
-	void assertAddEditVehicle(String plateNumber,String companyName,String model,String brand,String fuelType) {
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+	List<Boolean> assertAddEditVehicle(String plateNumber,String companyName,String model,String brand,String fuelType) {
+		List<Boolean> assertValue= new ArrayList<>();
+
+		assertValue.add(0,SeleniumUtility.compareIgnoreCaseText(driver, 
 				homepageVehicles.divTagSuperCompanyHomepageVehicles(plateNumber), companyName));
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+		assertValue.add(1,SeleniumUtility.compareIgnoreCaseText(driver, 
 				homepageVehicles.divTagVehicleModelHomepageVehicles(plateNumber), model));
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+		assertValue.add(2,SeleniumUtility.compareIgnoreCaseText(driver, 
 				homepageVehicles.divTagBrandNameHomepageVehicles(plateNumber), brand));
-		softAssert.assertTrue(SeleniumUtility.compareIgnoreCaseText(driver, 
+		assertValue.add(3,SeleniumUtility.compareIgnoreCaseText(driver, 
 				homepageVehicles.spanTagFuelTypeHomepageVehicles(plateNumber), fuelType));
-		softAssert.assertAll();
+		return assertValue;
 	}
 }

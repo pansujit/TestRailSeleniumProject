@@ -29,6 +29,7 @@ public class VehicleDataProvider {
 			Faker faker = new Faker(new Locale("fr"));
 			String text=faker.number().digits(1);
 		vehicleDto=VehicleDto.builder()
+				.companyName(Config.getProperty("SUPER_COMPANY_NAME"))
 				.carBrand("Renault")
 				.carModel("Captur")
 				.carVersion("Intens")
@@ -49,6 +50,7 @@ public class VehicleDataProvider {
 				.vehicleClass("A")
 				.serviceLevel("Basic")
 				.fileName("test_image.jpeg")
+				
 					.build();
 	
 			return new Object[][] {{vehicleDto}};
@@ -61,6 +63,7 @@ public class VehicleDataProvider {
 		String text=faker.number().digits(1);
 			
 		vehicleDto=VehicleDto.builder()
+				.companyName(Config.getProperty("SUPER_COMPANY_NAME"))
 				.carBrand(Config.getProperty("VEHICLE_BRAND"))
 				.carModel(Config.getProperty("VEHICLE_MODEL"))
 				.carVersion(Config.getProperty("VEHICLE_VERSION"))
@@ -79,6 +82,8 @@ public class VehicleDataProvider {
 				.vehicleVIN(faker.number().digits(17))
 				.vehicleClass("A")
 				.serviceLevel("Basic")
+				.plateNumber(Config.getProperty("EDIT_VEHICLE_PLATE_NUMBER"))
+				.fileName("test_image.jpeg")
 					.build();
 	
 			return new Object[][] {{vehicleDto}};

@@ -1,5 +1,7 @@
 package glide.backoffice.method.fleets.vehicles;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -39,8 +41,9 @@ public class VehicleMethod {
 	/**
 	 * This public method add a vehicle to the given public super company
 	 * @param vehicleDto - Should be VehicleDto
+	 * @return 
 	 */
-	public void addANewVehicle(VehicleDto vehicleDto) {
+	public List<Boolean> addANewVehicle(VehicleDto vehicleDto) {
 		//Click on Add a vehicle button in vehicle page
 		homepageVehicleMethod.clickOnAddAVehicleButton();
 		// Input data in the vehicle
@@ -55,21 +58,31 @@ public class VehicleMethod {
 		addEditVehicleMethod.clickOnSave();
 		// wait until rotating circle is invisible
 		commonMethods.waitUntilElementToBeInvisible();
+		clickOnBackButton();
+		commonMethods.waitUntilTableContentVisible();
+		homepageVehicleMethod.waitUntilAddAVehicleButtonIsVisible();
+		return homepageVehicleMethod.assertAddEditVehicle(vehicleDto.getPlateNumber(), 
+				vehicleDto.getCompanyName(), vehicleDto.getCarModel(), vehicleDto.getCarBrand(), vehicleDto.getFuelType());
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 	/**
 	 * This public method add a vehicle to the given public super company
 	 * @param vehicleDto - Should be VehicleDto
+	 * @return 
 	 */
-	public void editAVehicle(VehicleDto vehicleDto) {
+	public List<Boolean> editAVehicle(VehicleDto vehicleDto) {
 		//Click on Edit button in vehicle. There is not edit button so click anywher in given vehicle row
-		homepageVehicleMethod.clickOnVehicleToView(Config.getProperty("EDIT_VEHICLE_PLATE_NUMBER"));
+		homepageVehicleMethod.clickOnVehicleToView(vehicleDto.getPlateNumber());
+		commonMethods.waitUntilElementToBeInvisible();
+		viewVehicleMethod.waitUntilEditButtonIsVisible();
 		// Click on Edit Button of the vehicle
 		viewVehicleMethod.clickOnEditVehicle();
+		commonMethods.waitUntilElementToBeInvisible();
+		addEditVehicleMethod.waitUntilSaveButtonIsVisible();
 		// Input data in the vehicle
 		addEditVehicleMethod.inputVehicleData(vehicleDto);
 		SeleniumUtility.fixedWait(1);
@@ -79,24 +92,26 @@ public class VehicleMethod {
 		// Input data in the operational in vehicle
 		addEditVehicleMethod.inputOprerationalData(vehicleDto);
 		addEditVehicleMethod.clickOnSave();
-		//clickOnBackButton();
-		//sideMenuItemsMethod.clickOnVehicles();
-		//homepageVehicleMethod.assertAddEditVehicle(Config.getProperty("EDIT_VEHICLE_PLATE_NUMBER"), 
-		//		Config.getProperty("SUPER_COMPANY_NAME"), vehicleDto.getCarModel(), vehicleDto.getCarBrand(), vehicleDto.getFuelType());
+		commonMethods.waitUntilElementToBeInvisible();
+		clickOnBackButton();
+		commonMethods.waitUntilTableContentVisible();
+		return homepageVehicleMethod.assertAddEditVehicle(vehicleDto.getPlateNumber(), 
+				vehicleDto.getCompanyName(), vehicleDto.getCarModel(), vehicleDto.getCarBrand(), vehicleDto.getFuelType());
 	}
 	/**
 	 * This method click on plate number of a vehicle to view details of that vehicle
+	 * @return 
 	 */
-	public void viewAVehicle() {
+	public List<Boolean> viewAVehicle() {
 		//Click on Edit button in vehicle. There is not edit button so click anywher in given vehicle row
 		homepageVehicleMethod.clickOnVehicleToView(Config.getProperty("EDIT_VEHICLE_PLATE_NUMBER"));
-		viewVehicleMethod.assertVehicleView();
-		clickOnBackButton();
+		return viewVehicleMethod.assertVehicleView();
+
 
 	}
-	
+
 	public void filtervehicle(VehicleFilterDto vehicleFilterDto) {
-		
+
 		filterVehiclesMethod.clickOnBrand();
 		filterVehiclesMethod.selectFilterKeyAndValue(vehicleFilterDto.getBrand());
 		commonMethods.waitUntilTableContentVisible();

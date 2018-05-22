@@ -68,7 +68,7 @@ public class EditVehicle {
 	/**
 	 * This method locator will find picture URL input element in the Fleet management->Vehicle-->Homepage-->View Vehicle-->Edit Vehicle
 	 */
-	public final By inputTagPictureURLEditVehicle=By.xpath(".//div[@class='newVehicleForm_carImg']/img");
+	public final By inputTagPictureURLEditVehicle=By.xpath(".//div[@class='newVehicleForm_carImg']");
 
 	/**
 	 * This method locator will find Vehicle Registration document input element 

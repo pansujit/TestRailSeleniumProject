@@ -29,6 +29,14 @@ public class AddEditVehicleMethod {
 	 */
 	void inputVehicleData(VehicleDto vehicleDto) {
 		
+		SeleniumUtility.fixedWait(1);
+		SeleniumUtility.clickOnElement(driver, addVehicle.inputTagPictureURLEditVehicle);
+		imagePopupMethod.waitUntilImageURLIsVisible();
+		imagePopupMethod.inputURLInImageField(vehicleDto.getImageURL());
+		imagePopupMethod.clickOnOkButton();
+		imagePopupMethod.waitUntilImageURLNotIsVisible();
+		SeleniumUtility.fixedMilliSecondWait();
+		
 		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagCarBrandEditVehicle);
 		SeleniumUtility.fixedWait(5);
 		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getCarBrand());
@@ -72,13 +80,8 @@ public class AddEditVehicleMethod {
 		SeleniumUtility.clickOnElement(driver, addVehicle.buttonTagOwnerEditVehicle);
 		SeleniumUtility.fixedWait(1);
 		clickonVisibleTextOnAddEditVehicleDropdown(vehicleDto.getOwnerOfVehicle());
-		
 		uploadRegistrationDocument(vehicleDto.getFileName());
-		SeleniumUtility.clickOnElement(driver, addVehicle.inputTagPictureURLEditVehicle);
-		imagePopupMethod.waitUntilImageURLIsVisible();
-		imagePopupMethod.inputURLInImageField(vehicleDto.getImageURL());
-		imagePopupMethod.clickOnOkButton();
-		imagePopupMethod.waitUntilImageURLNotIsVisible();
+
 	}
 	
 	void uploadRegistrationDocument(String fileName) {
@@ -90,12 +93,11 @@ public class AddEditVehicleMethod {
 		else {
 			SeleniumUtility.sendText(driver, addVehicle.inputTagRegistrationDocLEditVehicle, data);
 		}
+		SeleniumUtility.fixedWait(1);
 	}
 	
 	void clickonVisibleTextOnAddEditVehicleDropdown(String vehicleElement) {
 		if(SeleniumUtility.checkElementIsVisible(driver, addVehicle.divTagDropdownTextEditVehicle(vehicleElement))){
-			//SeleniumUtility.moveToElementAction(driver, addVehicle.divTagDropdownTextEditVehicle(vehicleElement));
-			//SeleniumUtility.clickOnElement(driver, addVehicle.divTagDropdownTextEditVehicle(vehicleElement));
 			SeleniumUtility.clickWithJavaScript(driver, addVehicle.divTagDropdownTextEditVehicle(vehicleElement));
 			SeleniumUtility.fixedWait(1);
 		}

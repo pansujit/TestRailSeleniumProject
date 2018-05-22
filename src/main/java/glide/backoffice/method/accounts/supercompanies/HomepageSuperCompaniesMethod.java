@@ -47,12 +47,14 @@ public class HomepageSuperCompaniesMethod {
 	}
 	/**
 	 * This method verifies the some of the elements are present in the super company homepage.
+	 * @return 
 	 */
-	void validateSuperCompanyHomepage() {
-		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.buttonTagAddSuperCompanyHomepageSC));
-		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.spanTagHeaderSCEmailHomepageSC));
-		softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, homepageSC.spanTagHeaderSCPhoneNoHomepageSC));
-		softAssert.assertAll();
+	List<Boolean> assertSuperCompanyHomepage() {
+		List<Boolean> assertValue= new ArrayList<>();
+		assertValue.add(0,SeleniumUtility.checkElementIsVisible(driver, homepageSC.buttonTagAddSuperCompanyHomepageSC));
+		assertValue.add(1,SeleniumUtility.checkElementIsVisible(driver, homepageSC.spanTagHeaderSCEmailHomepageSC));
+		assertValue.add(2,SeleniumUtility.checkElementIsVisible(driver, homepageSC.spanTagHeaderSCPhoneNoHomepageSC));
+		return assertValue;
 	}
 	
 	List<String> assertEditSuperCompany(String superCompany) {

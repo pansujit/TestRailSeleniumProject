@@ -9,6 +9,12 @@ public class FilterBackusers {
 	 */
 	
 	public final By divTagFilterFilterBackusers= By.xpath(".//div[@id='backusers_filters_filter_type_wrap']/div[1]/div[2]");
+
+	/**
+	 * This will find Click to Dropdown element in filter in User Management->BackUsers->Homepage-->Filters
+	 */
+	public final By divTagClickToDropdownCommonFilterBackusers= By.xpath(".//div[@class='advancedList_filtersInput']/div");
+
 	
 	/**
 	 * This locator will find filter key dropdown menu  element in homepage in the User Management->BackUsers->Homepage-->Filters

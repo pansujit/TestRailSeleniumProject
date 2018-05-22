@@ -164,5 +164,14 @@ public class FindVehicleBookingMethod {
 		SeleniumUtility.waitElementToBeVisible(driver, findVehicleBooking.buttonTagSearchFindVehicleBooking);
 		SeleniumUtility.fixedWait(1);
 	}
+	
+	/**
+	 * This method waits until the save button in popup is visible
+	 */
+	public void waitUntilSaveButtonIsVisible() {
+		SeleniumUtility.waitElementToBeVisible(driver, findVehicleBooking.buttonTagSaveFindVehicleBooking);
+		SeleniumUtility.fixedWait(1);
+	}
+	
 
 }

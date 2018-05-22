@@ -48,36 +48,36 @@ public class SuperCompaniesMethod {
 
 	/**
 	 * This public method Check the super company homepage
+	 * @return 
 	 */
-	public void checkSuperCompanyHomePage() {
-		homepageSuperCompaniesMethod.validateSuperCompanyHomepage();
+	public List<Boolean> checkSuperCompanyHomePage() {
+		return homepageSuperCompaniesMethod.assertSuperCompanyHomepage();
 
 	}
 	/**
 	 * This public method input the given input in the add super company field and check the error
 	 * @param superCompanyDto -  Should be SuperCompanyDto
+	 * @return 
 	 */
-	public void checkAllErrorInCreateSuperCompany(SuperCompanyDto superCompanyDto) {
+	public List<Boolean> checkAllErrorInCreateSuperCompany(SuperCompanyDto superCompanyDto) {
 		homepageSuperCompaniesMethod.clickOnAddASuperCompanyButton();
 		addEditSuperCompanyMethod.waitUntilSaveButtonIsVisible();
 		addEditSuperCompanyMethod.inputAddASuperCompany(superCompanyDto);
 		addEditSuperCompanyMethod.clickOnSaveButton();
-		addEditSuperCompanyMethod.validateSuperCompanyAddError();
-		addEditSuperCompanyMethod.clickOnCancelButton();
-		homepageSuperCompaniesMethod.waitUntilAddSCButtonIsVisible();
+		return addEditSuperCompanyMethod.assertSuperCompanyAddError();
+
 	}
 	/**
 	 * This public method input the given input in the add super company field and check the Integer to String error
 	 * @param superCompanyDto -  Should be SuperCompanyDto
+	 * @return 
 	 */
-	public void integerToStringError(SuperCompanyDto superCompanyDto) {
+	public List<Boolean> integerToStringError(SuperCompanyDto superCompanyDto) {
 		homepageSuperCompaniesMethod.clickOnAddASuperCompanyButton();
 		addEditSuperCompanyMethod.waitUntilSaveButtonIsVisible();
 		addEditSuperCompanyMethod.inputAddASuperCompany(superCompanyDto);
 		addEditSuperCompanyMethod.clickOnSaveButton();
-		addEditSuperCompanyMethod.validateIntegerToStringError();
-		addEditSuperCompanyMethod.clickOnCancelButton();
-		homepageSuperCompaniesMethod.waitUntilAddSCButtonIsVisible();
+		return addEditSuperCompanyMethod.assertIntegerToStringError();
 	}
 	/**
 	 * This public method create a super company with given input in the super company.

@@ -48,6 +48,6 @@ public class AddStatusPlanning {
 	/**
 	 * This locator will find Save Buttonelement in Add status page in the Vehicle Planing->homepage->Add status
 	 */
-	public final By buttonTagSaveAddStatusPlanning= By.xpath(".//section/form//button[@class='flatButton']");
+	public final By buttonTagSaveAddStatusPlanning= By.xpath(".//div[@class='vehiclePlanningCreateStatus_buttonWrap']/button[2]");
 
 }

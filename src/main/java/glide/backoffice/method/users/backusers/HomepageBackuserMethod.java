@@ -18,7 +18,7 @@ import glide.backoffice.utility.SeleniumUtility;
  * @author sujitpandey
  * @created on Feb 19, 2018 3:13:25 PM
  */
-public class BackuserHomepageMethod {
+public class HomepageBackuserMethod {
 
 	WebDriver driver;
 	HomepageBackusers homepageBackusers;
@@ -26,7 +26,7 @@ public class BackuserHomepageMethod {
 	ViewBackuser viewBackuser;
 	SoftAssert softAssert;
 	FilterBackusers filterBackusers;
-	public BackuserHomepageMethod(WebDriver ldriver) {
+	public HomepageBackuserMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.homepageBackusers=PageFactory.initElements(driver, HomepageBackusers.class);
 		this.addBackuser=PageFactory.initElements(driver, AddBackuser.class);
@@ -57,14 +57,63 @@ public class BackuserHomepageMethod {
 	 */
 	void clickOnViewButton(String testBackuser) {
 		SeleniumUtility.clickOnElement(driver, homepageBackusers.buttonTagViewHomepageBackusers(testBackuser));
-		
+
 	}
-	
+
 	void moveToBackUser(String email) {
 		SeleniumUtility.moveToElementAction(driver, homepageBackusers.spanTagEmailHomepageBackusers(email));
 		SeleniumUtility.fixedMilliSecondWait();
 	}
 
+	/**This method checks the table column role and return the boolean result comparing with given text
+	 * 
+	 * @param roles - Should be String
+	 * @return {@code boolean}
+	 */
+	boolean assertRolesfilter(String roles) {
+		return SeleniumUtility.compareTextInWebElements(driver,homepageBackusers.spanTagRolesHomepageBackusers, roles);
+	}
+	/**
+	 * This method checks the table according to given email, firstname and lastname and returns boolean results in backuser.
+	 * @param email - Should be String
+	 * @param firstname - Should be String
+	 * @param lastname - Should be String
+	 * @return - {@code List<Boolean>}
+	 */
+	List<Boolean> assertBackuserFilterInputTypeValue(String email, String firstname, String lastname) {
+		boolean status= false;
+		List<Boolean> assertValue = new ArrayList<>();
+
+		if(!email.isEmpty() &&  firstname.isEmpty() && lastname.isEmpty()) {
+			assertValue.add(0,SeleniumUtility.checkElementIsVisible(driver, homepageBackusers.spanTagEmailHomepageBackusers(email)));
+			return assertValue;
+		}
+		else if(email.isEmpty() &&  !firstname.isEmpty() && lastname.isEmpty()) {
+			assertValue.add(0,!SeleniumUtility.returnWebElements(driver, homepageBackusers.spanTagNamesHomepageBackusers).isEmpty());
+			status=SeleniumUtility.compareTextInWebElements(driver, homepageBackusers.spanTagNamesHomepageBackusers, firstname);
+			assertValue.add(1,status);
+			return assertValue;
+		}
+		else if(email.isEmpty() &&  firstname.isEmpty() && !lastname.isEmpty()) {
+			assertValue.add(0,!SeleniumUtility.returnWebElements(driver, homepageBackusers.spanTagNamesHomepageBackusers).isEmpty());
+			status=SeleniumUtility.compareTextInWebElements(driver, homepageBackusers.spanTagNamesHomepageBackusers, lastname);
+			assertValue.add(1, status);
+			return assertValue;
+
+		}
+		else {
+			return assertValue;
+		}
+	}
+
+	/**
+	 * This method compare the backuser attributes with given attributes in backuser table and return the boolean result
+	 * @param email - Should be String
+	 * @param lastname - Should be String
+	 * @param firstname - Should be String
+	 * @param role - Should be String
+	 * @return - {@code List<Boolean>}
+	 */
 	List<Boolean> assertAddEditBackuser(String email,String lastname,String firstname,String role) {
 		List<Boolean> assertValue= new ArrayList<>();
 		assertValue.add(0,SeleniumUtility.compareIgnoreCaseText(driver, 

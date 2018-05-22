@@ -8,7 +8,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.asserts.SoftAssert;
 
 import glide.backoffice.locators.headers.HeaderItem;
 import glide.backoffice.method.common.CommonMethods;
@@ -16,7 +15,6 @@ import glide.backoffice.method.common.Config;
 import glide.backoffice.utility.SeleniumUtility;
 
 public class HeaderMethod {
-	SoftAssert softAssert;
 	WebDriver driver;
 	HeaderItem headerItem;
 	HeaderSearchResult headerSearchResult;
@@ -24,7 +22,6 @@ public class HeaderMethod {
 	public HeaderMethod(WebDriver ldriver) {
 		this.driver=ldriver;
 		this.headerItem=PageFactory.initElements(driver, HeaderItem.class);
-		this.softAssert= new SoftAssert();
 		this.headerSearchResult=PageFactory.initElements(driver, HeaderSearchResult.class);
 		this.commonMethods=PageFactory.initElements(driver, CommonMethods.class);
 
@@ -107,16 +104,18 @@ public class HeaderMethod {
 
 	/**
 	 * This public method checks the popup header on super company and sub-companu search box.
+	 * @return 
 	 */
-	public void checkAllPopUpInHeader() {
+	public List<Boolean> checkAllPopUpInHeader() {
+		List<Boolean> assertValue = new ArrayList<>();
 		selectSuperCompany(Config.getProperty("SUPER_COMPANY_NAME"));
 		SeleniumUtility.moveToElementAction(driver, headerItem.buttonTagSuperCompaniesHeaderItem);
-		softAssert.assertEquals("Super-company", SeleniumUtility.getText(driver, headerItem.divTagSuperCompanyPopupHeaderItem));
+		assertValue.add(0, SeleniumUtility.compareIgnoreCaseText("Super-company", SeleniumUtility.getText(driver, headerItem.divTagSuperCompanyPopupHeaderItem)));
 		SeleniumUtility.moveToElementAction(driver, headerItem.buttonTagCompaniesHeaderItem);
-		softAssert.assertEquals("Company", SeleniumUtility.getText(driver, headerItem.divTagSuperCompanyPopupHeaderItem));	
-		softAssert.assertAll();
+		assertValue.add(0, SeleniumUtility.compareIgnoreCaseText("Company", SeleniumUtility.getText(driver, headerItem.divTagSuperCompanyPopupHeaderItem)));
+		return assertValue;
 	}
-	
+
 	/**
 	 * This method click on header back button and wait until 2 second
 	 */
@@ -127,26 +126,31 @@ public class HeaderMethod {
 
 	/**
 	 * This public method verifies that big search box is working as expected.
+	 * @return 
 	 */
-	public void bigSearchBoxVerification() {
+	public List<Boolean> bigSearchBoxVerification() {
+		List<Boolean> assertValue = new ArrayList<>();
 		inputTextInBigSearchBox(Config.getProperty("MEMBER_FIRSTNAME"));
-		softAssert.assertTrue(!SeleniumUtility.returnWebElements(driver, headerSearchResult.divTagSearchResultHeaderSearchResult).isEmpty());
+		assertValue.add(0, !SeleniumUtility.returnWebElements(driver, headerSearchResult.divTagSearchResultHeaderSearchResult).isEmpty());
 		inputTextInBigSearchBox("dfhjdhfj");
-		softAssert.assertTrue(SeleniumUtility.returnWebElements(driver, headerSearchResult.divTagSearchResultHeaderSearchResult).isEmpty());
-		softAssert.assertAll();
+		assertValue.add(1, SeleniumUtility.returnWebElements(driver, headerSearchResult.divTagSearchResultHeaderSearchResult).isEmpty());
+		return assertValue;
 	}
 
 	/**
 	 * This public method verifies the back and forth of the back button and navigation to the page from big search result page
+	 * @return 
 	 */
-	public void bigsearchBoxResultNavigate() {
+	public List<Boolean> bigsearchBoxResultNavigate() {
+		List<Boolean> assertValue = new ArrayList<>();
+		
 		inputTextInBigSearchBox("mobility");
 		SeleniumUtility.waitElementToBeVisible(driver, headerSearchResult.divTagSearchResultHeaderSearchResult);
 		SeleniumUtility.fixedWait(1);
 		List<String> data=newTextList(SeleniumUtility.returnWebElements(driver, headerSearchResult.divTagSearchResultHeaderSearchResult));
 		SeleniumUtility.
 		clickOnElement(driver, headerSearchResult.divTagFirstResultOfHeaderSearchResult(data.get(0)));
-		softAssert.assertTrue(driver.getCurrentUrl().contains("detail"));
+		assertValue.add(0,driver.getCurrentUrl().contains("detail"));
 		SeleniumUtility.fixedWait(1);
 		driver.navigate().back();
 		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));
@@ -156,11 +160,8 @@ public class HeaderMethod {
 		SeleniumUtility.
 		clickOnElement(driver, headerSearchResult.divTagFirstResultOfHeaderSearchResult(data.get(1)));
 		SeleniumUtility.fixedWait(1);
-		softAssert.assertTrue(driver.getCurrentUrl().contains("detail"));
-		driver.navigate().back();
-		SeleniumUtility.waitUntilElementisNotVisible(driver, By.xpath(".//div[@class='sk-circle']"));
-		SeleniumUtility.fixedWait(1);
-		softAssert.assertAll();
+		assertValue.add(1,driver.getCurrentUrl().contains("detail"));
+		return assertValue;
 	}
 
 

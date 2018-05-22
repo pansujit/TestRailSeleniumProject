@@ -25,7 +25,7 @@ public class SuperCompanyTest extends BaseClassExtended3 {
 		siteMenuItems.clickOnSuperCompanies();
 	}
 	// there is equal effect of creating super company and edit super company
-	@Test(dataProvider="createCompanyData",dataProviderClass = SuperCompanyCreateDataProvider.class)
+	/*@Test(dataProvider="createCompanyData",dataProviderClass = SuperCompanyCreateDataProvider.class)
 	public void createSuperCompanyTest(SuperCompanyDto superCompanyDto) {
 		List<String> assertValue= new ArrayList<>();
 		softAssert= new SoftAssert();
@@ -35,7 +35,7 @@ public class SuperCompanyTest extends BaseClassExtended3 {
 		softAssert.assertEquals(assertValue.get(1),superCompanyDto.getEmail(),"The email is not matched");
 		softAssert.assertAll();
 
-	}
+	}*/
 	
 	@Test(dataProvider="editSuperCompany",dataProviderClass = SuperCompanyCreateDataProvider.class)
 	public void editSuperCompanyTest(SuperCompanyDto superCompanyDto) {
@@ -47,8 +47,19 @@ public class SuperCompanyTest extends BaseClassExtended3 {
 		softAssert.assertEquals(assertValue.get(1),superCompanyDto.getEmail(),"The email is not matched");
 		softAssert.assertAll();
 	}
-
 	
+	@Test
+	public void homepageValidationTest() {
+		 List<Boolean> assertValue= new ArrayList<>();
+		 softAssert= new SoftAssert();
+		SuperCompaniesMethod superCompanies=PageFactory.initElements(driver, SuperCompaniesMethod.class);
+		assertValue=superCompanies.checkSuperCompanyHomePage();
+		softAssert.assertTrue(assertValue.get(0),"Add a company button is not displayed");
+		softAssert.assertTrue(assertValue.get(1),"Email header is not displayed");
+		softAssert.assertTrue(assertValue.get(2),"Phone no header is not displayed");
+	}
+
+
 
 
 

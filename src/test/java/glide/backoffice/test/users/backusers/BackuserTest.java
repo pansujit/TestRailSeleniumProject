@@ -61,7 +61,46 @@ public class BackuserTest extends BaseClassExtended3 {
 		softAssert.assertTrue(assertValue.get(2),"The email address is not visible");
 		softAssert.assertAll();
 	}
-
+	@Test
+	public void filterBackuserUsingRolesTest() {
+		softAssert= new SoftAssert();
+		List<Boolean> assertValue= new ArrayList<>();
+		BackuserMethod backuser= PageFactory.initElements(driver, BackuserMethod.class);
+		assertValue=backuser.filterBackuserUsingRole();
+		softAssert.assertTrue(assertValue.get(0),"The role is not filter by Admin");
+		softAssert.assertTrue(assertValue.get(1),"The role is not filter by Fleet Manager");
+		softAssert.assertTrue(assertValue.get(2),"The role is not filter by Call center");
+		softAssert.assertAll();
+	}
+	@Test
+	public void filterBackuserEmailTest() {
+		softAssert= new SoftAssert();
+		List<Boolean> assertValue= new ArrayList<>();
+		BackuserMethod backuser= PageFactory.initElements(driver, BackuserMethod.class);
+		assertValue=backuser.filterBackuserUsingFilterTypeInput("sujit.pandey+asc@glidemobility.com","","");
+		softAssert.assertTrue(assertValue.get(0),"The row with given email address is not displayed");
+		softAssert.assertAll();
+	}
+	@Test
+	public void filterBackuserFirstnameTest() {
+		softAssert= new SoftAssert();
+		List<Boolean> assertValue= new ArrayList<>();
+		BackuserMethod backuser= PageFactory.initElements(driver, BackuserMethod.class);
+		assertValue=backuser.filterBackuserUsingFilterTypeInput("","ascAdmin", "");
+		softAssert.assertTrue(assertValue.get(0),"Nothing has been displayed for the given firstname");
+		softAssert.assertTrue(assertValue.get(1),"The filtered content doesnot contains the given name");
+		softAssert.assertAll();
+	}
+	@Test
+	public void filterBackuserLastnameTest() {
+		softAssert= new SoftAssert();
+		List<Boolean> assertValue= new ArrayList<>();
+		BackuserMethod backuser= PageFactory.initElements(driver, BackuserMethod.class);
+		assertValue=backuser.filterBackuserUsingFilterTypeInput("","","ascAdmin");
+		softAssert.assertTrue(assertValue.get(0),"Nothing has been displayed for the given lastname");
+		softAssert.assertTrue(assertValue.get(1),"The filtered content doesnot contains the given name");
+		softAssert.assertAll();
+	}
 
 
 }

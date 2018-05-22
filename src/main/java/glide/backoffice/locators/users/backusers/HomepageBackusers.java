@@ -69,5 +69,17 @@ public class HomepageBackusers {
 		String text=".//div[starts-with(@id,'backUsers_list_row_')]/div[1]//div/span[2 and text()='xxxx']/../../../div[2]/span";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
+	
+	
+	/**
+	 * This locator will find All the list of roles in the table  in the User Management-->BackUsers-->Homepage
+	 */
+	public final By spanTagRolesHomepageBackusers= By.xpath(".//div[starts-with(@id,'backUsers_list_row_')]/div[3]/span/span");
+	
+	/**
+	 * This locator will find All the list of name in the table  in the User Management-->BackUsers-->Homepage
+	 */
+	public final By spanTagNamesHomepageBackusers= By.xpath(".//div[starts-with(@id,'backUsers_list_row_')]/div[1]/div[1]/span[1]");
+	
 
 }

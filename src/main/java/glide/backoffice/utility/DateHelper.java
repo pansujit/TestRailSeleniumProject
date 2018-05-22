@@ -109,7 +109,6 @@ public class DateHelper {
 	 */
 	public static List<Integer> selectMonthAndDate(String myDate,String text) {
 		String[] monthFinder=text.split(" ");
-		System.out.println("tewt is "+text);
 		List<Integer> returnData=new ArrayList<>();
 		if (!myDate.matches("\\d{4}-\\d{2}-\\d{2}")) {
 		   log.error("year month date is not formatted as YYYY-MM-DD format: ",  new RuntimeException(myDate));

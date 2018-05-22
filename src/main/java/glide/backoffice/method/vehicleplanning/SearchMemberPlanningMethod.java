@@ -19,6 +19,7 @@ public class SearchMemberPlanningMethod {
 	 */
 	void waitUntilInputIsDisplayed() {
 		SeleniumUtility.waitElementToBeVisible(driver, searchMemberPlanning.inputTagSearchNameSearchMemberPlanning);
+		SeleniumUtility.fixedMilliSecondWait();
 	}
 	/**
 	 * This method click on Input field in the search a member popup in vehicle planning

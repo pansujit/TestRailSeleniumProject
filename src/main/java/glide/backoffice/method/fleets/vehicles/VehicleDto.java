@@ -29,5 +29,5 @@ public class VehicleDto {
 	String installationDate;
 	String type;
 	String fileName;
-	
+	String companyName;
 }

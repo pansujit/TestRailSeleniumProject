@@ -636,6 +636,17 @@ public class SeleniumUtility {
 	public static String getAttribute(WebDriver driver, By element,String attrName) {
 		return driver.findElement(element).getAttribute(attrName);
 	}
+	
+	/**
+	 * This method will return the attribute value of the given element
+	 * @param driver - Should be WebDriver
+	 * @param element - Should be Selenium WebElement
+	 * @param attrName - Should be String
+	 * @return String
+	 */
+	public static String getAttribute(WebDriver driver,WebElement element,String attrName) {
+		return element.getAttribute(attrName);
+	}
 
 	/**
 	 * This public static method return all the webelements of a given locators
@@ -711,7 +722,7 @@ public class SeleniumUtility {
 		boolean status= true;
 		List<WebElement> totalElements=driver.findElements(element);
 		for(WebElement totalElement:totalElements) {
-			if(!totalElement.getText().toLowerCase().contains(compareText.toLowerCase())) {
+			if(!totalElement.getText().toLowerCase().trim().contains(compareText.toLowerCase().trim())) {
 				status=false;
 				break;
 			}

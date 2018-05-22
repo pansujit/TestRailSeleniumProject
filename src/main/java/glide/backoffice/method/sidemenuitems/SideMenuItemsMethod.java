@@ -20,14 +20,18 @@ public class SideMenuItemsMethod {
 		this.commonMethods=PageFactory.initElements(driver, CommonMethods.class);
 
 	}
+	/**
+	 * This private menu click on menu only if menu is closed
+	 */
 	private void clickOnMenu() {
-		if(!SeleniumUtility.checkElementIsVisible(driver, sidebarMenuItems.buttonTagGeneralSettingsSidebarMenuItems)) {
+		if(SeleniumUtility.getAttribute(driver, sidebarMenuItems.navTagIsMenuClosedSidebarMenuItems, "class").contains("close")) {
 			SeleniumUtility.clickUsingAction(driver,sidebarMenuItems.buttonTagMenuIconSidebarMenuItems);
-			SeleniumUtility.waitElementToBeVisible(driver, sidebarMenuItems.buttonTagGeneralSettingsSidebarMenuItems);
+			SeleniumUtility.fixedMilliSecondWait();
 		}
 	}
 	private void clickOnAccounts() {
 		clickOnMenu() ;
+		SeleniumUtility.fixedWait(5);
 		if(SeleniumUtility.checkElementIsVisible(driver, sidebarMenuItems.buttonTagAccountsSidebarMenuItems)) {
 			SeleniumUtility.clickOnElement(driver, sidebarMenuItems.buttonTagAccountsSidebarMenuItems);
 			SeleniumUtility.waitElementToBeVisible(driver, sidebarMenuItems.aTagSuperCompaniesSidebarMenuItems);
@@ -62,55 +66,72 @@ public class SideMenuItemsMethod {
 	public void clickOnSuperCompanies() {
 		clickOnAccounts();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagSuperCompaniesSidebarMenuItems);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 
 	}
 	public void clickOnContracts() {
 		clickOnAccounts();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagContractSidebarMenuItems);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		SeleniumUtility.fixedMilliSecondWait();
 
 	}
 	public void clickOnCompanies() {
 		clickOnAccounts();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagSubCompaniesSidebarMenuItems);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 
 	}
 	public void clickOnShuttleCompanies() {
 		clickOnAccounts();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagShuttleSidebarMenuItems);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 
 	}
 	public void clickOnConfigurations() {
 		clickOnAccounts();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagConfigSidebarMenuItems);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 
 	}
 	public void clickOnHotlines() {
 		clickOnAccounts();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagHotlinesSidebarMenuItems);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 
 	}
 	public void clickOnSitesAndParking() {
 		clickOnAccounts();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagSitesSidebarMenuItems);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 
 	}
 	public void clickOnPricingRules() {
 		clickOnAccounts();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagPricingRulesSidebarMenuItems);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 
 	}
 	public void clickOnVehicles() {
 		clickOnFleets();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagVehiclesSidebarMenuItems);
-		SeleniumUtility.fixedWait(5);
+		commonMethods.waitUntilElementToBeInvisible();
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 
 	}
 	
@@ -118,7 +139,8 @@ public class SideMenuItemsMethod {
 		clickOnUsers();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagBackUsersSidebarMenuItems);
 		commonMethods.waitUntilElementToBeInvisible();
-		SeleniumUtility.fixedWait(2);
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 
 	}
 	
@@ -126,14 +148,16 @@ public class SideMenuItemsMethod {
 		clickOnUsers();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagMembersSidebarMenuItems);
 		commonMethods.waitUntilElementToBeInvisible();
-		SeleniumUtility.fixedWait(2);
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 
 	}
 	public void clickOnInvoices() {
 		clickOnMenu();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagInvoicesSidebarMenuItems);
 		commonMethods.waitUntilElementToBeInvisible();
-		SeleniumUtility.fixedWait(2);
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 	}
 
 	/**
@@ -143,7 +167,8 @@ public class SideMenuItemsMethod {
 		clickOnUsers();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagSmartcardsSidebarMenuItems);
 		commonMethods.waitUntilElementToBeInvisible();
-		SeleniumUtility.fixedWait(2);
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
     }
 
 	/**
@@ -153,14 +178,16 @@ public class SideMenuItemsMethod {
 		clickOnUsers();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagSmartcardsEventsSidebarMenuItems);
 		commonMethods.waitUntilElementToBeInvisible();
-		SeleniumUtility.fixedWait(2);
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 	}
 	
 	public void clickOnVehiclePlanning() {
 		clickOnMenu();
 		SeleniumUtility.clickOnElement(driver, sidebarMenuItems.aTagVehiclePlanningSidebarMenuItems);
 		commonMethods.waitUntilElementToBeInvisible();
-		SeleniumUtility.fixedWait(2);
+		commonMethods.waitUntilTableContentVisible();
+		SeleniumUtility.fixedMilliSecondWait();
 	}
 
 }

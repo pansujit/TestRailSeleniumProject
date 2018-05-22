@@ -3,6 +3,7 @@ package glide.backoffice.method.users.backusers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import glide.backoffice.enums.BackuserRoles;
 import glide.backoffice.locators.users.backusers.FilterBackusers;
 import glide.backoffice.utility.SeleniumUtility;
 
@@ -21,9 +22,18 @@ public class FilterBackusersMethod {
 	void clickOnFilter() {
 		SeleniumUtility.clickOnElement(driver, filterBackusers.divTagFilterFilterBackusers);
 		SeleniumUtility.waitElementToBeClickable(driver, filterBackusers.divTagFilterKeyFirstnameFilterBackusers);
+		SeleniumUtility.fixedMilliSecondWait();
+	}
+	void clickOnFilterToShowFilterValueDropdown() {
+		SeleniumUtility.clickOnElement(driver, filterBackusers.divTagClickToDropdownCommonFilterBackusers);
+		waitUntilElementIsVisible();
 	}
 	void waitUntilElementIsNotVisible() {
 		SeleniumUtility.waitUntilElementisNotVisible(driver, filterBackusers.divTagDropdownMenuFilterBackusers);
+		SeleniumUtility.fixedMilliSecondWait();
+	}
+	void waitUntilElementIsVisible() {
+		SeleniumUtility.waitElementToBeVisible(driver, filterBackusers.divTagDropdownMenuFilterBackusers);
 		SeleniumUtility.fixedMilliSecondWait();
 	}
 	void clickOnRole() {
@@ -57,7 +67,7 @@ public class FilterBackusersMethod {
 		waitUntilElementIsNotVisible();
 
 	}
-	void inputLatname(String lastname) {
+	void inputLastname(String lastname) {
 		SeleniumUtility.clearTextAndSendText(driver, filterBackusers.inputTagFilterValueLastnameFilterBackusers, lastname);
 		waitUntilElementIsNotVisible();
 
@@ -65,6 +75,8 @@ public class FilterBackusersMethod {
 	void selectRole(String role) {
 		SeleniumUtility.clickOnElement(driver,filterBackusers.divTagFilterValueRoleFilterBackusers(role));
 		waitUntilElementIsNotVisible();
+
+		
 	}
 	
 }

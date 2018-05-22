@@ -18,7 +18,7 @@ public class HomepageVehiclePlanning {
 	 * This locator will find Select Sites element in Vehicle Planning page in the Vehicle Planing->homepage
 	 */
 	public final By divTagSelectSitesHomepageVehiclePlanning= 
-			By.xpath(".//div[@class='vehiclePlanningSetup_container_inline']/div/div[4]/div/div/div[1]");
+			By.xpath(".//div[@class='vehiclePlanningSetup_container_inline']/div/div[4]/div/div/div[2]");
 	/**
 	 * This locator will find Date element in Vehicle Planning page in the Vehicle Planing->homepage
 	 */
@@ -63,13 +63,6 @@ public class HomepageVehiclePlanning {
 		String text=	".//div[@class='vehiclePlanning_vehicleRow_registrationNumber']/a[text()='xxxx']/../../..//div[@class='vehiclePlanning_status']/span/span";
 		return By.xpath(text.replace("xxxx", replacementText));
 	}
-	/**
-	 * This locator will find booking status of the of that vehicle in Vehicle Planning page in the Vehicle Planing->homepage
-	 */
-	public final By divTagBookingStatusHomepageVehiclePlanning(String replacementText) {
-		String text=	".//div[@class='vehiclePlanning_vehicleRow_registrationNumber']/a[text()='xxxx']/../../..//div[@class='vehiclePlanning_booking']";	
-		return By.xpath(text.replace("xxxx", replacementText));
-	}
 	
 	public final By divTagSelectDaysHomepageVehiclePlanning(String stringNumberDfDays) {
 		String text=".//div[@role='menu']//span//div[contains(text(),xxxx)]";
@@ -85,6 +78,22 @@ public class HomepageVehiclePlanning {
 	 * This locator will find Backward arrow element in Vehicle Planning page in the Vehicle Planing->homepage
 	 */
 	public final By divTagBackwardArrowHomepageVehiclePlanning= By.xpath(".//div[@class='vehiclePlanningSetup_changePeriodWrap']/button[1]/div");
+
+	/**
+	 * This locator will find All the list of bookings of the vehicle elements in Vehicle Planning page in the Vehicle Planing->homepage
+	 */
+	public final By divTagListOfBookingsHomepageVehiclePlanning(String plateNumber) {
+		String text= 
+				".//div[@class='vehiclePlanning_vehicleRow_registrationNumber']/a[text()='xxxx']/../../..//div[@class='vehiclePlanning_booking']";
+		return By.xpath(text.replace("xxxx", plateNumber));
+	}
+	
+	/**
+	 * This locator will find POP up booking details element in Vehicle Planning page in the Vehicle Planing->homepage
+	 */
+	public final By divTagBookingDeatailPopupHomepageVehiclePlanning= By.xpath(".//div[@class='vehiclePlanning_card_wrap']");
+
+	
 
 
 }

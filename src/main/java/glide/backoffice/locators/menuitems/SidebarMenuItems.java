@@ -15,7 +15,14 @@ public class SidebarMenuItems {
 	 */
 	public final By aTagDashboardSidebarMenuItems= By.xpath(".//ul[@class='sideMenu_sections']//li/a[@href='#/dashboard']");
 	
-
+	/**
+	 * This locator is for to check the menu tab is opened or not.
+	 */
+	public final By navTagIsMenuClosedSidebarMenuItems= 
+			By.xpath(".//li[@class='sideMenu_section sideMenu_section--accountManagement']/button/../../..");
+	
+	
+	
 	
 	/**
 	 * This locator will find General Settings tag in the back Office homepage

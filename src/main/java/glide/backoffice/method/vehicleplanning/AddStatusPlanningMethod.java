@@ -18,6 +18,7 @@ public class AddStatusPlanningMethod {
 	 */
 	void waitUntilSaveButtonIsVisible() {
 		SeleniumUtility.waitElementToBeVisible(driver, addStatusPlanning.buttonTagSaveAddStatusPlanning);
+		SeleniumUtility.fixedMilliSecondWait();
 	}
 
 	/**

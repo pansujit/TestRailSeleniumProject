@@ -1,5 +1,8 @@
 package glide.backoffice.method.accounts.supercompanies;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
@@ -79,33 +82,36 @@ public class AddEditSuperCompanyMethod {
 		}
 	 /**
 	  * This method verifies the Error in Add super companies page when non of the fields are filled or selected.
+	 * @return 
 	  */
-	 void validateSuperCompanyAddError() {
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, addSCError.spanTagAddressErrorAddSC));
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagAllowLockUnlockErrorAddSC ));
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagAppliedConfigurationErrorAddSC ));
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagCapitalErrorAddSC ));
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, addSCError.spanTagEmailErrorAddSC));
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagEmailStylingErrorAddSC ));
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, addSCError.spanTagInvoiceNumberSuffixErrorAddSC));
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagLagalFormErrorAddSC ));
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver, addSCError.spanTagNameErrorAddSC));
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagPhoneNoErrorAddSC ));
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagTaxNumberErrorAddSC ));
-			softAssert.assertTrue(SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagTOUUrlErrorAddSC ));
-			softAssert.assertAll();
+	 List<Boolean> assertSuperCompanyAddError() {
+		 List<Boolean> assertValue= new ArrayList<>();
+		 assertValue.add(0,SeleniumUtility.checkElementIsVisible(driver, addSCError.spanTagAddressErrorAddSC));
+		 assertValue.add(1,SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagAllowLockUnlockErrorAddSC ));
+		 assertValue.add(2,SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagCapitalErrorAddSC ));
+		 assertValue.add(3,SeleniumUtility.checkElementIsVisible(driver, addSCError.spanTagEmailErrorAddSC));
+		 assertValue.add(4,SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagEmailStylingErrorAddSC ));
+		 assertValue.add(5,SeleniumUtility.checkElementIsVisible(driver, addSCError.spanTagInvoiceNumberSuffixErrorAddSC));
+		 assertValue.add(6,SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagLagalFormErrorAddSC ));
+		 assertValue.add(7,SeleniumUtility.checkElementIsVisible(driver, addSCError.spanTagNameErrorAddSC));
+		 assertValue.add(8,SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagPhoneNoErrorAddSC ));
+		 assertValue.add(9,SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagTaxNumberErrorAddSC ));
+		 assertValue.add(10,SeleniumUtility.checkElementIsVisible(driver,addSCError.spanTagTOUUrlErrorAddSC ));
+		 return assertValue;
 	 }
 	 /**
 	  * This method verifies the integer/String only error when misplace the contents (eg. String --> Integer and viceversa)
+	 * @return 
 	  */
-	 void validateIntegerToStringError() {
-			softAssert.assertTrue(SeleniumUtility.compareText(driver, addSCError.spanTagCapitalErrorAddSC, ErrorMessages.INTEGER_FIELD_ERROR));
-			softAssert.assertTrue(SeleniumUtility.compareText(driver, addSCError.spanTagTaxNumberErrorAddSC, ErrorMessages.INTEGER_FIELD_ERROR));
-			softAssert.assertTrue(SeleniumUtility.compareText(driver, addSCError.spanTagEmailErrorAddSC, ErrorMessages.INVALID_EMAIL_ERROR));
-			softAssert.assertTrue(SeleniumUtility.compareText(driver, addSCError.spanTagPhoneNoErrorAddSC, ErrorMessages.INTEGER_FIELD_ERROR));
-			softAssert.assertTrue(SeleniumUtility.compareText(driver, addSCError.spanTagTOUUrlErrorAddSC, ErrorMessages.INVALID_URL_ERROR));
-			softAssert.assertTrue(SeleniumUtility.compareText(driver, addSCError.spanTagSubscriptionUrlErrorAddSC, ErrorMessages.INVALID_URL_ERROR));
-			softAssert.assertAll();
+	 List<Boolean> assertIntegerToStringError() {
+		 List<Boolean> assertValue= new ArrayList<>();
+		 assertValue.add(0,SeleniumUtility.compareText(driver, addSCError.spanTagCapitalErrorAddSC, ErrorMessages.INTEGER_FIELD_ERROR));
+		 assertValue.add(1,SeleniumUtility.compareText(driver, addSCError.spanTagTaxNumberErrorAddSC, ErrorMessages.INTEGER_FIELD_ERROR));
+		 assertValue.add(2,SeleniumUtility.compareText(driver, addSCError.spanTagEmailErrorAddSC, ErrorMessages.INVALID_EMAIL_ERROR));
+		 assertValue.add(3,SeleniumUtility.compareText(driver, addSCError.spanTagPhoneNoErrorAddSC, ErrorMessages.INTEGER_FIELD_ERROR));
+		 assertValue.add(4,SeleniumUtility.compareText(driver, addSCError.spanTagTOUUrlErrorAddSC, ErrorMessages.INVALID_URL_ERROR));
+		 assertValue.add(5,SeleniumUtility.compareText(driver, addSCError.spanTagSubscriptionUrlErrorAddSC, ErrorMessages.INVALID_URL_ERROR));
+		return assertValue;
 
 	 }
 	 
